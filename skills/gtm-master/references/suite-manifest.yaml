@@ -113,6 +113,7 @@ primary_outputs:
   - full_html_dashboard
   - full_artifact_bundle
   - compressed_handoff_chain
+  - recoverable_run_state
   - evidence_ledger
   - rag_index_manifest
   - decision_log
@@ -124,6 +125,11 @@ runtime_model:
   subagent_policy: optional_for_parallel_safe_branches
   context_policy: handoff_only_by_default
   canonical_graph_source: references/codegraph.yaml
+  state_machine_source: references/recoverable-state-machine.md
+  methodology_crosswalk_source: references/methodology-crosswalk.yaml
+  skill_evals_policy_source: references/skill-evals-policy.md
+  hardware_current_state_rubric_source: references/hardware-current-state-rubric.md
+  budget_and_growth_models_source: references/budget-and-growth-models.md
   implementation_roadmap_source: references/suite-implementation-roadmap.md
   report_state_source: report_data_contract
   visual_block_acceptance_source: references/visual-block-acceptance-matrix.md
@@ -144,8 +150,13 @@ global_principles:
   - one_active_skill
   - context_escalation_requires_reason
   - context_budget_before_lookup
+  - recoverable_state_machine
+  - methodology_crosswalk
+  - evals_before_architecture_stable
+  - hardware_current_state_scoring
   - report_state_as_you_go
   - post_skill_isolation
+  - S14_hidden_composer_not_visible_business_module
   - verification_before_done
 
 artifact_policy:
@@ -153,6 +164,7 @@ artifact_policy:
     - full_artifact
     - compressed_handoff_pack
     - html_section_draft
+    - recoverable_run_state_updates
     - evidence_updates
     - collection_logs
     - rag_index_manifest_updates
@@ -166,3 +178,4 @@ artifact_policy:
     - active_skill_method_card
     - allowed_evidence_refs
     - out_of_scope
+    - current_resume_pointer

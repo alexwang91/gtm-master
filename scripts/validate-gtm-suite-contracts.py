@@ -213,6 +213,165 @@ def check_s14_section_registry(codegraph: dict, errors: list[str]) -> None:
         add_error(errors, registry_path, "missing html_validation_section mapping")
 
 
+def check_architecture_expansion_contract(errors: list[str]) -> None:
+    required_reference_tokens = {
+        "recoverable-state-machine.md": [
+            "GTM Run State",
+            "phase: intake | evidence | skill_run | review | finalize | finalized",
+            "resume_pointer",
+            "idempotency_key",
+            "S14 is not a visible business module",
+        ],
+        "hardware-current-state-rubric.md": [
+            "17-Section Hardware GTM Readiness Rubric",
+            "Total = sum of all scored sections",
+            "Positioning",
+            "Localized consumer voice",
+            "Channel readiness",
+        ],
+        "budget-and-growth-models.md": [
+            "Revenue-Based",
+            "Goal-Based",
+            "blended CAC",
+            "S-curve",
+            "hardware adaptation",
+        ],
+        "skill-evals-policy.md": [
+            "evals/evals.json",
+            "must_include",
+            "must_not_include",
+            "architecture_contract",
+        ],
+        "marketing-skills-adaptation-map.md": [
+            "product-marketing",
+            "customer-research",
+            "competitor-profiling",
+            "ab-testing",
+            "copy-editing",
+        ],
+    }
+
+    for filename, tokens in required_reference_tokens.items():
+        path = MASTER_REFS / filename
+        if not path.exists():
+            add_error(errors, path, "missing architecture reference")
+            continue
+        text = read_text(path)
+        for token in tokens:
+            if token not in text:
+                add_error(errors, path, f"missing required architecture token: {token}")
+
+    crosswalk_path = MASTER_REFS / "methodology-crosswalk.yaml"
+    crosswalk = load_yaml(crosswalk_path, errors) if crosswalk_path.exists() else None
+    if not isinstance(crosswalk, dict):
+        add_error(errors, crosswalk_path, "missing or invalid methodology crosswalk")
+        return
+
+    frameworks = crosswalk.get("frameworks")
+    if not isinstance(frameworks, dict):
+        add_error(errors, crosswalk_path, "methodology crosswalk missing frameworks map")
+        return
+
+    required_frameworks = {
+        "product_marketing_context",
+        "aarrr_hardware",
+        "jtbd",
+        "four_forces",
+        "voc",
+        "van_westendorp",
+        "maxdiff",
+        "ice",
+        "orb",
+        "hardware_current_state_17",
+        "budget_formula",
+        "growth_s_curve",
+        "evidence_snapshot",
+        "recoverable_state_machine",
+        "copy_sweeps",
+    }
+    for framework in sorted(required_frameworks - set(frameworks)):
+        add_error(errors, crosswalk_path, f"missing framework mapping: {framework}")
+
+    for framework_name, spec in frameworks.items():
+        if not isinstance(spec, dict):
+            add_error(errors, crosswalk_path, f"framework {framework_name} must be an object")
+            continue
+        for field in ("primary_skills", "hardware_adaptation", "output_contract_hooks"):
+            if field not in spec:
+                add_error(errors, crosswalk_path, f"framework {framework_name} missing {field}")
+
+
+def check_suite_manifest_expansion(errors: list[str]) -> None:
+    manifest_path = MASTER_REFS / "suite-manifest.yaml"
+    manifest = load_yaml(manifest_path, errors)
+    if not isinstance(manifest, dict):
+        return
+
+    runtime_model = manifest.get("runtime_model", {})
+    if not isinstance(runtime_model, dict):
+        add_error(errors, manifest_path, "runtime_model must be an object")
+        return
+
+    required_runtime_sources = {
+        "state_machine_source": "references/recoverable-state-machine.md",
+        "methodology_crosswalk_source": "references/methodology-crosswalk.yaml",
+        "skill_evals_policy_source": "references/skill-evals-policy.md",
+        "hardware_current_state_rubric_source": "references/hardware-current-state-rubric.md",
+    }
+    for key, expected_value in required_runtime_sources.items():
+        if runtime_model.get(key) != expected_value:
+            add_error(errors, manifest_path, f"runtime_model.{key} must be {expected_value}")
+
+    principles = manifest.get("global_principles", [])
+    if not isinstance(principles, list):
+        add_error(errors, manifest_path, "global_principles must be a list")
+        return
+    for principle in [
+        "recoverable_state_machine",
+        "methodology_crosswalk",
+        "evals_before_architecture_stable",
+        "hardware_current_state_scoring",
+        "S14_hidden_composer_not_visible_business_module",
+    ]:
+        if principle not in principles:
+            add_error(errors, manifest_path, f"global_principles missing {principle}")
+
+
+def check_skill_evals_contract(codegraph: dict, errors: list[str]) -> None:
+    for skill_id, node in implemented_graph_skills(codegraph):
+        name = str(node.get("name"))
+        evals_path = SKILLS_DIR / name / "evals" / "evals.json"
+        if not evals_path.exists():
+            add_error(errors, evals_path, f"missing evals for {skill_id}.{name}")
+            continue
+
+        try:
+            payload = json.loads(read_text(evals_path))
+        except json.JSONDecodeError as exc:
+            add_error(errors, evals_path, f"evals JSON parse failed: {exc}")
+            continue
+
+        evals = payload.get("evals") if isinstance(payload, dict) else None
+        if not isinstance(evals, list) or not evals:
+            add_error(errors, evals_path, "evals must contain a non-empty evals list")
+            continue
+
+        if not any(isinstance(item, dict) and item.get("name") == "architecture_contract" for item in evals):
+            add_error(errors, evals_path, "evals must include an architecture_contract scenario")
+
+        for index, item in enumerate(evals, start=1):
+            if not isinstance(item, dict):
+                add_error(errors, evals_path, f"eval {index} must be an object")
+                continue
+            for field in ("name", "prompt", "must_include", "must_not_include"):
+                if field not in item:
+                    add_error(errors, evals_path, f"eval {index} missing {field}")
+            if not isinstance(item.get("must_include"), list):
+                add_error(errors, evals_path, f"eval {index} must_include must be a list")
+            if not isinstance(item.get("must_not_include"), list):
+                add_error(errors, evals_path, f"eval {index} must_not_include must be a list")
+
+
 def check_dashboard_renderer_contract(errors: list[str]) -> None:
     s14_skill = SKILLS_DIR / "compose-html-gtm-dashboard" / "SKILL.md"
     render_arch = SKILLS_DIR / "compose-html-gtm-dashboard" / "references" / "render-architecture.md"
@@ -367,6 +526,9 @@ def main() -> int:
 
     check_skill_frontmatter(errors)
     codegraph, method_cards_doc = check_master_yaml(errors)
+    check_architecture_expansion_contract(errors)
+    check_suite_manifest_expansion(errors)
+    check_skill_evals_contract(codegraph, errors)
     check_method_cards_and_output_contracts(codegraph, method_cards_doc, errors)
     check_json_fences(errors)
     check_s14_section_registry(codegraph, errors)

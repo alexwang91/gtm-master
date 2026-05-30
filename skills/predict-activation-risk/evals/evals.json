@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "evals": [
+    {
+      "name": "architecture_contract",
+      "prompt": "A setup-heavy hardware product has possible pairing and return risks, but no support data yet.",
+      "must_include": [
+        "activation trigger check",
+        "hardware journey map",
+        "expectation gap map",
+        "return prevention priority",
+        "support education plan",
+        "explicit data gaps"
+      ],
+      "must_not_include": [
+        "invent measured return rates",
+        "diagnose quality defects without evidence",
+        "expose private support records",
+        "show section when not triggered"
+      ]
+    }
+  ]
+}

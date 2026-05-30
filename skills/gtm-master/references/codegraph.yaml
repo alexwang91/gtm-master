@@ -975,7 +975,10 @@ skills:
   S13:
     name: plan-validation-experiments
     type: ANALYSIS_SKILL
+    implementation_status: hidden_system_capability
     role: validation_roadmap
+    visible_in_current_dashboard: false
+    current_dashboard_policy: hidden_until_user_requests_validation_body_or_full_gap_review
     inputs:
       - project_brief
       - all_major_handoff_packs
@@ -1079,6 +1082,9 @@ skills:
     name: compose-html-gtm-dashboard
     type: RENDER_SKILL
     role: final_html_dashboard
+    hidden_composer: true
+    visible_in_current_dashboard: false
+    dashboard_section_policy: render_system_panels_only_never_show_as_business_module
     inputs:
       - report_state
       - html_section_drafts

@@ -46,12 +46,12 @@ S09-S12
   Trigger source: references/s09-s12-trigger-matrix.md
 
 S13.plan-validation-experiments
-  Status: detailed scaffold created.
-  Owns: validation input coverage, cross-module assumption inventory, experiment priority scoring, survey/price/message/copy/channel/conversion/creator/forecast test plans, pass/fail rules, sample/data needs, validation decision gate, HTML validation section.
+  Status: detailed scaffold created as hidden system capability for the current dashboard.
+  Owns: validation input coverage, cross-module assumption inventory, ICE experiment priority scoring, survey/price/message/copy/channel/conversion/creator/forecast test plans, pass/fail rules, sample/data needs, validation decision gate, hidden validation section draft when explicitly requested.
 
 S14.compose-html-gtm-dashboard
   Status: thin renderer scaffold created.
-  Owns: static HTML dashboard composition, section registry, executive summary shell, confidence badges, citations, data-gap panel, private-pricing-calculator render slot, render quality gates.
+  Owns: hidden static HTML dashboard composition, section registry, executive summary shell, confidence badges, citations, data-gap panel, private-pricing-calculator render slot, render quality gates. S14 is not a visible business module.
 
 S15-S18
   Status: optional expansion slots, disabled by default.
@@ -99,8 +99,8 @@ Recommended next steps after S00-S08, S13, and S14 interface convergence:
 
 ```text
 1. Dry-run the S00 -> S01/S02/S03/S04 -> optional S05/S06/S07 -> S08 -> S13 -> S14 handoff chain with a generic 2C hardware fixture.
-2. Verify S13 can consolidate S01-S08 gaps without rerunning upstream analysis or inventing experiments from thin air.
-3. Strengthen S14 rendering for the validation roadmap section and data-gap panel.
+2. Verify hidden S13 can consolidate S01-S08 gaps without rerunning upstream analysis or inventing experiments from thin air.
+3. Strengthen S14 rendering for current S00-S09 dashboard sections, data-gap panel, citation index, and hidden-composer audit.
 4. Add S09-S12 only when product/app/onboarding/retention/support/subscription risk is relevant or the user provides those materials.
 5. Add S15-S18 optional expansions only after the core HTML report is runnable.
 ```

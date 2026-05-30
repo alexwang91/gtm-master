@@ -1,0 +1,208 @@
+version: 0.1.0
+purpose: >
+  Map imported marketing methodologies to the GTM Master hardware skill graph.
+  This file is the canonical crosswalk between named methods, active skills,
+  hardware adaptations, and output contract hooks.
+
+frameworks:
+  product_marketing_context:
+    source_pattern: marketingskills/product-marketing
+    primary_skills: [S00, S01, S02, S03]
+    hardware_adaptation: >
+      Convert the shared product-marketing context into S00 Project Brief fields
+      and S01 evidence questions. For B2C hardware, emphasize product category,
+      feature/spec proof, local category shelf, previous generation, objections,
+      brand voice, proof points, channel assumptions, and customer language.
+    output_contract_hooks:
+      - project_brief
+      - missing_optional_inputs
+      - market_context_pack.canonical_fields
+      - segment_message_architecture
+
+  aarrr_hardware:
+    source_pattern: marketing-plan/AARRR
+    primary_skills: [S00, S07, S08, S13]
+    hardware_adaptation: >
+      Use AARRR as a planning frame, but rename the operational stages for
+      consumer hardware: Acquisition, Retail/PDP Activation, Purchase Conversion,
+      Post-Purchase Activation, Referral/Review, and Revenue. Brand, messaging,
+      and evidence are cross-cutting layers rather than a separate stage.
+    output_contract_hooks:
+      - skill_execution_plan
+      - funnel_stage_inventory
+      - launch_sales_forecast
+      - validation_question_backlog
+
+  jtbd:
+    source_pattern: customer-research/JTBD
+    primary_skills: [S01, S02, S03]
+    hardware_adaptation: >
+      Convert local consumer evidence into functional, emotional, and social jobs
+      around category use, buying trigger, proof need, setup anxiety, and local
+      search language. Do not invent personas before enough source atoms exist.
+    output_contract_hooks:
+      - voice_atom_table
+      - jtbd_scenario_pack
+      - product_job_fit_matrix
+      - segment_message_architecture
+
+  four_forces:
+    source_pattern: product-marketing/switching-dynamics
+    primary_skills: [S02, S03, S04]
+    hardware_adaptation: >
+      Model Push, Pull, Habit, and Anxiety for hardware purchase switching:
+      current product frustration, attraction to the new product, inertia from
+      installed devices or ecosystem, and anxiety about price, fit, setup,
+      warranty, privacy, or local support.
+    output_contract_hooks:
+      - scenario_priority_scorecard
+      - anti_jtbd_risk_list
+      - objection_matrix
+      - price_risk_guardrail
+
+  voc:
+    source_pattern: customer-research/VOC
+    primary_skills: [S01, S02, S03, S12]
+    hardware_adaptation: >
+      Treat reviews, forum comments, YouTube comments, local language posts,
+      app-store reviews, support notes, and NSS/NPS verbatims as voice atoms.
+      Preserve exact wording, source, date, sentiment, journey stage, and source
+      bias. Cluster only after deduplication and coverage audit.
+    output_contract_hooks:
+      - consumer_opinion_map
+      - voice_theme_clusters
+      - local_language_trigger_phrase_map
+      - feedback_theme_cluster
+
+  van_westendorp:
+    source_pattern: pricing/research-methods
+    primary_skills: [S04, S13]
+    hardware_adaptation: >
+      Use the four price perception questions for local WTP validation, but label
+      results as research intent rather than measured sell-through. Pair with
+      competitor street price, channel margin, finance/installment context, and
+      private COGS constraints where approved.
+    output_contract_hooks:
+      - van_westendorp_test_design
+      - wtp_test_plan
+      - price_sensitivity_model
+      - van_westendorp_execution_brief
+
+  maxdiff:
+    source_pattern: pricing/research-methods
+    primary_skills: [S04, S13]
+    hardware_adaptation: >
+      Use MaxDiff to prioritize feature, proof, bundle, color, service, and
+      channel value drivers when consumers cannot reliably rank many attributes.
+      Output informs packaging, message hierarchy, and price-value proof.
+    output_contract_hooks:
+      - maxdiff_feature_value_tradeoff_test_design
+      - price_value_proof_matrix
+      - pricing_message_copy_test_plan
+      - experiment_design_cards
+
+  ice:
+    source_pattern: ab-testing/ICE
+    primary_skills: [S13]
+    hardware_adaptation: >
+      Prioritize validation tests by Impact, Confidence, and Ease, then apply
+      hardware guardrails for sample access, market representativeness, channel
+      feasibility, privacy, cost, and decision deadline. ICE is a priority aid,
+      not proof of truth.
+    output_contract_hooks:
+      - experiment_priority_scorecard
+      - owner_timeline_effort_map
+      - validation_decision_gate
+
+  orb:
+    source_pattern: launch/ORB
+    primary_skills: [S06, S08, S13]
+    hardware_adaptation: >
+      Map launch channels into Owned, Rented, and Borrowed. Owned covers brand
+      site, store, email, community, and CRM. Rented covers marketplaces, local
+      e-commerce, search, social, and app stores. Borrowed covers KOLs, media,
+      retail partners, operator partners, expert reviewers, and communities.
+    output_contract_hooks:
+      - creator_source_channel_map
+      - regional_channel_allocation
+      - retailer_channel_validation_brief
+
+  hardware_current_state_17:
+    source_pattern: marketing-plan/current-state-rubric
+    primary_skills: [S00, S01, S08, S13]
+    hardware_adaptation: >
+      Adapt the 17-section current-state audit into hardware launch readiness:
+      positioning, localized voice, product proof, channel readiness, price
+      confidence, retail/PDP readiness, creator/media readiness, forecast
+      readiness, post-purchase risk, and internationalization.
+    output_contract_hooks:
+      - hardware_current_state_scorecard
+      - market_context_pack
+      - forecast_decision_gate
+      - validation_question_backlog
+
+  budget_formula:
+    source_pattern: marketing-plan/budget-planning
+    primary_skills: [S08, S13]
+    hardware_adaptation: >
+      Use Revenue-Based and Goal-Based budget formulas as directional planning
+      tools. Replace SaaS ARR-only assumptions with units, gross revenue, AOV,
+      blended CAC, media spend, creator seeding, retail fees, channel margin,
+      return allowance, and post-launch measurement gaps.
+    output_contract_hooks:
+      - marketing_investment_response_model
+      - media_reach_to_demand_bridge
+      - gross_revenue_range_estimate
+      - forecast_assumption_validation_brief
+
+  growth_s_curve:
+    source_pattern: marketing-plan/growth-patterns
+    primary_skills: [S08, S13]
+    hardware_adaptation: >
+      Forecast hardware growth as layered S-curves across product lifecycle,
+      channel launch, retail availability, paid media learning, creator bursts,
+      seasonality, and supply constraints. Avoid smooth hockey-stick forecasts.
+    output_contract_hooks:
+      - lifecycle_phase_sales_curve
+      - marketing_spend_sensitivity_curve
+      - sensitivity_driver_tornado
+      - post_launch_learning_plan
+
+  evidence_snapshot:
+    source_pattern: competitor-profiling/raw-data
+    primary_skills: [S01, S06, S07, S12]
+    hardware_adaptation: >
+      Save raw evidence by source, country, language, date, product, and tool.
+      Use snapshots for competitor pages, local marketplaces, forums, reviews,
+      creator profiles, and previous generation feedback. Downstream skills use
+      evidence IDs, not raw corpora, unless escalation is recorded.
+    output_contract_hooks:
+      - evidence_updates
+      - comment_export_refs
+      - raw_source_index_ref
+      - rag_index_manifest_updates
+
+  recoverable_state_machine:
+    source_pattern: marketing-plan/progress-state
+    primary_skills: [S00, S14]
+    hardware_adaptation: >
+      Persist run state after intake, evidence collection, each skill output,
+      each review gate, and final render. The suite can resume from the next
+      unconfirmed node without reopening upstream full artifacts by default.
+    output_contract_hooks:
+      - recoverable_run_state
+      - skill_execution_plan
+      - post_skill_isolation_record
+      - render_quality_report
+
+  copy_sweeps:
+    source_pattern: copy-editing/seven-sweeps
+    primary_skills: [S03, S05, S14]
+    hardware_adaptation: >
+      Apply clarity, voice, so-what, proof, specificity, emotion, and zero-risk
+      sweeps to dashboard-facing Chinese summaries and editable copy. S14 audits
+      readability and evidence visibility but does not change upstream decisions.
+    output_contract_hooks:
+      - message_market_fit_scorecard
+      - copy_quality_scorecard
+      - render_quality_report

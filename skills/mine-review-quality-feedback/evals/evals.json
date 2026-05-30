@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.1.0",
+  "evals": [
+    {
+      "name": "architecture_contract",
+      "prompt": "Collect previous-generation and competitor feedback from local forums and reviews for post-launch learning.",
+      "must_include": [
+        "source layer separation",
+        "scoped complete collection rule",
+        "source preserving deduplication",
+        "pain praise trigger objection extraction",
+        "journey stage mapping",
+        "product GTM channel support action split",
+        "raw source index ref"
+      ],
+      "must_not_include": [
+        "fabricate comments",
+        "omit dissenting scoped viewpoints",
+        "mix private and public source layers without labels",
+        "treat convenience corpus as representative"
+      ]
+    }
+  ]
+}

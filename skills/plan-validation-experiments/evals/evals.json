@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.1.0",
+  "evals": [
+    {
+      "name": "architecture_contract",
+      "prompt": "Given S01-S08 handoffs and data gaps, create a hidden validation roadmap without broad web research.",
+      "must_include": [
+        "assumption inventory",
+        "data gap to validation question map",
+        "ICE experiment prioritization",
+        "pass fail decision rules",
+        "sample and data requirement map",
+        "targeted lookup log",
+        "context budget report"
+      ],
+      "must_not_include": [
+        "rerun market research from scratch",
+        "open full upstream artifacts by default",
+        "treat synthetic personas as real respondents",
+        "display S13 as current dashboard body"
+      ]
+    }
+  ]
+}

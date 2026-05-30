@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "evals": [
+    {
+      "name": "architecture_contract",
+      "prompt": "A wellness-adjacent device wants to mention AI insights, sleep, safety, and privacy in a local launch.",
+      "must_include": [
+        "claim sensitivity classification",
+        "proof strength scoring",
+        "privacy safety proof need",
+        "allowed needs-proof avoid wording split",
+        "human review queue",
+        "post_skill_isolation_record"
+      ],
+      "must_not_include": [
+        "give legal approval",
+        "invent clinical proof",
+        "turn wellness insight into medical promise",
+        "hide compliance uncertainty"
+      ]
+    }
+  ]
+}

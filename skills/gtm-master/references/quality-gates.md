@@ -30,6 +30,14 @@ checks:
     pass_if: Missing, stale, or unavailable evidence is recorded.
   context_budget_controlled:
     pass_if: The selected quick/standard/deep mode is recorded; S13 uses handoff-only context by default; S14 has upstream full artifact budget 0 by default; any full artifact, local file, RAG retrieval, web, or MCP lookup has a recorded context escalation or targeted_lookup_log plus context_budget_report.
+  recoverable_state_machine_ready:
+    pass_if: The run has a persisted phase, current_skill, resume_pointer, selected_run_mode, skill_status, state_artifacts, and idempotency_key before any long evidence collection, review wait, or final render.
+  methodology_crosswalk_declared:
+    pass_if: Any named framework such as AARRR, JTBD, Four Forces, VOC, Van Westendorp, MaxDiff, ICE, ORB, budget formula, growth S-curve, or copy sweeps is mapped through methodology-crosswalk.yaml to the active skill and output hooks.
+  evals_contract_present:
+    pass_if: Every implemented skill has evals/evals.json with at least one pressure scenario covering scope boundaries and forbidden outputs.
+  hidden_composer_contract:
+    pass_if: S14 renders the dashboard from report_state and html_section_drafts without appearing as a visible strategic business module.
   no_forbidden_scope:
     pass_if: The active skill did not perform work assigned to downstream skills.
   no_unsupported_claims:
@@ -154,6 +162,7 @@ Before S00 advances to the next skill, confirm:
 - main report sections stay within the selected visual-block budget or record `rendered_too_thin`, `missing_required_view`, or `context_budget_report`
 - S13 external lookup budget is 0 by default and 1-8 targeted lookups only when justified
 - S14 upstream full artifact budget is 0 by default
+- recoverable run state has a valid resume pointer before pausing, switching skills, or rendering
 
 Fail the gate when a skill exceeds budget without:
 
@@ -161,6 +170,32 @@ Fail the gate when a skill exceeds budget without:
 - `targeted_lookup_log` when lookup occurred
 - `context_budget_report`
 - `post_skill_isolation_record`
+
+## Recoverable State Gate
+
+Before a long run pauses, resumes, advances, or finalizes, confirm:
+
+- `phase` is one of `intake`, `evidence`, `skill_run`, `review`, `finalize`, or `finalized`
+- `current_skill` and `resume_pointer` agree with the next graph step
+- each completed skill has `full_artifact_ref`, `compressed_handoff_ref`, `html_section_ref`, and `post_skill_isolation_record`
+- rerunning the same evidence or render step uses an `idempotency_key`
+- finalized versions are never overwritten without a decision log entry
+
+Fail the gate when the next step would require broad upstream context instead of the stored handoff and report state.
+
+## Methodology Crosswalk Gate
+
+Before using an imported method, confirm it appears in `references/methodology-crosswalk.yaml` and that the active skill emits one of that method's output hooks. If the method is useful but not mapped, update the crosswalk and add an eval before relying on it.
+
+## Evals Gate
+
+Run this after any suite, skill, graph, contract, method, or renderer change:
+
+```powershell
+python scripts\validate-gtm-suite-contracts.py
+```
+
+The validator checks that every implemented graph node has `evals/evals.json`, that the master architecture references exist, and that the methodology crosswalk contains the required frameworks.
 
 ## Competitor Gate
 

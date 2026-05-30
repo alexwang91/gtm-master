@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.1.0",
+  "evals": [
+    {
+      "name": "architecture_contract",
+      "prompt": "Render the current Chinese dashboard from report state with S10-S13 hidden and S14 as composer only.",
+      "must_include": [
+        "render from report_state",
+        "Chinese dashboard labels",
+        "data gap panel",
+        "citation index",
+        "post-skill isolation audit",
+        "Seven Sweeps copy quality audit",
+        "S14 hidden composer rule"
+      ],
+      "must_not_include": [
+        "show S14 as a visible business module",
+        "invent missing analysis",
+        "load remote scripts",
+        "hide low confidence or data gaps"
+      ]
+    }
+  ]
+}

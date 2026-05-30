@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.1.0",
+  "evals": [
+    {
+      "name": "architecture_contract",
+      "prompt": "Score editable launch copy concepts, while uploaded images are fixed and cannot be changed.",
+      "must_include": [
+        "copy input coverage gate",
+        "editable text asset inventory",
+        "message fit scorecard",
+        "proof and claim clarity audit",
+        "local language fit audit",
+        "revision briefs",
+        "copy test backlog"
+      ],
+      "must_not_include": [
+        "critique uneditable images as if editable",
+        "approve compliance claims",
+        "treat AI score as conversion proof",
+        "select KOLs"
+      ]
+    }
+  ]
+}

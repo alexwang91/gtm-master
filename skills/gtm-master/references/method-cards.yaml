@@ -3,6 +3,8 @@ method_cards:
     purpose: Build localized market context from minimal product, country, and price inputs.
     scientific_methods:
       - product_market_search_preflight
+      - product_marketing_context_intake
+      - hardware_current_state_17_scoring
       - product_capability_taxonomy
       - category_selling_point_mapping
       - local_search_language_mapping
@@ -16,6 +18,7 @@ method_cards:
       - coverage_and_source_quality
       - competitor_substitute_mapping
       - evidence_storage_policy
+      - evidence_snapshot_storage_policy
       - research_perspective_matrix
       - query_expansion_and_result_fusion
       - local_evidence_discovery
@@ -145,6 +148,7 @@ method_cards:
       - situation_motivation_outcome_mapping
       - current_alternative_mapping
       - barrier_and_anxiety_mapping
+      - jtbd_four_forces_switching_dynamics
       - local_language_trigger_phrase_mapping
       - evidence_backed_scenario_clustering
       - scenario_distinctness_check
@@ -335,6 +339,7 @@ method_cards:
       - price_value_proof_mapping
       - price_risk_guardrail_mapping
       - van_westendorp_test_design
+      - maxdiff_feature_value_tradeoff_test_design
       - gabor_granger_test_design
       - conjoint_or_dce_planning
       - promo_subscription_guidance
@@ -775,7 +780,13 @@ method_cards:
       - evidence_basis_mapping
       - forecast_assumption_tree_generation
       - product_lifecycle_phase_curve_modeling
+      - aarrr_hardware_stage_mapping
+      - orb_owned_rented_borrowed_launch_channel_mapping
       - marketing_investment_response_modeling
+      - revenue_based_budget_anchor
+      - goal_based_budget_formula
+      - blended_cac_budget_reality_check
+      - growth_s_curve_layering
       - baseline_incremental_sales_bridge
       - conservative_base_upside_sales_scenario_modeling
       - segment_sales_split_modeling
@@ -1128,6 +1139,7 @@ method_cards:
       - assumption_to_decision_linking
       - data_gap_to_validation_question_mapping
       - experiment_priority_scoring
+      - ice_experiment_prioritization
       - risk_feasibility_matrix
       - minimum_valid_test_portfolio_selection
       - survey_panel_test_design
@@ -1242,6 +1254,7 @@ method_cards:
       - data_gap_panel_rendering
       - chart_data_validation
       - executive_narrative_synthesis
+      - seven_sweeps_copy_quality_audit
       - private_local_calculator_rendering
       - offline_static_html_policy
       - render_quality_gate

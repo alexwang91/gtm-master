@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.1.0",
+  "evals": [
+    {
+      "name": "architecture_contract",
+      "prompt": "Given a generic consumer hardware product and one country, build the local market map with no private data.",
+      "must_include": [
+        "localized source discovery",
+        "category selling point map",
+        "competitor candidate review list",
+        "VOC source weighting",
+        "hardware current-state readiness inputs",
+        "evidence snapshot refs",
+        "data gaps"
+      ],
+      "must_not_include": [
+        "claim precise TAM without assumption tree",
+        "present NPS proxy as surveyed NPS",
+        "omit local language search terms",
+        "select final competitors without review gate"
+      ]
+    }
+  ]
+}

@@ -128,6 +128,37 @@ Use these schemas as contracts. Keep fields stable across sub-skills.
 }
 ```
 
+## GTM Run State
+
+```json
+{
+  "run_id": "",
+  "project_id": "",
+  "report_version": "v1",
+  "phase": "intake | evidence | skill_run | review | finalize | finalized",
+  "current_skill": "",
+  "current_gate": "",
+  "resume_pointer": {
+    "next_skill": "",
+    "next_action": "",
+    "required_refs": []
+  },
+  "selected_run_mode": "quick | standard | deep",
+  "skill_status": {},
+  "approved_sections": [],
+  "pending_review_items": [],
+  "state_artifacts": {
+    "project_brief_ref": "",
+    "evidence_ledger_ref": "",
+    "decision_log_ref": "",
+    "data_gap_log_ref": "",
+    "report_state_ref": ""
+  },
+  "idempotency_key": "",
+  "last_updated": ""
+}
+```
+
 ## Skill Output Envelope
 
 ```json
@@ -147,6 +178,7 @@ Use these schemas as contracts. Keep fields stable across sub-skills.
   "risk_updates": [],
   "data_gaps": [],
   "context_escalations": [],
+  "recoverable_run_state_updates": [],
   "post_skill_isolation_record": {},
   "quality_gate_result": {
     "status": "pass | pass_with_caveats | fail",

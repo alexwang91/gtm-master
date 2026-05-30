@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "evals": [
+    {
+      "name": "architecture_contract",
+      "prompt": "Use S01 handoff to produce JTBD scenarios for a hardware product with mixed praise, complaints, and competitor anxiety.",
+      "must_include": [
+        "functional emotional social jobs",
+        "Four Forces switching dynamics",
+        "scenario priority scorecard",
+        "product-job fit matrix",
+        "local language trigger phrases",
+        "validation question seeds"
+      ],
+      "must_not_include": [
+        "invent personas without voice atoms",
+        "write final copy",
+        "make final pricing decision",
+        "ignore anti-JTBD risks"
+      ]
+    }
+  ]
+}

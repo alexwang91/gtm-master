@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "evals": [
+    {
+      "name": "architecture_contract",
+      "prompt": "Convert prioritized JTBD scenarios into segment messaging for a fixed hardware product with proof gaps.",
+      "must_include": [
+        "feature-benefit-proof matrix",
+        "objection matrix",
+        "claim risk and proof gate",
+        "local language message seed",
+        "behavioral science lever mapping",
+        "message test backlog"
+      ],
+      "must_not_include": [
+        "hide proof gaps",
+        "rewrite product features as if they can change",
+        "approve risky claims",
+        "produce final paid ads"
+      ]
+    }
+  ]
+}

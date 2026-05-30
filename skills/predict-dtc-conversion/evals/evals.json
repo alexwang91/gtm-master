@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.1.0",
+  "evals": [
+    {
+      "name": "architecture_contract",
+      "prompt": "Plan conversion assumptions for a prelaunch product with no live landing page but known retail/PDP channels.",
+      "must_include": [
+        "prelaunch conversion planning mode",
+        "funnel stage inventory",
+        "offer-message continuity map",
+        "proof objection friction map",
+        "tracking readiness audit",
+        "page experiment plan",
+        "AARRR hardware stage"
+      ],
+      "must_not_include": [
+        "invent measured CVR",
+        "assume missing page exists",
+        "ignore mobile PDP friction",
+        "skip analytics event schema when tracking is needed"
+      ]
+    }
+  ]
+}

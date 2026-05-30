@@ -1,0 +1,25 @@
+{
+  "schema_version": "0.1.0",
+  "evals": [
+    {
+      "name": "architecture_contract",
+      "prompt": "Recommend creator archetypes and a candidate review list for a local consumer hardware launch with limited budget.",
+      "must_include": [
+        "creator archetype fit scorecard",
+        "local creator discovery query bank",
+        "candidate review gate",
+        "recommendation rationale",
+        "budget estimate range",
+        "expected outcome estimate range",
+        "brand safety risk review",
+        "ORB channel role"
+      ],
+      "must_not_include": [
+        "approve final creator contracts",
+        "guarantee likes views or sales",
+        "omit sponsorship disclosure risk",
+        "rank candidates without evidence coverage"
+      ]
+    }
+  ]
+}

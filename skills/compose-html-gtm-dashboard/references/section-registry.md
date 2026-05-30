@@ -158,9 +158,13 @@ future section missing
   Do not mention unless the roadmap or user explicitly asks for full-suite coverage.
 ```
 
-## S13 Validation Roadmap Display Requirements
+## S13 Validation Roadmap Conditional Requirements
 
-When `validation_roadmap` is present, S14 must render the section in Simplified Chinese by default and preserve the S13 source refs. The visible main-body views are:
+S13 is a hidden system capability in the current dashboard. S14 must not render
+`validation_roadmap` as a visible main-body section unless the user explicitly
+asks for the validation body, a full gap review, or a future expanded suite
+view. When that condition is met, render the section in Simplified Chinese by
+default and preserve the S13 source refs. The required views are:
 
 ```text
 Validation Input Coverage Gate -> status_panel

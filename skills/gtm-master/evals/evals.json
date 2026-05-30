@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "evals": [
+    {
+      "name": "architecture_contract",
+      "prompt": "User gives product specs, target country, and price range, then asks for a full GTM dashboard after an interrupted run.",
+      "must_include": [
+        "create or resume GTM Run State",
+        "select quick, standard, or deep mode",
+        "build Project Brief",
+        "use methodology-crosswalk.yaml",
+        "handoff-only runtime",
+        "post_skill_isolation_record"
+      ],
+      "must_not_include": [
+        "require optional private files before starting",
+        "open all upstream full artifacts by default",
+        "show S14 as a visible business module",
+        "skip evals or quality gates"
+      ]
+    }
+  ]
+}

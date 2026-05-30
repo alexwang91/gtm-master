@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1.0",
+  "evals": [
+    {
+      "name": "architecture_contract",
+      "prompt": "A hardware product may include paid app features and warranty services, but no cohort retention data is available.",
+      "must_include": [
+        "subscription retention trigger check",
+        "recurring value driver map",
+        "qualitative churn risk model",
+        "cohort proxy confidence cap",
+        "pricing retention linkage",
+        "post launch learning plan"
+      ],
+      "must_not_include": [
+        "invent retention rates",
+        "expose billing data",
+        "approve final subscription price",
+        "treat qualitative risk as measured churn"
+      ]
+    }
+  ]
+}

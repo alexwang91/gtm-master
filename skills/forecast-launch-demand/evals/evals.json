@@ -1,0 +1,25 @@
+{
+  "schema_version": "0.1.0",
+  "evals": [
+    {
+      "name": "architecture_contract",
+      "prompt": "Forecast 30-day and 60-day launch demand with marketing budget, channel hypotheses, and no historical sell-through.",
+      "must_include": [
+        "forecast assumption tree",
+        "base upside downside scenarios",
+        "lifecycle phase sales curve",
+        "Goal-Based budget formula",
+        "blended CAC gap",
+        "growth S-curve layering",
+        "sell-in sell-through separation",
+        "sensitivity driver tornado"
+      ],
+      "must_not_include": [
+        "present heuristic forecast as measured sales",
+        "convert reach directly into sales without bridge",
+        "ignore inventory risk",
+        "approve final media budget"
+      ]
+    }
+  ]
+}
