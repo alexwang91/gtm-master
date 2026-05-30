@@ -1,0 +1,168 @@
+suite_name: gtm-intelligence-report-suite
+suite_version: 0.1.0
+master_skill: S00.gtm-master
+purpose: >
+  Turn minimal product launch inputs into an evidence-backed multi-skill GTM
+  intelligence workflow and final HTML dashboard for 2C hardware products.
+
+required_user_inputs:
+  - product_features_and_specs
+  - launch_country_or_region
+  - target_price_range
+
+optional_user_inputs:
+  - product_name_or_codename
+  - launch_timing
+  - product_specification_files
+  - previous_generation_sales_price_channel_performance
+  - historical_launch_sales_or_sellthrough
+  - customer_reviews_and_nss_or_nps
+  - brand_positioning_self_perception_and_tone
+  - planned_channels
+  - known_competitors
+  - internal_benchmarks
+  - target_price_or_msrp
+  - target_margin_or_floor_price
+  - cogs_or_bom
+  - channel_margin_terms
+  - retailer_or_marketplace_fee_rules
+  - promo_discount_policy
+  - inventory_or_forecast_constraints
+  - subscription_or_recurring_revenue_model
+  - finance_installment_constraints
+  - forecast_input_scenario
+  - structured_forecast_input_pack
+  - product_lifecycle_stage
+  - launch_phase_calendar
+  - lifecycle_curve_assumption
+  - marketing_investment_plan
+  - marketing_spend_by_phase
+  - marketing_response_assumptions
+  - historical_marketing_response_data
+  - baseline_calibration
+  - baseline_vs_incremental_sales_policy
+  - constraints
+  - forecast_horizon
+  - target_sellout_window
+  - planned_channel_mix
+  - channel_capacity_constraints
+  - launch_inventory_available
+  - inventory_allocation_plan
+  - supply_lead_time_or_replenishment_constraints
+  - retail_sell_in_commitments_or_purchase_orders
+  - preorder_or_waitlist_counts
+  - marketing_budget_range
+  - media_plan_or_reach_assumptions
+  - seasonality_or_retail_calendar_notes
+  - target_revenue_or_unit_goal
+  - forecast_output_granularity
+  - private_forecast_inputs_public_html_policy
+  - validation_input_scenario
+  - validation_budget_range
+  - target_launch_date
+  - decision_deadlines
+  - available_testing_channels
+  - allowed_test_markets_or_countries
+  - sample_access
+  - survey_panel_access
+  - ad_account_or_media_test_access
+  - landing_page_or_pdp_test_access
+  - retailer_or_creator_pilot_access
+  - private_data_policy
+  - output_detail_level
+  - historical_copy_landing_pages_kol_scripts_and_ads
+  - creator_budget_range
+  - creator_candidates
+  - known_creator_blacklist_or_risk_notes
+  - sponsorship_disclosure_policy
+  - target_platforms
+  - creator_rate_cards_or_media_kits
+  - campaign_budget_currency
+  - product_seeding_cost_or_sample_value
+  - historical_creator_performance_data
+  - creator_campaign_goal
+  - candidate_review_list_size
+  - creator_candidate_review_decisions
+  - tracking_or_landing_page_context
+  - launch_page_planning_stage
+  - page_or_funnel_text
+  - landing_page_url_or_pdp_url
+  - page_structure_or_wireframe_text
+  - checkout_flow_description
+  - traffic_source_plan
+  - analytics_or_conversion_data
+  - historical_landing_page_results
+  - tracking_or_analytics_context
+  - offer_details
+  - return_warranty_shipping_payment_policy
+  - competitor_landing_pages_or_pdp_refs
+  - previous_generation_page_or_pdp_refs
+  - previous_generation_conversion_or_page_results
+  - competitor_offer_trust_policy_refs
+  - copy_assets_or_concepts
+  - fixed_visual_or_layout_constraints
+  - target_language
+  - claim_constraints
+  - compliance_constraints
+  - report_audience
+  - report_depth
+  - html_style_preference
+  - output_language
+
+primary_outputs:
+  - full_html_dashboard
+  - full_artifact_bundle
+  - compressed_handoff_chain
+  - evidence_ledger
+  - rag_index_manifest
+  - decision_log
+  - data_gap_log
+  - validation_roadmap
+
+runtime_model:
+  default_execution: sequential_main_agent
+  subagent_policy: optional_for_parallel_safe_branches
+  context_policy: handoff_only_by_default
+  canonical_graph_source: references/codegraph.yaml
+  implementation_roadmap_source: references/suite-implementation-roadmap.md
+  report_state_source: report_data_contract
+  visual_block_acceptance_source: references/visual-block-acceptance-matrix.md
+  default_output_language: zh-CN
+  default_report_depth: standard
+  available_depth_modes:
+    - quick
+    - standard
+    - deep
+
+global_principles:
+  - route_before_work
+  - criteria_before_content
+  - schema_before_artifact
+  - evidence_before_claims
+  - handoff_before_completion
+  - least_invasive_mcp_collection
+  - one_active_skill
+  - context_escalation_requires_reason
+  - context_budget_before_lookup
+  - report_state_as_you_go
+  - post_skill_isolation
+  - verification_before_done
+
+artifact_policy:
+  each_subskill_outputs:
+    - full_artifact
+    - compressed_handoff_pack
+    - html_section_draft
+    - evidence_updates
+    - collection_logs
+    - rag_index_manifest_updates
+    - decision_updates
+    - data_gaps
+    - context_escalations
+    - post_skill_isolation_record
+  downstream_default_inputs:
+    - project_brief
+    - direct_upstream_handoff_pack
+    - active_skill_method_card
+    - allowed_evidence_refs
+    - out_of_scope

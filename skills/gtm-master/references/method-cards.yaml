@@ -1,0 +1,1288 @@
+method_cards:
+  S01.build-consumer-market-map:
+    purpose: Build localized market context from minimal product, country, and price inputs.
+    scientific_methods:
+      - product_market_search_preflight
+      - product_capability_taxonomy
+      - category_selling_point_mapping
+      - local_search_language_mapping
+      - local_market_localization_preflight
+      - local_source_discovery
+      - local_voice_source_discovery
+      - site_specific_comment_collection
+      - comment_collection_coverage_audit
+      - evidence_research_design
+      - evidence_collection_runner
+      - coverage_and_source_quality
+      - competitor_substitute_mapping
+      - evidence_storage_policy
+      - research_perspective_matrix
+      - query_expansion_and_result_fusion
+      - local_evidence_discovery
+      - source_quality_scoring
+      - coverage_mapping
+      - competitor_and_substitute_mapping
+      - competitor_threat_scoring
+      - consumer_voice_mining
+      - voice_atom_extraction
+      - voice_atom_deduplication
+      - voice_theme_clustering
+      - nss_nps_proxy_source_item_classification
+      - nss_bain_comment_input_extraction
+      - bain_driver_impact_scoring
+      - journey_episode_mapping
+      - tam_sam_som_assumption_tree
+      - market_sizing_confidence_scoring
+      - comparable_market_proxy_labeling
+      - segment_level_market_sizing
+      - segment_candidate_generation
+      - segment_evidence_strength_scoring
+      - segment_priority_scoring
+      - segment_distinctness_check
+      - evidence_backed_persona_cards
+      - segment_channel_touchpoint_mapping
+      - channel_fit_scoring
+      - retailer_marketplace_candidate_mapping
+      - content_proof_mapping
+      - user_provided_channel_hypothesis_handling
+      - price_anchor_benchmarking
+      - local_price_corridor_mapping
+      - competitor_price_gap_analysis
+      - segment_price_sensitivity_seed_scoring
+      - value_proof_requirement_mapping
+      - promotion_subscription_sensitivity_seeding
+      - user_provided_price_hypothesis_handling
+      - nps_proxy_seed_analysis
+      - nss_nps_source_mix_audit
+      - nps_driver_tornado_seed
+      - earned_growth_proxy_seed_scoring
+      - net_promoter_system_loop_seeding
+      - hardware_experience_diagnosis
+      - bain_outer_loop_opportunity_scoring
+      - next_generation_marketing_sales_feedback_seeding
+    required_evidence:
+      - local_competitors
+      - substitutes
+      - local_prices
+      - consumer_reviews_or_discussions
+      - category_market_size_inputs
+      - channel_or_touchpoint_signals
+    forbidden_scope:
+      - final_messaging_architecture
+      - full_pricing_model
+      - creative_scoring
+      - kol_selection
+      - final_html_composition
+    output_contract:
+      - market_context_pack
+      - category_selling_point_map
+      - feature_to_local_language_map
+      - localization_preflight
+      - local_source_map
+      - local_voice_source_map
+      - site_specific_comment_profiles
+      - comment_collection_coverage_reports
+      - comment_export_refs
+      - coverage_map
+      - competitor_substitute_map
+      - competitor_candidate_review_list
+      - competitor_threat_scores
+      - substitute_taxonomy
+      - price_ladder_scan
+      - jump_decision_risks
+      - segment_competitor_threats
+      - consumer_voice_processing_summary
+      - consumer_opinion_map
+      - voice_atom_table
+      - voice_theme_clusters
+      - nss_nps_proxy_classification_table
+      - nss_bain_input_refs
+      - bain_driver_inputs
+      - journey_episode_inputs
+      - market_sizing_evidence_summary
+      - tam_sam_som_seed
+      - tam_sam_som_assumption_tree
+      - comparable_market_proxies
+      - market_sizing_confidence
+      - market_sizing_data_gaps
+      - segment_candidate_pool
+      - segment_evidence_strength_scores
+      - segment_seed_pack
+      - segment_priority_ranking
+      - segment_distinctness_results
+      - persona_cards
+      - segment_level_tam_sam_som
+      - segment_channel_touchpoint_map
+      - retailer_marketplace_candidates
+      - content_proof_map
+      - channel_fit_scores
+      - user_provided_channel_hypotheses
+      - local_price_corridor
+      - price_anchor_panel
+      - competitor_price_gap_table
+      - segment_price_sensitivity_seeds
+      - value_proof_requirement_matrix
+      - promotion_subscription_sensitivity_seed
+      - user_provided_price_hypotheses
+      - nss_nps_proxy_seed_panel
+      - competitor_nss_nps_comparison_seed
+      - nps_driver_tornado_seed
+      - journey_episode_nss_seed
+      - earned_growth_proxy_seed
+      - net_promoter_system_loop_seed
+      - hardware_experience_diagnosis_seed
+      - next_generation_marketing_sales_seed
+      - earned_growth_seed_notes
+      - html_market_section
+
+  S02.mine-jtbd-scenarios:
+    purpose: Convert consumer evidence into prioritized jobs-to-be-done and launch scenarios.
+    scientific_methods:
+      - upstream_input_mapping
+      - upstream_handoff_coverage_audit
+      - jtbd_source_mapping
+      - jtbd_statement_extraction
+      - situation_motivation_outcome_mapping
+      - current_alternative_mapping
+      - barrier_and_anxiety_mapping
+      - local_language_trigger_phrase_mapping
+      - evidence_backed_scenario_clustering
+      - scenario_distinctness_check
+      - scenario_to_segment_mapping
+      - scenario_to_journey_mapping
+      - consumer_electronics_gtm_moment_mapping
+      - product_job_fit_scoring
+      - digital_shelf_and_retailer_decision_mapping
+      - behavioral_science_lever_mapping
+      - commercial_weight_scoring
+      - brand_claim_constraint_mapping
+      - scenario_priority_scoring
+      - jtbd_evidence_strength_scoring
+      - proof_requirement_mapping
+      - proof_requirement_urgency_scoring
+      - anti_jtbd_risk_identification
+      - anti_jtbd_risk_scoring
+      - non_consumption_risk_mapping
+      - scenario_price_implication_seeding
+      - validation_question_seeding
+      - handoff_only_context_policy
+    required_evidence:
+      - market_context_pack.canonical_fields
+      - consumer_opinion_map
+      - voice_atom_refs
+      - voice_theme_clusters
+      - segment_seed_pack
+      - product_capability_map
+      - category_selling_point_map
+      - selling_point_fit_scores
+      - segment_level_tam_sam_som
+      - market_sizing_confidence
+      - coverage_summary
+      - source_quality_summary
+      - confidence_caps
+      - journey_episode_inputs
+      - bain_driver_inputs
+      - competitor_complaints_or_threat_scores
+      - local_purchase_triggers
+      - local_objections
+      - local_language_trigger_phrases
+    forbidden_scope:
+      - final_copywriting
+      - final_pricing_decision
+      - channel_budget_allocation
+      - demand_forecast
+      - creative_scoring
+    output_contract:
+      - upstream_input_map
+      - upstream_input_coverage_gate
+      - jtbd_source_map
+      - jtbd_candidate_pool
+      - jtbd_scenario_pack
+      - jtbd_scenario_clusters
+      - scenario_distinctness_results
+      - scenario_to_segment_matrix
+      - scenario_to_journey_matrix
+      - consumer_electronics_gtm_moment_map
+      - product_job_fit_matrix
+      - digital_shelf_and_retailer_decision_map
+      - behavioral_science_lever_map
+      - scenario_commercial_weight_map
+      - brand_claim_constraint_map
+      - scenario_priority_scorecard
+      - proof_requirement_seed
+      - anti_jtbd_risk_list
+      - non_consumption_risk_map
+      - local_language_trigger_phrase_map
+      - scenario_message_seed
+      - scenario_price_implication_seed
+      - validation_question_seed
+      - html_jtbd_section
+    output_tiers:
+      core:
+        - upstream_input_coverage_gate
+        - jtbd_scenario_pack
+        - scenario_priority_scorecard
+        - scenario_to_segment_matrix
+        - product_job_fit_matrix
+        - proof_requirement_seed
+        - anti_jtbd_risk_list
+        - local_language_trigger_phrase_map
+        - scenario_message_seed
+        - scenario_price_implication_seed
+      conditional:
+        - consumer_electronics_gtm_moment_map
+        - digital_shelf_and_retailer_decision_map
+        - behavioral_science_lever_map
+        - scenario_commercial_weight_map
+        - brand_claim_constraint_map
+        - validation_question_seed
+        - non_consumption_risk_map
+        - scenario_to_journey_matrix
+      audit:
+        - upstream_input_map
+        - jtbd_source_map
+        - jtbd_candidate_pool
+        - jtbd_scenario_clusters
+        - scenario_distinctness_results
+
+  S03.match-messages-to-segments:
+    purpose: Build segment-level message architecture from prioritized scenarios.
+    scientific_methods:
+      - message_input_coverage_gate
+      - value_proposition_mapping
+      - feature_benefit_proof_matrix
+      - objection_handling_matrix
+      - competitive_contrast_mapping
+      - message_market_fit_scoring
+      - proof_readiness_scoring
+      - claim_risk_gate
+      - local_language_message_seeding
+      - price_message_seeding
+      - behavioral_lever_message_seeding
+      - retail_sales_talk_track_seeding
+      - landing_page_message_block_seeding
+      - creator_brief_message_seeding
+      - risk_filtered_rewrite
+    required_evidence:
+      - jtbd_scenario_pack
+      - scenario_to_segment_matrix
+      - product_job_fit_matrix
+      - proof_requirement_seed
+      - anti_jtbd_risk_list
+      - local_language_trigger_phrase_map
+      - scenario_message_seed
+      - scenario_price_implication_seed
+      - consumer_electronics_gtm_moment_map
+      - behavioral_science_lever_map
+      - brand_claim_constraint_map
+      - competitor_positioning
+    forbidden_scope:
+      - final_paid_ad_creative
+      - exact_price_elasticity_model
+      - final_kol_selection
+    output_contract:
+      - message_input_coverage_gate
+      - segment_message_architecture
+      - feature_benefit_proof_matrix
+      - objection_matrix
+      - claim_risk_and_proof_gate
+      - local_language_message_seed
+      - price_message_seed
+      - message_market_fit_scorecard
+      - competitive_contrast_matrix
+      - behavioral_lever_message_seed
+      - retail_sales_talk_track_seed
+      - landing_page_message_block_seed
+      - creator_brief_message_seed
+      - compliance_review_queue
+      - message_test_backlog
+      - html_message_section
+    output_tiers:
+      core:
+        - message_input_coverage_gate
+        - segment_message_architecture
+        - feature_benefit_proof_matrix
+        - objection_matrix
+        - claim_risk_and_proof_gate
+        - local_language_message_seed
+        - price_message_seed
+        - message_market_fit_scorecard
+      conditional:
+        - competitive_contrast_matrix
+        - behavioral_lever_message_seed
+        - retail_sales_talk_track_seed
+        - landing_page_message_block_seed
+        - creator_brief_message_seed
+        - compliance_review_queue
+        - message_test_backlog
+      audit:
+        - message_source_trace
+        - message_variant_pool
+        - rejected_message_angles
+        - claim_evidence_audit
+
+  S04.model-price-sensitivity:
+    purpose: Estimate local price credibility, willingness-to-pay risks, and pricing tests.
+    scientific_methods:
+      - price_input_coverage_gate
+      - price_corridor_benchmarking
+      - competitor_price_gap_analysis
+      - price_ladder_and_jump_risk_analysis
+      - local_price_credibility_scoring
+      - affordability_pressure_model
+      - value_for_money_scoring
+      - segment_wtp_hypothesis_modeling
+      - price_value_proof_mapping
+      - price_risk_guardrail_mapping
+      - van_westendorp_test_design
+      - gabor_granger_test_design
+      - conjoint_or_dce_planning
+      - promo_subscription_guidance
+      - channel_margin_guardrail_mapping
+      - retail_price_integrity_mapping
+      - elasticity_interpretation
+      - private_local_pricing_calculator_design
+      - pricing_test_execution_kit_design
+      - pricing_test_result_interpretation
+      - pricing_decision_gate
+    required_evidence:
+      - local_price_corridor
+      - price_anchor_panel
+      - competitor_price_gap_table
+      - segment_price_sensitivity_seeds
+      - scenario_price_implication_seed
+      - price_message_seed
+      - value_proof_requirement_matrix
+      - promotion_subscription_sensitivity_seed
+      - consumer_price_complaints
+      - objection_matrix
+      - claim_risk_and_proof_gate
+      - private_pricing_constraints_or_explicit_gap
+    forbidden_scope:
+      - final_approved_price_without_internal_constraints
+      - final_discount_budget
+      - final_financial_forecast_without_sales_data
+      - final_channel_contract_terms
+    output_contract:
+      - price_input_coverage_gate
+      - local_price_credibility_model
+      - segment_wtp_hypothesis
+      - price_sensitivity_model
+      - price_value_proof_matrix
+      - price_risk_guardrail
+      - wtp_test_plan
+      - promo_subscription_guidance
+      - pricing_decision_gate
+      - pricing_handoff_summary
+      - van_westendorp_test_design
+      - gabor_granger_test_design
+      - conjoint_dce_test_plan
+      - channel_margin_guardrail
+      - retail_price_integrity_map
+      - subscription_pricing_hypothesis
+      - promo_test_plan
+      - elasticity_assumption_seed
+      - pricing_decision_options
+      - private_pricing_calculator_spec
+      - pricing_test_execution_kit
+      - pricing_test_result_interpretation
+      - html_pricing_section
+    output_tiers:
+      core:
+        - price_input_coverage_gate
+        - local_price_credibility_model
+        - segment_wtp_hypothesis
+        - price_sensitivity_model
+        - price_value_proof_matrix
+        - price_risk_guardrail
+        - wtp_test_plan
+        - promo_subscription_guidance
+        - pricing_decision_gate
+        - pricing_handoff_summary
+      conditional:
+        - van_westendorp_test_design
+        - gabor_granger_test_design
+        - conjoint_dce_test_plan
+        - channel_margin_guardrail
+        - retail_price_integrity_map
+        - subscription_pricing_hypothesis
+        - promo_test_plan
+        - elasticity_assumption_seed
+        - pricing_decision_options
+        - private_pricing_calculator_spec
+        - pricing_test_execution_kit
+        - pricing_test_result_interpretation
+      audit:
+        - price_anchor_audit
+        - competitor_price_gap_audit
+        - price_assumption_log
+        - sensitivity_calculation_trace
+        - private_pricing_input_register
+
+  S05.score-creative-assets:
+    purpose: Score editable creative text assets and concepts against message architecture, proof needs, claim risk, localization, and channel fit.
+    scientific_methods:
+      - copy_input_coverage_gate
+      - copy_asset_inventory
+      - visible_claim_and_proof_text_extraction
+      - segment_message_copy_mapping
+      - copy_message_fit_scoring
+      - proof_and_claim_clarity_scoring
+      - claim_risk_scoring
+      - local_language_fit_audit
+      - channel_copy_fit_scoring
+      - digital_shelf_copy_fit_audit
+      - landing_page_copy_fit_audit
+      - retail_sales_copy_fit_audit
+      - short_video_script_hook_audit
+      - text_attention_hierarchy_scoring
+      - copy_priority_scoring
+      - revision_brief_generation
+      - copy_test_backlog_generation
+      - performance_result_validity_check
+      - private_copy_handling
+    required_evidence:
+      - segment_message_architecture
+      - feature_benefit_proof_matrix
+      - objection_matrix
+      - claim_risk_and_proof_gate
+      - editable_copy_assets_or_concepts
+      - local_language_message_seed
+      - channel_or_placement_context
+    forbidden_scope:
+      - final_ad_copy_without_request
+      - visual_asset_or_design_critique
+      - legal_or_compliance_approval
+      - treating_ai_scores_as_conversion_proof
+      - exposing_private_copy_without_approval
+      - final_media_budget_allocation
+      - kol_selection
+    output_contract:
+      - copy_input_coverage_gate
+      - copy_asset_inventory
+      - copy_asset_request_list
+      - copy_scoring_rubric
+      - copy_message_fit_scorecard
+      - proof_and_claim_clarity_audit
+      - claim_risk_review
+      - local_language_fit_audit
+      - channel_copy_fit_matrix
+      - copy_quality_scorecard
+      - copy_revision_briefs
+      - copy_test_backlog
+      - competitor_copy_norm_scan
+      - marketplace_pdp_copy_fit
+      - landing_page_copy_fit
+      - retail_sales_copy_fit
+      - short_video_script_hook_audit
+      - package_text_claim_audit
+      - copy_performance_result_interpretation
+      - compliance_review_queue
+      - html_creative_section
+    output_tiers:
+      core:
+        - copy_input_coverage_gate
+        - copy_asset_inventory
+        - copy_message_fit_scorecard
+        - proof_and_claim_clarity_audit
+        - claim_risk_review
+        - local_language_fit_audit
+        - channel_copy_fit_matrix
+        - copy_quality_scorecard
+        - copy_revision_briefs
+        - copy_test_backlog
+      conditional:
+        - copy_asset_request_list
+        - copy_scoring_rubric
+        - competitor_copy_norm_scan
+        - marketplace_pdp_copy_fit
+        - landing_page_copy_fit
+        - retail_sales_copy_fit
+        - short_video_script_hook_audit
+        - package_text_claim_audit
+        - copy_performance_result_interpretation
+        - compliance_review_queue
+      audit:
+        - copy_evidence_trace
+        - copy_observation_log
+        - claim_copy_map
+        - revision_rationale_trace
+        - performance_data_audit
+
+  S06.score-kol-fit:
+    purpose: Score creator/KOL archetypes and candidate creators against segment trust needs, proof requirements, local platform relevance, budget/outcome feasibility, and brand-safety risk.
+    scientific_methods:
+      - creator_input_coverage_gate
+      - creator_role_definition
+      - archetype_before_candidate_scoring
+      - creator_archetype_fit_scoring
+      - local_creator_discovery_query_generation
+      - creator_source_channel_mapping
+      - creator_candidate_longlist_generation
+      - competitor_creator_overlap_mapping
+      - creator_discovery_coverage_audit
+      - creator_candidate_review_gate
+      - creator_candidate_decision_application
+      - candidate_inventory
+      - candidate_discovery_priority_scoring
+      - candidate_evidence_coverage_scoring
+      - candidate_fit_scoring
+      - audience_segment_fit_scoring
+      - trust_proof_fit_mapping
+      - platform_relevance_mapping
+      - creator_recommendation_rationale_generation
+      - creator_budget_range_estimation
+      - expected_outcome_range_estimation
+      - budget_expectation_confidence_scoring
+      - brand_safety_risk_scoring
+      - sponsorship_disclosure_risk_review
+      - creator_brief_pack_generation
+      - creator_test_backlog_generation
+      - creator_performance_result_interpretation
+      - private_creator_data_handling
+    required_evidence:
+      - segment_message_architecture
+      - proof_requirement_seed
+      - creator_brief_message_seed
+      - channel_fit_scores
+      - segment_channel_touchpoint_map
+      - local_language_message_seed
+      - claim_risk_and_proof_gate
+      - local_source_or_voice_source_map_when_available
+      - competitor_candidate_or_threat_scores_when_available
+      - budget_or_rate_basis_or_explicit_hypothesis
+      - campaign_goal_or_default_metric_priority
+      - creator_candidate_review_decisions_or_pending_review_gap
+    forbidden_scope:
+      - final_creator_contracting
+      - final_kol_approval
+      - legal_or_compliance_approval
+      - treating_follower_count_as_audience_proof
+      - exposing_private_creator_contacts_or_rates
+      - final_media_budget_approval
+      - guaranteed_visits_likes_sales_or_conversion_lift
+    output_contract:
+      - creator_input_coverage_gate
+      - creator_archetype_fit_scorecard
+      - creator_candidate_inventory
+      - creator_fit_scorecard
+      - creator_candidate_fit_scorecard
+      - creator_trust_proof_fit_matrix
+      - candidate_segment_audience_fit
+      - candidate_content_proof_fit
+      - platform_relevance_map
+      - creator_recommendation_rationale
+      - creator_budget_estimate
+      - creator_expected_outcome_estimate
+      - creator_budget_expectation_confidence
+      - brand_safety_risk_review
+      - sponsorship_disclosure_risk_review
+      - creator_brief_pack
+      - creator_test_backlog
+      - creator_candidate_request_list
+      - creator_sourcing_criteria
+      - public_creator_discovery_plan
+      - local_creator_discovery_query_bank
+      - creator_source_channel_map
+      - creator_candidate_longlist
+      - creator_discovery_coverage_report
+      - competitor_creator_overlap_map
+      - creator_candidate_review_gate
+      - creator_candidate_review_list
+      - creator_candidate_decision_log
+      - review_approved_candidate_set
+      - review_excluded_candidate_set
+      - category_creator_norm_scan
+      - affiliate_or_reviewer_program_fit
+      - retail_expert_or_media_fit
+      - creator_performance_result_interpretation
+      - compliance_review_queue
+      - html_creator_section
+    output_tiers:
+      core:
+        - creator_input_coverage_gate
+        - creator_archetype_fit_scorecard
+        - creator_trust_proof_fit_matrix
+        - platform_relevance_map
+        - creator_recommendation_rationale
+        - creator_budget_estimate
+        - creator_expected_outcome_estimate
+        - creator_budget_expectation_confidence
+        - brand_safety_risk_review
+        - sponsorship_disclosure_risk_review
+        - creator_brief_pack
+        - creator_test_backlog
+      conditional:
+        - creator_candidate_inventory
+        - creator_fit_scorecard
+        - creator_candidate_fit_scorecard
+        - candidate_segment_audience_fit
+        - candidate_content_proof_fit
+        - creator_candidate_request_list
+        - creator_sourcing_criteria
+        - public_creator_discovery_plan
+        - local_creator_discovery_query_bank
+        - creator_source_channel_map
+        - creator_candidate_longlist
+        - creator_discovery_coverage_report
+        - competitor_creator_overlap_map
+        - creator_candidate_review_gate
+        - creator_candidate_review_list
+        - creator_candidate_decision_log
+        - review_approved_candidate_set
+        - review_excluded_candidate_set
+        - category_creator_norm_scan
+        - affiliate_or_reviewer_program_fit
+        - retail_expert_or_media_fit
+        - creator_performance_result_interpretation
+        - compliance_review_queue
+      audit:
+        - creator_evidence_trace
+        - candidate_risk_audit
+        - audience_metric_quality_audit
+        - content_sample_audit
+        - performance_data_audit
+
+  S07.predict-dtc-conversion:
+    purpose: Optionally plan prelaunch DTC/PDP conversion requirements or diagnose live/draft landing-page, PDP, preorder, waitlist, checkout, and campaign-to-page conversion friction without treating heuristic scores as measured CVR.
+    scientific_methods:
+      - conversion_input_coverage_gate
+      - run_mode_gate_skip_prelaunch_live
+      - prelaunch_conversion_planning_mode
+      - competitor_landing_pdp_benchmarking
+      - previous_generation_funnel_learning_extraction
+      - category_page_requirement_brief_generation
+      - prelaunch_page_recommendation_pack_generation
+      - funnel_stage_modeling
+      - traffic_source_continuity_mapping
+      - segment_landing_page_fit_scoring
+      - offer_message_continuity_scoring
+      - proof_objection_friction_mapping
+      - price_trust_checkout_friction_mapping
+      - mobile_ux_friction_audit
+      - conversion_hypothesis_modeling
+      - cvr_assumption_ladder_generation
+      - funnel_friction_scoring
+      - conversion_risk_guardrail_mapping
+      - tracking_readiness_audit
+      - launch_tracking_requirement_brief_generation
+      - analytics_event_schema_design
+      - page_experiment_plan_generation
+      - conversion_performance_result_interpretation
+      - private_funnel_data_handling
+    required_evidence:
+      - segment_message_architecture
+      - landing_page_message_block_seed_or_page_material_request
+      - objection_matrix
+      - claim_risk_and_proof_gate
+      - price_sensitivity_model
+      - price_risk_guardrail
+      - traffic_source_context_or_explicit_hypothesis
+      - page_or_funnel_materials_or_prelaunch_benchmark_or_explicit_gap
+      - competitor_or_category_page_benchmark_or_explicit_gap
+      - previous_generation_materials_or_results_when_supplied
+    forbidden_scope:
+      - final_demand_forecast
+      - final_media_budget_approval
+      - final_price_approval
+      - legal_or_compliance_approval
+      - treating_ai_friction_scores_as_measured_cvr
+      - exposing_private_analytics_or_unpublished_pages
+      - final_page_design_or_build
+      - final_html_composition
+    output_contract:
+      - conversion_input_coverage_gate
+      - prelaunch_conversion_planning_mode
+      - funnel_stage_inventory
+      - traffic_source_assumption_map
+      - segment_landing_page_fit_matrix
+      - offer_message_continuity_map
+      - proof_objection_friction_map
+      - price_trust_checkout_friction_map
+      - mobile_ux_friction_audit
+      - conversion_hypothesis_model
+      - dtc_conversion_model
+      - cvr_assumption_ladder
+      - funnel_friction_scorecard
+      - funnel_friction_map
+      - conversion_risk_guardrail
+      - tracking_readiness_audit
+      - page_experiment_plan
+      - page_or_funnel_material_request_list
+      - competitor_landing_pdp_benchmark
+      - previous_generation_funnel_learnings
+      - category_page_requirement_brief
+      - prelaunch_page_recommendation_pack
+      - launch_tracking_requirement_brief
+      - landing_page_copy_fit_audit
+      - pdp_checkout_trust_audit
+      - retailer_clickout_conversion_fit
+      - campaign_landing_match_audit
+      - preorder_waitlist_flow_fit
+      - analytics_event_schema
+      - ab_test_plan
+      - conversion_performance_result_interpretation
+      - compliance_review_queue
+      - html_conversion_section
+    output_tiers:
+      core:
+        - conversion_input_coverage_gate
+        - prelaunch_conversion_planning_mode
+        - funnel_stage_inventory
+        - traffic_source_assumption_map
+        - segment_landing_page_fit_matrix
+        - offer_message_continuity_map
+        - proof_objection_friction_map
+        - price_trust_checkout_friction_map
+        - mobile_ux_friction_audit
+        - conversion_hypothesis_model
+        - dtc_conversion_model
+        - cvr_assumption_ladder
+        - funnel_friction_scorecard
+        - funnel_friction_map
+        - conversion_risk_guardrail
+        - tracking_readiness_audit
+        - page_experiment_plan
+      conditional:
+        - page_or_funnel_material_request_list
+        - competitor_landing_pdp_benchmark
+        - previous_generation_funnel_learnings
+        - category_page_requirement_brief
+        - prelaunch_page_recommendation_pack
+        - launch_tracking_requirement_brief
+        - landing_page_copy_fit_audit
+        - pdp_checkout_trust_audit
+        - retailer_clickout_conversion_fit
+        - campaign_landing_match_audit
+        - preorder_waitlist_flow_fit
+        - analytics_event_schema
+        - ab_test_plan
+        - conversion_performance_result_interpretation
+        - compliance_review_queue
+      audit:
+        - conversion_evidence_trace
+        - page_observation_log
+        - cvr_assumption_trace
+        - experiment_validity_audit
+        - tracking_data_audit
+
+  S08.forecast-launch-demand:
+    purpose: Build conservative/base/upside launch unit-sales scenarios, segment and channel sales split, inventory risk, sensitivity drivers, and validation needs without treating market sizing seeds or heuristic traffic/conversion inputs as guaranteed sales.
+    scientific_methods:
+      - formatted_input_scenario_selection
+      - forecast_input_coverage_gate
+      - forecast_scope_boundary_definition
+      - evidence_basis_mapping
+      - forecast_assumption_tree_generation
+      - product_lifecycle_phase_curve_modeling
+      - marketing_investment_response_modeling
+      - baseline_incremental_sales_bridge
+      - conservative_base_upside_sales_scenario_modeling
+      - segment_sales_split_modeling
+      - channel_split_forecasting
+      - price_conversion_assumption_bridge
+      - inventory_stockout_overstock_risk_mapping
+      - sensitivity_driver_tornado
+      - confidence_cap_application
+      - sell_in_sell_through_separation
+      - media_reach_to_demand_bridge
+      - marketing_spend_sensitivity_curve
+      - creator_traffic_demand_bridge
+      - dtc_conversion_scenario_bridge
+      - previous_generation_calibration
+      - supply_constraint_scenario_modeling
+      - preorder_waitlist_projection
+      - private_forecast_data_handling
+      - forecast_decision_gate
+      - validation_need_mapping
+    required_evidence:
+      - project_brief
+      - forecast_input_scenario_or_default_directional_forecast
+      - tam_sam_som_seed_or_explicit_gap
+      - segment_priority_ranking_or_explicit_gap
+      - segment_channel_touchpoint_map_or_channel_hypothesis
+      - price_sensitivity_model
+      - pricing_handoff_summary
+      - pricing_decision_gate
+      - market_sizing_confidence_or_gap
+      - optional_conversion_basis_or_gap
+      - optional_creator_traffic_basis_or_gap
+      - inventory_context_or_explicit_gap_for_inventory_risk
+      - historical_or_previous_generation_calibration_when_supplied
+      - baseline_calibration_or_explicit_gap_when_lifecycle_mkt_forecast_runs
+      - marketing_investment_plan_or_explicit_gap_when_mkt_affects_sales
+      - marketing_response_basis_or_confidence_cap
+    forbidden_scope:
+      - final_market_sizing_collection_from_scratch
+      - final_pricing_decision
+      - final_media_budget_approval
+      - final_channel_contract_or_po_validation
+      - final_inventory_purchase_order
+      - profit_margin_or_cogs_analysis
+      - treating_heuristic_scenarios_as_measured_sales_forecast
+      - exposing_private_sales_inventory_po_or_channel_data
+      - final_html_composition
+    output_contract:
+      - forecast_input_coverage_gate
+      - forecast_scope_boundary
+      - forecast_assumption_tree
+      - scenario_sales_forecast
+      - segment_sales_split
+      - launch_sales_forecast
+      - lifecycle_phase_sales_curve
+      - marketing_investment_response_model
+      - baseline_incremental_sales_bridge
+      - channel_split_forecast
+      - price_conversion_assumption_bridge
+      - sensitivity_driver_tornado
+      - inventory_risk_map
+      - forecast_confidence_caps
+      - forecast_decision_gate
+      - validation_need_map
+      - launch_calendar_seasonality_adjustment
+      - retail_sell_in_sell_through_split
+      - media_reach_to_demand_bridge
+      - marketing_spend_sensitivity_curve
+      - creator_traffic_demand_bridge
+      - dtc_conversion_scenario_bridge
+      - previous_generation_calibration
+      - supply_constraint_scenario
+      - preorder_waitlist_projection
+      - gross_revenue_range_estimate
+      - regional_channel_allocation
+      - forecast_review_gate
+      - html_forecast_section
+    output_tiers:
+      core:
+        - forecast_input_coverage_gate
+        - forecast_scope_boundary
+        - forecast_assumption_tree
+        - scenario_sales_forecast
+        - segment_sales_split
+        - launch_sales_forecast
+        - lifecycle_phase_sales_curve
+        - marketing_investment_response_model
+        - baseline_incremental_sales_bridge
+        - channel_split_forecast
+        - price_conversion_assumption_bridge
+        - sensitivity_driver_tornado
+        - inventory_risk_map
+        - forecast_confidence_caps
+        - forecast_decision_gate
+        - validation_need_map
+      conditional:
+        - launch_calendar_seasonality_adjustment
+        - retail_sell_in_sell_through_split
+        - media_reach_to_demand_bridge
+        - marketing_spend_sensitivity_curve
+        - creator_traffic_demand_bridge
+        - dtc_conversion_scenario_bridge
+        - previous_generation_calibration
+        - supply_constraint_scenario
+        - preorder_waitlist_projection
+        - gross_revenue_range_estimate
+        - regional_channel_allocation
+        - forecast_review_gate
+      audit:
+        - forecast_evidence_trace
+        - forecast_assumption_log
+        - source_basis_matrix
+        - formula_trace
+        - excluded_private_data_log
+        - scenario_change_log
+
+  S09.predict-activation-risk:
+    purpose: Convert setup, onboarding, compatibility, expectation, support, warranty, and return-risk evidence into launch prevention actions and a conditional dashboard section.
+    scientific_methods:
+      - activation_return_trigger_check
+      - hardware_journey_mapping
+      - setup_onboarding_friction_scoring
+      - compatibility_constraint_mapping
+      - expectation_gap_mapping
+      - return_reason_root_cause_split
+      - support_burden_estimation
+      - preventability_priority_scoring
+      - channel_expectation_guardrail_design
+      - pdp_faq_retail_training_prevention_plan
+      - post_skill_context_isolation
+    required_evidence:
+      - project_brief
+      - message_architecture_or_explicit_gap
+      - launch_sales_forecast_or_explicit_gap
+      - onboarding_setup_compatibility_or_explicit_gap
+      - warranty_return_support_context_or_explicit_gap
+      - previous_generation_return_reasons_when_available
+    forbidden_scope:
+      - inventing_measured_return_rates
+      - diagnosing_quality_defects_without_evidence
+      - exposing_private_support_or_return_records
+      - treating_synthetic_personas_as_real_feedback
+      - final_product_or_policy_approval
+    output_contract:
+      - activation_return_trigger_check
+      - activation_journey_risk_map
+      - expectation_gap_map
+      - return_prevention_priority
+      - support_education_plan
+      - channel_expectation_guardrails
+      - html_activation_section
+      - post_skill_isolation_record
+    output_tiers:
+      core:
+        - activation_return_trigger_check
+        - activation_journey_risk_map
+        - expectation_gap_map
+        - return_prevention_priority
+        - support_education_plan
+        - channel_expectation_guardrails
+      conditional:
+        - compatibility_risk_matrix
+        - setup_script_or_faq_brief
+        - previous_generation_return_calibration
+        - retailer_pdp_risk_notes
+        - post_launch_return_learning_plan
+      audit:
+        - activation_evidence_trace
+        - excluded_private_support_data_log
+        - assumption_and_confidence_cap_log
+
+  S10.generate-health-insights:
+    purpose: Define proof boundaries and wording guardrails for wellness, AI insight, safety, privacy, children, elderly, and regulated-adjacent claims.
+    scientific_methods:
+      - insight_claim_trigger_check
+      - claim_sensitivity_classification
+      - proof_strength_scoring
+      - consumer_harm_risk_scoring
+      - local_compliance_uncertainty_flagging
+      - channel_amplification_risk_mapping
+      - allowed_needs_proof_avoid_wording_split
+      - human_review_queue_routing
+      - privacy_safety_proof_requirement_mapping
+      - post_skill_context_isolation
+    required_evidence:
+      - project_brief
+      - claim_list_or_explicit_gap
+      - device_signal_context_or_explicit_gap
+      - activation_risk_map_when_available
+      - approved_or_forbidden_claims_when_available
+      - local_compliance_constraints_when_available
+    forbidden_scope:
+      - legal_approval
+      - clinical_or_regulatory_claim_invention
+      - turning_unverified_insights_into_medical_promises
+      - hiding_sensitive_claim_gaps
+      - exposing_private_legal_or_claim_drafts
+    output_contract:
+      - insight_claim_trigger_check
+      - insight_system_boundaries
+      - claim_guardrail_matrix
+      - privacy_safety_proof_need
+      - human_review_queue
+      - retention_insight_opportunities
+      - html_insight_section
+      - post_skill_isolation_record
+    output_tiers:
+      core:
+        - insight_claim_trigger_check
+        - insight_system_boundaries
+        - claim_guardrail_matrix
+        - privacy_safety_proof_need
+        - human_review_queue
+        - retention_insight_opportunities
+      conditional:
+        - health_claim_risk_rules
+        - ai_insight_claim_boundaries
+        - children_elderly_safety_guardrails
+        - privacy_disclosure_requirements
+        - creator_claim_brief
+        - support_claim_escalation_notes
+      audit:
+        - claim_evidence_trace
+        - excluded_sensitive_material_log
+        - compliance_review_gap_log
+
+  S11.predict-subscription-and-churn:
+    purpose: Model recurring value, retention drivers, churn risk, service-tier fit, and pricing linkage when hardware depends on subscriptions, paid services, consumables, warranty plans, or renewal loops.
+    scientific_methods:
+      - subscription_retention_trigger_check
+      - recurring_value_driver_mapping
+      - service_tier_entitlement_mapping
+      - retention_touchpoint_mapping
+      - activation_to_retention_risk_bridge
+      - price_value_retention_linkage
+      - qualitative_churn_risk_model
+      - cohort_proxy_confidence_cap
+      - renewal_risk_guardrail_design
+      - post_launch_retention_learning_plan
+      - post_skill_context_isolation
+    required_evidence:
+      - project_brief
+      - price_sensitivity_model_or_explicit_gap
+      - activation_risk_map_when_available
+      - insight_system_boundaries_when_available
+      - subscription_service_tier_or_explicit_gap
+      - retention_or_cohort_data_when_available
+    forbidden_scope:
+      - inventing_retention_or_billing_rates
+      - customer_level_usage_exposure
+      - final_subscription_pricing_approval
+      - treating_qualitative_retention_risk_as_measured_churn
+      - exposing_private_billing_or_service_cost_data
+    output_contract:
+      - subscription_retention_trigger_check
+      - subscription_value_driver_map
+      - retention_value_driver_map
+      - churn_risk_model
+      - retention_trigger_plan
+      - pricing_retention_linkage
+      - html_subscription_section
+      - post_skill_isolation_record
+    output_tiers:
+      core:
+        - subscription_retention_trigger_check
+        - subscription_value_driver_map
+        - retention_value_driver_map
+        - churn_risk_model
+        - retention_trigger_plan
+        - pricing_retention_linkage
+      conditional:
+        - service_tier_fit_matrix
+        - subscription_price_sensitivity_notes
+        - cohort_retention_proxy_model
+        - renewal_risk_guardrails
+        - post_launch_retention_learning_plan
+      audit:
+        - retention_assumption_trace
+        - formula_trace
+        - excluded_private_billing_data_log
+        - confidence_cap_log
+
+  S12.mine-review-quality-feedback:
+    purpose: Convert review, support, return, app, warranty, and customer-voice material into product quality, GTM, channel, support, and next-generation feedback loops.
+    scientific_methods:
+      - feedback_loop_trigger_check
+      - source_layer_separation
+      - scoped_viewpoint_complete_collection
+      - source_preserving_deduplication
+      - bain_direction_classification_when_suitable
+      - journey_stage_mapping
+      - pain_praise_trigger_objection_extraction
+      - return_reason_root_cause_mapping
+      - frequency_sentiment_return_recency_consistency_scoring
+      - product_gtm_channel_support_action_split
+      - post_skill_context_isolation
+    required_evidence:
+      - project_brief
+      - review_or_support_data_or_explicit_gap
+      - activation_risk_map_when_available
+      - subscription_churn_model_when_available
+      - previous_generation_or_competitor_feedback_when_available
+      - source_scope_and_collection_rules
+    forbidden_scope:
+      - fabricating_comments
+      - omitting_dissenting_viewpoints_from_scoped_sources
+      - treating_convenience_corpus_as_representative
+      - exposing_private_customer_records
+      - mixing_private_and_public_source_layers_without_labels
+    output_contract:
+      - feedback_loop_trigger_check
+      - review_support_source_map
+      - voice_atom_collection_scope
+      - feedback_theme_cluster
+      - quality_feedback_priority
+      - product_quality_backlog
+      - gtm_feedback_backlog
+      - feedback_loop_action_map
+      - evidence_graph_updates
+      - html_feedback_section
+      - post_skill_isolation_record
+    output_tiers:
+      core:
+        - feedback_loop_trigger_check
+        - review_support_source_map
+        - voice_atom_collection_scope
+        - feedback_theme_cluster
+        - quality_feedback_priority
+        - product_quality_backlog
+        - gtm_feedback_backlog
+        - feedback_loop_action_map
+        - evidence_graph_updates
+      conditional:
+        - previous_generation_feedback_calibration
+        - competitor_feedback_comparison
+        - return_reason_root_cause_map
+        - support_ticket_theme_map
+        - app_store_experience_map
+        - post_launch_learning_plan
+      audit:
+        - raw_source_index_ref
+        - deduplication_trace
+        - excluded_private_customer_data_log
+        - representativeness_warning
+
+  S13.plan-validation-experiments:
+    purpose: Turn upstream data gaps, confidence caps, sensitivity drivers, and test backlogs into a prioritized validation experiment roadmap with pass/fail rules and decision linkage.
+    scientific_methods:
+      - validation_input_coverage_gate
+      - cross_module_assumption_inventory
+      - assumption_to_decision_linking
+      - data_gap_to_validation_question_mapping
+      - experiment_priority_scoring
+      - risk_feasibility_matrix
+      - minimum_valid_test_portfolio_selection
+      - survey_panel_test_design
+      - price_test_execution_planning
+      - message_copy_test_planning
+      - channel_conversion_test_planning
+      - forecast_assumption_validation_planning
+      - creator_pilot_validation_planning
+      - private_internal_data_validation_path
+      - pass_fail_decision_rule_definition
+      - sample_and_data_requirement_mapping
+      - experiment_validity_audit
+      - synthetic_persona_limit_policy
+      - context_budget_control
+      - targeted_validation_lookup_only
+      - validation_decision_gate
+    required_evidence:
+      - project_brief
+      - all_major_handoff_packs_or_report_state
+      - data_gap_log_or_confidence_caps
+      - decision_log_or_next_decision_context
+      - S01_market_sizing_segment_channel_price_gaps_when_available
+      - S02_validation_question_seed_when_available
+      - S03_message_test_backlog_when_available
+      - S04_wtp_and_pricing_test_plans_when_available
+      - S05_copy_test_backlog_when_available
+      - S06_creator_test_backlog_when_available
+      - S07_page_experiment_plan_and_tracking_readiness_when_available
+      - S08_validation_need_map_and_sensitivity_drivers_when_available
+      - validation_budget_timeline_or_explicit_gap
+      - sample_tracking_or_channel_access_or_explicit_gap
+      - targeted_lookup_plan_or_no_lookup_needed
+    forbidden_scope:
+      - rerunning_market_research_from_scratch
+      - final_price_budget_channel_inventory_creative_or_creator_approval
+      - treating_synthetic_personas_as_real_respondents
+      - treating_survey_intent_as_sales
+      - treating_clicks_likes_or_views_as_sales
+      - treating_retailer_sell_in_as_consumer_sell_through
+      - broad_web_search_or_large_context_rehydration
+      - reopening_full_upstream_artifacts_without_context_escalation
+      - exposing_private_raw_inputs_in_public_html
+      - final_html_composition
+    output_contract:
+      - validation_input_coverage_gate
+      - assumption_inventory
+      - validation_question_backlog
+      - experiment_priority_scorecard
+      - validation_experiment_roadmap
+      - survey_test_plan
+      - pricing_message_copy_test_plan
+      - channel_conversion_forecast_test_plan
+      - experiment_design_cards
+      - pass_fail_decision_rules
+      - sample_and_data_requirement_map
+      - owner_timeline_effort_map
+      - validation_decision_gate
+      - van_westendorp_execution_brief
+      - gabor_granger_execution_brief
+      - conjoint_dce_execution_brief
+      - landing_page_ab_test_brief
+      - creator_pilot_test_brief
+      - retailer_channel_validation_brief
+      - forecast_assumption_validation_brief
+      - private_data_validation_path
+      - post_launch_learning_plan
+      - targeted_lookup_log
+      - context_budget_report
+      - html_validation_section
+    output_tiers:
+      core:
+        - validation_input_coverage_gate
+        - assumption_inventory
+        - validation_question_backlog
+        - experiment_priority_scorecard
+        - validation_experiment_roadmap
+        - survey_test_plan
+        - pricing_message_copy_test_plan
+        - channel_conversion_forecast_test_plan
+        - experiment_design_cards
+        - pass_fail_decision_rules
+        - sample_and_data_requirement_map
+        - owner_timeline_effort_map
+        - validation_decision_gate
+      conditional:
+        - van_westendorp_execution_brief
+        - gabor_granger_execution_brief
+        - conjoint_dce_execution_brief
+        - landing_page_ab_test_brief
+        - creator_pilot_test_brief
+        - retailer_channel_validation_brief
+        - forecast_assumption_validation_brief
+        - private_data_validation_path
+        - post_launch_learning_plan
+      audit:
+        - assumption_source_trace
+        - experiment_validity_audit
+        - excluded_or_deferred_tests_log
+        - private_data_exclusion_log
+        - synthetic_persona_use_log
+        - targeted_lookup_log
+        - context_budget_report
+
+  S14.compose-html-gtm-dashboard:
+    purpose: Render accumulated report state into a polished HTML dashboard.
+    scientific_methods:
+      - render_input_gate
+      - section_registry_composition
+      - information_hierarchy
+      - confidence_badge_rendering
+      - citation_indexing
+      - data_gap_panel_rendering
+      - chart_data_validation
+      - executive_narrative_synthesis
+      - private_local_calculator_rendering
+      - offline_static_html_policy
+      - render_quality_gate
+    required_evidence:
+      - report_state
+      - evidence_ledger
+      - html_section_drafts
+      - data_gap_log
+      - decision_log
+    forbidden_scope:
+      - inventing_missing_analysis
+      - changing_upstream_conclusions_without_decision_log
+      - hiding_low_confidence_or_data_gaps
+    output_contract:
+      - render_input_gate
+      - section_registry_instance
+      - executive_summary_panel
+      - dashboard_navigation
+      - full_html_dashboard
+      - static_assets
+      - citation_index
+      - confidence_badge_map
+      - data_gap_panel
+      - render_quality_report
+      - static_asset_manifest
+    output_tiers:
+      core:
+        - render_input_gate
+        - section_registry_instance
+        - executive_summary_panel
+        - dashboard_navigation
+        - confidence_badge_map
+        - citation_index
+        - data_gap_panel
+        - full_html_dashboard
+        - render_quality_report
+      conditional:
+        - private_pricing_calculator_component
+        - validation_roadmap_panel
+        - appendix_artifact_index
+        - methodology_appendix
+        - evidence_ledger_appendix
+        - print_export_notes
+        - static_asset_manifest

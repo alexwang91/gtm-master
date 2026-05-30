@@ -1,0 +1,4 @@
+interface:
+  display_name: "DTC Conversion Planning"
+  short_description: "Plan prelaunch DTC/PDP requirements or diagnose live funnel friction."
+  default_prompt: "Use $predict-dtc-conversion to optionally plan or diagnose DTC, landing-page, PDP, preorder, waitlist, checkout, or campaign-to-page conversion using GTM message, price, proof, trust, competitor and previous-generation benchmarks, page/funnel text, analytics evidence, and HTML report readiness."

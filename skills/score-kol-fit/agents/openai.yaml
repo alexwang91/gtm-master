@@ -1,0 +1,4 @@
+interface:
+  display_name: "KOL Fit Scoring"
+  short_description: "Discover and score KOL fit, reasons, budget ranges, outcomes, and risk."
+  default_prompt: "Use $score-kol-fit to discover or evaluate creator/KOL archetypes or candidates against local sources, segment trust needs, proof requirements, local platforms, budget/outcome feasibility, brand safety, disclosure risk, and HTML report readiness."

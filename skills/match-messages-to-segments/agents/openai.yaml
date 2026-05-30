@@ -1,0 +1,4 @@
+interface:
+  display_name: "Message Architecture"
+  short_description: "Turn JTBD scenarios into segment-level message architecture."
+  default_prompt: "Use match-messages-to-segments to convert JTBD scenarios, proof needs, objections, and local language signals into message architecture, feature-benefit-proof matrices, price message seeds, and HTML report sections."

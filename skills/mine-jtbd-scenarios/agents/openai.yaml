@@ -1,0 +1,4 @@
+interface:
+  display_name: "JTBD Scenarios"
+  short_description: "Turn local consumer evidence into prioritized JTBD demand scenarios."
+  default_prompt: "Use mine-jtbd-scenarios to convert S01 market context handoffs into evidence-backed JTBD scenarios, proof needs, anti-JTBD risks, and HTML report section drafts."

@@ -1,0 +1,4290 @@
+{
+  "report_id": "通用硬件试跑：S00-S09 当前看板",
+  "generated_at": "2026-05-25",
+  "purpose": "Current dry-run for validating S00 orchestration, S01-S09 analysis handoffs, and Chinese HTML dashboard composition without live web search.",
+  "dry_run_policy": {
+    "real_market_claims": false,
+    "real_web_evidence": false,
+    "web_policy": "no_live_web_for_dry_run",
+    "default_output_language": "zh-CN",
+    "allowed_source_refs": [
+      "dryrun://fixture/*",
+      "dryrun://handoff/*",
+      "dryrun://section/*",
+      "dryrun://evidence/*"
+    ],
+    "forbidden_runtime_actions": [
+      "live_search",
+      "real_brand_inference",
+      "country_specific_market_claim",
+      "upstream_full_artifact_reopen_without_escalation"
+    ]
+  },
+  "project_brief": {
+    "project_id": "fixture-generic-hardware",
+    "product_name_or_codename": "Generic Hardware Fixture",
+    "product_category": "2C hardware device",
+    "product_features_and_specs": [
+      "Feature A improves one frequent user task with measurable daily convenience.",
+      "Feature B reduces setup or onboarding friction.",
+      "Feature C creates a visible design, durability, battery, comfort, or portability advantage.",
+      "Measurable specification: one numeric performance or endurance metric is available.",
+      "Setup constraint: one pairing, installation, sizing, network, or compatibility constraint may affect adoption.",
+      "Privacy or safety caveat: user data, body contact, charging, children, elderly, or regulated-adjacent claims need proof before marketing."
+    ],
+    "launch_country_or_region": "Example target country",
+    "target_price_range": "Example local currency price band",
+    "report_depth": "standard",
+    "output_language": "zh-CN",
+    "web_policy": "no_live_web_for_dry_run",
+    "private_inputs_policy": {
+      "cogs_margin_channel_terms": "not_embedded",
+      "offline_calculator_only": true,
+      "raw_private_materials_in_dashboard": false
+    },
+    "assumptions": [
+      "This fixture validates workflow contracts, not business truth.",
+      "All evidence, search, citation, and competitor signals are synthetic placeholders.",
+      "Optional modules are skipped unless product facts or user materials trigger them."
+    ]
+  },
+  "management_summary": {
+    "status": "试跑样例",
+    "headline": "管理层摘要：先用中性开盘验证需求，再按证明链决定放量",
+    "confidence_note": "当前为试跑样例；正式报告会使用市场空间、品牌力、价格竞争力、产品竞争力、渠道能力和私密输入刷新。",
+    "kpis": [
+      {
+        "label": "期望周均销量",
+        "value": "180-260 台/周",
+        "note": "由市场空间、品牌力、价格竞争力和产品竞争力共同约束"
+      },
+      {
+        "label": "30/60 天预测",
+        "value": "720 / 1,560 台",
+        "note": "按上市初期爬坡和渠道准备度估算"
+      },
+      {
+        "label": "MKT 预算",
+        "value": "50,000 美元",
+        "note": "优先投向搜索验证、评测证明和渠道联合曝光"
+      },
+      {
+        "label": "渠道优先级",
+        "value": "示例电商一号 > 示例电器零售二号 > 示例运营商三号",
+        "note": "正式运行时由 S01 根据目标国家真实渠道名生成"
+      },
+      {
+        "label": "当前置信度",
+        "value": "低-中",
+        "note": "缺少真实竞品、渠道、销量和消费者声音证据"
+      }
+    ],
+    "local_channel_priority": [
+      {
+        "rank": 1,
+        "channel_name": "示例电商一号",
+        "channel_type": "本地电商/市场平台",
+        "role": "价格同屏、竞品比较、转化测试",
+        "reason": "适合验证价格锚点、竞品同屏和搜索转化。",
+        "evidence_status": "试跑占位，正式运行需联网确认",
+        "next_action": "S01 联网采集真实渠道名、类目页、竞品数量、评价量和价格信号。"
+      },
+      {
+        "rank": 2,
+        "channel_name": "示例电器零售二号",
+        "channel_type": "消费电子零售",
+        "role": "信任背书、线下/线上可见度、首发库存",
+        "reason": "适合建立新品可信度，并检查消费者是否需要零售背书。",
+        "evidence_status": "试跑占位，正式运行需联网确认",
+        "next_action": "确认是否覆盖该品类、是否有同价位竞品、是否支持新品上架或评测内容。"
+      },
+      {
+        "rank": 3,
+        "channel_name": "示例运营商三号",
+        "channel_type": "运营商/捆绑渠道",
+        "role": "资费捆绑、分期、降低一次性支付压力",
+        "reason": "如果产品适合通信、设备、家庭或生态捆绑，可作为放量假设。",
+        "evidence_status": "商业准入待验证",
+        "next_action": "验证该国家运营商是否销售同类硬件、是否有分期或套餐合作空间。"
+      },
+      {
+        "rank": 4,
+        "channel_name": "品牌自营商城",
+        "channel_type": "品牌自营",
+        "role": "承接高意向流量、沉淀用户数据、测试权益组合",
+        "reason": "适合承接搜索、内容和评测导流，但不能替代本地渠道信任。",
+        "evidence_status": "用户渠道假设",
+        "next_action": "如果用户提供页面文字或上一代页面，再由 S07 审计转化结构。"
+      }
+    ],
+    "decision_blocks": [
+      {
+        "title": "MKT 投放建议",
+        "points": [
+          "预算先集中在可验证价值证明和本地搜索词测试。",
+          "上市前不把预算过早压到大规模曝光，先确认价格和主张能转化。",
+          "评测、渠道背书和对比内容优先于纯品牌声量。"
+        ]
+      },
+      {
+        "title": "渠道优先级",
+        "points": [
+          "第一优先：示例电商一号，用于竞品同屏比较、价格锚定和转化测试。",
+          "第二优先：示例电器零售二号，用于建立信任、可见度和首发库存感。",
+          "第三优先：示例运营商三号，用于测试资费捆绑、分期和降低一次性支付压力。"
+        ]
+      },
+      {
+        "title": "核心竞品攻防",
+        "points": [
+          "先锁定同价格带直接竞品，再保留高低跳档替代品。",
+          "如果竞品价格更低，营销重点放在证明、可靠性和渠道信任。",
+          "如果竞品品牌更强，优先寻找细分任务和本地语言搜索空位。"
+        ]
+      },
+      {
+        "title": "下一步验证动作",
+        "points": [
+          "运行 S01 联网采集，确认本地电商、搜索词、论坛和竞品名单。",
+          "运行价格与信息小样本测试，刷新周均销量和 MKT 分配。",
+          "用户如提供上一代销量或渠道数据，优先重算 S08 预测。"
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "section_id": "market_context",
+      "source_skill": "S01.build-consumer-market-map",
+      "section_title": "市场与本地化前置判断",
+      "status": "rendered_with_gaps",
+      "executive_takeaway": "S01 can form the market evidence base, but the dry-run only proves that local search terms, channel map, competitor seeds, segment hypotheses, and evidence gaps can be packaged for S14.",
+      "visual_blocks": [
+        {
+          "visual_block_id": "s01-evidence-coverage-gate",
+          "type": "status_panel",
+          "title": "证据覆盖门禁",
+          "data_source": "evidence_collection_summary",
+          "items": [
+            {
+              "label": "本地电商与零售渠道",
+              "status": "fixture_only"
+            },
+            {
+              "label": "本地搜索词与消费者语言",
+              "status": "fixture_only"
+            },
+            {
+              "label": "竞品与替代品证据",
+              "status": "fixture_only"
+            }
+          ],
+          "note": "Dry-run has no live web collection.",
+          "evidence_refs": [
+            "dryrun://evidence/S01-market-fixture"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s01-local-channel-priority",
+          "type": "matrix_heatmap",
+          "title": "本地渠道发现与优先级",
+          "data_source": "local_channel_priority",
+          "rows": [
+            {
+              "排名": "1",
+              "渠道名": "示例电商一号",
+              "渠道类型": "本地电商/市场平台",
+              "角色": "价格同屏、竞品比较、转化测试",
+              "优先级分": 72,
+              "证据状态": "试跑占位，正式运行需联网确认"
+            },
+            {
+              "排名": "2",
+              "渠道名": "示例电器零售二号",
+              "渠道类型": "消费电子零售",
+              "角色": "信任背书、可见度、首发库存",
+              "优先级分": 66,
+              "证据状态": "试跑占位，正式运行需联网确认"
+            },
+            {
+              "排名": "3",
+              "渠道名": "示例运营商三号",
+              "渠道类型": "运营商/捆绑渠道",
+              "角色": "资费捆绑、分期、降低一次性支付压力",
+              "优先级分": 54,
+              "证据状态": "商业准入待验证"
+            },
+            {
+              "排名": "4",
+              "渠道名": "品牌自营商城",
+              "渠道类型": "品牌自营",
+              "角色": "承接高意向流量、沉淀用户数据、测试权益组合",
+              "优先级分": 48,
+              "证据状态": "用户渠道假设"
+            }
+          ],
+          "columns": [
+            "排名",
+            "渠道名",
+            "渠道类型",
+            "角色",
+            "优先级分",
+            "证据状态"
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "正式运行时，S01 先发现该国家真实电商、零售、运营商、价格比较站和品牌自营渠道，再按可见度、品类相关、竞品存在、价格可比、信任信号、购买路径和商业准入评分。",
+          "evidence_refs": [
+            "dryrun://evidence/S01-local-channel-priority"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s01-local-search-language-map",
+          "type": "matrix_heatmap",
+          "layout": "wide",
+          "title": "本地搜索词与需求语言地图",
+          "data_source": "local_search_term_map",
+          "rows": [
+            {
+              "搜索词": "示例搜索词一",
+              "本地表达": "示例本地语言表达一",
+              "意图阶段": "品类发现",
+              "需求信号分": 62,
+              "竞品发现用途": "找到类目页和相似产品",
+              "证据状态": "试跑占位，正式运行需联网确认"
+            },
+            {
+              "搜索词": "示例比较词二",
+              "本地表达": "示例本地语言表达二",
+              "意图阶段": "比较/评测",
+              "需求信号分": 68,
+              "竞品发现用途": "发现对比页、评测页和替代品",
+              "证据状态": "试跑占位，正式运行需联网确认"
+            },
+            {
+              "搜索词": "示例价格词三",
+              "本地表达": "示例本地语言表达三",
+              "意图阶段": "价格/购买",
+              "需求信号分": 58,
+              "竞品发现用途": "发现价格锚点、促销和渠道",
+              "证据状态": "需要趋势或搜索信号"
+            },
+            {
+              "搜索词": "示例痛点词四",
+              "本地表达": "示例本地语言表达四",
+              "意图阶段": "问题/抱怨",
+              "需求信号分": 52,
+              "竞品发现用途": "发现消费者异议和证明需求",
+              "证据状态": "需要评论或论坛语料"
+            }
+          ],
+          "columns": [
+            "搜索词",
+            "本地表达",
+            "意图阶段",
+            "需求信号分",
+            "竞品发现用途",
+            "证据状态"
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "正式运行时，S01 会用目标国家语言、搜索结果、趋势信号、渠道搜索框、评测标题、论坛语言和竞品页面语言扩展搜索词；趋势只作为相对兴趣，不代表销量。",
+          "evidence_refs": [
+            "dryrun://evidence/S01-local-search-language"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s01-competitor-discovery-shortlist",
+          "type": "matrix_heatmap",
+          "layout": "wide",
+          "title": "竞品发现与初排候选",
+          "data_source": "competitor_candidate_scoring",
+          "rows": [
+            {
+              "竞品名": "示例直接竞品 A",
+              "竞品角色": "直接竞品",
+              "价格带重叠": 74,
+              "功能重叠": 68,
+              "渠道可见度": 70,
+              "评论/销量信号": 55,
+              "威胁分": 71,
+              "证据状态": "用户校准前候选"
+            },
+            {
+              "竞品名": "示例高价锚点 B",
+              "竞品角色": "高价锚点",
+              "价格带重叠": 46,
+              "功能重叠": 62,
+              "渠道可见度": 66,
+              "评论/销量信号": 58,
+              "威胁分": 63,
+              "证据状态": "用户校准前候选"
+            },
+            {
+              "竞品名": "示例低价替代 C",
+              "竞品角色": "低价替代",
+              "价格带重叠": 59,
+              "功能重叠": 50,
+              "渠道可见度": 61,
+              "评论/销量信号": 52,
+              "威胁分": 57,
+              "证据状态": "用户校准前候选"
+            },
+            {
+              "竞品名": "示例上一代产品 D",
+              "竞品角色": "上一代/内部基准",
+              "价格带重叠": 65,
+              "功能重叠": 72,
+              "渠道可见度": 45,
+              "评论/销量信号": 50,
+              "威胁分": 60,
+              "证据状态": "需要用户资料或公开评论"
+            }
+          ],
+          "columns": [
+            "竞品名",
+            "竞品角色",
+            "价格带重叠",
+            "功能重叠",
+            "渠道可见度",
+            "评论/销量信号",
+            "威胁分",
+            "证据状态"
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "初排竞品只用于候选筛选；正式运行应展示 5-10 个候选，让用户校准是否纳入、排除或补充，再把确认后的竞品传给 S02、S03、S04 和 S08。",
+          "evidence_refs": [
+            "dryrun://evidence/S01-competitor-discovery"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s01-local-voice-source-map",
+          "type": "matrix_heatmap",
+          "layout": "wide",
+          "title": "本地消费者声音来源地图",
+          "data_source": "local_voice_source_map",
+          "rows": [
+            {
+              "来源名称": "示例本地论坛一号",
+              "来源类型": "本地论坛/社区",
+              "覆盖对象": "竞品、上一代产品、使用痛点",
+              "采集角色": "发现长文本讨论、反复抱怨和本地表达",
+              "访问状态": "待联网确认",
+              "原始保存": "本地 MD 原文库",
+              "下游用途": "S02 JTBD、S03 证明缺口、S13 验证假设",
+              "证据质量": "试跑占位"
+            },
+            {
+              "来源名称": "示例视频评论入口",
+              "来源类型": "视频评论/评测评论",
+              "覆盖对象": "评测、开箱、对比内容",
+              "采集角色": "捕捉真实异议、口语表达和购买犹豫",
+              "访问状态": "待联网确认",
+              "原始保存": "本地 MD 原文库",
+              "下游用途": "S02 场景、S03 文案证明、S13 信息测试",
+              "证据质量": "试跑占位"
+            },
+            {
+              "来源名称": "示例零售评论入口",
+              "来源类型": "零售/电商评论",
+              "覆盖对象": "已购买用户评价、星级和退货线索",
+              "采集角色": "抽取购买触发、满意/不满驱动和价格异议",
+              "访问状态": "待联网确认",
+              "原始保存": "本地 MD 原文库",
+              "下游用途": "NSS/NPS 种子适用性、S04 价格异议、S08 预测校准",
+              "证据质量": "试跑占位"
+            },
+            {
+              "来源名称": "示例专业媒体评论区",
+              "来源类型": "垂直媒体/专业评测评论",
+              "覆盖对象": "专家评测下方讨论、竞品对比",
+              "采集角色": "验证品类语言、证明需求和对标竞品",
+              "访问状态": "待联网确认",
+              "原始保存": "本地 MD 原文库",
+              "下游用途": "S01 竞品校准、S03 证明链、S13 来源审计",
+              "证据质量": "试跑占位"
+            }
+          ],
+          "columns": [
+            "来源名称",
+            "来源类型",
+            "覆盖对象",
+            "采集角色",
+            "访问状态",
+            "原始保存",
+            "下游用途",
+            "证据质量"
+          ],
+          "note": "正式运行时，S01 会按国家、品类、本地语言和竞品名称发现论坛、评测站、视频评论、零售评论和专业媒体；不能访问或不允许采集的来源要保留为数据缺口。",
+          "evidence_refs": [
+            "dryrun://evidence/S01-local-voice-source-map"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s01-top1-previous-gen-voice-scope",
+          "type": "matrix_heatmap",
+          "layout": "wide",
+          "title": "TOP1竞品与上一代产品声音深挖范围",
+          "data_source": "top1_previous_generation_voice_scope",
+          "rows": [
+            {
+              "对象": "示例TOP1竞品",
+              "对象角色": "最高威胁竞品",
+              "目标来源": "本地论坛、当地语言评测评论、零售评论、视频评论",
+              "采集口径": "观点全量采集，一条不漏",
+              "覆盖状态": "待联网确认来源与页码",
+              "输出": "痛点、赞美点、购买触发、异议、旅程事件、NSS/NPS proxy 输入"
+            },
+            {
+              "对象": "示例上一代产品",
+              "对象角色": "上一代产品/内部或公开基准",
+              "目标来源": "本地论坛、上一代评测评论、售后评论、用户上传资料",
+              "采集口径": "观点全量采集，一条不漏",
+              "覆盖状态": "需要用户资料或公开评论确认",
+              "输出": "代际改进证据、继承痛点、购买触发、退货风险、下一代营销线索"
+            }
+          ],
+          "columns": [
+            "对象",
+            "对象角色",
+            "目标来源",
+            "采集口径",
+            "覆盖状态",
+            "输出"
+          ],
+          "note": "一条不漏指在已确认来源、页码范围、访问权限和平台政策允许下，枚举全部可访问评论、帖子、评测下评论和零售评价；无法访问、删除、登录墙或政策限制的内容进入覆盖缺口。",
+          "evidence_refs": [
+            "dryrun://evidence/S01-top1-previous-gen-voice-scope"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s01-bain-nss-journey-seed-panel",
+          "type": "matrix_heatmap",
+          "layout": "wide",
+          "title": "贝恩NSS/NPS与硬件旅程评分种子面板",
+          "data_source": "bain_nss_journey_seed_panel",
+          "rows": [
+            {
+              "观点类型": "痛点",
+              "贝恩分类输入": "抱怨/异议",
+              "硬件驱动": "可靠性",
+              "旅程阶段": "购买、使用",
+              "旅程评分": 72,
+              "NSS/NPS方向": "贬损者型",
+              "硬件适配": "把可靠性、舒适、续航、兼容和售后拆成可行动根因"
+            },
+            {
+              "观点类型": "赞美点",
+              "贝恩分类输入": "赞美/推荐",
+              "硬件驱动": "设计与舒适",
+              "旅程阶段": "开箱、使用",
+              "旅程评分": 68,
+              "NSS/NPS方向": "推广者型",
+              "硬件适配": "把可感知设计、佩戴/使用舒适和续航体验沉淀为证明素材"
+            },
+            {
+              "观点类型": "购买触发",
+              "贝恩分类输入": "购买触发/价格信号",
+              "硬件驱动": "性价比",
+              "旅程阶段": "购买",
+              "旅程评分": 64,
+              "NSS/NPS方向": "被动满意型",
+              "硬件适配": "识别价格、渠道信任、评测证明和竞品对比带来的临门触发"
+            },
+            {
+              "观点类型": "退货/流失风险",
+              "贝恩分类输入": "退货原因/严重抱怨",
+              "硬件驱动": "退换与保修",
+              "旅程阶段": "使用、售后",
+              "旅程评分": 60,
+              "NSS/NPS方向": "贬损者型",
+              "硬件适配": "把尺寸、兼容、设置、质量和售后摩擦转成营销承诺护栏"
+            }
+          ],
+          "columns": [
+            "观点类型",
+            "贝恩分类输入",
+            "硬件驱动",
+            "旅程阶段",
+            "旅程评分",
+            "NSS/NPS方向",
+            "硬件适配"
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "驱动影响分 Driver Impact Score = 频次归一化 25% + 平均情绪强度 20% + 购买/退货影响 20% + NSS/NPS 分类权重 15% + 新近度 10% + 跨来源一致性 10%。旅程评分在正式运行中由来源条目、观点原子、去重后样本量和跨来源一致性计算。",
+          "evidence_refs": [
+            "dryrun://evidence/S01-bain-nss-journey-seed"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s01-local-selling-point-fit",
+          "type": "matrix_heatmap",
+          "title": "产品卖点与品类主流卖点匹配度",
+          "data_source": "category_selling_point_map",
+          "rows": [
+            {
+              "product_capability": "Feature A",
+              "category_driver": "daily convenience",
+              "fit_score": 62,
+              "proof_readiness": 40
+            },
+            {
+              "product_capability": "Feature B",
+              "category_driver": "setup simplicity",
+              "fit_score": 58,
+              "proof_readiness": 35
+            },
+            {
+              "product_capability": "Feature C",
+              "category_driver": "visible value",
+              "fit_score": 55,
+              "proof_readiness": 30
+            }
+          ],
+          "columns": [
+            "product_capability",
+            "category_driver",
+            "fit_score",
+            "proof_readiness"
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "Fixture scores are only contract placeholders.",
+          "evidence_refs": [
+            "dryrun://evidence/S01-selling-point-fit"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s01-competitor-threat-seeds",
+          "type": "ranked_bar",
+          "title": "潜在竞品与替代品威胁种子",
+          "data_source": "competitor_threat_scores",
+          "items": [
+            {
+              "label": "Direct competitor type A",
+              "score": 70
+            },
+            {
+              "label": "Direct competitor type B",
+              "score": 61
+            },
+            {
+              "label": "Adjacent substitute type C",
+              "score": 52
+            },
+            {
+              "label": "Lower price jump-down option",
+              "score": 46
+            },
+            {
+              "label": "Higher price jump-up option",
+              "score": 43
+            }
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "Real run must identify local ecommerce leaders first, then score competitors by visibility, price overlap, review volume, feature overlap, and decision substitution.",
+          "evidence_refs": [
+            "dryrun://evidence/S01-competitor-seeds"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s01-segment-channel-fit",
+          "type": "matrix_heatmap",
+          "title": "人群假设与渠道触点匹配",
+          "data_source": "segment_channel_touchpoint_map",
+          "rows": [
+            {
+              "segment": "Segment A",
+              "channel": "Local ecommerce",
+              "fit_score": 64
+            },
+            {
+              "segment": "Segment A",
+              "channel": "Consumer electronics retail",
+              "fit_score": 59
+            },
+            {
+              "segment": "Segment B",
+              "channel": "品牌自营",
+              "fit_score": 53
+            }
+          ],
+          "columns": [
+            "segment",
+            "channel",
+            "fit_score"
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "Weak but commercially important segments stay as hypotheses with data gaps.",
+          "evidence_refs": [
+            "dryrun://evidence/S01-segment-channel"
+          ],
+          "confidence": "hypothesis_only"
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "s01-localization-preflight",
+          "title": "本地化前置清单",
+          "rows": [
+            {
+              "check": "local ecommerce discovery",
+              "status": "requires_live_search"
+            },
+            {
+              "check": "local forum and video source discovery",
+              "status": "requires_live_search"
+            },
+            {
+              "check": "local language search term expansion",
+              "status": "requires_trends_or_search_signals"
+            }
+          ]
+        },
+        {
+          "table_id": "s01-channel-scoring-method",
+          "title": "渠道发现评分逻辑",
+          "rows": [
+            {
+              "评分项": "本地可见度",
+              "说明": "渠道在目标国家搜索结果、价格比较站、评测内容和本地零售环境中的可见程度。"
+            },
+            {
+              "评分项": "品类相关与竞品存在",
+              "说明": "同类产品或相似价格段竞品是否已经在该渠道出现，是否有评价、库存和价格信号。"
+            },
+            {
+              "评分项": "购买路径与转化准备",
+              "说明": "是否能完成购买、分期、资费捆绑、退换货、售后承诺和本地语言支持。"
+            },
+            {
+              "评分项": "商业准入与验证价值",
+              "说明": "是否可作为首发、价格测试、渠道背书、竞品监测或销量预测校准信号。"
+            }
+          ]
+        },
+        {
+          "table_id": "s01-search-competitor-method",
+          "title": "本地搜索词与竞品发现方法",
+          "rows": [
+            {
+              "步骤": "本地语言种子生成",
+              "方法": "从品类词、功能词、痛点词、价格词、比较词、竞品词和本地同义表达生成搜索种子。",
+              "输出": "可追踪的搜索词池、意图阶段和证据状态。"
+            },
+            {
+              "步骤": "渠道与搜索结果发现",
+              "方法": "从本地电商、价格比较站、评测页、论坛、视频标题、搜索联想和渠道搜索框中识别真实购买路径。",
+              "输出": "本地渠道入口、内容来源、产品页和评论来源候选。"
+            },
+            {
+              "步骤": "竞品初排公式",
+              "方法": "威胁分 = 价格带重叠 25% + 功能重叠 20% + 渠道可见度 20% + 评论/销量信号 20% + 替代角色 15%。",
+              "输出": "直接竞品、高价锚点、低价替代、上一代产品和生态锚点候选。"
+            },
+            {
+              "步骤": "用户校准",
+              "方法": "正式报告前展示 5-10 个候选，让用户勾选保留、排除或补充；被校准后的名单才进入后续模块。",
+              "输出": "已确认竞品集、排除理由、补充竞品和数据缺口。"
+            }
+          ]
+        },
+        {
+          "table_id": "s01-voice-storage-compression-policy",
+          "title": "原始声音保存与压缩策略",
+          "rows": [
+            {
+              "步骤": "来源发现",
+              "策略": "按国家、品类词、竞品词、上一代产品词和本地语言表达发现论坛、视频评论、零售评论、专业媒体和私密用户资料。",
+              "输出": "来源名称、链接、访问状态、来源类型、覆盖对象和证据质量标签。"
+            },
+            {
+              "步骤": "原文留存",
+              "策略": "可访问且允许采集的公开内容保存为本地 MD 原文库；保留 URL、访问日期、语言、产品/竞品归属和采集覆盖记录。",
+              "输出": "本地 MD 原文库、来源索引和可审计引用。"
+            },
+            {
+              "步骤": "压缩传递",
+              "策略": "下游技能不接收全文评论，只传压缩主题簇、代表性短摘、来源引用、样本量、覆盖缺口和置信度。",
+              "输出": "只传压缩主题簇，避免上下文超载和注意力漂移。"
+            },
+            {
+              "步骤": "NSS/NPS 种子适用性",
+              "策略": "只有样本量、来源质量、国家匹配和分类清晰度足够时，才输出 NSS/NPS 方向性种子；不足时只输出声音主题和数据缺口。",
+              "输出": "NSS/NPS 种子适用性、驱动因素候选和需要补采的来源。"
+            }
+          ]
+        },
+        {
+          "table_id": "s01-top1-voice-collection-method",
+          "title": "TOP1竞品与上一代观点全量采集方法",
+          "rows": [
+            {
+              "步骤": "对象锁定",
+              "方法": "从用户校准后的竞品候选中锁定 TOP1 竞品，并把上一代产品或内部基准作为第二个深挖对象。",
+              "输出": "TOP1竞品、上一代产品、对象角色、进入深挖的理由。"
+            },
+            {
+              "步骤": "来源锁定",
+              "方法": "按国家、本地语言、品类词、竞品名、上一代型号名发现论坛、当地语言评测评论、零售评论和视频评论。",
+              "输出": "来源清单、URL、页码范围、访问状态、采集限制。"
+            },
+            {
+              "步骤": "观点全量采集覆盖报告",
+              "方法": "在确认范围内枚举全部可访问 source item；每页、每楼层、每条评论都记录采集状态，做到一条不漏。被删除、登录墙、地区限制或政策限制的内容不补写，进入缺口日志。",
+              "输出": "source item 数、去重后样本数、遗漏原因、覆盖率、原始 MD 引用。"
+            },
+            {
+              "步骤": "观点原子化",
+              "方法": "一条长评论可拆成多个 voice atom，但样本量仍按 source item 计数，避免频次被放大。",
+              "输出": "痛点、赞美点、购买触发、异议、价格信号、信任信号、旅程事件。"
+            },
+            {
+              "步骤": "贝恩/NSS/NPS 处理",
+              "方法": "在来源条目层判断推广者型、被动满意型、贬损者型或无法分类，再把驱动因素送入 Bain Driver Impact Score。",
+              "输出": "NSS/NPS 代理组成、Driver Impact Score、驱动方向、置信度上限。"
+            },
+            {
+              "步骤": "硬件旅程适配",
+              "方法": "保留贝恩逻辑，把旅程落到购买、开箱、设置/配对、首次使用、前 7 天、应用体验、售后/退货、复购/推荐。",
+              "输出": "购买、开箱、使用等旅程评分，以及营销需要证明、教育或规避的事项。"
+            }
+          ]
+        }
+      ],
+      "confidence_badges": [
+        {
+          "label": "Hypothesis",
+          "reason": "Dry-run fixture only"
+        }
+      ],
+      "data_gaps": [
+        "real_local_ecommerce_leader_list",
+        "real_local_search_terms",
+        "real_competitor_review_and_price_evidence",
+        "real_forum_or_video_voice_atoms"
+      ],
+      "citations": [
+        "C-DRY-001"
+      ],
+      "handoff_ref": "dryrun://handoff/S01-market-context"
+    },
+    {
+      "section_id": "jtbd_scenarios",
+      "source_skill": "S02.mine-jtbd-scenarios",
+      "section_title": "JTBD 场景与消费者声音",
+      "status": "rendered_with_gaps",
+      "executive_takeaway": "S02 converts S01 market, segment, competitor, and voice seeds into prioritized jobs, use cases, proof needs, and non-consumption risks.",
+      "visual_blocks": [
+        {
+          "visual_block_id": "s02-input-coverage",
+          "type": "status_panel",
+          "title": "上游输入覆盖门禁",
+          "data_source": "upstream_input_coverage_gate",
+          "items": [
+            {
+              "label": "S01 segment seeds",
+              "status": "available_fixture"
+            },
+            {
+              "label": "voice atoms",
+              "status": "missing_real_evidence"
+            },
+            {
+              "label": "competitor and substitute map",
+              "status": "available_fixture"
+            }
+          ],
+          "note": "Real run should keep original voice atoms in local artifacts and pass only compressed clusters downstream.",
+          "evidence_refs": [
+            "dryrun://evidence/S02-input-gate"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s02-scenario-priority",
+          "type": "ranked_bar",
+          "title": "场景优先级评分",
+          "data_source": "scenario_priority_scorecard",
+          "items": [
+            {
+              "label": "Scenario A: frequent daily trigger",
+              "score": 68
+            },
+            {
+              "label": "Scenario B: proof-heavy premium trigger",
+              "score": 57
+            },
+            {
+              "label": "Scenario C: setup-friction avoidance",
+              "score": 51
+            }
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "Score combines job frequency, dissatisfaction, willingness to switch, product fit, proof readiness, and channel reach.",
+          "evidence_refs": [
+            "dryrun://evidence/S02-scenario-priority"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s02-job-proof-readiness",
+          "type": "matrix_heatmap",
+          "title": "任务适配与证明成熟度",
+          "data_source": "product_job_fit_matrix",
+          "rows": [
+            {
+              "job": "Job A",
+              "fit_score": 66,
+              "proof_readiness": 42,
+              "risk": "claim needs evidence"
+            },
+            {
+              "job": "Job B",
+              "fit_score": 54,
+              "proof_readiness": 35,
+              "risk": "voice evidence missing"
+            }
+          ],
+          "columns": [
+            "job",
+            "fit_score",
+            "proof_readiness",
+            "risk"
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "Proof gaps are passed to S03 and S13.",
+          "evidence_refs": [
+            "dryrun://evidence/S02-job-proof"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s02-anti-jtbd-risk",
+          "type": "ranked_bar",
+          "title": "Anti-JTBD 与不购买风险",
+          "data_source": "anti_jtbd_risk_list",
+          "items": [
+            {
+              "label": "I do not trust the promised benefit",
+              "score": 74
+            },
+            {
+              "label": "I can solve it with an existing device",
+              "score": 60
+            },
+            {
+              "label": "Setup or compatibility feels risky",
+              "score": 56
+            }
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "Anti-JTBD informs message proof, pricing risk, activation risk, and validation experiments.",
+          "evidence_refs": [
+            "dryrun://evidence/S02-anti-jtbd"
+          ],
+          "confidence": "hypothesis_only"
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "s02-voice-source-plan",
+          "title": "真实运行时消费者声音来源计划",
+          "rows": [
+            {
+              "source_type": "local forum",
+              "collection_rule": "discover country-category forums, preserve source URL and language"
+            },
+            {
+              "source_type": "video comments",
+              "collection_rule": "collect public comments only where access and policy allow"
+            },
+            {
+              "source_type": "retailer reviews",
+              "collection_rule": "sample by competitor, price tier, and review recency"
+            }
+          ]
+        }
+      ],
+      "confidence_badges": [
+        {
+          "label": "Needs Evidence",
+          "reason": "No real voice atoms in dry-run"
+        }
+      ],
+      "data_gaps": [
+        "voice_atom_corpus",
+        "language_specific_phrases",
+        "forum_source_accessibility_check",
+        "competitor_previous_generation_reviews"
+      ],
+      "citations": [
+        "C-DRY-002"
+      ],
+      "handoff_ref": "dryrun://handoff/S02-jtbd-scenarios"
+    },
+    {
+      "section_id": "message_architecture",
+      "source_skill": "S03.match-messages-to-segments",
+      "section_title": "卖点、信息架构与证明链",
+      "status": "rendered_with_gaps",
+      "executive_takeaway": "S03 maps product capabilities to segment jobs, objections, proof needs, and local-language message routes without creating final ads unless S05 is triggered.",
+      "visual_blocks": [
+        {
+          "visual_block_id": "s03-message-fit",
+          "type": "matrix_heatmap",
+          "title": "人群与核心信息匹配",
+          "data_source": "segment_message_architecture",
+          "rows": [
+            {
+              "segment": "Segment A",
+              "message_route": "benefit-first",
+              "fit_score": 65,
+              "proof_readiness": 41
+            },
+            {
+              "segment": "Segment B",
+              "message_route": "friction-removal",
+              "fit_score": 58,
+              "proof_readiness": 36
+            }
+          ],
+          "columns": [
+            "segment",
+            "message_route",
+            "fit_score",
+            "proof_readiness"
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "Dry-run routes are placeholders.",
+          "evidence_refs": [
+            "dryrun://evidence/S03-message-fit"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s03-feature-benefit-proof",
+          "type": "matrix_heatmap",
+          "title": "功能-利益-证明矩阵",
+          "data_source": "feature_benefit_proof_matrix",
+          "rows": [
+            {
+              "feature": "Feature A",
+              "benefit": "daily convenience",
+              "required_proof": "measurable before-after or benchmark",
+              "proof_score": 42
+            },
+            {
+              "feature": "Feature B",
+              "benefit": "lower setup friction",
+              "required_proof": "setup time and failure-rate evidence",
+              "proof_score": 36
+            }
+          ],
+          "columns": [
+            "feature",
+            "benefit",
+            "required_proof",
+            "proof_score"
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "Proof requirements become S13 validation tasks.",
+          "evidence_refs": [
+            "dryrun://evidence/S03-proof"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s03-objection-severity",
+          "type": "ranked_bar",
+          "title": "异议严重度排序",
+          "data_source": "objection_matrix",
+          "items": [
+            {
+              "label": "benefit not credible",
+              "score": 76
+            },
+            {
+              "label": "price feels high without proof",
+              "score": 68
+            },
+            {
+              "label": "setup or compatibility anxiety",
+              "score": 55
+            }
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "Objections should not be hidden; they become proof and test requirements.",
+          "evidence_refs": [
+            "dryrun://evidence/S03-objections"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s03-claim-risk-gate",
+          "type": "status_panel",
+          "title": "主张风险与证明门禁",
+          "data_source": "claim_risk_and_proof_gate",
+          "items": [
+            {
+              "label": "performance claim",
+              "status": "needs_benchmark"
+            },
+            {
+              "label": "wellness or safety-adjacent claim",
+              "status": "avoid_or_validate"
+            },
+            {
+              "label": "competitive superiority claim",
+              "status": "needs_source"
+            }
+          ],
+          "note": "If regulated-adjacent claims appear, future S10 should be triggered.",
+          "evidence_refs": [
+            "dryrun://evidence/S03-claim-risk"
+          ],
+          "confidence": "hypothesis_only"
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "s03-message-output-boundary",
+          "title": "本模块输出边界",
+          "rows": [
+            {
+              "output": "message architecture",
+              "included": true
+            },
+            {
+              "output": "final ad copy",
+              "included": false
+            },
+            {
+              "output": "image or creative asset generation",
+              "included": false
+            }
+          ]
+        }
+      ],
+      "confidence_badges": [
+        {
+          "label": "Proof Gap",
+          "reason": "Message claims need real evidence"
+        }
+      ],
+      "data_gaps": [
+        "local_language_message_terms",
+        "claim_evidence_sources",
+        "objection_voice_atoms"
+      ],
+      "citations": [
+        "C-DRY-003"
+      ],
+      "handoff_ref": "dryrun://handoff/S03-message-architecture"
+    },
+    {
+      "section_id": "pricing",
+      "source_skill": "S04.model-price-sensitivity",
+      "section_title": "开盘价格策略与利润边界",
+      "status": "rendered_with_gaps",
+      "executive_takeaway": "S04 先判断这个产品适合高开建定位、平价承接主流、低价攻击市场，还是小众高价；收入最大点和利润最大点只通过本地私密优化器计算。",
+      "visual_blocks": [
+        {
+          "visual_block_id": "s04-opening-price-strategy",
+          "type": "status_panel",
+          "title": "开盘价格策略",
+          "data_source": "opening_price_strategy",
+          "items": [
+            {
+              "label": "推荐开盘打法",
+              "value": "高开 + 受控促销",
+              "note": "当产品需要建立定位、证明还不完整、又不能被低价锚定时优先使用。"
+            },
+            {
+              "label": "适用前提",
+              "value": "有明确差异化和可见价值",
+              "note": "本 dry-run 暂用假设分，真实运行要接入竞品价格、评论和渠道证据。"
+            },
+            {
+              "label": "不能过低的原因",
+              "value": "防止定位塌陷和渠道毛利不足",
+              "note": "需要用 COGS、渠道条款和生命周期促销计划验证。"
+            },
+            {
+              "label": "可降价触发点",
+              "value": "证明不足或转化偏弱",
+              "note": "优先改 offer 和证明链，再决定是否让价格承担主要转化压力。"
+            }
+          ],
+          "note": "先判断开盘打法，再进入价格走廊、利润边界和验证计划；避免只给一个孤立价格。",
+          "evidence_refs": [
+            "dryrun://evidence/S04-opening-strategy"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s04-opening-strategy-scores",
+          "type": "ranked_bar",
+          "title": "开盘策略适配度评分",
+          "data_source": "opening_price_strategy.strategy_scores",
+          "items": [
+            {
+              "label": "高开 + 受控促销",
+              "score": 72,
+              "note": "品牌或产品力可支撑定位，但证明链和渠道试探还要补。"
+            },
+            {
+              "label": "平价承接主流",
+              "score": 64,
+              "note": "适合竞争密集、消费者有明确参照物的价格带。"
+            },
+            {
+              "label": "小众高价守利润",
+              "score": 58,
+              "note": "适合冷品类、低竞争、高毛利或无法快速上量的情况。"
+            },
+            {
+              "label": "低价攻击市场",
+              "score": 46,
+              "note": "只有成本优势、渠道承诺和供给能力都成立时才建议使用。"
+            }
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "评分由品牌力、竞品密度、产品竞争力、价格敏感、毛利弹性、渠道能力和证明成熟度加权。",
+          "evidence_refs": [
+            "dryrun://evidence/S04-strategy-scores"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s04-launch-price-architecture",
+          "type": "range_chart",
+          "title": "上市价格架构",
+          "data_source": "launch_price_architecture",
+          "items": [
+            {
+              "label": "绝对底线价",
+              "min": 28,
+              "max": 32,
+              "note": "由私密 COGS、渠道费用、退货/服务成本和目标毛利决定。"
+            },
+            {
+              "label": "促销成交价",
+              "min": 35,
+              "max": 42,
+              "note": "用于 launch offer、渠道活动或限时套装。"
+            },
+            {
+              "label": "主推成交带",
+              "min": 48,
+              "max": 58,
+              "note": "结合本地竞品锚点、WTP 先验和产品证明强度设定。"
+            },
+            {
+              "label": "标价 / MSRP",
+              "min": 64,
+              "max": 72,
+              "note": "负责定位和折扣空间，不能脱离竞品与渠道接受度。"
+            },
+            {
+              "label": "收入最大点",
+              "min": 0,
+              "max": 0,
+              "note": "由本地私密优化器在候选价格网格中计算，不在报告状态中保存。"
+            },
+            {
+              "label": "利润最大点",
+              "min": 0,
+              "max": 0,
+              "note": "由本地私密优化器在候选价格网格中计算，不在报告状态中保存。"
+            }
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "这里的区间是 dry-run 指数，正式版要换成本地货币价格和渠道条款。",
+          "evidence_refs": [
+            "dryrun://evidence/S04-price-architecture"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s04-rapid-wtp-prior",
+          "type": "ranked_bar",
+          "title": "快速 WTP 先验与证据上限",
+          "data_source": "rapid_price_prior.factor_scores",
+          "items": [
+            {
+              "label": "本地价格锚点适配",
+              "score": 62,
+              "note": "来自竞品价位、促销价、价格跳档和渠道可见度。"
+            },
+            {
+              "label": "购买力适配",
+              "score": 55,
+              "note": "结合目标国家收入、PPP、消费电子支出和价格段相对压力。"
+            },
+            {
+              "label": "产品竞争力适配",
+              "score": 60,
+              "note": "由卖点差异、规格优势、品类主流需求和证明成熟度决定。"
+            },
+            {
+              "label": "品牌/渠道信任",
+              "score": 50,
+              "note": "品牌搜索、渠道背书、零售覆盖和售后信号影响价格接受度。"
+            },
+            {
+              "label": "证明成熟度",
+              "score": 42,
+              "note": "评测、评论、KOL、认证和可验证 demo 决定能否支撑高开。"
+            }
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "Rapid WTP Prior 是没有实际调研时的一键先验；证据等级会限制置信度上限。",
+          "evidence_refs": [
+            "dryrun://evidence/S04-rapid-wtp-prior"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s04-segment-price-cards",
+          "type": "matrix_heatmap",
+          "title": "人群 WTP 与价格敏感性",
+          "data_source": "segment_wtp_hypothesis",
+          "rows": [
+            {
+              "人群": "效率型用户",
+              "WTP 先验": 56,
+              "价格敏感": 69,
+              "证明依赖": 76,
+              "建议动作": "强化任务收益"
+            },
+            {
+              "人群": "品质升级用户",
+              "WTP 先验": 74,
+              "价格敏感": 47,
+              "证明依赖": 65,
+              "建议动作": "强化设计与可靠性"
+            },
+            {
+              "人群": "价格防御用户",
+              "WTP 先验": 52,
+              "价格敏感": 80,
+              "证明依赖": 64,
+              "建议动作": "用套装或分期降低心理门槛"
+            }
+          ],
+          "columns": [
+            "人群",
+            "WTP 先验",
+            "价格敏感",
+            "证明依赖",
+            "建议动作"
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "人群价格判断先按国家收入、竞品销量/评论速度、渠道价格和需求强度形成假设，再交给 S13 验证。",
+          "evidence_refs": [
+            "dryrun://evidence/S04-wtp"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s04-proof-stack",
+          "type": "matrix_heatmap",
+          "title": "价格证明栈",
+          "data_source": "price_value_proof_matrix",
+          "rows": [
+            {
+              "证明": "核心卖点 A",
+              "当前强度": 58,
+              "缺口强度": 42,
+              "用途": "支撑主推成交带"
+            },
+            {
+              "证明": "竞品对比优势",
+              "当前强度": 50,
+              "缺口强度": 36,
+              "用途": "减少价格异议"
+            },
+            {
+              "证明": "评测/评论/渠道背书",
+              "当前强度": 44,
+              "缺口强度": 60,
+              "用途": "支撑高开和后续促销"
+            }
+          ],
+          "columns": [
+            "证明",
+            "当前强度",
+            "缺口强度",
+            "用途"
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "价格不能只靠数字解释，必须说明消费者为什么愿意为这个产品付这笔钱。",
+          "evidence_refs": [
+            "dryrun://evidence/S04-proof-stack"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s04-price-risk",
+          "type": "ranked_bar",
+          "title": "定价风险护栏",
+          "data_source": "price_risk_guardrail",
+          "items": [
+            {
+              "label": "低开损伤定位",
+              "score": 78,
+              "note": "上市早期价格锚点会影响后续促销空间和渠道谈判。"
+            },
+            {
+              "label": "高开转化不足",
+              "score": 76,
+              "note": "如果证明链不足，营销要先补信任和价值感。"
+            },
+            {
+              "label": "跳档替代风险",
+              "score": 64,
+              "note": "消费者可能向更低或更高价格段跳转。"
+            },
+            {
+              "label": "渠道毛利不足",
+              "score": 60,
+              "note": "低价攻击会消耗渠道积极性和售后缓冲。"
+            }
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "风险位置会转成营销要潜意识解决的问题：证明、比较、套装、分期、口碑和渠道背书。",
+          "evidence_refs": [
+            "dryrun://evidence/S04-risk"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s04-private-profit-revenue-optimizer-readiness",
+          "type": "status_panel",
+          "title": "私密利润与收入优化器",
+          "data_source": "private_profit_revenue_optimizer_spec",
+          "items": [
+            {
+              "label": "收入最大点",
+              "value": "浏览器本地计算",
+              "note": "使用价格弹性、基准需求、MKT 响应和渠道可得性。"
+            },
+            {
+              "label": "利润最大点",
+              "value": "浏览器本地计算",
+              "note": "需要 COGS、渠道费用、可变成本和 MKT 投入。"
+            },
+            {
+              "label": "是否写回报告状态",
+              "value": "否",
+              "note": "保护企业敏感输入。"
+            },
+            {
+              "label": "候选价格网格",
+              "value": "20-50 个价格点",
+              "note": "正式版可按国家货币精度自动生成。"
+            }
+          ],
+          "note": "敏感输入只在 HTML 页面中计算，不进入联网搜索、handoff 或后续模型上下文。",
+          "evidence_refs": [
+            "dryrun://evidence/S04-private-optimizer"
+          ],
+          "confidence": "contract_ready"
+        },
+        {
+          "visual_block_id": "s04-price-path-30-60-90",
+          "type": "matrix_heatmap",
+          "title": "30/60/90 价格路径",
+          "data_source": "price_path_30_60_90",
+          "rows": [
+            {
+              "阶段": "0-30 天",
+              "价格动作": "高开试探",
+              "观察信号": "转化、评论、渠道反馈",
+              "触发条件": "证明链不足则补证据"
+            },
+            {
+              "阶段": "31-60 天",
+              "价格动作": "受控促销",
+              "观察信号": "广告 CAC、搜索量、库存速度",
+              "触发条件": "转化弱则调整 offer"
+            },
+            {
+              "阶段": "61-90 天",
+              "价格动作": "稳定价格走廊",
+              "观察信号": "复购/口碑、竞品反应",
+              "触发条件": "进入利润或规模优先策略"
+            }
+          ],
+          "columns": [
+            "阶段",
+            "价格动作",
+            "观察信号",
+            "触发条件"
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "价格路径要和生命周期、MKT 投入、渠道谈判和证明成熟度一起看。",
+          "evidence_refs": [
+            "dryrun://evidence/S04-price-path"
+          ],
+          "confidence": "hypothesis_only"
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "s04-opening-strategy-formulas",
+          "title": "开盘策略评分逻辑",
+          "rows": [
+            {
+              "评分项": "高开锚定分",
+              "计算逻辑": "品牌力、差异化、证明成熟度、渠道信任、竞品空位越高，越适合高开。"
+            },
+            {
+              "评分项": "低价攻击分",
+              "计算逻辑": "成本优势、供给能力、渠道覆盖、竞品密度越高，越适合用价格打开市场。"
+            },
+            {
+              "评分项": "小众高价分",
+              "计算逻辑": "品类偏冷、竞争弱、需求集中、无法快速上量时，优先守住利润和定位。"
+            },
+            {
+              "评分项": "平价承接分",
+              "计算逻辑": "品类成熟且参照物明确时，选择主流价格带承接需求。"
+            }
+          ]
+        },
+        {
+          "table_id": "s04-private-optimizer-inputs",
+          "title": "私密优化器本地输入",
+          "rows": [
+            {
+              "输入": "销售成本/物料成本、渠道费用、可变服务成本",
+              "是否进入 handoff": "否"
+            },
+            {
+              "输入": "候选价格、折扣、MKT 投入",
+              "是否进入 handoff": "否"
+            },
+            {
+              "输入": "基准需求量、价格弹性、渠道/证明/MKT 倍率",
+              "是否进入 handoff": "否"
+            },
+            {
+              "输入": "收入最大点、利润最大点",
+              "是否进入 handoff": "仅用户主动批准时进入摘要"
+            }
+          ]
+        },
+        {
+          "table_id": "s04-price-test-options",
+          "title": "价格测试方案",
+          "rows": [
+            {
+              "方法": "一键先验生成",
+              "适用场景": "没有时间调研时，先用国家收入、竞品价、销量/评论速度和品类需求形成可解释假设。"
+            },
+            {
+              "方法": "落地页或广告 A/B",
+              "适用场景": "测试不同价格锚点、offer、证明路线对点击和意向的影响。"
+            },
+            {
+              "方法": "渠道/零售小样本测试",
+              "适用场景": "用真实渠道反馈校准转化和价格接受度。"
+            },
+            {
+              "方法": "S13 验证路线图",
+              "适用场景": "把最影响价格决策的假设排优先级。"
+            }
+          ]
+        }
+      ],
+      "confidence_badges": [
+        {
+          "label": "假设",
+          "reason": "dry-run 未执行真实联网采集和价格测试。"
+        }
+      ],
+      "data_gaps": [
+        "真实竞品价格锚点",
+        "渠道毛利条款",
+        "销售成本或物料成本输入",
+        "价格弹性或支付意愿验证",
+        "营销响应基准"
+      ]
+    },
+    {
+      "section_id": "copy_assets",
+      "source_skill": "S05.score-creative-assets",
+      "section_title": "文案资产",
+      "status": "rendered_with_gaps",
+      "executive_takeaway": "S05 作为文字资产评分与修订模块保留在看板中；没有可编辑文案时，它输出输入清单、评分标准、测试队列和修订方向。",
+      "visual_blocks": [
+        {
+          "visual_block_id": "s05-copy-input-gate",
+          "type": "status_panel",
+          "title": "文案输入覆盖门禁",
+          "data_source": "copy_input_coverage_gate",
+          "note": "S05 只处理可编辑文字；图片、视频和版式作为约束，不作为可直接修改对象。",
+          "evidence_refs": [
+            "dryrun://evidence/s05-copy-input-gate"
+          ],
+          "confidence": "hypothesis_only",
+          "items": [
+            {
+              "label": "S03 信息路线",
+              "status": "样例可用",
+              "note": "可用于判断文案是否贴合人群任务。"
+            },
+            {
+              "label": "可编辑文字",
+              "status": "缺真实输入",
+              "note": "需要标题、PDP 要点、落地页文字、脚本或广告文案。"
+            },
+            {
+              "label": "品牌语气",
+              "status": "缺真实输入",
+              "note": "需要品牌定位、禁用词、批准主张或历史素材。"
+            },
+            {
+              "label": "渠道格式",
+              "status": "缺真实输入",
+              "note": "需要电商、广告、零售、KOL 或官网投放位置。"
+            }
+          ]
+        },
+        {
+          "visual_block_id": "s05-copy-scorecard",
+          "type": "matrix_heatmap",
+          "title": "文案评分与修订需求",
+          "data_source": "copy_message_fit_scorecard",
+          "note": "评分 = 信息路线适配 30% + 证明清晰 25% + 本地语言 20% + 渠道格式 15% + 风险合规 10%。",
+          "evidence_refs": [
+            "dryrun://evidence/s05-copy-scorecard"
+          ],
+          "confidence": "hypothesis_only",
+          "rows": [
+            {
+              "资产类型": "主标题",
+              "信息适配": 66,
+              "证明清晰": 42,
+              "本地语言": 38,
+              "修订动作": "补本地搜索词和可验证利益点"
+            },
+            {
+              "资产类型": "PDP 要点",
+              "信息适配": 61,
+              "证明清晰": 48,
+              "本地语言": 35,
+              "修订动作": "把规格转成购买理由和证据"
+            },
+            {
+              "资产类型": "价格说法",
+              "信息适配": 55,
+              "证明清晰": 40,
+              "本地语言": 32,
+              "修订动作": "加入价格锚点、保修和渠道信任"
+            },
+            {
+              "资产类型": "零售话术",
+              "信息适配": 58,
+              "证明清晰": 44,
+              "本地语言": 36,
+              "修订动作": "转成导购可解释的对比话术"
+            }
+          ],
+          "columns": [
+            "资产类型",
+            "信息适配",
+            "证明清晰",
+            "本地语言",
+            "修订动作"
+          ],
+          "scale_min": 0,
+          "scale_max": 100
+        },
+        {
+          "visual_block_id": "s05-channel-copy-fit",
+          "type": "matrix_heatmap",
+          "title": "渠道文案适配矩阵",
+          "data_source": "channel_copy_fit_matrix",
+          "note": "同一卖点在不同渠道需要不同证据密度和表达长度。",
+          "evidence_refs": [
+            "dryrun://evidence/s05-channel-copy-fit"
+          ],
+          "confidence": "hypothesis_only",
+          "rows": [
+            {
+              "渠道": "本地电商",
+              "主张清晰": 62,
+              "证明需求": 76,
+              "风险": "需要竞品同屏对比"
+            },
+            {
+              "渠道": "零售导购",
+              "主张清晰": 58,
+              "证明需求": 72,
+              "风险": "需要一句话解释和演示点"
+            },
+            {
+              "渠道": "品牌自营",
+              "主张清晰": 64,
+              "证明需求": 68,
+              "风险": "需要承接评测和 FAQ"
+            },
+            {
+              "渠道": "创作者内容",
+              "主张清晰": 54,
+              "证明需求": 80,
+              "风险": "需要真实体验和披露规则"
+            }
+          ],
+          "columns": [
+            "渠道",
+            "主张清晰",
+            "证明需求",
+            "风险"
+          ],
+          "scale_min": 0,
+          "scale_max": 100
+        },
+        {
+          "visual_block_id": "s05-copy-test-backlog",
+          "type": "ranked_bar",
+          "title": "文案测试优先级",
+          "data_source": "copy_test_backlog",
+          "note": "优先级按决策影响、修改成本、测试速度和下游依赖计算。",
+          "evidence_refs": [
+            "dryrun://evidence/s05-copy-test-backlog"
+          ],
+          "confidence": "hypothesis_only",
+          "items": [
+            {
+              "label": "主标题利益点冒烟测试",
+              "score": 82,
+              "note": "先验证消费者是否理解核心价值。"
+            },
+            {
+              "label": "PDP 证明顺序测试",
+              "score": 74,
+              "note": "比较规格、评测、保修和渠道信任的排序。"
+            },
+            {
+              "label": "价格说法测试",
+              "score": 70,
+              "note": "检查高开、促销和价值锚点的接受度。"
+            },
+            {
+              "label": "零售导购话术测试",
+              "score": 62,
+              "note": "用于渠道培训和线下转化。"
+            }
+          ]
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "s05-copy-request-list",
+          "title": "文案资料需求清单",
+          "rows": [
+            {
+              "输入": "可编辑文案",
+              "用途": "评分、修订建议和测试变体",
+              "状态": "需要用户提供"
+            },
+            {
+              "输入": "品牌语气与禁用词",
+              "用途": "避免风格偏移和风险词",
+              "状态": "建议提供"
+            },
+            {
+              "输入": "渠道格式",
+              "用途": "确定字数、结构、CTA 和证明密度",
+              "状态": "建议提供"
+            },
+            {
+              "输入": "历史广告或落地页文字",
+              "用途": "识别延续资产和低效表达",
+              "状态": "可选但高价值"
+            }
+          ]
+        },
+        {
+          "table_id": "s05-method",
+          "title": "文案评分方法",
+          "rows": [
+            {
+              "步骤": "输入覆盖",
+              "方法": "确认是否有可编辑文字、批准主张、品牌语气和渠道格式。"
+            },
+            {
+              "步骤": "信息适配",
+              "方法": "对照 S03 人群信息路线、S02 证明需求和 S04 价格护栏。"
+            },
+            {
+              "步骤": "修订建议",
+              "方法": "只改文字和话术，不要求用户上传图片，也不改不可编辑素材。"
+            },
+            {
+              "步骤": "测试队列",
+              "方法": "把高风险主张、价格说法和本地语言不确定性送入 S13。"
+            }
+          ]
+        }
+      ],
+      "confidence_badges": [
+        {
+          "label": "条件草案",
+          "reason": "dry-run 只补齐方法、输入缺口和可审核输出，不代表真实市场结论。"
+        }
+      ],
+      "data_gaps": [
+        "可编辑文案",
+        "品牌语气",
+        "渠道格式",
+        "批准主张或证明素材"
+      ],
+      "citations": [
+        "C-DRY-005"
+      ],
+      "handoff_ref": "dryrun://handoff/S05-copy-assets"
+    },
+    {
+      "section_id": "creator_kol",
+      "source_skill": "S06.score-kol-fit",
+      "section_title": "KOL 与创作者策略",
+      "status": "rendered_with_gaps",
+      "executive_takeaway": "S06 给出创作者类型、选择理由、预算和预期范围，再等待真实候选与本地平台数据。",
+      "visual_blocks": [
+        {
+          "visual_block_id": "s06-creator-input-gate",
+          "type": "status_panel",
+          "title": "创作者输入覆盖门禁",
+          "data_source": "creator_input_coverage_gate",
+          "note": "S06 不直接拍板人选，先给筛选逻辑、预算区间和预期结果范围。",
+          "evidence_refs": [
+            "dryrun://evidence/s06-creator-input-gate"
+          ],
+          "confidence": "hypothesis_only",
+          "items": [
+            {
+              "label": "目标平台",
+              "status": "缺真实输入",
+              "note": "需要国家本地平台或用户指定平台。"
+            },
+            {
+              "label": "预算范围",
+              "status": "缺真实输入",
+              "note": "需要总预算、单人预算或样品成本。"
+            },
+            {
+              "label": "竞品创作者历史",
+              "status": "待联网确认",
+              "note": "用于判断行业常用 KOL 类型和内容形式。"
+            },
+            {
+              "label": "候选名单",
+              "status": "未提供",
+              "note": "没有候选时先输出类型和发现计划。"
+            }
+          ]
+        },
+        {
+          "visual_block_id": "s06-archetype-fit",
+          "type": "matrix_heatmap",
+          "title": "创作者类型适配评分",
+          "data_source": "creator_archetype_fit_scorecard",
+          "note": "适配分由人群信任、证明需求、平台相关、预算可行和品牌安全共同决定。",
+          "evidence_refs": [
+            "dryrun://evidence/s06-archetype-fit"
+          ],
+          "confidence": "hypothesis_only",
+          "rows": [
+            {
+              "创作者类型": "专业评测媒体",
+              "证明力": 82,
+              "触达": 58,
+              "预算压力": 62,
+              "建议": "优先用于建立可信证明"
+            },
+            {
+              "创作者类型": "本地科技 KOL",
+              "证明力": 74,
+              "触达": 68,
+              "预算压力": 58,
+              "建议": "适合对比和开箱内容"
+            },
+            {
+              "创作者类型": "生活方式创作者",
+              "证明力": 52,
+              "触达": 72,
+              "预算压力": 54,
+              "建议": "适合场景化种草但需强 brief"
+            },
+            {
+              "创作者类型": "零售专家/导购",
+              "证明力": 66,
+              "触达": 45,
+              "预算压力": 38,
+              "建议": "适合渠道信任和线下转化"
+            }
+          ],
+          "columns": [
+            "创作者类型",
+            "证明力",
+            "触达",
+            "预算压力",
+            "建议"
+          ],
+          "scale_min": 0,
+          "scale_max": 100
+        },
+        {
+          "visual_block_id": "s06-budget-outcome",
+          "type": "matrix_heatmap",
+          "title": "KOL预算与预期结果",
+          "data_source": "creator_budget_expected_outcome",
+          "note": "正式运行会用本地平台费率、历史互动、投放目标和追踪链路刷新预算与预期；当前只给结构。",
+          "evidence_refs": [
+            "dryrun://evidence/s06-budget-outcome"
+          ],
+          "confidence": "hypothesis_only",
+          "layout": "wide",
+          "rows": [
+            {
+              "方案": "专业评测 1-2 个",
+              "预算占比": "35%-45%",
+              "预期访问": "中",
+              "预期点赞/互动": "中",
+              "核心理由": "证明产品价值、降低购买风险、可沉淀到 PDP 和渠道"
+            },
+            {
+              "方案": "本地科技 KOL 3-5 个",
+              "预算占比": "30%-40%",
+              "预期访问": "中-高",
+              "预期点赞/互动": "中",
+              "核心理由": "覆盖搜索、对比和开箱内容"
+            },
+            {
+              "方案": "生活方式或垂类小号 8-15 个",
+              "预算占比": "15%-25%",
+              "预期访问": "分散",
+              "预期点赞/互动": "中-高",
+              "核心理由": "测试场景语言和人群兴趣"
+            },
+            {
+              "方案": "零售/媒体合作内容",
+              "预算占比": "10%-20%",
+              "预期访问": "低-中",
+              "预期点赞/互动": "低",
+              "核心理由": "提升渠道信任和导购解释效率"
+            }
+          ],
+          "columns": [
+            "方案",
+            "预算占比",
+            "预期访问",
+            "预期点赞/互动",
+            "核心理由"
+          ],
+          "scale_min": 0,
+          "scale_max": 100
+        },
+        {
+          "visual_block_id": "s06-risk-review",
+          "type": "ranked_bar",
+          "title": "品牌安全与披露风险",
+          "data_source": "brand_safety_disclosure_review",
+          "note": "高风险候选进入排除或人工复核，不直接进入推荐。",
+          "evidence_refs": [
+            "dryrun://evidence/s06-risk-review"
+          ],
+          "confidence": "hypothesis_only",
+          "items": [
+            {
+              "label": "体验夸大或未证明主张",
+              "score": 78
+            },
+            {
+              "label": "赞助披露不清",
+              "score": 70
+            },
+            {
+              "label": "受众与目标人群错配",
+              "score": 62
+            },
+            {
+              "label": "历史争议或竞品绑定",
+              "score": 58
+            }
+          ]
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "s06-creator-method",
+          "title": "创作者筛选方法",
+          "rows": [
+            {
+              "步骤": "类型优先",
+              "方法": "先判断专业评测、科技 KOL、生活方式、零售专家分别解决什么信任问题。"
+            },
+            {
+              "步骤": "候选发现",
+              "方法": "正式运行用本地平台、竞品内容、搜索词和评测来源生成候选长名单。"
+            },
+            {
+              "步骤": "预算估算",
+              "方法": "用费率、样品成本、制作成本、目标访问和互动范围估算。"
+            },
+            {
+              "步骤": "结果解释",
+              "方法": "访问、点赞和互动只作为上游信号，不直接当作销量。"
+            }
+          ]
+        }
+      ],
+      "confidence_badges": [
+        {
+          "label": "条件草案",
+          "reason": "dry-run 只补齐方法、输入缺口和可审核输出，不代表真实市场结论。"
+        }
+      ],
+      "data_gaps": [
+        "目标平台",
+        "预算范围",
+        "本地创作者候选",
+        "竞品创作者历史"
+      ],
+      "citations": [
+        "C-DRY-006"
+      ],
+      "handoff_ref": "dryrun://handoff/S06-creator-kol"
+    },
+    {
+      "section_id": "dtc_conversion",
+      "source_skill": "S07.predict-dtc-conversion",
+      "section_title": "DTC 转化与落地页诊断",
+      "status": "rendered_with_gaps",
+      "executive_takeaway": "S07 在没有自有页面时，先用竞品页面、上一代页面和上游信息路线生成页面要求、摩擦风险和测试计划。",
+      "visual_blocks": [
+        {
+          "visual_block_id": "s07-conversion-input-gate",
+          "type": "status_panel",
+          "title": "转化输入覆盖门禁",
+          "data_source": "conversion_input_coverage_gate",
+          "note": "S07 不承诺 CVR 或销量，只输出摩擦评分、假设区间和实验计划。",
+          "evidence_refs": [
+            "dryrun://evidence/s07-conversion-input-gate"
+          ],
+          "confidence": "hypothesis_only",
+          "items": [
+            {
+              "label": "自有页面文字",
+              "status": "缺真实输入",
+              "note": "没有页面时进入上线前规划模式。"
+            },
+            {
+              "label": "竞品页面",
+              "status": "待联网确认",
+              "note": "用于识别本地 PDP 和落地页标准。"
+            },
+            {
+              "label": "上一代页面",
+              "status": "需要用户资料",
+              "note": "可提炼有效结构和历史摩擦。"
+            },
+            {
+              "label": "追踪方案",
+              "status": "缺真实输入",
+              "note": "需要事件、渠道参数和转化目标。"
+            }
+          ]
+        },
+        {
+          "visual_block_id": "s07-page-benchmark",
+          "type": "matrix_heatmap",
+          "title": "竞品/上一代页面基准",
+          "data_source": "competitor_previous_page_benchmark",
+          "note": "正式运行需保存来源、页面日期和可访问状态；当前仅定义比较结构。",
+          "evidence_refs": [
+            "dryrun://evidence/s07-page-benchmark"
+          ],
+          "confidence": "hypothesis_only",
+          "layout": "wide",
+          "rows": [
+            {
+              "基准对象": "TOP1竞品页面",
+              "价值证明": 72,
+              "价格信任": 68,
+              "退换/保修": 60,
+              "可借鉴点": "首屏证明、对比表、评价入口"
+            },
+            {
+              "基准对象": "上一代产品页面",
+              "价值证明": 55,
+              "价格信任": 50,
+              "退换/保修": 48,
+              "可借鉴点": "保留有效 FAQ，修复解释不足"
+            },
+            {
+              "基准对象": "本地电商 PDP",
+              "价值证明": 66,
+              "价格信任": 74,
+              "退换/保修": 70,
+              "可借鉴点": "配送、保修、评价和支付信任"
+            }
+          ],
+          "columns": [
+            "基准对象",
+            "价值证明",
+            "价格信任",
+            "退换/保修",
+            "可借鉴点"
+          ],
+          "scale_min": 0,
+          "scale_max": 100
+        },
+        {
+          "visual_block_id": "s07-friction-scorecard",
+          "type": "ranked_bar",
+          "title": "转化摩擦优先级",
+          "data_source": "funnel_friction_scorecard",
+          "note": "摩擦分越高，越应先补证明、信任、CTA 或追踪。",
+          "evidence_refs": [
+            "dryrun://evidence/s07-friction-scorecard"
+          ],
+          "confidence": "hypothesis_only",
+          "items": [
+            {
+              "label": "价值证明不足",
+              "score": 82
+            },
+            {
+              "label": "价格与保修信任不足",
+              "score": 76
+            },
+            {
+              "label": "首屏任务不清",
+              "score": 69
+            },
+            {
+              "label": "追踪事件不完整",
+              "score": 64
+            }
+          ]
+        },
+        {
+          "visual_block_id": "s07-page-experiments",
+          "type": "ranked_bar",
+          "title": "页面实验优先级",
+          "data_source": "page_experiment_plan",
+          "note": "上线前可用静态页面、广告点击或小流量实验验证。",
+          "evidence_refs": [
+            "dryrun://evidence/s07-page-experiments"
+          ],
+          "confidence": "hypothesis_only",
+          "items": [
+            {
+              "label": "首屏利益点 A/B",
+              "score": 80
+            },
+            {
+              "label": "价格锚点与保障组合",
+              "score": 76
+            },
+            {
+              "label": "竞品对比表位置",
+              "score": 70
+            },
+            {
+              "label": "评价/评测证据模块",
+              "score": 68
+            }
+          ]
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "s07-page-materials",
+          "title": "页面与转化资料需求",
+          "rows": [
+            {
+              "输入": "页面文字或结构",
+              "用途": "判断信息顺序、CTA 和证明密度"
+            },
+            {
+              "输入": "竞品或上一代页面",
+              "用途": "建立本地页面基准"
+            },
+            {
+              "输入": "流量来源计划",
+              "用途": "检查广告到页面的信息连续性"
+            },
+            {
+              "输入": "追踪事件",
+              "用途": "保证后续能解释点击、加购、跳出和购买"
+            }
+          ]
+        }
+      ],
+      "confidence_badges": [
+        {
+          "label": "条件草案",
+          "reason": "dry-run 只补齐方法、输入缺口和可审核输出，不代表真实市场结论。"
+        }
+      ],
+      "data_gaps": [
+        "页面文字",
+        "竞品或上一代页面",
+        "追踪事件",
+        "真实转化数据"
+      ],
+      "citations": [
+        "C-DRY-007"
+      ],
+      "handoff_ref": "dryrun://handoff/S07-dtc-conversion"
+    },
+    {
+      "section_id": "launch_forecast",
+      "source_skill": "S08.forecast-launch-demand",
+      "section_title": "上市需求预测与投入产出假设",
+      "status": "rendered_with_gaps",
+      "executive_takeaway": "S08 treats forecast as scenario planning, not a single number. It links lifecycle stage, marketing investment, channel readiness, conversion assumptions, and validation gaps.",
+      "visual_blocks": [
+        {
+          "visual_block_id": "s08-input-gate",
+          "type": "status_panel",
+          "title": "预测输入覆盖门禁",
+          "data_source": "forecast_input_coverage_gate",
+          "items": [
+            {
+              "label": "market size seed",
+              "status": "missing_real_evidence"
+            },
+            {
+              "label": "marketing budget",
+              "status": "not_provided_in_fixture"
+            },
+            {
+              "label": "channel readiness",
+              "status": "fixture_only"
+            },
+            {
+              "label": "conversion assumptions",
+              "status": "hypothesis"
+            }
+          ],
+          "note": "Real run must ask for forecast horizon, channel plan, and marketing spend where available.",
+          "evidence_refs": [
+            "dryrun://evidence/S08-input-gate"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s08-scenario-range",
+          "type": "range_chart",
+          "title": "30/60/90 天情景预测区间",
+          "data_source": "launch_scenario_forecast",
+          "items": [
+            {
+              "label": "30 day demand index",
+              "min": 18,
+              "max": 42
+            },
+            {
+              "label": "60 day demand index",
+              "min": 35,
+              "max": 78
+            },
+            {
+              "label": "90 day demand index",
+              "min": 52,
+              "max": 105
+            }
+          ],
+          "scale_min": 0,
+          "scale_max": 120,
+          "note": "Indexed demand only; do not interpret as units.",
+          "evidence_refs": [
+            "dryrun://evidence/S08-scenario-range"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s08-marketing-response",
+          "type": "matrix_heatmap",
+          "title": "营销投入与需求响应假设",
+          "data_source": "marketing_response_model",
+          "rows": [
+            {
+              "input": "paid media",
+              "expected_effect": "traffic lift",
+              "confidence": 35,
+              "dependency": "creative proof"
+            },
+            {
+              "input": "retail feature placement",
+              "expected_effect": "conversion lift",
+              "confidence": 30,
+              "dependency": "channel access"
+            },
+            {
+              "input": "creator content",
+              "expected_effect": "trust and consideration",
+              "confidence": 25,
+              "dependency": "S06 trigger"
+            }
+          ],
+          "columns": [
+            "input",
+            "expected_effect",
+            "confidence",
+            "dependency"
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "The model should expose assumptions instead of pretending precision.",
+          "evidence_refs": [
+            "dryrun://evidence/S08-marketing-response"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s08-channel-readiness",
+          "type": "ranked_bar",
+          "title": "渠道准备度与预测贡献",
+          "data_source": "channel_contribution_hypothesis",
+          "items": [
+            {
+              "label": "Local ecommerce",
+              "score": 62
+            },
+            {
+              "label": "Consumer electronics retail",
+              "score": 50
+            },
+            {
+              "label": "Owned DTC",
+              "score": 44
+            },
+            {
+              "label": "Carrier or bundle channel",
+              "score": 28
+            }
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "Carrier channel stays a hypothesis until commercial access is confirmed.",
+          "evidence_refs": [
+            "dryrun://evidence/S08-channel"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s08-forecast-risk",
+          "type": "ranked_bar",
+          "title": "预测敏感性与下修风险",
+          "data_source": "forecast_sensitivity_risk",
+          "items": [
+            {
+              "label": "market size evidence missing",
+              "score": 82
+            },
+            {
+              "label": "price proof weak",
+              "score": 72
+            },
+            {
+              "label": "channel readiness uncertain",
+              "score": 68
+            },
+            {
+              "label": "creative or proof not validated",
+              "score": 61
+            }
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "These risks feed S13 validation priority.",
+          "evidence_refs": [
+            "dryrun://evidence/S08-risk"
+          ],
+          "confidence": "hypothesis_only"
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "s08-required-user-inputs",
+          "title": "预测建议输入",
+          "rows": [
+            {
+              "input": "forecast horizon",
+              "required": true
+            },
+            {
+              "input": "marketing spend by channel",
+              "required": "recommended"
+            },
+            {
+              "input": "channel launch plan",
+              "required": "recommended"
+            },
+            {
+              "input": "previous-generation sales curve",
+              "required": "optional_private"
+            }
+          ]
+        }
+      ],
+      "confidence_badges": [
+        {
+          "label": "Scenario",
+          "reason": "Demand forecast is assumption-led until validated"
+        }
+      ],
+      "data_gaps": [
+        "market_size_seed",
+        "channel_launch_commitment",
+        "marketing_budget_by_channel",
+        "conversion_rate_benchmarks",
+        "previous_generation_sales_curve"
+      ],
+      "citations": [
+        "C-DRY-008"
+      ],
+      "handoff_ref": "dryrun://handoff/S08-launch-forecast"
+    },
+    {
+      "section_id": "validation_roadmap",
+      "source_skill": "S13.plan-validation-experiments",
+      "section_title": "验证路线图与实验优先级",
+      "status": "rendered_with_gaps",
+      "executive_takeaway": "S13 converts uncertain claims, price risks, demand assumptions, channel bets, and missing evidence into a staged validation plan that tells the team what to test before committing spend.",
+      "visual_blocks": [
+        {
+          "visual_block_id": "s13-input-coverage-gate",
+          "type": "status_panel",
+          "title": "验证输入覆盖门禁",
+          "data_source": "validation_input_coverage_gate",
+          "items": [
+            {
+              "label": "S01 market evidence",
+              "status": "fixture_only"
+            },
+            {
+              "label": "S02 JTBD proof gaps",
+              "status": "available_fixture"
+            },
+            {
+              "label": "S03 claim risks",
+              "status": "available_fixture"
+            },
+            {
+              "label": "S04 price assumptions",
+              "status": "available_fixture"
+            },
+            {
+              "label": "S08 forecast assumptions",
+              "status": "available_fixture"
+            }
+          ],
+          "note": "No targeted lookup was executed in this dry-run.",
+          "evidence_refs": [
+            "dryrun://evidence/S13-input-gate"
+          ],
+          "confidence": "contract_ready"
+        },
+        {
+          "visual_block_id": "s13-experiment-priority",
+          "type": "ranked_bar",
+          "title": "实验优先级评分",
+          "data_source": "experiment_priority_scorecard",
+          "items": [
+            {
+              "label": "value proof benchmark test",
+              "score": 86
+            },
+            {
+              "label": "price corridor and WTP test",
+              "score": 82
+            },
+            {
+              "label": "local search term and message smoke test",
+              "score": 76
+            },
+            {
+              "label": "retail channel feasibility interview",
+              "score": 70
+            },
+            {
+              "label": "setup friction usability test",
+              "score": 64
+            }
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "Priority combines decision impact, uncertainty, cost, speed, and downstream unlock value.",
+          "evidence_refs": [
+            "dryrun://evidence/S13-priority"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s13-risk-feasibility",
+          "type": "matrix_heatmap",
+          "title": "假设风险与测试可行性",
+          "data_source": "assumption_risk_vs_test_feasibility",
+          "rows": [
+            {
+              "assumption": "benefit claim is credible",
+              "risk": 85,
+              "test_feasibility": 68,
+              "recommended_action": "test_before_message_lock"
+            },
+            {
+              "assumption": "target price is acceptable",
+              "risk": 78,
+              "test_feasibility": 72,
+              "recommended_action": "test_before_channel_commit"
+            },
+            {
+              "assumption": "local channel can create reach",
+              "risk": 70,
+              "test_feasibility": 45,
+              "recommended_action": "partner_discovery"
+            }
+          ],
+          "columns": [
+            "assumption",
+            "risk",
+            "test_feasibility",
+            "recommended_action"
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "High-risk assumptions without feasible tests become executive decision caveats.",
+          "evidence_refs": [
+            "dryrun://evidence/S13-risk-feasibility"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s13-timeline-decision-unlock",
+          "type": "matrix_heatmap",
+          "title": "测试节奏与决策解锁",
+          "data_source": "timeline_and_decision_unlock_map",
+          "rows": [
+            {
+              "phase": "week 1",
+              "test": "local language search and message smoke test",
+              "decision_unlocked": "message route"
+            },
+            {
+              "phase": "week 2",
+              "test": "price corridor survey or landing page split",
+              "decision_unlocked": "price corridor"
+            },
+            {
+              "phase": "week 3",
+              "test": "retail or channel feasibility check",
+              "decision_unlocked": "channel priority"
+            },
+            {
+              "phase": "week 4",
+              "test": "integrated launch forecast refresh",
+              "decision_unlocked": "go or revise"
+            }
+          ],
+          "columns": [
+            "phase",
+            "test",
+            "decision_unlocked"
+          ],
+          "note": "Timing is illustrative and should be resized by launch urgency.",
+          "evidence_refs": [
+            "dryrun://evidence/S13-timeline"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s13-decision-gate",
+          "type": "status_panel",
+          "title": "验证决策门禁",
+          "data_source": "validation_decision_gate",
+          "items": [
+            {
+              "label": "launch message lock",
+              "status": "blocked_until_value_proof"
+            },
+            {
+              "label": "price lock",
+              "status": "blocked_until_wtp_signal"
+            },
+            {
+              "label": "forecast confidence upgrade",
+              "status": "blocked_until_channel_and_conversion_signal"
+            }
+          ],
+          "note": "S13 should make blockers explicit instead of burying uncertainty.",
+          "evidence_refs": [
+            "dryrun://evidence/S13-decision-gate"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s13-portfolio-by-module",
+          "type": "ranked_bar",
+          "title": "按模块聚合的验证负债",
+          "data_source": "experiment_portfolio_by_module",
+          "items": [
+            {
+              "label": "S04 pricing",
+              "score": 82
+            },
+            {
+              "label": "S03 message proof",
+              "score": 78
+            },
+            {
+              "label": "S08 forecast",
+              "score": 75
+            },
+            {
+              "label": "S01 market evidence",
+              "score": 72
+            },
+            {
+              "label": "S02 JTBD voice",
+              "score": 68
+            }
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "This lets the dashboard show which previous module creates the largest validation debt.",
+          "evidence_refs": [
+            "dryrun://evidence/S13-portfolio"
+          ],
+          "confidence": "hypothesis_only"
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "s13-targeted-lookup-log",
+          "title": "目标化查询日志",
+          "rows": [
+            {
+              "lookup_id": "none",
+              "reason": "no_live_web_for_dry_run",
+              "status": "not_executed"
+            }
+          ]
+        },
+        {
+          "table_id": "s13-context-budget-report",
+          "title": "上下文预算报告",
+          "rows": [
+            {
+              "budget_item": "upstream_full_artifact_opening",
+              "used": 0,
+              "limit": 0
+            },
+            {
+              "budget_item": "targeted_lookup",
+              "used": 0,
+              "limit": 0
+            },
+            {
+              "budget_item": "main_visual_blocks",
+              "used": 6,
+              "limit": 8
+            }
+          ]
+        },
+        {
+          "table_id": "s13-excluded-tests",
+          "title": "排除或延后测试",
+          "rows": [
+            {
+              "test": "real paid media A/B",
+              "reason": "requires live budget and campaign assets"
+            },
+            {
+              "test": "retailer pilot",
+              "reason": "requires commercial access"
+            },
+            {
+              "test": "large-scale survey",
+              "reason": "out of dry-run scope"
+            }
+          ]
+        }
+      ],
+      "confidence_badges": [
+        {
+          "label": "Validation Plan",
+          "reason": "Contract-ready, evidence-light"
+        }
+      ],
+      "data_gaps": [
+        "validated_claim_benchmarks",
+        "real_price_test_results",
+        "channel_feasibility_signal",
+        "local_language_search_signal",
+        "conversion_benchmark"
+      ],
+      "citations": [
+        "C-DRY-013"
+      ],
+      "handoff_ref": "dryrun://handoff/S13-validation-roadmap"
+    },
+    {
+      "section_id": "data_gap_panel",
+      "source_skill": "report_audit",
+      "section_title": "数据缺口与置信度面板",
+      "status": "rendered_with_gaps",
+      "executive_takeaway": "最终看板必须把未解决的数据缺口作为正文展示，避免把关键不确定性藏在附录里。",
+      "visual_blocks": [
+        {
+          "visual_block_id": "s14-data-gap-severity",
+          "type": "ranked_bar",
+          "title": "数据缺口严重度",
+          "data_source": "data_gap_log",
+          "items": [
+            {
+              "label": "market and competitor evidence",
+              "score": 85
+            },
+            {
+              "label": "voice atoms and JTBD source corpus",
+              "score": 80
+            },
+            {
+              "label": "pricing and WTP validation",
+              "score": 78
+            },
+            {
+              "label": "channel readiness and conversion assumptions",
+              "score": 74
+            }
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "Severity uses decision impact and downstream dependency.",
+          "evidence_refs": [
+            "dryrun://evidence/report-data-gaps"
+          ],
+          "confidence": "contract_ready"
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "s14-data-gap-log-table",
+          "title": "数据缺口日志",
+          "rows_ref": "data_gap_log"
+        }
+      ],
+      "confidence_badges": [
+        {
+          "label": "Transparent",
+          "reason": "All major gaps remain visible"
+        }
+      ],
+      "data_gaps": [],
+      "citations": [],
+      "handoff_ref": "dryrun://section/S14-data-gap-panel"
+    },
+    {
+      "section_id": "citation_index",
+      "source_skill": "report_audit",
+      "section_title": "引用与证据索引",
+      "status": "rendered_with_gaps",
+      "executive_takeaway": "引用索引用来区分试跑样例引用和真实证据，避免把合成样例内容误当成市场研究结论。",
+      "visual_blocks": [
+        {
+          "visual_block_id": "s14-citation-status",
+          "type": "status_panel",
+          "title": "引用状态",
+          "data_source": "citation_index",
+          "items": [
+            {
+              "label": "fixture citations",
+              "status": "synthetic"
+            },
+            {
+              "label": "live citations",
+              "status": "absent"
+            },
+            {
+              "label": "source confidence",
+              "status": "hypothesis_only"
+            }
+          ],
+          "note": "Real report must replace fixture refs with source URLs, access dates, and evidence quality labels.",
+          "evidence_refs": [
+            "dryrun://evidence/report-citations"
+          ],
+          "confidence": "contract_ready"
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "s14-citation-index-table",
+          "title": "引用索引",
+          "rows_ref": "citation_index"
+        }
+      ],
+      "confidence_badges": [
+        {
+          "label": "Fixture Only",
+          "reason": "No live citations"
+        }
+      ],
+      "data_gaps": [],
+      "citations": [],
+      "handoff_ref": "dryrun://section/S14-citation-index"
+    },
+    {
+      "section_id": "activation_return_risk",
+      "source_skill": "S09.predict-activation-risk",
+      "section_title": "激活、退货与上手风险",
+      "status": "rendered_with_gaps",
+      "executive_takeaway": "S09 当设置、配对、尺寸、安装、兼容或预期落差影响采用时，用硬件旅程拆解激活和退货风险。",
+      "visual_blocks": [
+        {
+          "visual_block_id": "s09-trigger-check",
+          "type": "status_panel",
+          "title": "激活与退货触发检查",
+          "data_source": "activation_return_trigger_check",
+          "note": "如果正式产品没有这些风险，S09 可保持低权重；如果有，则进入 S13 验证。",
+          "evidence_refs": [
+            "dryrun://evidence/s09-trigger-check"
+          ],
+          "confidence": "hypothesis_only",
+          "items": [
+            {
+              "label": "设置/配对",
+              "status": "待确认",
+              "note": "产品如有应用、网络或账号设置则触发。"
+            },
+            {
+              "label": "尺寸/安装",
+              "status": "待确认",
+              "note": "佩戴、安装、尺寸或兼容要求会影响退货。"
+            },
+            {
+              "label": "预期落差",
+              "status": "样例风险",
+              "note": "来自 S03 主张和 S01 消费者声音。"
+            },
+            {
+              "label": "退换政策",
+              "status": "缺真实输入",
+              "note": "需要本地渠道退换、保修和客服承诺。"
+            }
+          ]
+        },
+        {
+          "visual_block_id": "s09-journey-risk",
+          "type": "matrix_heatmap",
+          "title": "上手旅程风险图",
+          "data_source": "activation_journey_risk_map",
+          "note": "风险分 = 发生概率 30% + 退货影响 30% + 体验损伤 20% + 可预防性 20%。",
+          "evidence_refs": [
+            "dryrun://evidence/s09-journey-risk"
+          ],
+          "confidence": "hypothesis_only",
+          "layout": "wide",
+          "rows": [
+            {
+              "旅程阶段": "购买前",
+              "风险": "预期过高或规格误解",
+              "风险分": 72,
+              "预防动作": "页面和导购明确适用条件"
+            },
+            {
+              "旅程阶段": "开箱",
+              "风险": "配件、尺寸或说明不清",
+              "风险分": 64,
+              "预防动作": "首屏说明和包装内上手卡"
+            },
+            {
+              "旅程阶段": "设置/配对",
+              "风险": "应用、账号、网络或兼容失败",
+              "风险分": 78,
+              "预防动作": "快速教程、兼容清单和客服入口"
+            },
+            {
+              "旅程阶段": "前 7 天",
+              "风险": "体验低于承诺或习惯未形成",
+              "风险分": 69,
+              "预防动作": "提醒、教育内容和可见成就"
+            }
+          ],
+          "columns": [
+            "旅程阶段",
+            "风险",
+            "风险分",
+            "预防动作"
+          ],
+          "scale_min": 0,
+          "scale_max": 100
+        },
+        {
+          "visual_block_id": "s09-return-prevention",
+          "type": "ranked_bar",
+          "title": "退货预防动作优先级",
+          "data_source": "return_prevention_priority",
+          "note": "优先做能降低误购、误设和预期落差的动作。",
+          "evidence_refs": [
+            "dryrun://evidence/s09-return-prevention"
+          ],
+          "confidence": "hypothesis_only",
+          "items": [
+            {
+              "label": "兼容与适用条件说明",
+              "score": 82
+            },
+            {
+              "label": "开箱上手卡与视频教程",
+              "score": 76
+            },
+            {
+              "label": "首周使用教育",
+              "score": 68
+            },
+            {
+              "label": "客服和退换政策入口",
+              "score": 64
+            }
+          ]
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "s09-method",
+          "title": "S09触发规则与输入",
+          "rows": [
+            {
+              "触发": "设置、配对、尺寸、安装、兼容或退货风险",
+              "输入": "说明书、兼容规则、退换政策、上一代退货原因",
+              "输出": "激活风险图和退货预防计划"
+            },
+            {
+              "触发": "健康、安全、儿童或老人相邻体验",
+              "输入": "安全说明、适用人群、主张边界",
+              "输出": "传给 S10 的护栏输入"
+            }
+          ]
+        }
+      ],
+      "confidence_badges": [
+        {
+          "label": "条件草案",
+          "reason": "dry-run 只补齐方法、输入缺口和可审核输出，不代表真实市场结论。"
+        }
+      ],
+      "data_gaps": [
+        "设置流程",
+        "兼容规则",
+        "退换政策",
+        "上一代退货原因"
+      ],
+      "citations": [
+        "C-DRY-009"
+      ],
+      "handoff_ref": "dryrun://handoff/S09-activation-risk"
+    },
+    {
+      "section_id": "insight_guardrails",
+      "source_skill": "S10.generate-health-insights",
+      "section_title": "洞察、健康、安全或高风险主张护栏",
+      "status": "rendered_with_gaps",
+      "executive_takeaway": "S10 当产品涉及健康、安全、AI 洞察、隐私、儿童或老人场景时，定义能说、不能说、需要证明和需要法务确认的边界。",
+      "visual_blocks": [
+        {
+          "visual_block_id": "s10-trigger-check",
+          "type": "status_panel",
+          "title": "主张风险触发检查",
+          "data_source": "insight_claim_trigger_check",
+          "note": "S10 不做法律意见，只把主张边界、证明要求和复核队列显性化。",
+          "evidence_refs": [
+            "dryrun://evidence/s10-trigger-check"
+          ],
+          "confidence": "hypothesis_only",
+          "items": [
+            {
+              "label": "健康/安全主张",
+              "status": "待确认",
+              "note": "涉及身体、健康、儿童或老人时触发。"
+            },
+            {
+              "label": "AI 洞察",
+              "status": "待确认",
+              "note": "涉及建议、诊断、预测或自动解释时触发。"
+            },
+            {
+              "label": "隐私数据",
+              "status": "样例风险",
+              "note": "穿戴、应用或云服务通常需要数据边界。"
+            },
+            {
+              "label": "合规约束",
+              "status": "缺真实输入",
+              "note": "需要批准说法、禁用词和当地法规线索。"
+            }
+          ]
+        },
+        {
+          "visual_block_id": "s10-claim-guardrail",
+          "type": "matrix_heatmap",
+          "title": "主张风险护栏矩阵",
+          "data_source": "claim_guardrail_matrix",
+          "note": "风险分越高，越需要证据、限定语和人工复核。",
+          "evidence_refs": [
+            "dryrun://evidence/s10-claim-guardrail"
+          ],
+          "confidence": "hypothesis_only",
+          "layout": "wide",
+          "rows": [
+            {
+              "主张类型": "性能/准确性",
+              "风险分": 70,
+              "允许表达": "描述测试条件和相对改善",
+              "禁止方向": "绝对化或无条件保证"
+            },
+            {
+              "主张类型": "健康/安全",
+              "风险分": 88,
+              "允许表达": "教育性和辅助性描述",
+              "禁止方向": "诊断、治疗或医疗承诺"
+            },
+            {
+              "主张类型": "AI 洞察",
+              "风险分": 76,
+              "允许表达": "趋势、提醒和解释",
+              "禁止方向": "替代专业判断"
+            },
+            {
+              "主张类型": "隐私/数据",
+              "风险分": 82,
+              "允许表达": "数据用途、控制权和存储边界",
+              "禁止方向": "未证明的绝对安全"
+            }
+          ],
+          "columns": [
+            "主张类型",
+            "风险分",
+            "允许表达",
+            "禁止方向"
+          ],
+          "scale_min": 0,
+          "scale_max": 100
+        },
+        {
+          "visual_block_id": "s10-proof-needs",
+          "type": "ranked_bar",
+          "title": "隐私/安全证明需求",
+          "data_source": "privacy_safety_proof_need",
+          "note": "S10 输出会传给 S03/S05/S13，作为主张、文案和验证护栏。",
+          "evidence_refs": [
+            "dryrun://evidence/s10-proof-needs"
+          ],
+          "confidence": "hypothesis_only",
+          "items": [
+            {
+              "label": "测试条件和证据来源",
+              "score": 84
+            },
+            {
+              "label": "适用人群和限制说明",
+              "score": 78
+            },
+            {
+              "label": "数据用途和用户控制",
+              "score": 76
+            },
+            {
+              "label": "风险提示和客服路径",
+              "score": 66
+            }
+          ]
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "s10-method",
+          "title": "S10方法与边界",
+          "rows": [
+            {
+              "步骤": "主张分类",
+              "方法": "把性能、健康、安全、AI、隐私和适用人群主张分开处理。"
+            },
+            {
+              "步骤": "风险分级",
+              "方法": "按监管相邻度、误导风险、证据强度和人群敏感性评分。"
+            },
+            {
+              "步骤": "护栏输出",
+              "方法": "给 S03/S05 提供允许表达、禁止方向、限定语和复核队列。"
+            }
+          ]
+        }
+      ],
+      "confidence_badges": [
+        {
+          "label": "条件草案",
+          "reason": "dry-run 只补齐方法、输入缺口和可审核输出，不代表真实市场结论。"
+        }
+      ],
+      "data_gaps": [
+        "批准主张",
+        "禁用词",
+        "合规约束",
+        "测试证据"
+      ],
+      "citations": [
+        "C-DRY-010"
+      ],
+      "handoff_ref": "dryrun://handoff/S10-claim-guardrails"
+    },
+    {
+      "section_id": "subscription_churn",
+      "source_skill": "S11.predict-subscription-and-churn",
+      "section_title": "订阅、留存与流失",
+      "status": "rendered_with_gaps",
+      "executive_takeaway": "S11 当产品包含付费应用、订阅、耗材、延保或服务计划时，拆解留存价值、流失风险和续费验证。",
+      "visual_blocks": [
+        {
+          "visual_block_id": "s11-trigger-check",
+          "type": "status_panel",
+          "title": "订阅留存触发检查",
+          "data_source": "subscription_retention_trigger_check",
+          "note": "如果产品没有 recurring revenue，S11 只保留触发检查和数据缺口。",
+          "evidence_refs": [
+            "dryrun://evidence/s11-trigger-check"
+          ],
+          "confidence": "hypothesis_only",
+          "items": [
+            {
+              "label": "订阅/付费应用",
+              "status": "待确认",
+              "note": "有付费权益时触发。"
+            },
+            {
+              "label": "延保/服务计划",
+              "status": "待确认",
+              "note": "影响定价、渠道和复购。"
+            },
+            {
+              "label": "耗材/周期购买",
+              "status": "待确认",
+              "note": "会改变生命周期收入。"
+            },
+            {
+              "label": "留存数据",
+              "status": "缺真实输入",
+              "note": "需要历史 cohort、使用频率或续费数据。"
+            }
+          ]
+        },
+        {
+          "visual_block_id": "s11-retention-driver",
+          "type": "matrix_heatmap",
+          "title": "留存价值驱动图",
+          "data_source": "retention_value_driver_map",
+          "note": "留存价值需要和开盘价格、服务成本和激活体验一起判断。",
+          "evidence_refs": [
+            "dryrun://evidence/s11-retention-driver"
+          ],
+          "confidence": "hypothesis_only",
+          "rows": [
+            {
+              "驱动": "持续洞察价值",
+              "留存影响": 76,
+              "证明难度": 70,
+              "动作": "展示首月到三个月的价值累积"
+            },
+            {
+              "驱动": "服务/保修权益",
+              "留存影响": 62,
+              "证明难度": 48,
+              "动作": "明确服务边界和响应承诺"
+            },
+            {
+              "驱动": "生态或应用习惯",
+              "留存影响": 68,
+              "证明难度": 64,
+              "动作": "设计使用提醒和成就反馈"
+            }
+          ],
+          "columns": [
+            "驱动",
+            "留存影响",
+            "证明难度",
+            "动作"
+          ],
+          "scale_min": 0,
+          "scale_max": 100
+        },
+        {
+          "visual_block_id": "s11-churn-risk",
+          "type": "ranked_bar",
+          "title": "流失风险优先级",
+          "data_source": "churn_risk_priority",
+          "note": "流失风险应回到 S13 做续费意愿、权益理解和使用频率验证。",
+          "evidence_refs": [
+            "dryrun://evidence/s11-churn-risk"
+          ],
+          "confidence": "hypothesis_only",
+          "items": [
+            {
+              "label": "首月价值感不足",
+              "score": 80
+            },
+            {
+              "label": "付费权益解释不清",
+              "score": 72
+            },
+            {
+              "label": "应用使用频率低",
+              "score": 68
+            },
+            {
+              "label": "服务成本与权益错配",
+              "score": 60
+            }
+          ]
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "s11-method",
+          "title": "S11输入与方法",
+          "rows": [
+            {
+              "输入": "订阅或服务权益",
+              "方法": "拆成价值驱动、成本压力、续费触发和取消原因。"
+            },
+            {
+              "输入": "历史 cohort 或应用使用",
+              "方法": "用于校准留存曲线；没有则只输出假设和验证计划。"
+            },
+            {
+              "输入": "价格与促销",
+              "方法": "结合 S04 判断免费期、捆绑、分期和续费风险。"
+            }
+          ]
+        }
+      ],
+      "confidence_badges": [
+        {
+          "label": "条件草案",
+          "reason": "dry-run 只补齐方法、输入缺口和可审核输出，不代表真实市场结论。"
+        }
+      ],
+      "data_gaps": [
+        "订阅权益",
+        "留存数据",
+        "服务成本",
+        "续费或取消原因"
+      ],
+      "citations": [
+        "C-DRY-011"
+      ],
+      "handoff_ref": "dryrun://handoff/S11-subscription-churn"
+    },
+    {
+      "section_id": "review_quality_feedback",
+      "source_skill": "S12.mine-review-quality-feedback",
+      "section_title": "评论、售后与质量反馈闭环",
+      "status": "rendered_with_gaps",
+      "executive_takeaway": "S12 当有上市后评论、上一代评论、客服、退货、RMA 或净推荐相关数据时，把质量问题和 GTM 问题分流到产品、客服、渠道和下一代营销。",
+      "visual_blocks": [
+        {
+          "visual_block_id": "s12-trigger-check",
+          "type": "status_panel",
+          "title": "反馈闭环触发检查",
+          "data_source": "feedback_loop_trigger_check",
+          "note": "S12 不把评论直接等同真实销量；它负责把反馈转成可行动 backlog 和证据图更新。",
+          "evidence_refs": [
+            "dryrun://evidence/s12-trigger-check"
+          ],
+          "confidence": "hypothesis_only",
+          "items": [
+            {
+              "label": "上市后评论",
+              "status": "缺真实输入",
+              "note": "新产品未上市时可用上一代或 beta 评论。"
+            },
+            {
+              "label": "客服/退货/RMA",
+              "status": "缺真实输入",
+              "note": "用于区分质量、设置、渠道和误购。"
+            },
+            {
+              "label": "净推荐相关输入",
+              "status": "可选输入",
+              "note": "可和 S01 的净推荐 proxy 种子对齐。"
+            },
+            {
+              "label": "应用商店评论",
+              "status": "条件触发",
+              "note": "有应用体验时进入反馈闭环。"
+            }
+          ]
+        },
+        {
+          "visual_block_id": "s12-source-map",
+          "type": "matrix_heatmap",
+          "title": "评论/售后来源地图",
+          "data_source": "review_support_source_map",
+          "note": "正式运行要保存原始记录引用，并按 source item 与 voice atom 分开计数。",
+          "evidence_refs": [
+            "dryrun://evidence/s12-source-map"
+          ],
+          "confidence": "hypothesis_only",
+          "layout": "wide",
+          "rows": [
+            {
+              "来源": "零售评论",
+              "能回答": "购买后满意/不满",
+              "质量信号": 70,
+              "用途": "卖点修正和退货风险"
+            },
+            {
+              "来源": "客服工单",
+              "能回答": "设置、售后和质量根因",
+              "质量信号": 76,
+              "用途": "FAQ、教程和客服脚本"
+            },
+            {
+              "来源": "RMA/退货",
+              "能回答": "硬件质量或误购",
+              "质量信号": 82,
+              "用途": "质量闭环和渠道承诺"
+            },
+            {
+              "来源": "应用商店评论",
+              "能回答": "应用体验和配对问题",
+              "质量信号": 68,
+              "用途": "应用改进和激活风险"
+            }
+          ],
+          "columns": [
+            "来源",
+            "能回答",
+            "质量信号",
+            "用途"
+          ],
+          "scale_min": 0,
+          "scale_max": 100
+        },
+        {
+          "visual_block_id": "s12-quality-priority",
+          "type": "ranked_bar",
+          "title": "质量反馈主题优先级",
+          "data_source": "quality_feedback_priority",
+          "note": "优先级按频次、情绪强度、退货影响、净推荐方向和跨来源一致性计算。",
+          "evidence_refs": [
+            "dryrun://evidence/s12-quality-priority"
+          ],
+          "confidence": "hypothesis_only",
+          "items": [
+            {
+              "label": "设置/配对问题",
+              "score": 78
+            },
+            {
+              "label": "可靠性或耐用性",
+              "score": 74
+            },
+            {
+              "label": "价格价值不匹配",
+              "score": 66
+            },
+            {
+              "label": "售后响应和退换体验",
+              "score": 64
+            }
+          ]
+        },
+        {
+          "visual_block_id": "s12-action-map",
+          "type": "matrix_heatmap",
+          "title": "闭环动作路线图",
+          "data_source": "feedback_loop_action_map",
+          "note": "S12 的输出会回流 S01-S04、S09 和下一代 GTM。",
+          "evidence_refs": [
+            "dryrun://evidence/s12-action-map"
+          ],
+          "confidence": "hypothesis_only",
+          "rows": [
+            {
+              "问题类型": "质量根因",
+              "负责人": "产品/质量",
+              "动作": "进入缺陷或下一代改进",
+              "优先级": 78
+            },
+            {
+              "问题类型": "误解或预期落差",
+              "负责人": "营销/页面",
+              "动作": "修正主张、FAQ 和导购话术",
+              "优先级": 72
+            },
+            {
+              "问题类型": "渠道或售后摩擦",
+              "负责人": "渠道/客服",
+              "动作": "调整承诺、脚本和退换流程",
+              "优先级": 68
+            }
+          ],
+          "columns": [
+            "问题类型",
+            "负责人",
+            "动作",
+            "优先级"
+          ],
+          "scale_min": 0,
+          "scale_max": 100
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "s12-method",
+          "title": "S12反馈闭环方法",
+          "rows": [
+            {
+              "步骤": "来源分层",
+              "方法": "区分评论、客服、RMA、退货、应用评论和净推荐相关数据。"
+            },
+            {
+              "步骤": "根因分流",
+              "方法": "把产品质量、设置教育、营销误解、渠道摩擦和售后问题分开。"
+            },
+            {
+              "步骤": "回流机制",
+              "方法": "把可行动项回流到 S01-S04、S09 和下一代营销销售建议。"
+            }
+          ]
+        }
+      ],
+      "confidence_badges": [
+        {
+          "label": "条件草案",
+          "reason": "dry-run 只补齐方法、输入缺口和可审核输出，不代表真实市场结论。"
+        }
+      ],
+      "data_gaps": [
+        "上市后评论",
+        "上一代评论",
+        "客服/退货/RMA",
+        "净推荐或应用评论"
+      ],
+      "citations": [
+        "C-DRY-012"
+      ],
+      "handoff_ref": "dryrun://handoff/S12-review-feedback"
+    }
+  ],
+  "html_section_drafts": [
+    {
+      "section_id": "market_context",
+      "source_skill": "S01.build-consumer-market-map",
+      "html_section_ref": "dryrun://section/S01-market-context",
+      "handoff_ref": "dryrun://handoff/S01-market-context",
+      "status": "rendered_with_gaps",
+      "visual_block_count": 10
+    },
+    {
+      "section_id": "jtbd_scenarios",
+      "source_skill": "S02.mine-jtbd-scenarios",
+      "html_section_ref": "dryrun://section/S02-jtbd-scenarios",
+      "handoff_ref": "dryrun://handoff/S02-jtbd-scenarios",
+      "status": "rendered_with_gaps",
+      "visual_block_count": 4
+    },
+    {
+      "section_id": "message_architecture",
+      "source_skill": "S03.match-messages-to-segments",
+      "html_section_ref": "dryrun://section/S03-message-architecture",
+      "handoff_ref": "dryrun://handoff/S03-message-architecture",
+      "status": "rendered_with_gaps",
+      "visual_block_count": 4
+    },
+    {
+      "section_id": "pricing",
+      "source_skill": "S04.model-price-sensitivity",
+      "html_section_ref": "dryrun://section/S04-pricing",
+      "handoff_ref": "dryrun://handoff/S04-pricing",
+      "status": "rendered_with_gaps",
+      "visual_block_count": 4
+    },
+    {
+      "section_id": "copy_assets",
+      "source_skill": "S05.score-creative-assets",
+      "html_section_ref": "dryrun://section/S05-copy-assets",
+      "handoff_ref": "dryrun://handoff/S05-copy-assets",
+      "status": "rendered_with_gaps",
+      "visual_block_count": 4
+    },
+    {
+      "section_id": "creator_kol",
+      "source_skill": "S06.score-kol-fit",
+      "html_section_ref": "dryrun://section/S06-creator-kol",
+      "handoff_ref": "dryrun://handoff/S06-creator-kol",
+      "status": "rendered_with_gaps",
+      "visual_block_count": 4
+    },
+    {
+      "section_id": "dtc_conversion",
+      "source_skill": "S07.predict-dtc-conversion",
+      "html_section_ref": "dryrun://section/S07-dtc-conversion",
+      "handoff_ref": "dryrun://handoff/S07-dtc-conversion",
+      "status": "rendered_with_gaps",
+      "visual_block_count": 4
+    },
+    {
+      "section_id": "launch_forecast",
+      "source_skill": "S08.forecast-launch-demand",
+      "html_section_ref": "dryrun://section/S08-launch-forecast",
+      "handoff_ref": "dryrun://handoff/S08-launch-forecast",
+      "status": "rendered_with_gaps",
+      "visual_block_count": 5
+    },
+    {
+      "section_id": "activation_return_risk",
+      "source_skill": "S09.predict-activation-risk",
+      "html_section_ref": "dryrun://section/S09-activation-risk",
+      "handoff_ref": "dryrun://handoff/S09-activation-risk",
+      "status": "rendered_with_gaps",
+      "visual_block_count": 3
+    },
+    {
+      "section_id": "data_gap_panel",
+      "source_skill": "S14.compose-html-gtm-dashboard",
+      "html_section_ref": "dryrun://section/S14-data-gap-panel",
+      "handoff_ref": "dryrun://section/S14-data-gap-panel",
+      "status": "rendered_with_gaps",
+      "visual_block_count": 1
+    },
+    {
+      "section_id": "citation_index",
+      "source_skill": "S14.compose-html-gtm-dashboard",
+      "html_section_ref": "dryrun://section/S14-citation-index",
+      "handoff_ref": "dryrun://section/S14-citation-index",
+      "status": "rendered_with_gaps",
+      "visual_block_count": 1
+    }
+  ],
+  "evidence_ledger_refs": [
+    {
+      "ref": "dryrun://evidence/S01-market-fixture",
+      "source_skill": "S01.build-consumer-market-map",
+      "evidence_type": "synthetic_fixture",
+      "quality": "fixture_only"
+    },
+    {
+      "ref": "dryrun://evidence/S02-input-gate",
+      "source_skill": "S02.mine-jtbd-scenarios",
+      "evidence_type": "synthetic_fixture",
+      "quality": "fixture_only"
+    },
+    {
+      "ref": "dryrun://evidence/S03-message-fit",
+      "source_skill": "S03.match-messages-to-segments",
+      "evidence_type": "synthetic_fixture",
+      "quality": "fixture_only"
+    },
+    {
+      "ref": "dryrun://evidence/S04-price-corridor",
+      "source_skill": "S04.model-price-sensitivity",
+      "evidence_type": "synthetic_fixture",
+      "quality": "fixture_only"
+    },
+    {
+      "ref": "dryrun://evidence/S08-scenario-range",
+      "source_skill": "S08.forecast-launch-demand",
+      "evidence_type": "synthetic_fixture",
+      "quality": "fixture_only"
+    },
+    {
+      "ref": "dryrun://evidence/S13-priority",
+      "source_skill": "S13.plan-validation-experiments",
+      "evidence_type": "synthetic_fixture",
+      "quality": "fixture_only"
+    },
+    {
+      "ref": "dryrun://evidence/S05-fixture",
+      "source_skill": "S05.score-creative-assets",
+      "evidence_type": "synthetic_fixture",
+      "quality": "fixture_only"
+    },
+    {
+      "ref": "dryrun://evidence/S06-fixture",
+      "source_skill": "S06.score-kol-fit",
+      "evidence_type": "synthetic_fixture",
+      "quality": "fixture_only"
+    },
+    {
+      "ref": "dryrun://evidence/S07-fixture",
+      "source_skill": "S07.predict-dtc-conversion",
+      "evidence_type": "synthetic_fixture",
+      "quality": "fixture_only"
+    },
+    {
+      "ref": "dryrun://evidence/S09-fixture",
+      "source_skill": "S09.predict-activation-risk",
+      "evidence_type": "synthetic_fixture",
+      "quality": "fixture_only"
+    }
+  ],
+  "citation_index": [
+    {
+      "citation_id": "C-DRY-001",
+      "source": "dryrun://fixture/S01-market-context",
+      "type": "synthetic_fixture",
+      "used_by": [
+        "market_context"
+      ],
+      "quality_label": "not_real_evidence"
+    },
+    {
+      "citation_id": "C-DRY-002",
+      "source": "dryrun://fixture/S02-jtbd-scenarios",
+      "type": "synthetic_fixture",
+      "used_by": [
+        "jtbd_scenarios"
+      ],
+      "quality_label": "not_real_evidence"
+    },
+    {
+      "citation_id": "C-DRY-003",
+      "source": "dryrun://fixture/S03-message-architecture",
+      "type": "synthetic_fixture",
+      "used_by": [
+        "message_architecture"
+      ],
+      "quality_label": "not_real_evidence"
+    },
+    {
+      "citation_id": "C-DRY-004",
+      "source": "dryrun://fixture/S04-pricing",
+      "type": "synthetic_fixture",
+      "used_by": [
+        "pricing"
+      ],
+      "quality_label": "not_real_evidence"
+    },
+    {
+      "citation_id": "C-DRY-008",
+      "source": "dryrun://fixture/S08-launch-forecast",
+      "type": "synthetic_fixture",
+      "used_by": [
+        "launch_forecast"
+      ],
+      "quality_label": "not_real_evidence"
+    },
+    {
+      "citation_id": "C-DRY-005",
+      "source": "dryrun://fixture/copy_assets",
+      "type": "synthetic_fixture",
+      "used_by": [
+        "copy_assets"
+      ],
+      "quality_label": "not_real_evidence"
+    },
+    {
+      "citation_id": "C-DRY-006",
+      "source": "dryrun://fixture/creator_kol",
+      "type": "synthetic_fixture",
+      "used_by": [
+        "creator_kol"
+      ],
+      "quality_label": "not_real_evidence"
+    },
+    {
+      "citation_id": "C-DRY-007",
+      "source": "dryrun://fixture/dtc_conversion",
+      "type": "synthetic_fixture",
+      "used_by": [
+        "dtc_conversion"
+      ],
+      "quality_label": "not_real_evidence"
+    },
+    {
+      "citation_id": "C-DRY-009",
+      "source": "dryrun://fixture/activation_return_risk",
+      "type": "synthetic_fixture",
+      "used_by": [
+        "activation_return_risk"
+      ],
+      "quality_label": "not_real_evidence"
+    }
+  ],
+  "data_gap_log": [
+    {
+      "gap_id": "DG-001",
+      "source_skill": "S01.build-consumer-market-map",
+      "gap": "Real local ecommerce, retailer, forum, video, and search-term discovery was not run.",
+      "severity": "high",
+      "blocks": [
+        "market_context",
+        "competitor_selection",
+        "message_localization"
+      ],
+      "recommended_resolution": "Run S01 with live web MCP search under the target country and category."
+    },
+    {
+      "gap_id": "DG-002",
+      "source_skill": "S02.mine-jtbd-scenarios",
+      "gap": "当前没有真实消费者声音原子、本地语言表达、净推荐相关数据、评论或论坛留言。",
+      "severity": "high",
+      "blocks": [
+        "jtbd_scenarios",
+        "message_architecture"
+      ],
+      "recommended_resolution": "采集公开评论、本地论坛帖子、视频评论，并可选加入私密净推荐相关材料。"
+    },
+    {
+      "gap_id": "DG-003",
+      "source_skill": "S04.model-price-sensitivity",
+      "gap": "当前缺少真实竞品价格、渠道毛利条款、COGS/BOM、价格弹性、基准需求量和 MKT 响应数据。",
+      "severity": "high",
+      "blocks": [
+        "pricing",
+        "launch_forecast"
+      ],
+      "recommended_resolution": "在正式运行中收集公开价格证据；敏感 COGS、渠道费用和 MKT 投入只在离网 HTML 优化器中输入。"
+    },
+    {
+      "gap_id": "DG-004",
+      "source_skill": "S08.forecast-launch-demand",
+      "gap": "No market size seed, budget-by-channel, conversion benchmark, channel commitment, or previous-generation sales curve is available.",
+      "severity": "high",
+      "blocks": [
+        "launch_forecast",
+        "validation_roadmap"
+      ],
+      "recommended_resolution": "Ask user for forecast horizon, marketing spend, channel plan, and optional previous-generation data."
+    },
+    {
+      "gap_id": "DG-006",
+      "source_skill": "S05.score-creative-assets",
+      "gap": "缺少可编辑文案、品牌语气、渠道格式和批准主张。",
+      "severity": "medium",
+      "blocks": [
+        "copy_assets"
+      ],
+      "recommended_resolution": "上传标题、PDP 要点、落地页文字、广告文案、品牌语气和渠道格式。"
+    },
+    {
+      "gap_id": "DG-007",
+      "source_skill": "S06.score-kol-fit",
+      "gap": "缺少本地创作者候选、预算范围、目标平台和竞品创作者历史。",
+      "severity": "medium",
+      "blocks": [
+        "creator_kol",
+        "launch_forecast"
+      ],
+      "recommended_resolution": "补充平台、预算、候选或允许联网发现本地创作者和竞品内容。"
+    },
+    {
+      "gap_id": "DG-008",
+      "source_skill": "S07.predict-dtc-conversion",
+      "gap": "缺少页面文字、竞品/上一代页面、追踪事件和真实转化数据。",
+      "severity": "medium",
+      "blocks": [
+        "dtc_conversion",
+        "launch_forecast"
+      ],
+      "recommended_resolution": "上传页面文字或 URL、竞品/上一代页面、流量来源和追踪事件。"
+    },
+    {
+      "gap_id": "DG-009",
+      "source_skill": "S09.predict-activation-risk",
+      "gap": "缺少设置流程、兼容规则、退换政策和上一代退货原因。",
+      "severity": "medium",
+      "blocks": [
+        "activation_return_risk"
+      ],
+      "recommended_resolution": "补充说明书、上手流程、兼容清单、退换政策或售后资料。"
+    }
+  ],
+  "decision_log": [
+    {
+      "decision_id": "DL-001",
+      "decision": "Use no-live-web synthetic fixture for the golden dry-run.",
+      "reason": "The goal is interface and context-safety validation, not market truth."
+    },
+    {
+      "decision_id": "DL-002",
+      "decision": "Render S05, S06, and S07 as prelaunch completion drafts with explicit gaps.",
+      "reason": "The user wants all gaps filled before a single-pass audit; optional modules remain evidence-light but visible."
+    },
+    {
+      "decision_id": "DL-003",
+      "decision": "当前看板只展示到 S09，S10-S13 暂不进入正文。",
+      "reason": "S10-S13 仍保留在系统架构中，但本轮看板先聚焦上市前主链路和激活退货风险。"
+    },
+    {
+      "decision_id": "DL-004",
+      "decision": "Use handoff-only downstream refs and post-skill isolation records.",
+      "reason": "This protects context budget and prevents attention drift across long chained skills."
+    }
+  ],
+  "compressed_handoff_packs": [
+    {
+      "skill_id": "S01",
+      "ref": "dryrun://handoff/S01-market-context",
+      "allowed_downstream": [
+        "S02",
+        "S03",
+        "S04",
+        "S08",
+        "S13",
+        "S14"
+      ],
+      "canonical_fields": [
+        "market_evidence_summary",
+        "localization_preflight",
+        "local_search_term_map",
+        "competitor_candidate_scoring",
+        "local_voice_source_map",
+        "voice_storage_compression_policy",
+        "top1_previous_generation_voice_scope",
+        "voice_collection_coverage_report",
+        "bain_nss_journey_seed_panel",
+        "journey_episode_inputs",
+        "competitor_seed_scores",
+        "segment_channel_hypotheses",
+        "data_gaps"
+      ]
+    },
+    {
+      "skill_id": "S02",
+      "ref": "dryrun://handoff/S02-jtbd-scenarios",
+      "allowed_downstream": [
+        "S03",
+        "S04",
+        "S08",
+        "S13",
+        "S14"
+      ],
+      "canonical_fields": [
+        "jtbd_priority",
+        "anti_jtbd_risks",
+        "proof_needs",
+        "voice_gap_summary",
+        "segment_job_fit"
+      ]
+    },
+    {
+      "skill_id": "S03",
+      "ref": "dryrun://handoff/S03-message-architecture",
+      "allowed_downstream": [
+        "S04",
+        "S05",
+        "S08",
+        "S13",
+        "S14"
+      ],
+      "canonical_fields": [
+        "message_routes",
+        "proof_requirements",
+        "objections",
+        "claim_risk_gate",
+        "copy_asset_trigger"
+      ]
+    },
+    {
+      "skill_id": "S04",
+      "ref": "dryrun://handoff/S04-pricing",
+      "allowed_downstream": [
+        "S08",
+        "S13",
+        "S14"
+      ],
+      "canonical_fields": [
+        "opening_price_strategy",
+        "launch_price_architecture",
+        "rapid_price_prior",
+        "price_corridor",
+        "wtp_hypotheses",
+        "price_risks",
+        "private_profit_revenue_optimizer_spec",
+        "private_calculator_spec",
+        "price_path_30_60_90",
+        "price_test_plan"
+      ]
+    },
+    {
+      "skill_id": "S05",
+      "ref": "dryrun://handoff/S05-copy-assets",
+      "allowed_downstream": [
+        "S06",
+        "S07",
+        "S13",
+        "S14"
+      ],
+      "canonical_fields": [
+        "copy_input_coverage_gate",
+        "copy_message_fit_scorecard",
+        "channel_copy_fit_matrix",
+        "copy_test_backlog",
+        "data_gaps"
+      ]
+    },
+    {
+      "skill_id": "S06",
+      "ref": "dryrun://handoff/S06-creator-kol",
+      "allowed_downstream": [
+        "S07",
+        "S08",
+        "S13",
+        "S14"
+      ],
+      "canonical_fields": [
+        "creator_archetype_fit_scorecard",
+        "creator_budget_estimate",
+        "creator_expected_outcome_estimate",
+        "brand_safety_risk_review",
+        "creator_test_backlog",
+        "data_gaps"
+      ]
+    },
+    {
+      "skill_id": "S07",
+      "ref": "dryrun://handoff/S07-dtc-conversion",
+      "allowed_downstream": [
+        "S08",
+        "S13",
+        "S14"
+      ],
+      "canonical_fields": [
+        "conversion_input_coverage_gate",
+        "competitor_previous_page_benchmark",
+        "funnel_friction_scorecard",
+        "page_experiment_plan",
+        "tracking_readiness_audit",
+        "data_gaps"
+      ]
+    },
+    {
+      "skill_id": "S08",
+      "ref": "dryrun://handoff/S08-launch-forecast",
+      "allowed_downstream": [
+        "S13",
+        "S14"
+      ],
+      "canonical_fields": [
+        "forecast_scenarios",
+        "marketing_response_assumptions",
+        "channel_readiness",
+        "forecast_sensitivity_risks",
+        "required_user_inputs"
+      ]
+    },
+    {
+      "skill_id": "S09",
+      "ref": "dryrun://handoff/S09-activation-risk",
+      "allowed_downstream": [
+        "S10",
+        "S12",
+        "S13",
+        "S14"
+      ],
+      "canonical_fields": [
+        "activation_return_trigger_check",
+        "activation_journey_risk_map",
+        "return_prevention_priority",
+        "data_gaps"
+      ]
+    },
+    {
+      "skill_id": "S10",
+      "ref": "dryrun://handoff/S10-claim-guardrails",
+      "allowed_downstream": [
+        "S11",
+        "S13",
+        "S14"
+      ],
+      "canonical_fields": [
+        "insight_claim_trigger_check",
+        "claim_guardrail_matrix",
+        "privacy_safety_proof_need",
+        "data_gaps"
+      ]
+    },
+    {
+      "skill_id": "S11",
+      "ref": "dryrun://handoff/S11-subscription-churn",
+      "allowed_downstream": [
+        "S12",
+        "S13",
+        "S14"
+      ],
+      "canonical_fields": [
+        "subscription_retention_trigger_check",
+        "retention_value_driver_map",
+        "churn_risk_priority",
+        "data_gaps"
+      ]
+    },
+    {
+      "skill_id": "S12",
+      "ref": "dryrun://handoff/S12-review-feedback",
+      "allowed_downstream": [
+        "S01",
+        "S02",
+        "S03",
+        "S09",
+        "S13",
+        "S14"
+      ],
+      "canonical_fields": [
+        "feedback_loop_trigger_check",
+        "review_support_source_map",
+        "quality_feedback_priority",
+        "feedback_loop_action_map",
+        "data_gaps"
+      ]
+    },
+    {
+      "skill_id": "S13",
+      "ref": "dryrun://handoff/S13-validation-roadmap",
+      "allowed_downstream": [
+        "S14"
+      ],
+      "canonical_fields": [
+        "validation_input_coverage_gate",
+        "experiment_priority_scorecard",
+        "assumption_risk_vs_test_feasibility",
+        "timeline_and_decision_unlock_map",
+        "context_budget_report"
+      ]
+    }
+  ],
+  "post_skill_isolation_records": [
+    {
+      "skill_id": "S00",
+      "status": "isolated_with_gaps",
+      "full_artifact_ref": "dryrun://artifacts/S00-orchestration-full",
+      "compressed_handoff_ref": "dryrun://handoff/S00-run-brief",
+      "html_section_ref": "dryrun://section/S00-none",
+      "allowed_downstream_refs": [
+        "dryrun://handoff/S01-market-context",
+        "dryrun://handoff/S02-jtbd-scenarios",
+        "dryrun://handoff/S03-message-architecture",
+        "dryrun://handoff/S04-pricing",
+        "dryrun://handoff/S08-launch-forecast",
+        "dryrun://handoff/S13-validation-roadmap"
+      ],
+      "withheld_context": [
+        "raw orchestration scratch notes",
+        "unbounded user conversation"
+      ],
+      "reopen_conditions": [
+        "suite routing failure",
+        "missing required module trigger decision"
+      ],
+      "quality_gate_status": "pass_with_caveats"
+    },
+    {
+      "skill_id": "S01",
+      "status": "isolated_with_gaps",
+      "full_artifact_ref": "dryrun://artifacts/S01-market-context-full",
+      "compressed_handoff_ref": "dryrun://handoff/S01-market-context",
+      "html_section_ref": "dryrun://section/S01-market-context",
+      "allowed_downstream_refs": [
+        "dryrun://handoff/S01-market-context",
+        "dryrun://section/S01-market-context"
+      ],
+      "withheld_context": [
+        "raw search pages",
+        "raw review corpus",
+        "scratch scoring notes"
+      ],
+      "reopen_conditions": [
+        "competitor source challenge",
+        "missing local channel source",
+        "market map contradiction"
+      ],
+      "quality_gate_status": "pass_with_caveats"
+    },
+    {
+      "skill_id": "S02",
+      "status": "isolated_with_gaps",
+      "full_artifact_ref": "dryrun://artifacts/S02-jtbd-full",
+      "compressed_handoff_ref": "dryrun://handoff/S02-jtbd-scenarios",
+      "html_section_ref": "dryrun://section/S02-jtbd-scenarios",
+      "allowed_downstream_refs": [
+        "dryrun://handoff/S02-jtbd-scenarios",
+        "dryrun://section/S02-jtbd-scenarios"
+      ],
+      "withheld_context": [
+        "raw voice atoms",
+        "raw language snippets",
+        "intermediate clustering notes"
+      ],
+      "reopen_conditions": [
+        "voice source audit",
+        "JTBD cluster dispute",
+        "local phrase translation challenge"
+      ],
+      "quality_gate_status": "pass_with_caveats"
+    },
+    {
+      "skill_id": "S03",
+      "status": "isolated_with_gaps",
+      "full_artifact_ref": "dryrun://artifacts/S03-message-full",
+      "compressed_handoff_ref": "dryrun://handoff/S03-message-architecture",
+      "html_section_ref": "dryrun://section/S03-message-architecture",
+      "allowed_downstream_refs": [
+        "dryrun://handoff/S03-message-architecture",
+        "dryrun://section/S03-message-architecture"
+      ],
+      "withheld_context": [
+        "discarded message variants",
+        "scratch claim drafts",
+        "raw objection snippets"
+      ],
+      "reopen_conditions": [
+        "claim legality or proof challenge",
+        "copy generation trigger",
+        "segment-message mismatch"
+      ],
+      "quality_gate_status": "pass_with_caveats"
+    },
+    {
+      "skill_id": "S04",
+      "status": "isolated_with_gaps",
+      "full_artifact_ref": "dryrun://artifacts/S04-pricing-full",
+      "compressed_handoff_ref": "dryrun://handoff/S04-pricing",
+      "html_section_ref": "dryrun://section/S04-pricing",
+      "allowed_downstream_refs": [
+        "dryrun://handoff/S04-pricing",
+        "dryrun://section/S04-pricing"
+      ],
+      "withheld_context": [
+        "private COGS",
+        "private gross margin",
+        "channel policy",
+        "raw pricing worksheet"
+      ],
+      "reopen_conditions": [
+        "私密利润/收入优化器结果需要进入管理层摘要",
+        "价格锚点或渠道毛利条款发生变化",
+        "需要新增价格测试或促销路径"
+      ],
+      "quality_gate_status": "pass_with_caveats"
+    },
+    {
+      "skill_id": "S05",
+      "status": "isolated_with_gaps",
+      "full_artifact_ref": "dryrun://artifacts/S05-copy-full",
+      "compressed_handoff_ref": "dryrun://handoff/S05-copy-assets",
+      "html_section_ref": "dryrun://section/S05-copy-assets",
+      "allowed_downstream_refs": [
+        "dryrun://handoff/S05-copy-assets",
+        "dryrun://section/S05-copy-assets"
+      ],
+      "withheld_context": [
+        "原始文案草稿",
+        "被放弃的文案变体",
+        "私密品牌说明"
+      ],
+      "reopen_conditions": [
+        "上传新的可编辑文案",
+        "品牌语气变化",
+        "主张审核结果变化"
+      ],
+      "quality_gate_status": "pass_with_caveats"
+    },
+    {
+      "skill_id": "S06",
+      "status": "isolated_with_gaps",
+      "full_artifact_ref": "dryrun://artifacts/S06-creator-full",
+      "compressed_handoff_ref": "dryrun://handoff/S06-creator-kol",
+      "html_section_ref": "dryrun://section/S06-creator-kol",
+      "allowed_downstream_refs": [
+        "dryrun://handoff/S06-creator-kol",
+        "dryrun://section/S06-creator-kol"
+      ],
+      "withheld_context": [
+        "原始创作者长名单",
+        "报价卡细节",
+        "品牌安全备注"
+      ],
+      "reopen_conditions": [
+        "新增创作者候选",
+        "预算变化",
+        "目标平台变化"
+      ],
+      "quality_gate_status": "pass_with_caveats"
+    },
+    {
+      "skill_id": "S07",
+      "status": "isolated_with_gaps",
+      "full_artifact_ref": "dryrun://artifacts/S07-conversion-full",
+      "compressed_handoff_ref": "dryrun://handoff/S07-dtc-conversion",
+      "html_section_ref": "dryrun://section/S07-dtc-conversion",
+      "allowed_downstream_refs": [
+        "dryrun://handoff/S07-dtc-conversion",
+        "dryrun://section/S07-dtc-conversion"
+      ],
+      "withheld_context": [
+        "原始页面抓取",
+        "分析数据导出",
+        "私密漏斗备注"
+      ],
+      "reopen_conditions": [
+        "提供页面链接或文字",
+        "可获得分析数据",
+        "优惠或权益变化"
+      ],
+      "quality_gate_status": "pass_with_caveats"
+    },
+    {
+      "skill_id": "S08",
+      "status": "isolated_with_gaps",
+      "full_artifact_ref": "dryrun://artifacts/S08-forecast-full",
+      "compressed_handoff_ref": "dryrun://handoff/S08-launch-forecast",
+      "html_section_ref": "dryrun://section/S08-launch-forecast",
+      "allowed_downstream_refs": [
+        "dryrun://handoff/S08-launch-forecast",
+        "dryrun://section/S08-launch-forecast"
+      ],
+      "withheld_context": [
+        "raw forecast scratch model",
+        "private sales curve",
+        "private channel plan"
+      ],
+      "reopen_conditions": [
+        "forecast assumption challenge",
+        "new marketing budget",
+        "new channel commitment",
+        "private previous-generation data provided"
+      ],
+      "quality_gate_status": "pass_with_caveats"
+    },
+    {
+      "skill_id": "S09",
+      "status": "isolated_with_gaps",
+      "full_artifact_ref": "dryrun://artifacts/S09-activation-full",
+      "compressed_handoff_ref": "dryrun://handoff/S09-activation-risk",
+      "html_section_ref": "dryrun://section/S09-activation-risk",
+      "allowed_downstream_refs": [
+        "dryrun://handoff/S09-activation-risk",
+        "dryrun://section/S09-activation-risk"
+      ],
+      "withheld_context": [
+        "原始上手说明",
+        "客服细节",
+        "退换政策草稿"
+      ],
+      "reopen_conditions": [
+        "上手流程变化",
+        "可获得退货数据",
+        "出现兼容问题"
+      ],
+      "quality_gate_status": "pass_with_caveats"
+    }
+  ],
+  "quality_gate_summary": {
+    "status": "pass_with_caveats",
+    "checks": [
+      {
+        "gate": "required_top_level_fields",
+        "status": "pass"
+      },
+      {
+        "gate": "post_skill_isolation_records_present",
+        "status": "pass"
+      },
+      {
+        "gate": "S05_S07_prelaunch_sections_rendered",
+        "status": "pass"
+      },
+      {
+        "gate": "S09_activation_section_rendered",
+        "status": "pass_with_caveats",
+        "note": "S09 已作为激活与退货风险草案渲染，并展示明确缺口。"
+      },
+      {
+        "gate": "S10_S13_hidden_from_current_dashboard",
+        "status": "pass",
+        "note": "S10-S13 保留为系统能力，但当前看板不展示。"
+      },
+      {
+        "gate": "dashboard_composer_hidden_as_module",
+        "status": "pass",
+        "note": "最终合成器只生成看板，不作为模块展示。"
+      },
+      {
+        "gate": "no_live_web_contamination",
+        "status": "pass"
+      },
+      {
+        "gate": "raw_private_inputs_not_embedded",
+        "status": "pass"
+      },
+      {
+        "gate": "context_budget",
+        "status": "pass_with_caveats",
+        "note": "试跑只使用合成 handoff 引用，尚未测量真实上下文预算。"
+      }
+    ],
+    "rendered_sections": [
+      "market_context",
+      "jtbd_scenarios",
+      "message_architecture",
+      "pricing",
+      "copy_assets",
+      "creator_kol",
+      "dtc_conversion",
+      "launch_forecast",
+      "activation_return_risk",
+      "data_gap_panel",
+      "citation_index"
+    ],
+    "skipped_sections": [],
+    "future_sections_omitted": [],
+    "visual_block_count": 49,
+    "isolation_record_count": 10,
+    "validation_warnings": [
+      "所有证据均为合成试跑样例数据。",
+      "未执行真实联网 MCP 搜索。",
+      "未嵌入私密商业输入。",
+      "S05-S09 已作为可审核草案渲染，并展示明确数据缺口。",
+      "S10-S13 暂不进入当前看板正文。"
+    ],
+    "validation_failures": []
+  }
+}

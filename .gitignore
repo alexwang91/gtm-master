@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+.env
+.env.*
+node_modules/
+.scratch/chrome-headless-profile*/
+artifacts/dry-runs/tmp-test-dashboard.html
+.DS_Store
+Thumbs.db

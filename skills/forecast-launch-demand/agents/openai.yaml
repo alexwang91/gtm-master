@@ -1,0 +1,4 @@
+interface:
+  display_name: "Launch Sales Forecast"
+  short_description: "Forecast launch unit sales."
+  default_prompt: "Use $forecast-launch-demand to turn market sizing, segment, channel, pricing, optional DTC conversion, and creator/KOL assumptions into conservative/base/upside launch unit-sales scenarios, channel split, inventory risk, sensitivity analysis, and an HTML dashboard section without false precision."

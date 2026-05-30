@@ -1,0 +1,4 @@
+interface:
+  display_name: "Price Sensitivity"
+  short_description: "Model local price sensitivity and WTP test plans."
+  default_prompt: "Use model-price-sensitivity to convert price anchors, segment price sensitivity, scenario price implications, and price message seeds into pricing hypotheses, WTP tests, promo guidance, and HTML pricing sections."

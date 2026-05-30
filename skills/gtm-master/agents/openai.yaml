@@ -1,0 +1,4 @@
+interface:
+  display_name: "GTM Master"
+  short_description: "Orchestrate the GTM intelligence report suite."
+  default_prompt: "Use gtm-master to turn product specs, launch country, and target price range into a governed multi-skill GTM report workflow with evidence, handoffs, and HTML dashboard state."

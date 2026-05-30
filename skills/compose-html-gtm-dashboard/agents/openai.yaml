@@ -1,0 +1,4 @@
+interface:
+  display_name: "HTML GTM Dashboard"
+  short_description: "Render GTM handoffs into a polished static HTML report."
+  default_prompt: "Use $compose-html-gtm-dashboard to turn report_state, section drafts, evidence refs, confidence badges, and data gaps into a static HTML GTM dashboard."

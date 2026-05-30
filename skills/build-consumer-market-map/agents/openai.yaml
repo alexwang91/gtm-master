@@ -1,0 +1,4 @@
+interface:
+  display_name: "Consumer Market Map"
+  short_description: "Build a localized consumer market map for 2C hardware launches."
+  default_prompt: "Use build-consumer-market-map to turn product specs, launch country, and target price range into a quantified local market context pack with evidence, competitors, segments, price anchors, and handoffs."

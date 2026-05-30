@@ -1,0 +1,377 @@
+{
+  "dry_run_id": "DRYRUN-001-generic-hardware-s00-s08-s14",
+  "purpose": "Interface fixture for validating that implemented S00-S08 section drafts can be accepted by S14 without using a real product, brand, country, or live evidence.",
+  "fixture_policy": {
+    "real_market_claims": false,
+    "real_web_evidence": false,
+    "use_for_html_layout_only": true,
+    "default_output_language": "zh-CN"
+  },
+  "project_brief": {
+    "project_id": "fixture-generic-hardware",
+    "product_name_or_codename": "Generic Hardware Fixture",
+    "product_category": "2C hardware device",
+    "product_features_and_specs": "Feature A improves a core daily task; Feature B reduces setup friction; Feature C provides measurable battery, durability, or comfort value.",
+    "launch_country_or_region": "Example target country",
+    "target_price_range": "Example local currency price band",
+    "report_depth": "standard",
+    "output_language": "zh-CN",
+    "assumptions": [
+      "This is not a market analysis result.",
+      "All evidence refs are fixture refs.",
+      "The goal is S14 compatibility, not business truth."
+    ]
+  },
+  "html_section_drafts": [
+    {
+      "section_id": "market_context",
+      "source_skill": "S01.build-consumer-market-map",
+      "section_title": "S01 Market Context",
+      "status": "rendered_with_gaps",
+      "confidence": "hypothesis_only",
+      "executive_takeaway": "S01 can provide the market evidence layer, but this dry run uses fixture evidence only.",
+      "narrative_blocks": [
+        "Fixture section for local market, competitors, price anchors, segments, and channel touchpoints."
+      ],
+      "visual_blocks": [
+        {
+          "visual_block_id": "s01-evidence-coverage-gate",
+          "source_skill": "S01.build-consumer-market-map",
+          "type": "status_panel",
+          "title": "Evidence Coverage Gate",
+          "subtitle": "Fixture evidence only",
+          "data_source": "evidence_collection_summary",
+          "items": [{"label": "coverage", "status": "fixture_only"}],
+          "rows": [],
+          "columns": [],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "Dry-run source note: no real evidence collected.",
+          "evidence_refs": ["E_FIXTURE_001"],
+          "citations": [],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s01-selling-point-fit",
+          "source_skill": "S01.build-consumer-market-map",
+          "type": "matrix_heatmap",
+          "title": "Product Capability To Local Selling-Point Fit",
+          "subtitle": "Synthetic capability rows",
+          "data_source": "category_selling_point_map",
+          "items": [],
+          "rows": [{"capability": "Feature A", "fit_score": 60}, {"capability": "Feature B", "fit_score": 55}],
+          "columns": ["capability", "fit_score"],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "Fixture scores are placeholders.",
+          "evidence_refs": ["E_FIXTURE_001"],
+          "citations": [],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s01-competitor-threat-ranking",
+          "source_skill": "S01.build-consumer-market-map",
+          "type": "ranked_bar",
+          "title": "Competitor And Substitute Threat Ranking",
+          "subtitle": "Placeholder competitors",
+          "data_source": "competitor_threat_scores",
+          "items": [{"label": "Competitor type A", "score": 70}, {"label": "Substitute type B", "score": 52}],
+          "rows": [],
+          "columns": [],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "Dry-run fixture only.",
+          "evidence_refs": ["E_FIXTURE_001"],
+          "citations": [],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s01-price-corridor",
+          "source_skill": "S01.build-consumer-market-map",
+          "type": "range_chart",
+          "title": "Local Price Corridor Seed",
+          "subtitle": "Placeholder price band index",
+          "data_source": "local_price_corridor",
+          "items": [{"label": "target band index", "min": 40, "max": 65}],
+          "rows": [],
+          "columns": [],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "Indexed values only; not currency.",
+          "evidence_refs": ["E_FIXTURE_001"],
+          "citations": [],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s01-segment-priority",
+          "source_skill": "S01.build-consumer-market-map",
+          "type": "ranked_bar",
+          "title": "Segment Priority And Evidence Strength",
+          "subtitle": "Placeholder segment ranking",
+          "data_source": "segment_priority_ranking",
+          "items": [{"label": "Segment A", "score": 64}, {"label": "Segment B", "score": 48}],
+          "rows": [],
+          "columns": [],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "Fixture scores are not evidence-backed.",
+          "evidence_refs": ["E_FIXTURE_001"],
+          "citations": [],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "visual_block_id": "s01-channel-touchpoint-fit",
+          "source_skill": "S01.build-consumer-market-map",
+          "type": "matrix_heatmap",
+          "title": "Segment Channel Touchpoint Fit",
+          "subtitle": "Placeholder channel rows",
+          "data_source": "segment_channel_touchpoint_map",
+          "items": [],
+          "rows": [{"segment": "Segment A", "channel": "Retail", "fit_score": 61}, {"segment": "Segment B", "channel": "DTC", "fit_score": 57}],
+          "columns": ["segment", "channel", "fit_score"],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "Dry-run source note.",
+          "evidence_refs": ["E_FIXTURE_001"],
+          "citations": [],
+          "confidence": "hypothesis_only"
+        }
+      ],
+      "tables": [],
+      "charts": [],
+      "callouts": [{"type": "caveat", "text": "Fixture has no real local evidence."}],
+      "confidence_badges": [{"label": "Assumption", "reason": "Dry-run only"}],
+      "citations": [],
+      "data_gaps": ["dry_run_no_real_evidence"],
+      "next_actions": ["Run S01 with a real product, country, and price band."]
+    },
+    {
+      "section_id": "jtbd_scenarios",
+      "source_skill": "S02.mine-jtbd-scenarios",
+      "section_title": "S02 JTBD Scenarios",
+      "status": "rendered_with_gaps",
+      "confidence": "hypothesis_only",
+      "executive_takeaway": "S02 can render scenario, proof, and anti-JTBD views when S01 handoff exists.",
+      "narrative_blocks": ["Fixture section for JTBD scenario prioritization."],
+      "visual_blocks": [
+        {"visual_block_id": "s02-input-gate", "source_skill": "S02.mine-jtbd-scenarios", "type": "status_panel", "title": "Upstream Input Coverage Gate", "subtitle": "Fixture handoff", "data_source": "upstream_input_coverage_gate", "items": [{"label": "S01 handoff", "status": "fixture_only"}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "Dry-run source note.", "evidence_refs": ["E_FIXTURE_002"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s02-priority", "source_skill": "S02.mine-jtbd-scenarios", "type": "ranked_bar", "title": "Scenario Priority Scorecard", "subtitle": "Synthetic scenarios", "data_source": "scenario_priority_scorecard", "items": [{"label": "Scenario A", "score": 68}, {"label": "Scenario B", "score": 50}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "Fixture scores only.", "evidence_refs": ["E_FIXTURE_002"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s02-segment-matrix", "source_skill": "S02.mine-jtbd-scenarios", "type": "matrix_heatmap", "title": "Scenario To Segment Matrix", "subtitle": "Synthetic mapping", "data_source": "scenario_to_segment_matrix", "items": [], "rows": [{"scenario": "Scenario A", "segment": "Segment A", "fit_score": 63}], "columns": ["scenario", "segment", "fit_score"], "scale_min": 0, "scale_max": 100, "note": "Dry-run source note.", "evidence_refs": ["E_FIXTURE_002"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s02-product-job-fit", "source_skill": "S02.mine-jtbd-scenarios", "type": "matrix_heatmap", "title": "Product Job Fit And Proof Readiness", "subtitle": "Synthetic proof readiness", "data_source": "product_job_fit_matrix", "items": [], "rows": [{"job": "Job A", "fit_score": 60, "proof_readiness": 45}], "columns": ["job", "fit_score", "proof_readiness"], "scale_min": 0, "scale_max": 100, "note": "Fixture only.", "evidence_refs": ["E_FIXTURE_002"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s02-proof-urgency", "source_skill": "S02.mine-jtbd-scenarios", "type": "ranked_bar", "title": "Proof Requirement Urgency Ranking", "subtitle": "Synthetic proof gaps", "data_source": "proof_requirement_seed", "items": [{"label": "Proof A", "score": 76}, {"label": "Proof B", "score": 55}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "Fixture scores only.", "evidence_refs": ["E_FIXTURE_002"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s02-anti-jtbd", "source_skill": "S02.mine-jtbd-scenarios", "type": "ranked_bar", "title": "Anti-JTBD And Non-Consumption Risk Ranking", "subtitle": "Synthetic risks", "data_source": "anti_jtbd_risk_list", "items": [{"label": "Risk A", "score": 70}, {"label": "Risk B", "score": 46}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "Dry-run source note.", "evidence_refs": ["E_FIXTURE_002"], "citations": [], "confidence": "hypothesis_only"}
+      ],
+      "tables": [],
+      "charts": [],
+      "callouts": [],
+      "confidence_badges": [{"label": "Assumption", "reason": "Dry-run only"}],
+      "citations": [],
+      "data_gaps": ["dry_run_no_real_voice_atoms"],
+      "next_actions": ["Run S02 after real S01 voice and segment handoff exists."]
+    },
+    {
+      "section_id": "message_architecture",
+      "source_skill": "S03.match-messages-to-segments",
+      "section_title": "S03 Message Architecture",
+      "status": "rendered_with_gaps",
+      "confidence": "hypothesis_only",
+      "executive_takeaway": "S03 can render message fit, proof readiness, objections, and claim risk when S02 scenarios exist.",
+      "narrative_blocks": ["Fixture section for segment-level messaging."],
+      "visual_blocks": [
+        {"visual_block_id": "s03-input-gate", "source_skill": "S03.match-messages-to-segments", "type": "status_panel", "title": "Message Input Coverage Gate", "subtitle": "Fixture handoff", "data_source": "message_input_coverage_gate", "items": [{"label": "S02 scenario handoff", "status": "fixture_only"}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "Dry-run source note.", "evidence_refs": ["E_FIXTURE_003"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s03-segment-message-fit", "source_skill": "S03.match-messages-to-segments", "type": "matrix_heatmap", "title": "Segment Message Fit", "subtitle": "Synthetic fit", "data_source": "segment_message_architecture", "items": [], "rows": [{"segment": "Segment A", "message": "Message A", "fit_score": 62}], "columns": ["segment", "message", "fit_score"], "scale_min": 0, "scale_max": 100, "note": "Fixture only.", "evidence_refs": ["E_FIXTURE_003"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s03-feature-proof", "source_skill": "S03.match-messages-to-segments", "type": "matrix_heatmap", "title": "Feature Benefit Proof Readiness", "subtitle": "Synthetic proof scores", "data_source": "feature_benefit_proof_matrix", "items": [], "rows": [{"feature": "Feature A", "benefit": "Benefit A", "proof_score": 50}], "columns": ["feature", "benefit", "proof_score"], "scale_min": 0, "scale_max": 100, "note": "Dry-run source note.", "evidence_refs": ["E_FIXTURE_003"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s03-claim-risk", "source_skill": "S03.match-messages-to-segments", "type": "status_panel", "title": "Claim Risk And Proof Gate", "subtitle": "Fixture claim gate", "data_source": "claim_risk_and_proof_gate", "items": [{"label": "claim readiness", "status": "needs_validation"}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "Fixture only.", "evidence_refs": ["E_FIXTURE_003"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s03-objection-ranking", "source_skill": "S03.match-messages-to-segments", "type": "ranked_bar", "title": "Objection Severity Ranking", "subtitle": "Synthetic objections", "data_source": "objection_matrix", "items": [{"label": "Objection A", "score": 74}, {"label": "Objection B", "score": 43}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "Fixture scores only.", "evidence_refs": ["E_FIXTURE_003"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s03-price-message", "source_skill": "S03.match-messages-to-segments", "type": "status_panel", "title": "Price Message Readiness", "subtitle": "Fixture price message", "data_source": "price_message_seed", "items": [{"label": "price proof", "status": "needs_validation"}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "Dry-run source note.", "evidence_refs": ["E_FIXTURE_003"], "citations": [], "confidence": "hypothesis_only"}
+      ],
+      "tables": [],
+      "charts": [],
+      "callouts": [],
+      "confidence_badges": [{"label": "Assumption", "reason": "Dry-run only"}],
+      "citations": [],
+      "data_gaps": ["dry_run_no_real_claim_evidence"],
+      "next_actions": ["Run S03 after real JTBD, segment, proof, and claim constraints exist."]
+    },
+    {
+      "section_id": "pricing",
+      "source_skill": "S04.model-price-sensitivity",
+      "section_title": "S04 Pricing",
+      "status": "rendered_with_gaps",
+      "confidence": "hypothesis_only",
+      "executive_takeaway": "S04 can render price hypothesis and private calculator readiness, but this fixture contains no real price or margin evidence.",
+      "narrative_blocks": ["Fixture section for price corridor, WTP, risks, and private calculator readiness."],
+      "visual_blocks": [
+        {"visual_block_id": "s04-decision-gate", "source_skill": "S04.model-price-sensitivity", "type": "status_panel", "title": "Pricing Decision Gate", "subtitle": "Fixture gate", "data_source": "pricing_decision_gate", "items": [{"label": "decision", "status": "research_first"}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "No real price evidence.", "evidence_refs": ["E_FIXTURE_004"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s04-price-corridor", "source_skill": "S04.model-price-sensitivity", "type": "range_chart", "title": "Local Price Credibility Corridor", "subtitle": "Indexed placeholder", "data_source": "local_price_credibility_model", "items": [{"label": "target indexed corridor", "min": 35, "max": 70}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "Indexed fixture, not currency.", "evidence_refs": ["E_FIXTURE_004"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s04-wtp", "source_skill": "S04.model-price-sensitivity", "type": "matrix_heatmap", "title": "Segment WTP And Sensitivity", "subtitle": "Synthetic WTP", "data_source": "segment_wtp_hypothesis", "items": [], "rows": [{"segment": "Segment A", "wtp_score": 55, "sensitivity": 70}], "columns": ["segment", "wtp_score", "sensitivity"], "scale_min": 0, "scale_max": 100, "note": "Fixture scores only.", "evidence_refs": ["E_FIXTURE_004"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s04-proof-readiness", "source_skill": "S04.model-price-sensitivity", "type": "matrix_heatmap", "title": "Price Value Proof Readiness", "subtitle": "Synthetic proof readiness", "data_source": "price_value_proof_matrix", "items": [], "rows": [{"proof": "Proof A", "readiness": 42}], "columns": ["proof", "readiness"], "scale_min": 0, "scale_max": 100, "note": "Dry-run source note.", "evidence_refs": ["E_FIXTURE_004"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s04-risk", "source_skill": "S04.model-price-sensitivity", "type": "ranked_bar", "title": "Price Risk Guardrails", "subtitle": "Synthetic risks", "data_source": "price_risk_guardrail", "items": [{"label": "proof gap", "score": 76}, {"label": "private margin gap", "score": 65}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "Private values are not embedded.", "evidence_refs": ["E_FIXTURE_004"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s04-wtp-test", "source_skill": "S04.model-price-sensitivity", "type": "status_panel", "title": "WTP Test And Evidence Plan", "subtitle": "Fixture test plan", "data_source": "wtp_test_plan", "items": [{"label": "test readiness", "status": "not_started"}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "Dry-run source note.", "evidence_refs": ["E_FIXTURE_004"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s04-private-calculator", "source_skill": "S04.model-price-sensitivity", "type": "status_panel", "title": "Private Pricing Calculator Readiness", "subtitle": "Blank local calculator only", "data_source": "private_pricing_calculator_spec", "items": [{"label": "raw private values", "status": "excluded"}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "No COGS, margin, or channel values embedded.", "evidence_refs": ["E_FIXTURE_004"], "citations": [], "confidence": "hypothesis_only"}
+      ],
+      "tables": [],
+      "charts": [],
+      "callouts": [{"type": "privacy", "text": "Private commercial values must remain local-only unless approved."}],
+      "confidence_badges": [{"label": "Needs Validation", "reason": "No real pricing evidence"}],
+      "citations": [],
+      "data_gaps": ["dry_run_no_real_price_evidence", "private_margin_constraints_missing"],
+      "next_actions": ["Run S04 with real price anchors and optional private pricing constraints."]
+    },
+    {
+      "section_id": "copy_assets",
+      "source_skill": "S05.score-creative-assets",
+      "section_title": "S05 Copy Assets",
+      "status": "skipped_not_triggered",
+      "confidence": "unknown",
+      "executive_takeaway": "S05 is optional and was skipped because no editable copy assets are present in this fixture.",
+      "narrative_blocks": [],
+      "visual_blocks": [],
+      "tables": [],
+      "charts": [],
+      "callouts": [{"type": "skip", "text": "No editable copy assets supplied."}],
+      "confidence_badges": [],
+      "citations": [],
+      "data_gaps": ["skipped_no_editable_copy"],
+      "next_actions": ["Provide copy assets or concepts only when copy scoring is needed."]
+    },
+    {
+      "section_id": "creator_kol",
+      "source_skill": "S06.score-kol-fit",
+      "section_title": "S06 Creator/KOL Fit",
+      "status": "skipped_not_triggered",
+      "confidence": "unknown",
+      "executive_takeaway": "S06 is optional and was skipped because no creator/KOL workstream is triggered in this fixture.",
+      "narrative_blocks": [],
+      "visual_blocks": [],
+      "tables": [],
+      "charts": [],
+      "callouts": [{"type": "skip", "text": "No creator campaign goal or candidate requirement supplied."}],
+      "confidence_badges": [],
+      "citations": [],
+      "data_gaps": ["skipped_no_creator_workstream"],
+      "next_actions": ["Provide creator campaign goal, platform, and budget when S06 is needed."]
+    },
+    {
+      "section_id": "dtc_conversion",
+      "source_skill": "S07.predict-dtc-conversion",
+      "section_title": "S07 DTC/PDP Conversion",
+      "status": "skipped_not_triggered",
+      "confidence": "unknown",
+      "executive_takeaway": "S07 is optional and was skipped because no DTC, PDP, preorder, waitlist, or clickout flow is supplied in this fixture.",
+      "narrative_blocks": [],
+      "visual_blocks": [],
+      "tables": [],
+      "charts": [],
+      "callouts": [{"type": "skip", "text": "No page or funnel material supplied."}],
+      "confidence_badges": [],
+      "citations": [],
+      "data_gaps": ["skipped_no_conversion_surface"],
+      "next_actions": ["Provide page/PDP/funnel text or competitor refs when conversion planning matters."]
+    },
+    {
+      "section_id": "launch_forecast",
+      "source_skill": "S08.forecast-launch-demand",
+      "section_title": "S08 Launch Sales Forecast",
+      "status": "rendered_with_gaps",
+      "confidence": "hypothesis_only",
+      "executive_takeaway": "S08 can render sales scenarios and forecast caveats, but fixture values are indexed and not real units.",
+      "narrative_blocks": ["Fixture section for launch sales, lifecycle, channel split, inventory risk, and validation needs."],
+      "visual_blocks": [
+        {"visual_block_id": "s08-input-gate", "source_skill": "S08.forecast-launch-demand", "type": "status_panel", "title": "Forecast Input Coverage Gate", "subtitle": "Fixture coverage", "data_source": "forecast_input_coverage_gate", "items": [{"label": "market size seed", "status": "missing"}, {"label": "pricing context", "status": "fixture_only"}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "No real unit forecast can be made.", "evidence_refs": ["E_FIXTURE_008"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s08-scenario-sales", "source_skill": "S08.forecast-launch-demand", "type": "range_chart", "title": "Scenario Sales Forecast", "subtitle": "Indexed values only", "data_source": "scenario_sales_forecast", "items": [{"label": "conservative", "min": 20, "max": 35}, {"label": "base", "min": 35, "max": 60}, {"label": "upside", "min": 60, "max": 85}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "Indexes are not unit sales.", "evidence_refs": ["E_FIXTURE_008"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s08-lifecycle", "source_skill": "S08.forecast-launch-demand", "type": "range_chart", "title": "Lifecycle Phase Sales Curve", "subtitle": "Synthetic phase index", "data_source": "lifecycle_phase_sales_curve", "items": [{"label": "launch_spike", "min": 30, "max": 45}, {"label": "early_ramp", "min": 25, "max": 35}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "Phase curve is fixture-only.", "evidence_refs": ["E_FIXTURE_008"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s08-baseline-incremental", "source_skill": "S08.forecast-launch-demand", "type": "range_chart", "title": "Baseline vs Marketing Incremental Sales", "subtitle": "Synthetic indexed split", "data_source": "baseline_incremental_sales_bridge", "items": [{"label": "baseline", "min": 45, "max": 65}, {"label": "marketing_incremental", "min": 10, "max": 25}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "No real MKT response basis.", "evidence_refs": ["E_FIXTURE_008"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s08-segment-sales", "source_skill": "S08.forecast-launch-demand", "type": "ranked_bar", "title": "Segment Sales Split", "subtitle": "Synthetic split", "data_source": "segment_sales_split", "items": [{"label": "Segment A", "score": 58}, {"label": "Segment B", "score": 42}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "Fixture split only.", "evidence_refs": ["E_FIXTURE_008"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s08-channel-split", "source_skill": "S08.forecast-launch-demand", "type": "matrix_heatmap", "title": "Channel Split Forecast", "subtitle": "Synthetic channel split", "data_source": "channel_split_forecast", "items": [], "rows": [{"channel": "Retail", "share_index": 55}, {"channel": "DTC", "share_index": 45}], "columns": ["channel", "share_index"], "scale_min": 0, "scale_max": 100, "note": "No real channel commitments.", "evidence_refs": ["E_FIXTURE_008"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s08-inventory-risk", "source_skill": "S08.forecast-launch-demand", "type": "matrix_heatmap", "title": "Inventory Risk Map", "subtitle": "Synthetic risk map", "data_source": "inventory_risk_map", "items": [], "rows": [{"scenario": "base", "risk": "unknown_inventory", "risk_score": 70}], "columns": ["scenario", "risk", "risk_score"], "scale_min": 0, "scale_max": 100, "note": "Inventory context missing.", "evidence_refs": ["E_FIXTURE_008"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s08-sensitivity", "source_skill": "S08.forecast-launch-demand", "type": "ranked_bar", "title": "Sensitivity Driver Tornado", "subtitle": "Synthetic drivers", "data_source": "sensitivity_driver_tornado", "items": [{"label": "price acceptance", "score": 78}, {"label": "channel availability", "score": 70}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "Fixture drivers only.", "evidence_refs": ["E_FIXTURE_008"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s08-mkt-sensitivity", "source_skill": "S08.forecast-launch-demand", "type": "ranked_bar", "title": "Marketing Spend Sensitivity", "subtitle": "Synthetic spend sensitivity", "data_source": "marketing_spend_sensitivity_curve", "items": [{"label": "performance media", "score": 60}, {"label": "retail media", "score": 48}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "No real response basis.", "evidence_refs": ["E_FIXTURE_008"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s08-decision-gate", "source_skill": "S08.forecast-launch-demand", "type": "status_panel", "title": "Forecast Decision Gate", "subtitle": "Fixture decision status", "data_source": "forecast_decision_gate", "items": [{"label": "usable_for_direction", "status": "fixture_only"}, {"label": "usable_for_inventory", "status": "not_ready"}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "Dry-run source note.", "evidence_refs": ["E_FIXTURE_008"], "citations": [], "confidence": "hypothesis_only"},
+        {"visual_block_id": "s08-validation", "source_skill": "S08.forecast-launch-demand", "type": "ranked_bar", "title": "Validation Need Priority", "subtitle": "Synthetic validation needs", "data_source": "validation_need_map", "items": [{"label": "market size seed", "score": 90}, {"label": "inventory constraints", "score": 82}], "rows": [], "columns": [], "scale_min": 0, "scale_max": 100, "note": "Fixture only.", "evidence_refs": ["E_FIXTURE_008"], "citations": [], "confidence": "hypothesis_only"}
+      ],
+      "tables": [],
+      "charts": [],
+      "callouts": [{"type": "caveat", "text": "Do not read fixture indexes as unit sales."}],
+      "confidence_badges": [{"label": "Assumption", "reason": "Dry-run only"}],
+      "citations": [],
+      "data_gaps": ["missing_market_size_seed", "missing_inventory_context", "marketing_response_confidence_capped"],
+      "next_actions": ["Run S08 after real S01/S04 and optional S06/S07 handoffs exist."]
+    }
+  ],
+  "evidence_ledger": [
+    {
+      "evidence_id": "E_FIXTURE_001",
+      "source_name": "Dry-run fixture",
+      "source_type": "synthetic",
+      "usage_permission": "internal_fixture_only",
+      "confidence": "low"
+    },
+    {
+      "evidence_id": "E_FIXTURE_002",
+      "source_name": "Dry-run fixture",
+      "source_type": "synthetic",
+      "usage_permission": "internal_fixture_only",
+      "confidence": "low"
+    },
+    {
+      "evidence_id": "E_FIXTURE_003",
+      "source_name": "Dry-run fixture",
+      "source_type": "synthetic",
+      "usage_permission": "internal_fixture_only",
+      "confidence": "low"
+    },
+    {
+      "evidence_id": "E_FIXTURE_004",
+      "source_name": "Dry-run fixture",
+      "source_type": "synthetic",
+      "usage_permission": "internal_fixture_only",
+      "confidence": "low"
+    },
+    {
+      "evidence_id": "E_FIXTURE_008",
+      "source_name": "Dry-run fixture",
+      "source_type": "synthetic",
+      "usage_permission": "internal_fixture_only",
+      "confidence": "low"
+    }
+  ],
+  "data_gap_log": [
+    "dry_run_no_real_evidence",
+    "future_conditional_sections_not_triggered",
+    "missing_real_s01_s08_artifacts",
+    "S13_validation_roadmap_not_implemented"
+  ],
+  "decision_log": [
+    {
+      "decision_id": "D_FIXTURE_001",
+      "decision": "Use generic hardware fixture instead of a product-specific example.",
+      "applies_to_nodes": ["S00", "S14"],
+      "rationale": "Avoid binding the suite to a dry-run product category.",
+      "evidence_refs": [],
+      "reopen_conditions": ["User requests a real-product run."]
+    }
+  ],
+  "expected_render_result": {
+    "render_input_gate": "pass_with_caveats",
+    "expected_sections_rendered": [
+      "market_context",
+      "jtbd_scenarios",
+      "message_architecture",
+      "pricing",
+      "launch_forecast"
+    ],
+    "expected_sections_skipped_not_triggered": [
+      "copy_assets",
+      "creator_kol",
+      "dtc_conversion"
+    ],
+    "expected_future_sections_omitted": [
+      "activation_return_risk",
+      "insight_guardrails",
+      "subscription_churn",
+      "review_quality_feedback",
+      "validation_roadmap"
+    ]
+  }
+}

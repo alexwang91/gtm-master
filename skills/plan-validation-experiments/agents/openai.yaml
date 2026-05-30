@@ -1,0 +1,4 @@
+interface:
+  display_name: "Validation Experiment Planner"
+  short_description: "Plan validation experiments."
+  default_prompt: "Use $plan-validation-experiments to turn GTM assumptions, data gaps, confidence caps, and upstream test ideas into a prioritized validation roadmap with pass/fail rules and an HTML dashboard section."

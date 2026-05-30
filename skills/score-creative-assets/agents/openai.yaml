@@ -1,0 +1,4 @@
+interface:
+  display_name: "Creative Text Scoring"
+  short_description: "Score editable copy against message, proof, claim, and channel fit."
+  default_prompt: "Use $score-creative-assets to evaluate editable ad copy, PDP text, landing-page copy, scripts, claims, and copy concepts against GTM message architecture, proof needs, claim risk, local language, channel fit, and HTML report readiness."

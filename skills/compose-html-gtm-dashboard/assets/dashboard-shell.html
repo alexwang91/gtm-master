@@ -1,0 +1,1619 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GTM Dashboard</title>
+  <style>
+    :root {
+      --paper: #f7f8fa;
+      --surface: #ffffff;
+      --surface-2: #eef2f6;
+      --ink: #151922;
+      --muted: #647084;
+      --line: #d9e0ea;
+      --blue: #2457d6;
+      --green: #147a4d;
+      --amber: #a15c00;
+      --red: #b42318;
+      --slate: #475569;
+      --shadow: 0 8px 26px rgba(21, 25, 34, 0.08);
+      --radius: 8px;
+      --font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .rail {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 22px 18px;
+      background: #101722;
+      color: #f8fafc;
+      overflow-y: auto;
+    }
+
+    .brand {
+      display: grid;
+      gap: 6px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .brand small,
+    .rail small {
+      color: #a9b4c5;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .nav {
+      display: grid;
+      gap: 4px;
+      margin-top: 18px;
+    }
+
+    .nav a {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 9px 10px;
+      border-radius: 6px;
+      color: #e5edf7;
+      font-size: 14px;
+      min-width: 0;
+    }
+
+    .nav a span,
+    .nav a small {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .nav a:hover {
+      background: rgba(255, 255, 255, 0.08);
+      text-decoration: none;
+    }
+
+    .main {
+      min-width: 0;
+      padding: 28px;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero {
+      padding: 26px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .eyebrow {
+      margin: 0 0 6px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h2, h3, p { margin-top: 0; }
+
+    .hero h2 {
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.1;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(140px, 1fr));
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .meta,
+    .metric-card,
+    .callout,
+    .tool,
+    .section {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .meta {
+      padding: 12px;
+      min-height: 78px;
+    }
+
+    .meta span,
+    .metric-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .meta strong,
+    .metric-card strong {
+      display: block;
+      margin-top: 5px;
+      font-size: 18px;
+      overflow-wrap: anywhere;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 14px;
+    }
+
+    .section {
+      padding: 22px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+    }
+
+    .section-header h3 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: 0;
+    }
+
+    .source {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+
+    .badge.high { color: var(--green); background: #ecfdf3; border-color: #b7e4c7; }
+    .badge.medium { color: var(--amber); background: #fff7ed; border-color: #fed7aa; }
+    .badge.low,
+    .badge.blocked { color: var(--red); background: #fef3f2; border-color: #fecdca; }
+    .badge.hypothesis_only,
+    .badge.unknown { color: var(--slate); background: #f1f5f9; border-color: #cbd5e1; }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .metric-card {
+      padding: 14px;
+      min-height: 116px;
+      display: grid;
+      align-content: space-between;
+      gap: 12px;
+    }
+
+    .metric-card small {
+      color: var(--muted);
+      overflow-wrap: anywhere;
+    }
+
+    .callout {
+      padding: 14px;
+      background: #f8fafc;
+    }
+
+    .callout strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .callout.warning {
+      border-color: #fed7aa;
+      background: #fff7ed;
+    }
+
+    .callout.danger {
+      border-color: #fecdca;
+      background: #fef3f2;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 640px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    th {
+      color: var(--muted);
+      background: var(--surface-2);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .visual-blocks {
+      display: grid;
+      gap: 12px;
+    }
+
+    .visual-block {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      overflow: hidden;
+    }
+
+    .visual-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface-2);
+    }
+
+    .visual-header > div {
+      display: grid;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .visual-header > span {
+      flex: 0 0 auto;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: right;
+      text-transform: lowercase;
+    }
+
+    .visual-header strong,
+    .range-label strong,
+    .rank-main strong,
+    .status-item strong {
+      overflow-wrap: anywhere;
+    }
+
+    .visual-header span,
+    .visual-note,
+    .range-label span,
+    .rank-main span,
+    .status-item span,
+    .score-cell small {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .visual-body {
+      padding: 14px;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .status-item {
+      display: grid;
+      gap: 6px;
+      min-height: 96px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fbfcfe;
+    }
+
+    .status-item b {
+      color: var(--blue);
+      font-size: 18px;
+      overflow-wrap: anywhere;
+    }
+
+    .rank-list,
+    .range-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .rank-row {
+      display: grid;
+      grid-template-columns: minmax(140px, 1fr) minmax(180px, 2fr) 54px;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .rank-main {
+      display: grid;
+      gap: 2px;
+    }
+
+    .bar-track,
+    .range-track {
+      position: relative;
+      min-height: 12px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      display: block;
+      width: var(--score);
+      height: 12px;
+      border-radius: 999px;
+      background: var(--blue);
+    }
+
+    .rank-score {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .score-cell span {
+      display: grid;
+      gap: 2px;
+      min-width: 94px;
+      padding: 8px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 18%, transparent) var(--score), color-mix(in srgb, var(--blue) 5%, transparent) var(--score));
+    }
+
+    .score-cell strong {
+      font-size: 14px;
+    }
+
+    .range-row {
+      display: grid;
+      grid-template-columns: minmax(150px, 1fr) minmax(220px, 2fr) minmax(120px, auto);
+      gap: 12px;
+      align-items: center;
+    }
+
+    .range-label {
+      display: grid;
+      gap: 2px;
+    }
+
+    .range-band {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: var(--left);
+      width: var(--width);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--amber) 46%, var(--surface));
+    }
+
+    .range-marker {
+      position: absolute;
+      top: -3px;
+      left: var(--marker);
+      width: 4px;
+      height: 18px;
+      border-radius: 999px;
+      background: var(--red);
+      transform: translateX(-50%);
+    }
+
+    .range-values {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 12px;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .visual-note {
+      margin-top: 10px;
+    }
+
+    .list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .tool {
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+      background: #fbfcfe;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    label {
+      display: grid;
+      gap: 5px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    input, select {
+      width: 100%;
+      min-height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px 10px;
+      font: inherit;
+      color: var(--ink);
+      background: var(--surface);
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: 1px solid #c7d2e1;
+      background: #ffffff;
+      color: var(--ink);
+      border-radius: 6px;
+      min-height: 38px;
+      padding: 8px 12px;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button.primary {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #ffffff;
+    }
+
+    .footer {
+      color: var(--muted);
+      font-size: 13px;
+      padding: 18px 2px 40px;
+    }
+
+    @media (max-width: 960px) {
+      .layout { display: block; }
+      .rail {
+        position: static;
+        height: auto;
+      }
+      .nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .summary-grid,
+      .meta-grid,
+      .metrics,
+      .status-grid,
+      .rank-row,
+      .range-row,
+      .tool-grid {
+        grid-template-columns: 1fr;
+      }
+      .rank-score,
+      .range-values {
+        text-align: left;
+      }
+      .main { padding: 18px; }
+      .hero h2 { font-size: 28px; }
+    }
+
+    @media (max-width: 520px) {
+      .nav {
+        grid-template-columns: 1fr;
+      }
+      .nav a small {
+        display: none;
+      }
+      .hero {
+        padding: 22px;
+      }
+      .hero h2 {
+        font-size: 25px;
+      }
+    }
+
+    @media print {
+      body { background: #ffffff; }
+      .layout { display: block; }
+      .rail { display: none; }
+      .main { padding: 0; }
+      .section, .hero, .tool { box-shadow: none; break-inside: avoid; }
+      button { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="rail">
+      <div class="brand">
+        <small id="rail-suite">GTM Intelligence</small>
+        <h1 id="rail-title">看板</h1>
+        <small id="rail-subtitle">静态报告</small>
+      </div>
+      <nav class="nav" id="nav"></nav>
+    </aside>
+
+    <main class="main">
+      <div class="container">
+        <section class="hero" id="executive_summary">
+          <div class="hero-top">
+            <div>
+              <p class="eyebrow" id="report-kicker">模板预览</p>
+              <h2 id="report-title">GTM 看板</h2>
+            </div>
+            <span class="badge unknown" id="report-status">未知</span>
+          </div>
+          <div class="meta-grid" id="meta-grid"></div>
+        </section>
+
+        <div class="summary-grid">
+          <section class="section" id="summary-panel">
+            <div class="section-header">
+              <div>
+                <h3>执行摘要</h3>
+                <div class="source">仅由上游模块结论生成</div>
+              </div>
+            </div>
+            <div id="summary-content"></div>
+          </section>
+
+          <section class="section" id="gap-panel">
+            <div class="section-header">
+              <div>
+                <h3>数据缺口</h3>
+                <div class="source">可见阻塞项与限制</div>
+              </div>
+            </div>
+            <div id="gap-content"></div>
+          </section>
+        </div>
+
+        <div id="sections"></div>
+
+        <section class="section" id="citations">
+          <div class="section-header">
+            <div>
+              <h3>证据索引</h3>
+              <div class="source">由已提供的 evidence refs 渲染</div>
+            </div>
+          </div>
+          <div id="citation-content"></div>
+        </section>
+
+        <div class="footer">
+          静态离线看板。此模板不使用外部脚本、分析、遥测或网络请求。
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      const previewData = {
+        mode: "template_preview",
+        project: {
+          title: "GTM 看板预览",
+          product: "示例硬件产品",
+          country: "示例国家",
+          priceRange: "未提供目标价格段",
+          audience: "GTM 团队",
+          status: "preview"
+        },
+        executiveTakeaways: [
+          "S01 should make the local market truth visible before later modules claim confidence.",
+          "S02 should turn the market map into prioritized demand scenarios, not a generic persona list.",
+          "S03 should show which messages are usable because proof and objections have been mapped.",
+          "S04 should convert price evidence into a decision gate, test plan, and private local calculator."
+        ],
+        sections: [
+          {
+            section_id: "market_context",
+            source_skill: "S01.build-consumer-market-map",
+            section_title: "S01 Localized Consumer Market Map",
+            confidence: "medium",
+            executive_takeaway: "The main S01 view must show what is locally knowable, who shapes the category, which language consumers use, and where the launch has evidence gaps.",
+            narrative_blocks: [
+              "Use text only for synthesis. The proof should be visual: evidence coverage, competitor threat, segment priority, local search language, consumer voice, and channel/touchpoint fit."
+            ],
+            metric_cards: [
+              { label: "Evidence coverage", value: "Medium", note: "Search, ecommerce, reviews, local community sources" },
+              { label: "Competitor set", value: "5-10", note: "User can confirm or deselect candidates" },
+              { label: "Primary decision", value: "Where to compete", note: "Segment, channel, and price anchors" }
+            ],
+            callouts: [
+              { title: "Display rule", body: "Raw comments, full candidate pools, query expansions, and collection logs belong in appendices unless they change a GTM decision.", tone: "warning" }
+            ],
+            visual_blocks: [
+              {
+                type: "status_panel",
+                title: "Evidence coverage gate",
+                subtitle: "Shows confidence before recommendations",
+                items: [
+                  { label: "Local ecommerce", value: "Required", note: "Price anchors, top listings, review volume" },
+                  { label: "Local language search", value: "Required", note: "Google Trends or local query expansion when accessible" },
+                  { label: "Consumer voice", value: "Required", note: "Reviews, forums, YouTube comments, community posts" }
+                ]
+              },
+              {
+                type: "ranked_bar",
+                title: "Segment priority and evidence strength",
+                subtitle: "Use ranked bar or 2x2 for main-body segment decisions",
+                items: [
+                  { label: "Performance seeker", score: 82, note: "Strong feature fit and high proof appetite" },
+                  { label: "Value optimizer", score: 68, note: "Sensitive to price ladder and promos" },
+                  { label: "Convenience upgrader", score: 57, note: "Good channel fit, thinner voice evidence" }
+                ]
+              },
+              {
+                type: "matrix_heatmap",
+                title: "Feature to local selling-point fit",
+                subtitle: "Compares product claims against category mainstream benefits",
+                columns: ["Benefit fit", "Search language", "Proof availability"],
+                rows: [
+                  { label: "Battery / endurance", values: [{ score: 78, label: "High" }, { score: 70, label: "Medium" }, { score: 64, label: "Needs test" }] },
+                  { label: "AI / smart feature", values: [{ score: 54, label: "Medium" }, { score: 48, label: "Weak" }, { score: 42, label: "Gap" }] },
+                  { label: "Design / portability", values: [{ score: 66, label: "Medium" }, { score: 62, label: "Medium" }, { score: 58, label: "Needs assets" }] }
+                ]
+              }
+            ],
+            tables: [
+              {
+                headers: ["Required S01 view", "Best display", "Core question answered"],
+                rows: [
+                  ["Evidence coverage", "Coverage heatmap + source scorecards", "Can we trust this market map?"],
+                  ["Competitor and substitute threat", "Threat 2x2 or ranked table", "Who shapes consumer comparison?"],
+                  ["Price landscape seed", "Horizontal range chart", "Where does the target price sit against anchors?"],
+                  ["Consumer voice", "Ranked theme table or driver chart", "What do people praise, complain about, and use as proof?"],
+                  ["Channel and retailer map", "Segment x channel matrix", "Where can we reach, educate, and convert?"]
+                ]
+              }
+            ],
+            next_actions: [
+              "Ask the user to confirm competitor candidates before downstream positioning locks.",
+              "Mark weak-but-commercially-important segments as hypotheses instead of deleting them."
+            ],
+            citations: [],
+            data_gaps: ["Preview content is illustrative. Real S01 output must supply source refs, scores, and local-language terms."]
+          },
+          {
+            section_id: "jtbd_scenarios",
+            source_skill: "S02.mine-jtbd-scenarios",
+            section_title: "S02 JTBD Demand Scenarios",
+            confidence: "medium",
+            executive_takeaway: "S02 should explain which buying situations deserve GTM focus, what proof each job needs, and what would invalidate the scenario.",
+            narrative_blocks: [
+              "The section should not become a long persona essay. Show the top 3-5 jobs, their segment linkage, current alternatives, barriers, proof requirements, and validation questions."
+            ],
+            metric_cards: [
+              { label: "Lead scenarios", value: "3-5", note: "Cards in main body; long tail in appendix" },
+              { label: "Primary visual", value: "Priority map", note: "Commercial weight x evidence strength" },
+              { label: "Downstream use", value: "Message and price seeds", note: "Feeds S03 and S04" }
+            ],
+            visual_blocks: [
+              {
+                type: "ranked_bar",
+                title: "Scenario priority scorecard",
+                subtitle: "Commercial weight, urgency, evidence, and product-job fit",
+                items: [
+                  { label: "Replace unreliable current device", score: 86, note: "High pain and clear proof requirement" },
+                  { label: "Upgrade for specific performance task", score: 74, note: "High willingness if proof is concrete" },
+                  { label: "Buy safer gift / family device", score: 52, note: "Commercially interesting, evidence thinner" }
+                ]
+              },
+              {
+                type: "matrix_heatmap",
+                title: "Scenario to segment matrix",
+                subtitle: "Shows which jobs belong to which people",
+                columns: ["Performance seeker", "Value optimizer", "Convenience upgrader"],
+                rows: [
+                  { label: "Reliability replacement", values: [{ score: 76, label: "Strong" }, { score: 72, label: "Strong" }, { score: 44, label: "Weak" }] },
+                  { label: "Performance upgrade", values: [{ score: 88, label: "Lead" }, { score: 46, label: "Weak" }, { score: 50, label: "Medium" }] },
+                  { label: "Low-risk gift", values: [{ score: 38, label: "Low" }, { score: 56, label: "Medium" }, { score: 68, label: "Strong" }] }
+                ]
+              }
+            ],
+            tables: [
+              {
+                headers: ["Scenario element", "Must show", "Why it matters"],
+                rows: [
+                  ["Job statement", "Situation, motivation, desired outcome", "Prevents generic demographic targeting"],
+                  ["Current alternative", "What consumers use or buy today", "Defines comparison set and switching proof"],
+                  ["Barrier / anxiety", "Risk, friction, skepticism", "Feeds objection handling in S03"],
+                  ["Proof requirement", "Demo, review, benchmark, warranty, local source", "Feeds asset and claim readiness"],
+                  ["Price implication", "Premium tolerance or discount trigger", "Feeds S04 sensitivity model"]
+                ]
+              }
+            ],
+            next_actions: [
+              "Promote only scenarios with both commercial relevance and enough evidence.",
+              "Keep weak-but-important scenarios as hypotheses with explicit validation questions."
+            ],
+            citations: [],
+            data_gaps: ["Real S02 output must include scenario scores and evidence refs rather than AI-invented personas."]
+          },
+          {
+            section_id: "message_architecture",
+            source_skill: "S03.match-messages-to-segments",
+            section_title: "S03 Segment Message Architecture",
+            confidence: "medium",
+            executive_takeaway: "S03 should show which claims can be used now, which need proof, and which language should be avoided for each priority segment.",
+            narrative_blocks: [
+              "Use a matrix for segment x message fit and tables for claims, proof, objections, and local-language seeds. Final ad copy can be conditional; the strategy view is mandatory."
+            ],
+            metric_cards: [
+              { label: "Message-market fit", value: "Scored", note: "By segment and JTBD scenario" },
+              { label: "Proof readiness", value: "Visible", note: "Benchmarks, reviews, demos, warranty, local refs" },
+              { label: "Claim risk", value: "Gated", note: "Do-not-say list in main section" }
+            ],
+            visual_blocks: [
+              {
+                type: "matrix_heatmap",
+                title: "Segment x message fit",
+                subtitle: "Main view for choosing message hierarchy",
+                columns: ["Reliability proof", "Performance claim", "Value / bundle", "Ease / setup"],
+                rows: [
+                  { label: "Performance seeker", values: [{ score: 64, label: "Medium" }, { score: 86, label: "Lead" }, { score: 48, label: "Weak" }, { score: 52, label: "Medium" }] },
+                  { label: "Value optimizer", values: [{ score: 70, label: "Strong" }, { score: 56, label: "Medium" }, { score: 82, label: "Lead" }, { score: 60, label: "Medium" }] },
+                  { label: "Convenience upgrader", values: [{ score: 58, label: "Medium" }, { score: 44, label: "Weak" }, { score: 54, label: "Medium" }, { score: 78, label: "Lead" }] }
+                ]
+              },
+              {
+                type: "status_panel",
+                title: "Claim proof gate",
+                subtitle: "Prevents overclaiming in launch materials",
+                items: [
+                  { label: "Usable now", value: "Evidence-backed", note: "Backed by specs, reviews, or local proof" },
+                  { label: "Needs proof", value: "Test first", note: "Requires demo, benchmark, creator proof, or retail test" },
+                  { label: "Do not say", value: "Blocked", note: "Risky, vague, or unsupported claims" }
+                ]
+              }
+            ],
+            tables: [
+              {
+                headers: ["Segment", "Lead angle", "Proof required", "Objection", "Do not say"],
+                rows: [
+                  ["Performance seeker", "Measurable improvement in the lead job", "Benchmark, demo, expert review", "Sounds like hype", "Best ever without comparable evidence"],
+                  ["Value optimizer", "Total value and reduced regret", "Price ladder, warranty, bundle math", "Too expensive versus alternatives", "Cheap if quality proof is missing"],
+                  ["Convenience upgrader", "Easier setup and daily reliability", "Setup demo, support proof, review quotes", "Will this be annoying?", "Effortless if onboarding is untested"]
+                ]
+              }
+            ],
+            next_actions: [
+              "Send proof blockers to S13 validation planning or S06 asset planning.",
+              "Use local trigger phrases from S01/S02 before final copywriting."
+            ],
+            citations: [],
+            data_gaps: ["Real S03 output must preserve original local-language phrases and source context."]
+          },
+          {
+            section_id: "pricing",
+            source_skill: "S04.model-price-sensitivity",
+            section_title: "S04 Price Sensitivity And Decision Gate",
+            confidence: "hypothesis_only",
+            executive_takeaway: "S04 should show whether pricing can move forward, which price corridor is credible, which segments are sensitive, and what test must happen before launch decisions harden.",
+            narrative_blocks: [
+              "COGS, gross margin, and channel terms are private commercial inputs. The public report should show derived gates and scenario outputs; the local calculator keeps raw values blank and offline."
+            ],
+            metric_cards: [
+              { label: "Decision gate", value: "Research first", note: "No final price without WTP evidence" },
+              { label: "Price corridor", value: "Anchored", note: "Local competitors and substitutes" },
+              { label: "Private calculator", value: "Local only", note: "Blank inputs, no storage" }
+            ],
+            callouts: [
+              { title: "Private data", body: "COGS, margin, and channel terms should not be embedded in public HTML by default.", tone: "danger" }
+            ],
+            visual_blocks: [
+              {
+                type: "status_panel",
+                title: "Pricing decision gate",
+                subtitle: "Displayed before detailed price analysis",
+                items: [
+                  { label: "Gate status", value: "Research first", note: "Missing measured WTP or live-market test" },
+                  { label: "Blocker", value: "Evidence gap", note: "Segment-level elasticity still unknown" },
+                  { label: "Next owner", value: "GTM + channel", note: "Run survey, landing page, or retail test" }
+                ]
+              },
+              {
+                type: "range_chart",
+                title: "Local price corridor",
+                subtitle: "Shows target price against local anchors and jump risks",
+                scale_min: 0,
+                scale_max: 1000,
+                items: [
+                  { label: "Entry substitute band", min: 120, max: 260, marker: 220, value_label: "120-260" },
+                  { label: "Main competitor band", min: 280, max: 620, marker: 499, value_label: "280-620 | target 499" },
+                  { label: "Premium jump band", min: 650, max: 920, marker: 699, value_label: "650-920" }
+                ],
+                note: "Currency and scale come from S04; preview values are placeholders."
+              },
+              {
+                type: "matrix_heatmap",
+                title: "Segment price sensitivity",
+                subtitle: "Use survey, channel, or test data when available",
+                columns: ["Premium tolerance", "Promo sensitivity", "Proof dependence"],
+                rows: [
+                  { label: "Performance seeker", values: [{ score: 74, label: "High" }, { score: 44, label: "Medium" }, { score: 82, label: "High" }] },
+                  { label: "Value optimizer", values: [{ score: 40, label: "Low" }, { score: 88, label: "High" }, { score: 72, label: "High" }] },
+                  { label: "Convenience upgrader", values: [{ score: 58, label: "Medium" }, { score: 66, label: "Medium" }, { score: 64, label: "Medium" }] }
+                ]
+              }
+            ],
+            tables: [
+              {
+                headers: ["S04 module", "Best display", "Decision it unlocks"],
+                rows: [
+                  ["Pricing decision gate", "Status panel", "Can launch price be recommended, tested, or blocked?"],
+                  ["Price corridor", "Horizontal range chart", "Where target price sits versus anchors and tier jumps"],
+                  ["WTP / elasticity evidence", "Segment matrix or ranked table", "Which segments can absorb premium or need promo"],
+                  ["Test plan", "Action table", "What survey, ad, landing, retail, or marketplace test comes next"],
+                  ["Private calculator", "Local tool", "How private COGS and channel terms affect margin without uploading them"]
+                ]
+              }
+            ],
+            next_actions: [
+              "Treat AI personas as hypothesis generators only; do not use them as WTP evidence.",
+              "Choose the smallest real-world price test that can reduce the highest pricing uncertainty."
+            ],
+            citations: [],
+            data_gaps: ["Preview values are placeholders. Real S04 output must include source-backed anchors, WTP evidence, and test design."]
+          },
+          {
+            section_id: "creator_kol",
+            source_skill: "S06.score-kol-fit",
+            section_title: "S06 达人/KOL 适配与投放预估",
+            confidence: "low",
+            executive_takeaway: "S06 should show creator roles, candidate review status, recommendation rationale, budget ranges, expected visits/interactions, and creator risk gates before any KOL choice is treated as final.",
+            narrative_blocks: [
+              "The candidate-level preview is provisional. Users must mark each candidate include, exclude, unsure, or request_more_evidence before final scoring, budget estimates, and expected outcomes are used downstream."
+            ],
+            metric_cards: [
+              { label: "Candidate review", value: "Pending", note: "8 options need user decisions" },
+              { label: "Lead role", value: "Expert review", note: "Best for proof-heavy hardware launches" },
+              { label: "Budget basis", value: "Range estimate", note: "Marketing cost, not approved spend" },
+              { label: "Outcome basis", value: "Proxy range", note: "Visits and interactions are not guaranteed" }
+            ],
+            callouts: [
+              { title: "Review gate", body: "Candidate-level rankings, budgets, and expected outcomes remain provisional until the user confirms the candidate set.", tone: "warning" }
+            ],
+            visual_blocks: [
+              {
+                type: "status_panel",
+                title: "Candidate review gate",
+                subtitle: "User correction before final KOL scoring",
+                items: [
+                  { label: "Status", value: "Pending", note: "No candidate is final yet" },
+                  { label: "Review list", value: "8", note: "Creators, reviewers, media, community and affiliate sources" },
+                  { label: "Allowed actions", value: "Include / exclude / unsure", note: "Request more evidence when needed" }
+                ],
+                confidence: "low"
+              },
+              {
+                type: "ranked_bar",
+                title: "Creator role priority",
+                subtitle: "Choose the role before the person",
+                items: [
+                  { label: "Expert / review media", score: 84, note: "Technical proof and competitor comparison" },
+                  { label: "Hands-on demonstrator", score: 78, note: "Setup, use case, and objection handling" },
+                  { label: "Community owner voice", score: 69, note: "Local trust and long-term use language" },
+                  { label: "Deal / affiliate creator", score: 61, note: "Traffic and price sensitivity testing" }
+                ],
+                confidence: "medium"
+              },
+              {
+                type: "ranked_bar",
+                title: "Candidate fit preview",
+                subtitle: "Provisional until user review",
+                items: [
+                  { label: "Candidate A: expert review media", score: 82, note: "Strong proof role; rate and competitor conflict unknown" },
+                  { label: "Candidate B: hands-on creator", score: 76, note: "Good demo fit; audience proxy needs validation" },
+                  { label: "Candidate C: community author", score: 68, note: "Trust language strong; reach uncertain" }
+                ],
+                confidence: "low"
+              },
+              {
+                type: "range_chart",
+                title: "KOL marketing budget range",
+                subtitle: "Marketing-cost estimate, not approved spend",
+                scale_min: 0,
+                scale_max: 12000,
+                items: [
+                  { label: "Conservative", min: 1800, max: 3600, marker: 2600, value_label: "1,800-3,600" },
+                  { label: "Base", min: 4200, max: 7200, marker: 5600, value_label: "4,200-7,200" },
+                  { label: "Upside", min: 8000, max: 11500, marker: 9400, value_label: "8,000-11,500" }
+                ],
+                note: "Includes creator fee, sample, shipping, production, boosting, tracking, and contingency.",
+                confidence: "hypothesis_only"
+              },
+              {
+                type: "range_chart",
+                title: "Expected visits and interactions",
+                subtitle: "Directional proxy range",
+                scale_min: 0,
+                scale_max: 120000,
+                items: [
+                  { label: "Views / impressions", min: 24000, max: 110000, marker: 62000, value_label: "24k-110k" },
+                  { label: "Likes", min: 400, max: 4200, marker: 1800, value_label: "400-4,200" },
+                  { label: "Comments", min: 30, max: 520, marker: 160, value_label: "30-520" },
+                  { label: "Clicks / visits", min: 180, max: 2600, marker: 950, value_label: "180-2,600" }
+                ],
+                note: "Sales estimates are hidden until tracking, offer, and attribution evidence exist.",
+                confidence: "low"
+              }
+            ],
+            tables: [
+              {
+                headers: ["Candidate", "Type", "Why shown", "Default", "User action"],
+                rows: [
+                  ["Candidate A", "Expert review media", "Local category authority and competitor overlap", "include", "Pending"],
+                  ["Candidate B", "Hands-on creator", "Strong demo role for setup and use cases", "include", "Pending"],
+                  ["Candidate C", "Community author", "Local trust language, reach uncertain", "unsure", "Pending"],
+                  ["Candidate D", "Deal / affiliate", "Useful for price-sensitive traffic testing", "request_more_evidence", "Pending"]
+                ]
+              },
+              {
+                headers: ["Recommendation", "Why", "Concern", "Budget logic", "Expected outcome logic"],
+                rows: [
+                  ["Expert review media", "Explains proof, tradeoffs, and price credibility", "Rate and conflict unknown", "Creator fee + sample + production", "Higher-quality views and comments"],
+                  ["Hands-on creator", "Turns feature claims into real usage scenes", "Audience proxy weak", "Medium fee plus light boosting", "Likely likes, saves, and visits"]
+                ]
+              }
+            ],
+            next_actions: [
+              "Ask the user to confirm include, exclude, unsure, or request_more_evidence for each candidate.",
+              "Collect rate cards, recent content performance, disclosure requirements, and competitor conflict checks for included candidates."
+            ],
+            citations: [],
+            data_gaps: ["Preview values are illustrative. Real S06 output must include evidence refs, user review decisions, and budget/outcome assumptions."]
+          },
+          {
+            section_id: "dtc_conversion",
+            source_skill: "S07.predict-dtc-conversion",
+            section_title: "S07 DTC/PDP 上线前转化规划与实验计划",
+            confidence: "hypothesis_only",
+            executive_takeaway: "上线前如果自家落地页、PDP 或 checkout 还不存在，S07 不应硬算 CVR，而应先用竞品、上一代产品和本地电商/PDP 规范推导页面要求、证明材料、offer/trust 结构与追踪方案。",
+            narrative_blocks: [
+              "以下为展示用示例。真实 S07 会先判断是否需要运行：如果没有 DTC/PDP/预售/候补/跳转购买路径，可跳过；如果还没上线，则进入上线前规划模式；只有页面、漏斗或数据存在时才做真实转化诊断。"
+            ],
+            metric_cards: [
+              { label: "运行模式", value: "上线前规划", note: "自有页面尚未提供" },
+              { label: "优先任务", value: "证明+信任", note: "价格前必须先给足本地证明" },
+              { label: "CVR 口径", value: "暂不输出", note: "缺少页面与有效基准" }
+            ],
+            visual_blocks: [
+              {
+                type: "status_panel",
+                title: "转化输入覆盖闸门",
+                subtitle: "先判断是跳过、上线前规划，还是进入真实漏斗诊断",
+                items: [
+                  { label: "自有页面/漏斗", value: "未提供", note: "进入上线前规划模式" },
+                  { label: "竞品/PDP benchmark", value: "待收集", note: "用本地电商与品牌页建立品类规范" },
+                  { label: "上一代资料", value: "可选", note: "有则提取保留/改变/测试建议" },
+                  { label: "追踪方案", value: "未定义", note: "先定义事件与来源维度" }
+                ],
+                confidence: "hypothesis_only"
+              },
+              {
+                type: "status_panel",
+                title: "上线前页面要求成熟度",
+                subtitle: "没有页面时，先明确页面必须证明什么",
+                items: [
+                  { label: "首屏承诺", value: "待定", note: "需对齐最高优先级 segment 与本地搜索词" },
+                  { label: "证明资产", value: "不足", note: "需要评测、规格对比、场景 demo 或专家背书" },
+                  { label: "价格/offer", value: "部分", note: "需设计价格前的价值证明顺序" },
+                  { label: "信任政策", value: "待定", note: "保修、退货、配送、支付需可见" }
+                ],
+                confidence: "hypothesis_only"
+              },
+              {
+                type: "ranked_bar",
+                title: "上线前转化风险排序",
+                subtitle: "分数越高，越应先补证据或设计测试",
+                items: [
+                  { label: "本地证明缺口", score: 82, note: "缺少可直接放进 PDP 的评测/对比/场景证据" },
+                  { label: "价格价值解释", score: 74, note: "价格前需要清楚解释为什么值这个价" },
+                  { label: "保修退货信任", score: 67, note: "上线前需确定政策露出位置" },
+                  { label: "追踪事件缺口", score: 61, note: "没有事件 schema 就无法验证后续假设" }
+                ],
+                confidence: "low"
+              },
+              {
+                type: "matrix_heatmap",
+                title: "竞品/上一代页面 benchmark",
+                subtitle: "用于提炼页面要求，不代表这些做法一定最优",
+                columns: ["首屏承诺", "证明顺序", "价格呈现", "信任政策", "CTA路径"],
+                rows: [
+                  { label: "本地头部竞品", values: [{ score: 72, label: "清楚" }, { score: 68, label: "可参考" }, { score: 58, label: "一般" }, { score: 74, label: "强" }, { score: 62, label: "一般" }] },
+                  { label: "上一代产品", values: [{ score: 60, label: "可复用" }, { score: 48, label: "需加强" }, { score: 52, label: "需重构" }, { score: 57, label: "一般" }, { score: 55, label: "待测" }] },
+                  { label: "本地电商PDP规范", values: [{ score: 64, label: "中" }, { score: 70, label: "强需求" }, { score: 66, label: "强需求" }, { score: 78, label: "强需求" }, { score: 65, label: "中" }] }
+                ],
+                confidence: "hypothesis_only"
+              }
+            ],
+            tables: [
+              {
+                headers: ["页面区域", "上线前建议", "依据", "验证方式"],
+                rows: [
+                  ["首屏", "先讲本地最强购买场景，再进入核心参数", "S03 segment/message + 本地竞品页", "首屏点击率、滚动深度、信息回忆测试"],
+                  ["证明", "把评测、规格对比、场景 demo 放在价格前", "S04 价格风险 + 竞品 proof 顺序", "价格前后 proof 顺序 A/B"],
+                  ["信任", "在 PDP 上方露出保修、退货、配送、支付方式", "本地电商规范 + 竞品政策页", "checkout start 与 FAQ 点击变化"],
+                  ["追踪", "上线前定义 view_item、CTA、checkout_start、purchase/clickout", "S07 tracking requirement", "事件完整率与来源归因 QA"]
+                ]
+              }
+            ],
+            next_actions: [
+              "如果要运行 S07，请先确认是否有 DTC/PDP/预售/候补/跳转购买路径。",
+              "若页面未上线，收集 5-10 个本地竞品/PDP、上一代页面或结果、offer 与保修退货政策。",
+              "先输出页面要求与追踪 brief；CVR 只在有有效基准或历史数据时进入 S08。"
+            ],
+            citations: [],
+            data_gaps: ["prelaunch_no_owned_page", "missing_competitor_page_benchmark", "missing_tracking_context", "missing_cvr_basis"]
+          },
+          {
+            section_id: "launch_forecast",
+            source_skill: "S08.forecast-launch-demand",
+            section_title: "S08 发售销量预测与库存风险",
+            confidence: "hypothesis_only",
+            executive_takeaway: "S08 的本质是发售销量预测：把市场规模、segment 优先级、渠道可达性、价格接受度、产品生命周期阶段，以及 MKT 投入响应合成为保守/基准/乐观销量范围。",
+            narrative_blocks: [
+              "以下为展示用示例。真实 S08 必须先声明 forecast boundary：需求潜力、可触达需求、发售销量、sell-in、sell-through，还是受库存约束的出货量，避免把不同口径混成一个数字。"
+            ],
+            metric_cards: [
+              { label: "预测窗口", value: "90天", note: "未输入时的默认 launch window" },
+              { label: "预测口径", value: "发售销量", note: "需求只是上游变量" },
+              { label: "可用于库存", value: "暂不可", note: "缺少库存与补货约束" }
+            ],
+            visual_blocks: [
+              {
+                type: "status_panel",
+                title: "预测输入覆盖闸门",
+                subtitle: "判断 forecast 能否用于方向、预算、渠道或库存决策",
+                items: [
+                  { label: "市场规模种子", value: "已接入", note: "来自 S01 TAM/SAM/SOM 与 segment seed" },
+                  { label: "价格上下文", value: "已接入", note: "来自 S04 price sensitivity" },
+                  { label: "转化/KOL", value: "可选", note: "S06/S07 不阻塞 S08" },
+                  { label: "库存/PO", value: "缺失", note: "库存风险只能做假设级判断" }
+                ],
+                confidence: "low"
+              },
+              {
+                type: "range_chart",
+                title: "保守 / 基准 / 乐观销量范围",
+                subtitle: "示例单位为台；真实范围必须带证据 basis 和置信度上限",
+                scale_min: 0,
+                scale_max: 10000,
+                items: [
+                  { label: "保守", min: 1200, max: 2600, marker: 1800, value_label: "1.2k-2.6k" },
+                  { label: "基准", min: 2800, max: 5200, marker: 4000, value_label: "2.8k-5.2k" },
+                  { label: "乐观", min: 5400, max: 8800, marker: 7100, value_label: "5.4k-8.8k" }
+                ],
+                note: "示例不代表真实 forecast；真实 S08 不输出单点销量。",
+                confidence: "hypothesis_only"
+              },
+              {
+                type: "range_chart",
+                title: "生命周期阶段销量曲线",
+                subtitle: "按 prelaunch、launch spike、early ramp、sustain 拆分销量",
+                scale_min: 0,
+                scale_max: 5000,
+                items: [
+                  { label: "预热", min: 100, max: 500, marker: 260, value_label: "0.1k-0.5k" },
+                  { label: "首发峰值", min: 1200, max: 2800, marker: 1900, value_label: "1.2k-2.8k" },
+                  { label: "早期爬坡", min: 900, max: 2100, marker: 1500, value_label: "0.9k-2.1k" },
+                  { label: "持续期", min: 600, max: 1600, marker: 1050, value_label: "0.6k-1.6k" }
+                ],
+                confidence: "hypothesis_only"
+              },
+              {
+                type: "range_chart",
+                title: "Baseline vs MKT 增量销量",
+                subtitle: "MKT 投入必须有递减收益和置信度上限",
+                scale_min: 0,
+                scale_max: 6000,
+                items: [
+                  { label: "自然/渠道基线", min: 1800, max: 3600, marker: 2600, value_label: "1.8k-3.6k" },
+                  { label: "MKT 增量", min: 500, max: 1800, marker: 1000, value_label: "0.5k-1.8k" },
+                  { label: "促销前置风险", min: -500, max: -100, marker: -250, value_label: "-0.5k--0.1k" }
+                ],
+                note: "若缺少历史 response，MKT 增量只能作为 sensitivity，不是确定 lift。",
+                confidence: "hypothesis_only"
+              },
+              {
+                type: "ranked_bar",
+                title: "预测敏感性驱动",
+                subtitle: "分数越高，越会改变最终需求范围",
+                items: [
+                  { label: "渠道可达性", score: 86, note: "本地 marketplace/retailer 是否能覆盖高优先 segment" },
+                  { label: "价格接受度", score: 78, note: "目标价位是否需要更强价值证明" },
+                  { label: "转化 basis", score: 72, note: "没有真实页面时只能假设级处理" },
+                  { label: "MKT 投入响应", score: 71, note: "需要 adstock 和 saturation 假设" },
+                  { label: "库存分配", score: 69, note: "缺少 launch inventory 与补货周期" },
+                  { label: "上一代校准", score: 60, note: "如用户提供会显著提高可信度" }
+                ],
+                confidence: "low"
+              },
+              {
+                type: "matrix_heatmap",
+                title: "渠道 x 场景库存风险",
+                subtitle: "分数越高，越可能出现缺货、压货或分配错配",
+                columns: ["保守", "基准", "乐观"],
+                rows: [
+                  { label: "DTC/品牌站", values: [{ score: 42, label: "低" }, { score: 58, label: "中" }, { score: 76, label: "高" }] },
+                  { label: "本地 marketplace", values: [{ score: 48, label: "中" }, { score: 66, label: "中高" }, { score: 84, label: "高" }] },
+                  { label: "零售/分销", values: [{ score: 55, label: "中" }, { score: 72, label: "高" }, { score: 88, label: "高" }] }
+                ],
+                confidence: "hypothesis_only"
+              }
+            ],
+            tables: [
+              {
+                headers: ["假设", "当前依据", "风险", "下一步验证"],
+                rows: [
+                  ["Segment 需求池", "S01 segment TAM/SAM/SOM seed", "不是发售销量", "校准目标 segment 的可触达比例"],
+                  ["价格接受度", "S04 price sensitivity", "高价位会压低基准情景", "先验证价格前 proof 顺序"],
+                  ["渠道拆分", "S01 channel fit + 用户计划", "没有 PO/库存时不够稳", "补充渠道容量、库存与补货周期"],
+                  ["转化假设", "S07 可选", "缺少页面时不能算真实 CVR", "上线前先做 tracking 和页面测试"]
+                ]
+              }
+            ],
+            next_actions: [
+              "让用户选择 forecast horizon：launch week、30/60/90 天或自定义。",
+              "如果要用于库存决策，必须补充 launch inventory、渠道分配、补货周期或 PO/sell-in 约束。",
+              "把敏感性最高的 3 个假设交给 S13 变成验证计划。"
+            ],
+            citations: [],
+            data_gaps: ["missing_inventory_context", "missing_historical_calibration", "forecast_confidence_capped"]
+          }
+        ],
+        dataGaps: [
+          { item: "Preview mode uses illustrative content only; real dashboard sections must come from S01-S08 handoffs.", severity: "medium", owner: "S14" },
+          { item: "If a required S01-S08 subview is missing, S14 must flag missing_required_view instead of filling it with generic prose.", severity: "high", owner: "S14" },
+          { item: "Private COGS, margin, and channel terms remain blank in public HTML unless explicitly approved.", severity: "high", owner: "S04/S14" }
+        ],
+        citations: [],
+        privatePricingCalculator: {
+          enabled: true,
+          mode: "client_side_blank_inputs"
+        }
+      };
+
+      const data = window.GTM_REPORT_DATA || previewData;
+
+      function text(value) {
+        return value === undefined || value === null ? "" : String(value);
+      }
+
+      function escapeHtml(value) {
+        return text(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      function slug(value) {
+        return text(value).toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "_").replace(/^_+|_+$/g, "") || "section";
+      }
+
+      function badge(value) {
+        const raw = text(value || "unknown");
+        const key = slug(raw);
+        return '<span class="badge ' + key + '">' + escapeHtml(raw.replace(/_/g, " ")) + '</span>';
+      }
+
+      function renderList(items) {
+        if (!items || !items.length) return '<p class="source">未提供项目。</p>';
+        return '<ul class="list">' + items.map(function (item) {
+          if (typeof item === "string") return '<li>' + escapeHtml(item) + '</li>';
+          return '<li>' + escapeHtml(item.item || item.title || JSON.stringify(item)) + '</li>';
+        }).join("") + '</ul>';
+      }
+
+      function renderMetricCards(cards) {
+        if (!cards || !cards.length) return "";
+        return '<div class="metrics">' + cards.map(function (card) {
+          return '<article class="metric-card">' +
+            '<div><span>' + escapeHtml(card.label || "指标") + '</span>' +
+            '<strong>' + escapeHtml(card.value || "") + '</strong></div>' +
+            '<small>' + escapeHtml(card.note || card.confidence || "") + '</small>' +
+          '</article>';
+        }).join("") + '</div>';
+      }
+
+      function renderCallouts(callouts) {
+        if (!callouts || !callouts.length) return "";
+        return callouts.map(function (callout) {
+          const tone = slug(callout.tone || "neutral");
+          return '<div class="callout ' + tone + '">' +
+            '<strong>' + escapeHtml(callout.title || "提示") + '</strong>' +
+            '<div>' + escapeHtml(callout.body || callout.text || "") + '</div>' +
+          '</div>';
+        }).join("");
+      }
+
+      function renderTables(tables) {
+        if (!tables || !tables.length) return "";
+        return tables.map(function (table) {
+          const headers = table.headers || [];
+          const rows = table.rows || [];
+          if (!headers.length || !rows.length) return "";
+          return '<div class="table-wrap"><table><thead><tr>' +
+            headers.map(function (head) { return '<th>' + escapeHtml(head) + '</th>'; }).join("") +
+            '</tr></thead><tbody>' +
+            rows.map(function (row) {
+              const cells = Array.isArray(row) ? row : headers.map(function (head) { return row[head] || row[slug(head)] || ""; });
+              return '<tr>' + cells.map(function (cell) { return '<td>' + escapeHtml(cell) + '</td>'; }).join("") + '</tr>';
+            }).join("") +
+          '</tbody></table></div>';
+        }).join("");
+      }
+
+      function toNumber(value, fallback) {
+        const num = Number(value);
+        return Number.isFinite(num) ? num : fallback;
+      }
+
+      function clamp(value, min, max) {
+        return Math.min(max, Math.max(min, value));
+      }
+
+      function toPercent(value, min, max) {
+        const floor = toNumber(min, 0);
+        const ceiling = toNumber(max, 100);
+        const range = ceiling - floor || 1;
+        return clamp(((toNumber(value, floor) - floor) / range) * 100, 0, 100).toFixed(1) + "%";
+      }
+
+      function renderVisualRefs(block) {
+        const rawRefs = block.evidence_refs || block.citations || [];
+        const refs = Array.isArray(rawRefs) ? rawRefs : [rawRefs];
+        if (!refs.length) return "";
+        const labels = refs.slice(0, 6).map(function (ref) {
+          if (typeof ref === "string") return ref;
+          return ref.ref || ref.evidence_id || ref.id || ref.title || "";
+        }).filter(Boolean);
+        if (!labels.length) return "";
+        const overflow = refs.length > labels.length ? " +" + (refs.length - labels.length) : "";
+        return '<div class="visual-note">证据 refs: ' + labels.map(escapeHtml).join(", ") + escapeHtml(overflow) + '</div>';
+      }
+
+      function renderVisualShell(block, body) {
+        const typeLabel = text(block.visual || block.type || "visual").replace(/_/g, " ");
+        return '<div class="visual-block">' +
+          '<div class="visual-header"><div><strong>' + escapeHtml(block.title || "证据视图") + '</strong>' +
+          (block.subtitle || block.core_point ? '<span>' + escapeHtml(block.subtitle || block.core_point) + '</span>' : "") +
+          '</div><span>' + escapeHtml(typeLabel) + '</span></div>' +
+          '<div class="visual-body">' + body +
+          (block.note ? '<div class="visual-note">' + escapeHtml(block.note) + '</div>' : "") +
+          renderVisualRefs(block) +
+          '</div></div>';
+      }
+
+      function renderStatusPanel(block) {
+        const items = block.items || [];
+        const body = items.length ? '<div class="status-grid">' + items.map(function (item) {
+          return '<div class="status-item">' +
+            '<strong>' + escapeHtml(item.label || item.title || "状态") + '</strong>' +
+            '<b>' + escapeHtml(item.value || item.status || "") + '</b>' +
+            '<span>' + escapeHtml(item.note || item.owner || item.source || "") + '</span>' +
+          '</div>';
+        }).join("") + '</div>' : renderList([]);
+        return renderVisualShell(block, body);
+      }
+
+      function renderRankedBars(block) {
+        const max = toNumber(block.max, 100);
+        const items = block.items || [];
+        const body = items.length ? '<div class="rank-list">' + items.map(function (item) {
+          const score = toNumber(item.score, 0);
+          return '<div class="rank-row">' +
+            '<div class="rank-main"><strong>' + escapeHtml(item.label || item.name || "项目") + '</strong><span>' + escapeHtml(item.note || item.reason || "") + '</span></div>' +
+            '<div class="bar-track"><span class="bar-fill" style="--score: ' + toPercent(score, 0, max) + '"></span></div>' +
+            '<div class="rank-score">' + escapeHtml(item.score_label || String(score)) + '</div>' +
+          '</div>';
+        }).join("") + '</div>' : renderList([]);
+        return renderVisualShell(block, body);
+      }
+
+      function renderMatrixHeatmap(block) {
+        const columns = block.columns || block.headers || [];
+        const rows = block.rows || [];
+        const max = toNumber(block.max, 100);
+        if (!columns.length || !rows.length) return renderVisualShell(block, renderList([]));
+        const table = '<div class="table-wrap"><table><thead><tr><th>' + escapeHtml(block.row_label || "维度") + '</th>' +
+          columns.map(function (col) { return '<th>' + escapeHtml(col) + '</th>'; }).join("") +
+          '</tr></thead><tbody>' +
+          rows.map(function (row) {
+            const values = row.values || [];
+            return '<tr><td><strong>' + escapeHtml(row.label || row.name || "") + '</strong><div class="source">' + escapeHtml(row.note || "") + '</div></td>' +
+              columns.map(function (_col, index) {
+                const value = values[index] || {};
+                const score = typeof value === "object" ? toNumber(value.score, 0) : toNumber(value, 0);
+                const label = typeof value === "object" ? (value.label || String(score)) : String(score);
+                const note = typeof value === "object" ? (value.note || "") : "";
+                return '<td class="score-cell"><span style="--score: ' + toPercent(score, 0, max) + '">' +
+                  '<strong>' + escapeHtml(label) + '</strong>' +
+                  (note ? '<small>' + escapeHtml(note) + '</small>' : "") +
+                '</span></td>';
+              }).join("") + '</tr>';
+          }).join("") + '</tbody></table></div>';
+        return renderVisualShell(block, table);
+      }
+
+      function renderRangeChart(block) {
+        const scaleMin = toNumber(block.scale_min, 0);
+        const scaleMax = toNumber(block.scale_max, 100);
+        const items = block.items || [];
+        const body = items.length ? '<div class="range-list">' + items.map(function (item) {
+          const min = toNumber(item.min, scaleMin);
+          const max = toNumber(item.max, scaleMax);
+          const marker = item.marker === undefined ? null : toNumber(item.marker, min);
+          const left = toPercent(min, scaleMin, scaleMax);
+          const right = toPercent(max, scaleMin, scaleMax);
+          const width = (parseFloat(right) - parseFloat(left)).toFixed(1) + "%";
+          const markerHtml = marker === null ? "" : '<span class="range-marker" style="--marker: ' + toPercent(marker, scaleMin, scaleMax) + '"></span>';
+          return '<div class="range-row">' +
+            '<div class="range-label"><strong>' + escapeHtml(item.label || "区间") + '</strong><span>' + escapeHtml(item.note || "") + '</span></div>' +
+            '<div class="range-track"><span class="range-band" style="--left: ' + left + '; --width: ' + width + '"></span>' + markerHtml + '</div>' +
+            '<div class="range-values">' + escapeHtml(item.value_label || (String(min) + " - " + String(max))) + '</div>' +
+          '</div>';
+        }).join("") + '</div>' : renderList([]);
+        return renderVisualShell(block, body);
+      }
+
+      function renderVisualBlocks(blocks) {
+        if (!blocks || !blocks.length) return "";
+        return '<div class="visual-blocks">' + blocks.map(function (block) {
+          const type = slug(block.type || block.visual || "");
+          if (type === "status_panel") return renderStatusPanel(block);
+          if (type === "ranked_bar") return renderRankedBars(block);
+          if (type === "matrix_heatmap") return renderMatrixHeatmap(block);
+          if (type === "range_chart") return renderRangeChart(block);
+          if (block.headers && block.rows) return renderVisualShell(block, renderTables([{ headers: block.headers, rows: block.rows }]));
+          return renderVisualShell(block, renderList(block.items || []));
+        }).join("") + '</div>';
+      }
+
+      function renderSection(section) {
+        const id = section.section_id || slug(section.section_title);
+        const narrative = section.narrative_blocks || [];
+        return '<section class="section" id="' + escapeHtml(id) + '">' +
+          '<div class="section-header"><div>' +
+            '<h3>' + escapeHtml(section.section_title || id) + '</h3>' +
+            '<div class="source">' + escapeHtml(section.source_skill || "未知来源") + '</div>' +
+          '</div>' + badge(section.confidence || section.status || "unknown") + '</div>' +
+          (section.executive_takeaway ? '<p><strong>核心结论：</strong> ' + escapeHtml(section.executive_takeaway) + '</p>' : "") +
+          narrative.map(function (block) { return '<p>' + escapeHtml(block) + '</p>'; }).join("") +
+          renderMetricCards(section.metric_cards) +
+          renderCallouts(section.callouts) +
+          renderVisualBlocks(section.visual_blocks || section.charts) +
+          renderTables(section.tables) +
+          (section.next_actions && section.next_actions.length ? '<div class="callout"><strong>下一步行动</strong>' + renderList(section.next_actions) + '</div>' : "") +
+          (section.data_gaps && section.data_gaps.length ? '<div class="callout warning"><strong>本节数据缺口</strong>' + renderList(section.data_gaps) + '</div>' : "") +
+        '</section>';
+      }
+
+      function renderPrivateCalculator() {
+        const spec = data.privatePricingCalculator || {};
+        if (!spec.enabled) return "";
+        return '<section class="section" id="private_pricing_calculator">' +
+          '<div class="section-header"><div><h3>私有价格与毛利计算器</h3>' +
+          '<div class="source">仅在本地浏览器计算。默认空值且不存储。</div></div>' +
+          '<span class="badge hypothesis_only">仅本地</span></div>' +
+          '<div class="tool">' +
+            '<div class="callout warning"><strong>隐私提示</strong><div>这里输入的数值只保留在浏览器内存中，除非你主动复制派生摘要。</div></div>' +
+            '<div class="tool-grid">' +
+              '<label>建议零售价<input id="calc-msrp" type="number" min="0" step="0.01" placeholder="0.00"></label>' +
+              '<label>COGS / BOM 成本<input id="calc-cogs" type="number" min="0" step="0.01" placeholder="0.00"></label>' +
+              '<label>目标毛利率 %<input id="calc-target-gm" type="number" min="0" max="99" step="0.1" placeholder="35"></label>' +
+              '<label>渠道费用<input id="calc-channel" type="number" min="0" step="0.01" placeholder="0.00"></label>' +
+              '<label>折扣<input id="calc-discount" type="number" min="0" step="0.01" placeholder="0.00"></label>' +
+              '<label>物流/支付补贴<input id="calc-subsidy" type="number" min="0" step="0.01" placeholder="0.00"></label>' +
+            '</div>' +
+            '<div class="metrics" id="calc-results"></div>' +
+            '<div class="actions"><button class="primary" id="calc-run" type="button">计算</button><button id="calc-reset" type="button">重置</button><button id="calc-copy" type="button">复制派生摘要</button></div>' +
+          '</div>' +
+        '</section>';
+      }
+
+      function readNumber(id) {
+        const value = document.getElementById(id).value;
+        const num = Number(value);
+        return Number.isFinite(num) ? num : 0;
+      }
+
+      function formatMoney(value) {
+        return Number.isFinite(value) ? value.toFixed(2) : "0.00";
+      }
+
+      function formatPercent(value) {
+        return Number.isFinite(value) ? (value * 100).toFixed(1) + "%" : "0.0%";
+      }
+
+      function runCalculator() {
+        const msrp = readNumber("calc-msrp");
+        const cogs = readNumber("calc-cogs");
+        const targetGm = readNumber("calc-target-gm") / 100;
+        const channel = readNumber("calc-channel");
+        const discount = readNumber("calc-discount");
+        const subsidy = readNumber("calc-subsidy");
+        const net = msrp - channel - discount - subsidy;
+        const gm = net > 0 ? (net - cogs) / net : 0;
+        const minNet = targetGm < 1 ? cogs / (1 - targetGm) : 0;
+        const gap = net - minNet;
+        const cards = [
+          { label: "估算净价", value: formatMoney(net), note: "建议零售价减去可见扣减" },
+          { label: "毛利率", value: formatPercent(gm), note: "本地计算" },
+          { label: "毛利缺口", value: formatMoney(gap), note: gap >= 0 ? "达到或高于底线" : "低于底线" }
+        ];
+        document.getElementById("calc-results").innerHTML = renderMetricCards(cards);
+        window.__derivedPricingSummary = "估算净价：" + formatMoney(net) + "；毛利率：" + formatPercent(gm) + "；毛利缺口：" + formatMoney(gap) + "。";
+      }
+
+      function resetCalculator() {
+        ["calc-msrp", "calc-cogs", "calc-target-gm", "calc-channel", "calc-discount", "calc-subsidy"].forEach(function (id) {
+          const el = document.getElementById(id);
+          if (el) el.value = "";
+        });
+        document.getElementById("calc-results").innerHTML = "";
+        window.__derivedPricingSummary = "";
+      }
+
+      function copySummary() {
+        const summary = window.__derivedPricingSummary || "尚未计算派生价格摘要。";
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(summary);
+        }
+      }
+
+      function initCalculator() {
+        const run = document.getElementById("calc-run");
+        if (!run) return;
+        run.addEventListener("click", runCalculator);
+        document.getElementById("calc-reset").addEventListener("click", resetCalculator);
+        document.getElementById("calc-copy").addEventListener("click", copySummary);
+      }
+
+      function init() {
+        const project = data.project || {};
+        const sections = data.sections || [];
+        document.title = project.title || "GTM 看板";
+        document.getElementById("rail-title").textContent = project.product || project.title || "GTM 看板";
+        document.getElementById("rail-subtitle").textContent = project.country || "静态报告";
+        document.getElementById("report-kicker").textContent = data.mode === "template_preview" ? "模板预览" : "GTM 报告";
+        document.getElementById("report-title").textContent = project.title || "GTM 看板";
+        document.getElementById("report-status").outerHTML = badge(project.status || "unknown");
+
+        const meta = [
+          { label: "产品", value: project.product || "未提供" },
+          { label: "国家/地区", value: project.country || "未提供" },
+          { label: "价格段", value: project.priceRange || "未提供" },
+          { label: "受众", value: project.audience || "混合" }
+        ];
+        document.getElementById("meta-grid").innerHTML = meta.map(function (item) {
+          return '<div class="meta"><span>' + escapeHtml(item.label) + '</span><strong>' + escapeHtml(item.value) + '</strong></div>';
+        }).join("");
+
+        const takeaways = data.executiveTakeaways && data.executiveTakeaways.length
+          ? data.executiveTakeaways
+          : sections.map(function (s) { return s.executive_takeaway; }).filter(Boolean).slice(0, 5);
+        document.getElementById("summary-content").innerHTML = renderList(takeaways);
+        document.getElementById("gap-content").innerHTML = renderList(data.dataGaps || []);
+
+        const navItems = [
+          { id: "executive_summary", title: "摘要", status: "core" },
+          { id: "gap-panel", title: "数据缺口", status: "core" }
+        ].concat(sections.map(function (s) {
+          return { id: s.section_id || slug(s.section_title), title: s.section_title || s.section_id, status: s.confidence || "" };
+        })).concat([{ id: "citations", title: "证据索引", status: "index" }]);
+
+        document.getElementById("nav").innerHTML = navItems.map(function (item) {
+          return '<a href="#' + escapeHtml(item.id) + '"><span>' + escapeHtml(item.title) + '</span><small>' + escapeHtml(item.status) + '</small></a>';
+        }).join("");
+
+        document.getElementById("sections").innerHTML = sections.map(renderSection).join("") + renderPrivateCalculator();
+
+        const citations = data.citations || [];
+        document.getElementById("citation-content").innerHTML = citations.length
+          ? renderTables([{ headers: ["Ref", "标题", "来源"], rows: citations.map(function (c) { return [c.ref || "", c.title || "", c.source || c.url || ""]; }) }])
+          : '<p class="source">未提供证据索引。缺失的 citation metadata 应由 S14 质量门标记。</p>';
+
+        initCalculator();
+      }
+
+      init();
+    }());
+  </script>
+</body>
+</html>
