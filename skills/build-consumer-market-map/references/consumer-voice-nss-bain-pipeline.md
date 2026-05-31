@@ -162,7 +162,7 @@ Required outputs:
       "why_selected": "",
       "target_source_types": ["forum_comment", "specialist_media_comment", "video_comment", "retailer_review", "marketplace_review", "internal_review"],
       "source_scope_refs": [],
-      "collection_depth": "quick | standard | deep",
+      "collection_depth": "quick | standard | real_product_pilot | deep",
       "coverage_status": "complete_within_scope | partial | blocked | not_started",
       "limitations": []
     }

@@ -2,6 +2,10 @@
 
 The main skill decides what evidence is needed. The routing policy decides the least invasive collection path.
 
+Use `tools/REGISTRY.md` as the platform-neutral capability registry before
+choosing a concrete MCP server, CLI, API, browser tool, or manual-upload path.
+This keeps the same skill usable in Codex and Claude Code.
+
 ## Least-Invasive Order
 
 ```text

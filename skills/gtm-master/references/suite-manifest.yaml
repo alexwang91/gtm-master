@@ -126,6 +126,9 @@ runtime_model:
   context_policy: handoff_only_by_default
   canonical_graph_source: references/codegraph.yaml
   state_machine_source: references/recoverable-state-machine.md
+  tool_registry_source: tools/REGISTRY.md
+  connector_policy_source: references/tooling-and-connectors.md
+  suite_output_tree_source: references/suite-output-tree.md
   methodology_crosswalk_source: references/methodology-crosswalk.yaml
   skill_evals_policy_source: references/skill-evals-policy.md
   hardware_current_state_rubric_source: references/hardware-current-state-rubric.md
@@ -138,6 +141,7 @@ runtime_model:
   available_depth_modes:
     - quick
     - standard
+    - real_product_pilot
     - deep
 
 global_principles:
@@ -150,6 +154,7 @@ global_principles:
   - one_active_skill
   - context_escalation_requires_reason
   - context_budget_before_lookup
+  - platform_neutral_tool_layer
   - recoverable_state_machine
   - methodology_crosswalk
   - evals_before_architecture_stable

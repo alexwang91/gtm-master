@@ -25,6 +25,21 @@ run_modes:
     appendices: citations, data gaps, decision log, validation audit
     default_status_when_evidence_is_thin: pass_with_caveats
 
+  real_product_pilot:
+    graph: [S01, S02, S03, S04, S08, S13, S14]
+    optional_branches: [S05, S06, S07]
+    trigger_branches: [S09, S10, S11, S12]
+    purpose: First controlled run on an existing product before broader automation.
+    optional_branch_policy: run_only_when_user_inputs_or_decision_need_exist
+    trigger_branch_policy: record_trigger_status_only_unless_user_approves_expansion
+    evidence_policy: localized public evidence plus user-approved private summaries, with bounded source access checks
+    competitor_review_gate: require_5_to_10_candidates_before_deep_voice_collection
+    deep_voice_collection_scope: top1_competitor_plus_previous_generation_when_available
+    S13_visibility: hidden_validation_plan_only
+    main_visual_blocks_per_section: 4-8
+    appendices: citations, data gaps, source accessibility, decision log, validation audit
+    default_status_when_evidence_is_thin: pass_with_caveats
+
   deep:
     graph: [S01, S02, S03, S04, S05, S06, S07, S08, S13, S14]
     optional_branches: [S09, S10, S11, S12]
@@ -36,7 +51,7 @@ run_modes:
     default_status_when_evidence_is_thin: pass_with_caveats_or_blocked
 ```
 
-Quick, standard, and deep change breadth and evidence depth; they do not relax evidence labeling, private-data policy, or post-skill isolation.
+Quick, standard, real_product_pilot, and deep change breadth and evidence depth; they do not relax evidence labeling, private-data policy, or post-skill isolation.
 
 ## Default Context Budgets
 
@@ -90,6 +105,9 @@ User needs fast directional answer
 
 User provides rich private files, deep evidence expectation, or multi-country/multi-channel validation
   Use deep, but still run only triggered optional modules.
+
+User wants to try one real existing product before scaling the suite
+  Use real_product_pilot.
 
 Optional module lacks trigger or required materials
   Emit skipped_not_triggered with data gaps and continue.

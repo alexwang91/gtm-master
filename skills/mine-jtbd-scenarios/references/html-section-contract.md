@@ -101,6 +101,12 @@ required_visual_blocks:
     data_source: scenario_to_segment_matrix
     core_question: Which priority segments map to which jobs?
 
+  - title: Four Forces Switching Dynamics
+    type: matrix_heatmap
+    data_source: four_forces_switching_map
+    core_question: Which scenarios have enough push and pull to overcome habit and anxiety?
+    display_requirement: Show Push, Pull, Habit, and Anxiety by scenario. Tie high anxiety or habit to proof, channel, price, warranty, setup, or local support actions.
+
   - title: Product Job Fit And Proof Readiness
     type: matrix_heatmap
     data_source: product_job_fit_matrix + proof_requirement_seed

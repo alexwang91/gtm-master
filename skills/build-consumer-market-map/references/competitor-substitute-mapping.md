@@ -34,6 +34,27 @@ In standard and deep mode, present 5-10 potential competitors or substitutes for
 }
 ```
 
+Emit `competitor_candidate_review_gate` before deep voice collection:
+
+```json
+{
+  "competitor_candidate_review_gate": {
+    "status": "pending_user_review | auto_selected_with_caveats | reviewed | skipped_with_gap",
+    "candidate_count": 0,
+    "included_candidate_ids": [],
+    "excluded_candidate_ids": [],
+    "unsure_candidate_ids": [],
+    "top1_deep_voice_candidate_id": "",
+    "previous_generation_candidate_id": "",
+    "deep_collection_allowed": false,
+    "reason": "",
+    "data_gaps": []
+  }
+}
+```
+
+In `real_product_pilot`, do not run deep voice mining across the whole category. Use the reviewed TOP1 competitor plus previous generation when available, then preserve the rest as candidate context.
+
 ## Competitor / Substitute Record
 
 ```json

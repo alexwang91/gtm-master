@@ -1,0 +1,1336 @@
+{
+  "mode": "real_product_pilot",
+  "language": "zh-CN",
+  "project": {
+    "title": "HUAWEI WATCH FIT 5 Pro 匈牙利 GTM 管理层看板",
+    "product": "HUAWEI WATCH FIT 5 Pro",
+    "country": "匈牙利",
+    "priceRange": "约 99,990 Ft",
+    "audience": "管理层 / GTM / 渠道 / 产品",
+    "status": "needs_validation"
+  },
+  "executiveTakeaways": [
+    "当前建议保留 99,990 Ft 公开锚点，但不能裸价硬卖；需要用多日续航、轻薄材质、睡眠健康、赠品/分期/保修共同支撑。",
+    "TOP1 外部竞品为 Samsung Galaxy Watch7 44mm；它用低价和 Samsung 生态制造压力，但续航痛点也给 FIT 5 Pro 留出清晰切入口。",
+    "FIT 4 Pro 与 WATCH GT 6 是华为内部价格梯度风险：前者截流升级用户，后者让部分消费者跳到圆表/长续航叙事。",
+    "FIT 5 Pro 自身匈牙利公开买家声量太薄，当前禁止计算 NSS/NPS proxy；只显示方向性 Bain/VOC 驱动和证据缺口。",
+    "S08 只能输出需求指数和渠道优先级，不能给真实销量承诺；真实 30/60/90 天销量需要上一代销售、库存、MKT 和渠道承诺校准。"
+  ],
+  "sections": [
+    {
+      "section_id": "market_context",
+      "source_skill": "S01 build-consumer-market-map",
+      "section_title": "市场与本地化前置判断",
+      "status": "rendered_with_gaps",
+      "confidence": "medium",
+      "executive_takeaway": "匈牙利公开渠道已经足够支撑第一版竞品、价格和渠道判断，但 FIT 5 Pro 自身买家声音不足，后续必须把 VOC 置信度和来源边界展示清楚。",
+      "narrative_blocks": [
+        "本轮深挖边界已经确认：TOP1 外部竞品为 Samsung Galaxy Watch7 44mm；上一代对象为 HUAWEI WATCH FIT 4 Pro；WATCH GT 6 作为华为内部价位分流风险。",
+        "S01 的核心价值不是给最终结论背书，而是明确哪些公开证据能用、哪些只能作为 seed、哪些必须标为缺口。"
+      ],
+      "metric_cards": [
+        {
+          "label": "目标公开价",
+          "value": "约 99,990 Ft",
+          "note": "Huawei / 主流渠道价格锚点"
+        },
+        {
+          "label": "TOP1 外部竞品",
+          "value": "Watch7 44mm",
+          "note": "低价 + Samsung 生态"
+        },
+        {
+          "label": "上一代锚点",
+          "value": "FIT 4 Pro",
+          "note": "约 76k Ft floor"
+        },
+        {
+          "label": "内部风险",
+          "value": "WATCH GT 6",
+          "note": "长续航/圆表分流"
+        }
+      ],
+      "visual_blocks": [
+        {
+          "type": "status_panel",
+          "title": "证据覆盖门禁",
+          "subtitle": "先看哪些来源能支撑结论，哪些只能做方向性 seed",
+          "items": [
+            {
+              "label": "官方规格",
+              "value": "可用",
+              "note": "Huawei 官方产品页，可支撑规格与功能声明"
+            },
+            {
+              "label": "价格/渠道",
+              "value": "可用",
+              "note": "Árukereső、Yettel、Alza、MediaMarkt、Euronics、Huawei official"
+            },
+            {
+              "label": "FIT 5 Pro 买家声音",
+              "value": "不足",
+              "note": "Mobilarena 早期评论可做 seed，不能计算 NSS/NPS"
+            },
+            {
+              "label": "Watch7 对照声音",
+              "value": "较强",
+              "note": "Árukereső 评论 + Mobilarena 评测/长帖"
+            },
+            {
+              "label": "FIT 4 Pro 上一代声音",
+              "value": "中等",
+              "note": "Árukereső、MediaMarkt、Mobilarena、Smarteast 可补"
+            },
+            {
+              "label": "Google Trends / 搜索词",
+              "value": "待补",
+              "note": "进入正式版前需要本地词扩展"
+            }
+          ],
+          "confidence": "medium"
+        },
+        {
+          "type": "ranked_bar",
+          "title": "竞品压力排序",
+          "subtitle": "分数越高，越需要在信息、价格或渠道中主动处理",
+          "items": [
+            {
+              "label": "Samsung Galaxy Watch7 44mm",
+              "score": 86,
+              "note": "低价、Samsung 生态、评论量强，但续航是可攻击点"
+            },
+            {
+              "label": "HUAWEI WATCH GT 6",
+              "score": 77,
+              "note": "华为内部圆表/长续航替代，可能让消费者跳档"
+            },
+            {
+              "label": "HUAWEI WATCH FIT 4 Pro",
+              "score": 74,
+              "note": "上一代降价截流升级用户"
+            },
+            {
+              "label": "Garmin / Amazfit / Apple Watch SE",
+              "score": 58,
+              "note": "作为运动、预算或生态锚点保留"
+            }
+          ],
+          "confidence": "medium"
+        },
+        {
+          "type": "matrix_heatmap",
+          "title": "本地渠道与角色",
+          "subtitle": "渠道名必须落到匈牙利本地实际渠道，不使用泛化渠道名",
+          "columns": [
+            "价格锚点",
+            "证明承载",
+            "成交能力",
+            "风险"
+          ],
+          "rows": [
+            {
+              "label": "Huawei official",
+              "note": "官方锚点与新品权益",
+              "values": [
+                {
+                  "score": 70,
+                  "label": "高"
+                },
+                {
+                  "score": 80,
+                  "label": "高"
+                },
+                {
+                  "score": 55,
+                  "label": "中"
+                },
+                {
+                  "score": 45,
+                  "label": "中"
+                }
+              ]
+            },
+            {
+              "label": "Alza / MediaMarkt / Euronics",
+              "note": "主零售成交与比较",
+              "values": [
+                {
+                  "score": 82,
+                  "label": "高"
+                },
+                {
+                  "score": 72,
+                  "label": "高"
+                },
+                {
+                  "score": 82,
+                  "label": "高"
+                },
+                {
+                  "score": 55,
+                  "label": "中"
+                }
+              ]
+            },
+            {
+              "label": "Yettel",
+              "note": "operator bundle / 分期线索",
+              "values": [
+                {
+                  "score": 74,
+                  "label": "高"
+                },
+                {
+                  "score": 68,
+                  "label": "中"
+                },
+                {
+                  "score": 70,
+                  "label": "中高"
+                },
+                {
+                  "score": 50,
+                  "label": "中"
+                }
+              ]
+            },
+            {
+              "label": "Árukereső",
+              "note": "价格比较，不一定最终成交",
+              "values": [
+                {
+                  "score": 90,
+                  "label": "极高"
+                },
+                {
+                  "score": 54,
+                  "label": "中"
+                },
+                {
+                  "score": 62,
+                  "label": "中"
+                },
+                {
+                  "score": 72,
+                  "label": "高"
+                }
+              ]
+            }
+          ],
+          "confidence": "medium"
+        }
+      ],
+      "tables": [
+        {
+          "headers": [
+            "对象",
+            "角色",
+            "公开价位信号",
+            "看板解释"
+          ],
+          "rows": [
+            [
+              "HUAWEI WATCH FIT 5 Pro",
+              "目标产品",
+              "约 97,840-99,999 Ft",
+              "99,990 Ft 是主锚点，必须用 bundle/证明支撑"
+            ],
+            [
+              "Samsung Galaxy Watch7 44mm",
+              "TOP1 外部竞品",
+              "约 54,900 Ft floor",
+              "低价压力强，但续航痛点明显"
+            ],
+            [
+              "HUAWEI WATCH FIT 4 Pro",
+              "上一代",
+              "约 76,065 Ft floor",
+              "升级理由必须清楚，否则截流"
+            ],
+            [
+              "HUAWEI WATCH GT 6",
+              "内部价位风险",
+              "部分渠道可见 70,990 Ft 起",
+              "货架上要区分方形轻薄与圆表长续航"
+            ]
+          ]
+        }
+      ],
+      "data_gaps": [
+        "FIT 5 Pro 匈牙利真实买家评论不足。",
+        "Telekom / One operator 上线状态尚未确认。",
+        "Google Trends / 本地搜索量还未采集。"
+      ],
+      "local_team_action": {
+        "method": "Evidence Gate + VOC / NSS seed",
+        "direction": "本地团队先把可确认事实、媒体/KOL种子和方向性假设分开，避免渠道、竞品和消费者声音混在一起形成过度自信。",
+        "do_next": [
+          "确认 Huawei official、Alza、MediaMarkt、Euronics、Yettel、Árukereső 的角色，并单独标记 Telekom / One 是否可进。",
+          "把 Mobilarena、PC Guru、TheGeek、Techwok、Telefonguru、Tech2 作为本地评测/PR/KOL 候选池，先验证联系方式、受众和近期可排期。",
+          "补齐 TOP1 竞品、上一代产品和 FIT 5 Pro 自身的本地评论样本，保留原文链接和语言。"
+        ],
+        "decision": "交付给 GTM lead：本地渠道优先级、评测/KOL候选池、可用证据清单、不能用于 NSS/NPS 的边界。",
+        "status": "local_team_action"
+      }
+    },
+    {
+      "section_id": "jtbd_scenarios",
+      "source_skill": "S02 mine-jtbd-scenarios",
+      "section_title": "JTBD 场景与切换动力",
+      "status": "rendered_with_gaps",
+      "confidence": "medium",
+      "executive_takeaway": "最适合作为上市主轴的是“多日续航 + 睡眠健康 + 轻薄日常佩戴”；支付和运动可以做证明/支撑，但不能在未验证前放成主承诺。",
+      "metric_cards": [
+        {
+          "label": "领先场景",
+          "value": "多日续航健康轻表",
+          "note": "优先级 82"
+        },
+        {
+          "label": "高风险阻力",
+          "value": "Watch7 低价",
+          "note": "Anti-JTBD 86"
+        },
+        {
+          "label": "阻塞型焦虑",
+          "value": "本地支付",
+          "note": "证明前不能放大"
+        },
+        {
+          "label": "场景置信上限",
+          "value": "medium",
+          "note": "FIT 5 Pro 自身 VOC 薄"
+        }
+      ],
+      "visual_blocks": [
+        {
+          "type": "ranked_bar",
+          "title": "场景优先级",
+          "subtitle": "结合痛点强度、产品适配、价格可信、证明可得性和竞争空白",
+          "items": [
+            {
+              "label": "多日续航的健康/睡眠轻智能表",
+              "score": 82,
+              "note": "续航与睡眠连续记录是最清晰差异"
+            },
+            {
+              "label": "轻薄时尚、能从运动到日常穿搭",
+              "score": 78,
+              "note": "材料、亮屏和薄型设计适合视觉表达"
+            },
+            {
+              "label": "本地渠道放心购买",
+              "score": 74,
+              "note": "渠道价格、保修、赠品要讲清楚"
+            },
+            {
+              "label": "本地支付和通勤便利",
+              "score": 71,
+              "note": "潜力高，但证明前是阻塞项"
+            },
+            {
+              "label": "轻运动进阶",
+              "score": 69,
+              "note": "适合支撑，但要避免专业运动表替代承诺"
+            },
+            {
+              "label": "上一代升级理由",
+              "score": 66,
+              "note": "需要 FIT 4 Pro / FIT 5 / FIT 5 Pro 差异表"
+            },
+            {
+              "label": "Samsung 全生态智能表",
+              "score": 54,
+              "note": "不主攻，作为低转化边界处理"
+            }
+          ],
+          "confidence": "medium"
+        },
+        {
+          "type": "matrix_heatmap",
+          "title": "人群 - 场景适配",
+          "subtitle": "高适配点亮；弱但商业重要的场景保留为 hypothesis",
+          "columns": [
+            "续航健康",
+            "时尚轻薄",
+            "升级",
+            "支付",
+            "运动",
+            "渠道放心"
+          ],
+          "rows": [
+            {
+              "label": "轻健康/睡眠用户",
+              "values": [
+                90,
+                65,
+                30,
+                55,
+                38,
+                62
+              ]
+            },
+            {
+              "label": "时尚日常佩戴用户",
+              "values": [
+                62,
+                92,
+                55,
+                36,
+                32,
+                60
+              ]
+            },
+            {
+              "label": "FIT 3/4 用户",
+              "values": [
+                68,
+                66,
+                90,
+                58,
+                64,
+                78
+              ]
+            },
+            {
+              "label": "Samsung 手机重度用户",
+              "values": [
+                58,
+                34,
+                25,
+                55,
+                30,
+                55
+              ]
+            },
+            {
+              "label": "轻运动进阶用户",
+              "values": [
+                64,
+                62,
+                55,
+                35,
+                88,
+                56
+              ]
+            }
+          ],
+          "confidence": "medium"
+        },
+        {
+          "type": "ranked_bar",
+          "title": "反购买风险",
+          "subtitle": "这些不是广告里直说的缺点，而是营销和证明要潜意识解决的阻力",
+          "items": [
+            {
+              "label": "Watch7 低价压制",
+              "score": 86,
+              "note": "用多日续航、轻薄、材料和跨平台构建选择理由"
+            },
+            {
+              "label": "Samsung 生态锁定",
+              "score": 84,
+              "note": "不抢重生态用户，聚焦续航/轻薄/跨平台"
+            },
+            {
+              "label": "支付支持不清晰",
+              "score": 80,
+              "note": "必须做本地支付 FAQ 和实测"
+            },
+            {
+              "label": "GT 6 内部价位分流",
+              "score": 77,
+              "note": "货架上区分方形轻薄和圆表长续航"
+            },
+            {
+              "label": "FIT 4 Pro 降价截流",
+              "score": 74,
+              "note": "升级差异和权益必须显性化"
+            }
+          ],
+          "confidence": "medium"
+        }
+      ],
+      "tables": [
+        {
+          "headers": [
+            "本地词",
+            "中文含义",
+            "用途"
+          ],
+          "rows": [
+            [
+              "üzemidő",
+              "续航",
+              "核心卖点与 Watch7 对比"
+            ],
+            [
+              "OTP-s fizetés",
+              "OTP 支付",
+              "支付 FAQ / 搜索词 / 评论回应"
+            ],
+            [
+              "zafír üveg",
+              "蓝宝石玻璃",
+              "材质和耐刮证明"
+            ],
+            [
+              "QI töltő",
+              "Qi 充电器",
+              "兼容性 FAQ"
+            ],
+            [
+              "szíj",
+              "表带",
+              "配件和穿搭"
+            ],
+            [
+              "árkülönbség",
+              "价格差",
+              "价格价值解释"
+            ]
+          ]
+        }
+      ],
+      "data_gaps": [
+        "场景优先级仍需要本地搜索词和更完整评论样本校准。",
+        "本地支付路径未验证前，支付不能作为主卖点。"
+      ],
+      "local_team_action": {
+        "method": "JTBD + Four Forces",
+        "direction": "本地团队要把上市打法锁到三个购买场景：续航睡眠、轻薄时尚、上一代升级；KOL 也按场景分工，不做泛科技曝光。",
+        "do_next": [
+          "给评测型媒体验证续航、睡眠、支付和运动准确性，输出可引用 proof。",
+          "给生活方式/穿搭型创作者验证轻薄、颜色、日常佩戴和送礼场景，输出真实佩戴内容。",
+          "用本地评论和搜索词检查 switching trigger：用户为什么离开 Watch7、FIT 4 Pro 或 GT 6。"
+        ],
+        "decision": "交付给市场团队：主攻场景、KOL角色分工、暂缓传播的低证据场景。",
+        "status": "local_team_action"
+      }
+    },
+    {
+      "section_id": "message_architecture",
+      "source_skill": "S03 match-messages-to-segments",
+      "section_title": "卖点、信息架构与证明链",
+      "status": "rendered_with_gaps",
+      "confidence": "medium",
+      "executive_takeaway": "主传播应先押多日续航和轻薄材质，价格价值解释必须随行；支付、运动、健康准确性进入证明队列，避免无证放大。",
+      "metric_cards": [
+        {
+          "label": "主信息路线",
+          "value": "续航健康 + 轻薄材质",
+          "note": "最适合第一版上市叙事"
+        },
+        {
+          "label": "Claim gate",
+          "value": "pass_with_cautions",
+          "note": "健康/支付/运动必须谨慎"
+        },
+        {
+          "label": "价格信息",
+          "value": "价值栈解释",
+          "note": "不要裸价硬卖"
+        },
+        {
+          "label": "本地化重点",
+          "value": "支付 FAQ",
+          "note": "OTP/Curve/银行支持需验证"
+        }
+      ],
+      "visual_blocks": [
+        {
+          "type": "ranked_bar",
+          "title": "信息路线适配度",
+          "subtitle": "不是最终文案，而是信息方向和测试投入优先级",
+          "items": [
+            {
+              "label": "多日续航健康轻表",
+              "score": 78,
+              "note": "可做 lead；需续航实测条件"
+            },
+            {
+              "label": "轻薄时尚与高级材质",
+              "score": 76,
+              "note": "适合视觉/零售页表达"
+            },
+            {
+              "label": "99,990 Ft 价值解释",
+              "score": 70,
+              "note": "服务价格合理性和渠道转化"
+            },
+            {
+              "label": "轻运动进阶",
+              "score": 64,
+              "note": "做 support，不替代专业运动表"
+            },
+            {
+              "label": "本地支付便利",
+              "score": 58,
+              "note": "先做 proof/FAQ，证明后再放大"
+            }
+          ],
+          "confidence": "medium"
+        },
+        {
+          "type": "matrix_heatmap",
+          "title": "功能 - 利益 - 证明成熟度",
+          "subtitle": "缺证明的主张不能变成广告最终承诺",
+          "columns": [
+            "利益清晰",
+            "证明成熟",
+            "主张安全",
+            "本地信任"
+          ],
+          "rows": [
+            {
+              "label": "7-10 天续航",
+              "note": "需带测试条件",
+              "values": [
+                88,
+                66,
+                62,
+                78
+              ]
+            },
+            {
+              "label": "轻薄/时尚/材质",
+              "note": "适合视觉证明",
+              "values": [
+                84,
+                70,
+                74,
+                70
+              ]
+            },
+            {
+              "label": "睡眠/ECG/健康",
+              "note": "避免医疗化",
+              "values": [
+                80,
+                55,
+                42,
+                58
+              ]
+            },
+            {
+              "label": "本地支付",
+              "note": "OTP/银行路径未验证",
+              "values": [
+                72,
+                38,
+                28,
+                40
+              ]
+            },
+            {
+              "label": "100+ 运动/潜水/高尔夫",
+              "note": "需第三方体验",
+              "values": [
+                68,
+                52,
+                50,
+                56
+              ]
+            }
+          ],
+          "confidence": "medium"
+        },
+        {
+          "type": "status_panel",
+          "title": "主张风险门禁",
+          "subtitle": "可说、需证明、暂不说",
+          "items": [
+            {
+              "label": "可作为主卖点",
+              "value": "续航 / 轻薄 / 材质",
+              "note": "带条件和证据，不做绝对化"
+            },
+            {
+              "label": "需补证明",
+              "value": "支付 / 运动准确性 / 升级差异",
+              "note": "上线前补 FAQ、评测、对比表"
+            },
+            {
+              "label": "阻断性声明",
+              "value": "医疗级 / 全银行 / 全终端",
+              "note": "禁止直接承诺"
+            },
+            {
+              "label": "价格叙事",
+              "value": "价值栈 + bundle",
+              "note": "不要说最低价或全面优于 Watch7"
+            }
+          ],
+          "confidence": "medium"
+        }
+      ],
+      "tables": [
+        {
+          "headers": [
+            "异议",
+            "严重度",
+            "隐性解决方式",
+            "不建议说"
+          ],
+          "rows": [
+            [
+              "Watch7 便宜很多",
+              "88",
+              "用续航、轻薄、材料、跨平台构建选择理由",
+              "比 Watch7 全面更好"
+            ],
+            [
+              "Samsung 手机生态更完整",
+              "84",
+              "降低重生态用户投放优先级",
+              "Samsung 用户无差别体验"
+            ],
+            [
+              "支付是否真能用",
+              "82",
+              "本地银行/钱包支持 FAQ 和设置视频",
+              "到处都能刷"
+            ],
+            [
+              "FIT 4 Pro 更便宜",
+              "78",
+              "升级差异表和首发权益",
+              "上一代已经过时"
+            ],
+            [
+              "运动/健康准确性",
+              "72",
+              "第三方体验和场景化证明",
+              "医学级准确"
+            ]
+          ]
+        }
+      ],
+      "data_gaps": [
+        "缺品牌内部调性、合规约束和历史素材。",
+        "缺本地支付支持实测，支付主张需降级为 proof/FAQ。"
+      ],
+      "local_team_action": {
+        "method": "Claim-Proof-Objection + ORB",
+        "direction": "本地团队要把内容 brief 直接写给三类对象：评测媒体讲证据、KOL讲场景、零售页讲价格价值。",
+        "do_next": [
+          "为 Mobilarena / PC Guru / TheGeek 准备评测包：续航测试条件、睡眠健康边界、NFC/Curve/支付 FAQ、Watch7 对照点。",
+          "为 Tech2 / 生活方式创作者准备短视频 brief：轻薄佩戴、穿搭、睡眠连续记录、首发权益，不要求他们直接喊低价。",
+          "为零售和自营 PDP 准备价格价值解释：99,990 Ft 前必须出现材质、续航、健康、权益、分期、保修。"
+        ],
+        "decision": "交付给内容和零售团队：评测 brief、KOL brief、PDP proof 顺序和禁用主张。",
+        "status": "local_team_action"
+      }
+    },
+    {
+      "section_id": "pricing",
+      "source_skill": "S04 model-price-sensitivity",
+      "section_title": "定价假设、价格韧性与离线计算",
+      "status": "rendered_with_gaps",
+      "confidence": "low_medium",
+      "executive_takeaway": "99,990 Ft 的价格可信度为 58/100，属于“可守但要证明”的公开锚点；推荐 premium_anchor_promo，而不是价格攻击或裸价高开。",
+      "metric_cards": [
+        {
+          "label": "价格可信度",
+          "value": "58/100",
+          "note": "可守，但证明和测试压力高"
+        },
+        {
+          "label": "推荐策略",
+          "value": "premium_anchor_promo",
+          "note": "保锚点，用权益提高转化"
+        },
+        {
+          "label": "交易价姿态",
+          "value": "97,840-99,990 Ft",
+          "note": "优先 bundle/分期，不深折"
+        },
+        {
+          "label": "决策门禁",
+          "value": "controlled_test_ready",
+          "note": "不能声称利润/收入最大点"
+        }
+      ],
+      "visual_blocks": [
+        {
+          "type": "range_chart",
+          "title": "本地价格锚点区间",
+          "subtitle": "横轴为公开价位信号，单位 Ft；目标价位需要解释溢价",
+          "scale_min": 50000,
+          "scale_max": 120000,
+          "items": [
+            {
+              "label": "Samsung Watch7 44mm",
+              "min": 54900,
+              "max": 90000,
+              "marker": 54900,
+              "value_label": "54.9k+",
+              "note": "低价压力源"
+            },
+            {
+              "label": "HUAWEI FIT 4 Pro",
+              "min": 76065,
+              "max": 85490,
+              "marker": 76065,
+              "value_label": "76.1k+",
+              "note": "上一代截流"
+            },
+            {
+              "label": "HUAWEI WATCH GT 6",
+              "min": 70990,
+              "max": 113990,
+              "marker": 89990,
+              "value_label": "70.9k-114k",
+              "note": "内部跳档"
+            },
+            {
+              "label": "HUAWEI FIT 5 Pro",
+              "min": 97840,
+              "max": 99999,
+              "marker": 99990,
+              "value_label": "约 99.99k",
+              "note": "目标锚点"
+            }
+          ],
+          "confidence": "medium"
+        },
+        {
+          "type": "ranked_bar",
+          "title": "开盘策略适配",
+          "subtitle": "价格已定，因此重点是证明和交易机制",
+          "items": [
+            {
+              "label": "test_before_scale",
+              "score": 74,
+              "note": "价格已定，也要先测价值证明和交易机制"
+            },
+            {
+              "label": "premium_anchor_promo",
+              "score": 66,
+              "note": "最适合当前固定价格：保定位，用 bundle/分期提转化"
+            },
+            {
+              "label": "parity_value",
+              "score": 62,
+              "note": "可做挑战策略，但直接降价会削弱新品定位"
+            },
+            {
+              "label": "premium_proof_led",
+              "score": 58,
+              "note": "证明不足时风险较高"
+            },
+            {
+              "label": "penetration_attack",
+              "score": 43,
+              "note": "没有 COGS/毛利/规模目标，不建议价格攻击"
+            }
+          ],
+          "confidence": "low_medium"
+        },
+        {
+          "type": "matrix_heatmap",
+          "title": "人群 WTP 与价格敏感",
+          "subtitle": "当前为公开代理与场景假设，不是真实 WTP 调研",
+          "columns": [
+            "WTP 支撑",
+            "价格敏感",
+            "证明需求",
+            "可投放"
+          ],
+          "rows": [
+            {
+              "label": "轻健康/睡眠用户",
+              "note": "94,990-99,990 Ft 假设",
+              "values": [
+                68,
+                62,
+                78,
+                72
+              ]
+            },
+            {
+              "label": "时尚轻薄用户",
+              "note": "99,990 Ft 可接受假设",
+              "values": [
+                72,
+                52,
+                66,
+                76
+              ]
+            },
+            {
+              "label": "FIT 4 Pro 升级用户",
+              "note": "84,990-94,990 Ft 更自然",
+              "values": [
+                54,
+                73,
+                84,
+                58
+              ]
+            },
+            {
+              "label": "Samsung 重生态用户",
+              "note": "低转化边界",
+              "values": [
+                38,
+                78,
+                70,
+                35
+              ]
+            },
+            {
+              "label": "运动进阶轻表用户",
+              "note": "取决于运动证明",
+              "values": [
+                62,
+                60,
+                80,
+                64
+              ]
+            }
+          ],
+          "confidence": "low_medium"
+        }
+      ],
+      "callouts": [
+        {
+          "title": "私有定价原则",
+          "body": "COGS、毛利、渠道费率、补贴和销量弹性不进入公开 HTML。看板只提供空白的本地计算器，用户可在浏览器内离线计算派生结果。",
+          "tone": "warning"
+        }
+      ],
+      "tables": [
+        {
+          "headers": [
+            "价格压力",
+            "需要证明什么",
+            "推荐展示"
+          ],
+          "rows": [
+            [
+              "Watch7 低价",
+              "FIT 5 Pro 多日续航、轻薄、睡眠连续性",
+              "每天充 vs 一周用的场景对比"
+            ],
+            [
+              "FIT 4 Pro 降价",
+              "新一代屏幕、传感器、运动、设计升级",
+              "FIT 4 Pro / FIT 5 / FIT 5 Pro 三列表"
+            ],
+            [
+              "GT 6 内部挤压",
+              "方形轻薄与圆表长续航区隔",
+              "货架定位说明"
+            ],
+            [
+              "支付不确定",
+              "本地支付路径和设置成功率",
+              "OTP/Curve/银行支持 FAQ"
+            ]
+          ]
+        }
+      ],
+      "data_gaps": [
+        "缺 COGS、毛利、渠道条款，不能计算利润最大点。",
+        "缺真实 WTP 调研，不能把 99,990 Ft 视为已验证价格。"
+      ],
+      "local_team_action": {
+        "method": "Price Ladder + WTP proxy + Van Westendorp test path",
+        "direction": "本地团队当前不是重新定价，而是把 99,990 Ft 变成可被接受的开盘方案，并提前守住促销和渠道底线。",
+        "do_next": [
+          "围绕 99,990 Ft 做首发权益组合：bundle、分期、保修/退换、官方赠品和零售资源位各承担一个证明任务。",
+          "把 Watch7 低价、FIT 4 Pro 降价、GT 6 跳档做成货架对照，给店员和 PDP 一个统一解释框架。",
+          "COGS、毛利、渠道费率只进本地离线计算器；销售团队用它判断促销底线，不把私有数值写进看板。"
+        ],
+        "decision": "交付给销售和渠道：价格解释话术、促销边界、渠道谈判需要补齐的私有计算项。",
+        "status": "local_team_action"
+      }
+    },
+    {
+      "section_id": "launch_forecast",
+      "source_skill": "S08 forecast-launch-demand",
+      "section_title": "上市需求预测、渠道优先级与投入假设",
+      "status": "directional_only",
+      "confidence": "hypothesis_only",
+      "executive_takeaway": "当前只能给需求指数和渠道权重假设，不能给真实销量数字；若要转成单位销量，需要 FIT 4 Pro 同期销售、库存、渠道承诺和 MKT 计划。",
+      "metric_cards": [
+        {
+          "label": "预测状态",
+          "value": "directional_only",
+          "note": "指数，不是销量"
+        },
+        {
+          "label": "Base 30 天指数",
+          "value": "100",
+          "note": "等待内部 X units 校准"
+        },
+        {
+          "label": "主渠道",
+          "value": "Alza / MediaMarkt / Euronics",
+          "note": "35-50% 假设"
+        },
+        {
+          "label": "Operator 线索",
+          "value": "Yettel",
+          "note": "Telekom / One 待确认"
+        }
+      ],
+      "visual_blocks": [
+        {
+          "type": "range_chart",
+          "title": "30/60/90 天相对需求指数",
+          "subtitle": "Base 30 天 = 100；真实单位销量需内部数据映射",
+          "scale_min": 0,
+          "scale_max": 500,
+          "items": [
+            {
+              "label": "Conservative 30 天",
+              "min": 45,
+              "max": 70,
+              "marker": 58,
+              "value_label": "45-70",
+              "note": "证明弱、价格压力强"
+            },
+            {
+              "label": "Base 60 天",
+              "min": 160,
+              "max": 210,
+              "marker": 185,
+              "value_label": "160-210",
+              "note": "渠道同步 + 证明上线"
+            },
+            {
+              "label": "Base 90 天",
+              "min": 220,
+              "max": 290,
+              "marker": 255,
+              "value_label": "220-290",
+              "note": "评测和零售页逐步发酵"
+            },
+            {
+              "label": "Upside 90 天",
+              "min": 360,
+              "max": 480,
+              "marker": 420,
+              "value_label": "360-480",
+              "note": "operator bundle + PR/KOL + 库存充足"
+            }
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "type": "matrix_heatmap",
+          "title": "渠道分配种子",
+          "subtitle": "用于看方向，不作为 sell-through 承诺",
+          "columns": [
+            "份额上限",
+            "成交能力",
+            "证明需求",
+            "置信"
+          ],
+          "rows": [
+            {
+              "label": "Alza / MediaMarkt / Euronics",
+              "note": "主零售",
+              "values": [
+                {
+                  "score": 50,
+                  "label": "35-50%"
+                },
+                82,
+                70,
+                64
+              ]
+            },
+            {
+              "label": "Yettel",
+              "note": "operator bundle",
+              "values": [
+                {
+                  "score": 25,
+                  "label": "15-25%"
+                },
+                70,
+                66,
+                60
+              ]
+            },
+            {
+              "label": "Huawei official",
+              "note": "官方锚点",
+              "values": [
+                {
+                  "score": 20,
+                  "label": "10-20%"
+                },
+                55,
+                80,
+                54
+              ]
+            },
+            {
+              "label": "KOKU / eMAG / 其他",
+              "note": "补充成交",
+              "values": [
+                {
+                  "score": 15,
+                  "label": "5-15%"
+                },
+                48,
+                45,
+                38
+              ]
+            },
+            {
+              "label": "Telekom / One",
+              "note": "待确认",
+              "values": [
+                {
+                  "score": 15,
+                  "label": "0-15%"
+                },
+                40,
+                50,
+                20
+              ]
+            }
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
+          "type": "ranked_bar",
+          "title": "预测敏感性排序",
+          "subtitle": "这些因素最可能移动销量区间",
+          "items": [
+            {
+              "label": "渠道上线深度",
+              "score": 88,
+              "note": "Telekom/One 或更多 operator 会明显改变可达需求"
+            },
+            {
+              "label": "价格接受度",
+              "score": 84,
+              "note": "99,990 Ft 高于多个锚点"
+            },
+            {
+              "label": "支付/本地证明成熟度",
+              "score": 82,
+              "note": "OTP/支付疑问会影响首购信任"
+            },
+            {
+              "label": "MKT 预算与响应",
+              "score": 78,
+              "note": "没有预算和历史响应，不能估算增量销量"
+            },
+            {
+              "label": "Watch7 / GT 6 竞争促销",
+              "score": 75,
+              "note": "低价和内部跳档同时截流"
+            },
+            {
+              "label": "库存和补货",
+              "score": 70,
+              "note": "缺库存数据，无法判断缺货或压货"
+            }
+          ],
+          "confidence": "hypothesis_only"
+        }
+      ],
+      "tables": [
+        {
+          "headers": [
+            "阶段",
+            "销售占比假设",
+            "关键动作"
+          ],
+          "rows": [
+            [
+              "Prelaunch / warmup",
+              "0-10%",
+              "评测、PDP、支付 FAQ、KOL 种草、搜索铺底"
+            ],
+            [
+              "Launch spike",
+              "25-35%",
+              "官方、零售、Yettel 同步开售，bundle 权益明确"
+            ],
+            [
+              "Early ramp",
+              "30-40%",
+              "评测发酵、搜索/retargeting/retail media、评论积累"
+            ],
+            [
+              "Sustain",
+              "20-30%",
+              "价格机制优化、补货、节日/工资周期促销"
+            ]
+          ]
+        },
+        {
+          "headers": [
+            "本地 MKT / KOL 候选",
+            "角色",
+            "为什么值得看",
+            "建议任务",
+            "当前状态"
+          ],
+          "rows": [
+            [
+              "Mobilarena / PROHARDVER! 生态",
+              "深度评测媒体 + 论坛声量",
+              "已有 Watch 系列评测和本地评论入口，适合承担证据和反驳任务",
+              "深度评测、评论串监测、支付/续航/睡眠 FAQ 反驳",
+              "高优先级；需确认样机排期和编辑合作边界"
+            ],
+            [
+              "PC Guru",
+              "消费科技 / 泛娱乐评测",
+              "已有 FIT 5 Pro 测试内容，适合扩圈到年轻科技和游戏用户",
+              "短测、价格价值解释、NFC/睡眠/续航卖点验证",
+              "高优先级；需确认合作形式和可引用素材"
+            ],
+            [
+              "TheGeek.hu",
+              "本地科技测试 / SEO 内容",
+              "近期已有 FIT 5 Pro 测试，适合做匈牙利语长尾搜索承接",
+              "评测摘要、PDP 引用、搜索素材、首发权益解释",
+              "中高优先级；需核对受众和报价"
+            ],
+            [
+              "Techwok / Telefonguru",
+              "SEO / 规格 / 实用指南",
+              "覆盖 Huawei wearables 和设备说明语境，适合解决支付、兼容性和健康边界疑问",
+              "FAQ、支付/Curve/OTP 路径说明、兼容性与健康声明边界",
+              "中优先级；需确认 FIT 5 Pro 排期"
+            ],
+            [
+              "Tech2.hu / 视频 hands-on 候选",
+              "视频评测 / 短视频 seed",
+              "历史 Huawei Watch Fit 视频线索，适合做开箱、佩戴、运动和日常场景",
+              "YouTube / Shorts / TikTok hands-on，输出可剪给零售页的场景片段",
+              "待验证；需确认当前 FIT 5 Pro 内容计划和报价"
+            ],
+            [
+              "Alza / MediaMarkt / Euronics retail media",
+              "成交入口曝光",
+              "MKT 预算需要先打到实际成交页，配合价格价值解释和库存",
+              "站内搜索、榜单、PDP 资源位、retargeting、bundle 露出",
+              "需渠道承诺；和库存/价格机制一起确认"
+            ]
+          ]
+        }
+      ],
+      "data_gaps": [
+        "缺 FIT 4 Pro 匈牙利首发 30/60/90 天 sell-through。",
+        "缺 FIT 5 Pro 计划库存、渠道分配、补货周期。",
+        "缺 MKT 预算和媒体计划，不能计算营销增量销量。"
+      ],
+      "local_team_action": {
+        "method": "AARRR + Growth S-Curve + Channel readiness",
+        "direction": "本地团队要先做可执行的 30 天上市作战图：哪些渠道拉首销，哪些评测/KOL补证明，哪些动作只做观察。",
+        "do_next": [
+          "渠道侧：确认 Alza / MediaMarkt / Euronics、Yettel、Huawei official 的开售页、资源位、bundle、分期和库存。",
+          "内容侧：优先排 Mobilarena、PC Guru、TheGeek、Techwok、Telefonguru、Tech2 的样机/评测/KOL合作可行性。",
+          "投放侧：把 50,000 USD 预算拆成评测与PR、KOL/短视频、retail media/search、retargeting 四个篮子，先用小预算验证点击和收藏。"
+        ],
+        "decision": "交付给 country manager：30 天渠道开售清单、MKT/KOL候选池、预算拆分假设、不能承诺真实销量的原因。",
+        "status": "local_team_action"
+      }
+    }
+  ],
+  "dataGaps": [
+    "FIT 5 Pro 自身匈牙利公开买家评论不足，当前禁止计算 NSS/NPS proxy。",
+    "COGS、毛利、渠道费率、促销补贴缺失，不能计算利润最大点或促销底线。",
+    "缺 FIT 4 Pro 匈牙利上一代销量与渠道表现，S08 只能保留指数预测。",
+    "缺 MKT 预算、媒体计划和历史响应，不能计算营销增量销量或 ROAS。",
+    "Telekom / One 是否上线 FIT 5 Pro 未确认，operator 份额只能保留假设。",
+    "本地支付路径尚未验证，OTP/Curve/银行支持不能作为主卖点。",
+    "Google Trends / 本地关键词量未采集，搜索语言只保留 seed。",
+    "S13 隐藏门禁状态为 needs_validation；看板可以继续，但这些缺口必须可见。"
+  ],
+  "citations": [
+    {
+      "ref": "SRC-HUAWEI-FIT5P-OFFICIAL",
+      "title": "HUAWEI WATCH FIT 5 Pro 官方产品页",
+      "source": "Huawei Hungary",
+      "url": "https://consumer.huawei.com/hu/wearables/watch-fit5-pro/"
+    },
+    {
+      "ref": "SRC-HUAWEI-FIT5P-BUY",
+      "title": "HUAWEI WATCH FIT 5 Pro 官方购买页",
+      "source": "Huawei Hungary",
+      "url": "https://consumer.huawei.com/hu/wearables/watch-fit5-pro/buy/?productId=18036740923490&skuCode=803601120002703"
+    },
+    {
+      "ref": "SRC-AK-FIT5P",
+      "title": "HUAWEI WATCH FIT 5 Pro Árukereső 页面",
+      "source": "Árukereső",
+      "url": "https://okosora-aktivitasmero.arukereso.hu/huawei/watch-fit-5-pro-p1337206633/"
+    },
+    {
+      "ref": "SRC-YETTEL-FIT5P",
+      "title": "Yettel HUAWEI WATCH FIT 5 Pro + FreeBuds SE 4 bundle",
+      "source": "Yettel Hungary",
+      "url": "https://www.yettel.hu/tartozekok/okosora-okoskarkoto/huawei-watch-fit-5-pro-freebuds-se-4-p1124095-residential"
+    },
+    {
+      "ref": "SRC-AK-WATCH7",
+      "title": "Samsung Galaxy Watch7 44mm Árukereső 页面",
+      "source": "Árukereső",
+      "url": "https://okosora-aktivitasmero.arukereso.hu/samsung/galaxy-watch7-44mm-sm-l310-p1102682080/"
+    },
+    {
+      "ref": "SRC-MA-WATCH7",
+      "title": "Samsung Galaxy Watch7 Mobilarena 评测",
+      "source": "Mobilarena",
+      "url": "https://mobilarena.hu/teszt/samsung_galaxy_watch7_teszt/kulso_kezeles_uzemido.html"
+    },
+    {
+      "ref": "SRC-AK-FIT4P",
+      "title": "HUAWEI WATCH FIT 4 Pro Árukereső 页面",
+      "source": "Árukereső",
+      "url": "https://okosora-aktivitasmero.arukereso.hu/huawei/watch-fit-4-pro-p1198231216/"
+    },
+    {
+      "ref": "SRC-MA-FIT5P-COMMENTS",
+      "title": "HUAWEI WATCH FIT 5 / 5 Pro Mobilarena 评论帖",
+      "source": "Mobilarena",
+      "url": "https://mobilarena.hu/tema/vekony_tokot_nagy_es_fenyes_kijelzot_kapott_a_huaw/friss.html"
+    },
+    {
+      "ref": "SRC-THEGEEK-FIT5P",
+      "title": "Huawei Watch Fit 5 Pro - Sportmód van bőven, de a hétköznap a lényeg",
+      "source": "TheGeek.hu",
+      "url": "https://thegeek.hu/2026/05/18/huawei-watch-fit-5-pro-sportmod-van-boven-de-a-hetkoznap-a-lenyeg/"
+    },
+    {
+      "ref": "SRC-PCGURU-FIT5P",
+      "title": "Pandamaci, EKG és NFC is jutott bele - Huawei Watch Fit 5 Pro teszt",
+      "source": "PC Guru",
+      "url": "https://www.pcguru.hu/hirek/huawei-watch-fit-5-pro-teszt-okosora-pulzushullam-alapu-szivrtimus-mini-edzes-marlasinger-/100884"
+    },
+    {
+      "ref": "SRC-TECHWOK-HUAWEI-WATCH",
+      "title": "Huawei Watch 5 teszt - Techwok wearable coverage",
+      "source": "Techwok",
+      "url": "https://techwok.hu/2025/06/04/huawei-watch-5-teszt-ekg-wifi-esim-xtap/"
+    },
+    {
+      "ref": "SRC-TECH2-HUAWEI-WATCH-FIT",
+      "title": "Tech2.hu Huawei Watch Fit coverage / video discovery seed",
+      "source": "Tech2.hu / YTV",
+      "url": "https://ytv.hu/tech/kellemes-csalodas-huawei-watch-fit-teszt/"
+    },
+    {
+      "ref": "SRC-TELEFONGURU-WATCH-FIT",
+      "title": "Huawei Watch Fit készülék leírások, tesztek",
+      "source": "Telefonguru",
+      "url": "https://www.telefonguru.hu/keszulekek/keszulek-guru_huawei_watch_fit.asp"
+    }
+  ],
+  "privatePricingCalculator": {
+    "enabled": true,
+    "title": "私有价格与毛利计算器",
+    "policy": "local_only_blank_inputs"
+  }
+}

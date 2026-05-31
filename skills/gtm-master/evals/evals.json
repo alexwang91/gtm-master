@@ -6,7 +6,7 @@
       "prompt": "User gives product specs, target country, and price range, then asks for a full GTM dashboard after an interrupted run.",
       "must_include": [
         "create or resume GTM Run State",
-        "select quick, standard, or deep mode",
+        "select quick, standard, real_product_pilot, or deep mode",
         "build Project Brief",
         "use methodology-crosswalk.yaml",
         "handoff-only runtime",

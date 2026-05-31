@@ -21,6 +21,8 @@ skills:
     outputs:
       - project_brief
       - skill_execution_plan
+      - hardware_current_state_scorecard
+      - private_data_policy_decision
       - evidence_ledger
       - report_state
       - quality_gate_results
@@ -40,6 +42,7 @@ skills:
       - localization_preflight
       - local_source_map
       - local_voice_source_map
+      - source_accessibility_matrix
       - evidence_collection_summary
       - site_specific_comment_profiles
       - comment_collection_coverage_reports
@@ -47,6 +50,7 @@ skills:
       - coverage_map
       - competitor_substitute_map
       - competitor_candidate_review_list
+      - competitor_candidate_review_gate
       - competitor_threat_scores
       - substitute_taxonomy
       - price_ladder_scan
@@ -130,6 +134,7 @@ skills:
       - market_context_pack.canonical_fields.bain_driver_inputs
       - market_context_pack.canonical_fields.feature_to_local_language_map
       - market_context_pack.canonical_fields.coverage_summary
+      - market_context_pack.canonical_fields.source_accessibility_matrix
       - market_context_pack.canonical_fields.source_quality_summary
       - market_context_pack.canonical_fields.confidence_caps
       - market_context_pack.canonical_fields.rag_index_manifest_ref
@@ -146,6 +151,7 @@ skills:
       - scenario_distinctness_results
       - scenario_to_segment_matrix
       - scenario_to_journey_matrix
+      - four_forces_switching_map
       - consumer_electronics_gtm_moment_map
       - product_job_fit_matrix
       - digital_shelf_and_retailer_decision_map
@@ -313,6 +319,7 @@ skills:
       - pricing_handoff_summary
       - van_westendorp_test_design
       - gabor_granger_test_design
+      - maxdiff_feature_value_tradeoff_test_design
       - conjoint_dce_test_plan
       - channel_margin_guardrail
       - retail_price_integrity_map
@@ -339,6 +346,7 @@ skills:
       conditional:
         - van_westendorp_test_design
         - gabor_granger_test_design
+        - maxdiff_feature_value_tradeoff_test_design
         - conjoint_dce_test_plan
         - channel_margin_guardrail
         - retail_price_integrity_map
@@ -772,6 +780,8 @@ skills:
       - launch_sales_forecast
       - lifecycle_phase_sales_curve
       - marketing_investment_response_model
+      - budget_posture_model
+      - aarrr_orb_channel_architecture
       - baseline_incremental_sales_bridge
       - channel_split_forecast
       - price_conversion_assumption_bridge
@@ -803,6 +813,8 @@ skills:
         - launch_sales_forecast
         - lifecycle_phase_sales_curve
         - marketing_investment_response_model
+        - budget_posture_model
+        - aarrr_orb_channel_architecture
         - baseline_incremental_sales_bridge
         - channel_split_forecast
         - price_conversion_assumption_bridge

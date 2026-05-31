@@ -219,7 +219,7 @@ Use `consumer-voice-nss-bain-pipeline.md` for the full source-item, atom, dedupe
       "why_selected": "",
       "target_source_types": [],
       "source_scope_refs": [],
-      "collection_depth": "quick | standard | deep",
+      "collection_depth": "quick | standard | real_product_pilot | deep",
       "coverage_status": "complete_within_scope | partial | blocked | not_started",
       "limitations": []
     }

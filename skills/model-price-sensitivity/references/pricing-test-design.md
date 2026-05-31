@@ -394,6 +394,29 @@ Use when there are specific candidate price points and purchase-intent testing i
 }
 ```
 
+## MaxDiff Feature Value Tradeoff Test Design
+
+Use MaxDiff when the team needs a simpler priority read across many possible value drivers before deciding which few claims, proof points, bundles, services, colors, or channel benefits deserve deeper conjoint/DCE or landing-page testing.
+
+```json
+{
+  "maxdiff_feature_value_tradeoff_test_design": {
+    "trigger_reason": "",
+    "items_to_test": [],
+    "target_segments": [],
+    "task_design_note": "",
+    "analysis_outputs": [
+      "relative_importance_scores",
+      "top_value_drivers",
+      "low_priority_drivers",
+      "segment_differences",
+      "handoff_to_message_or_pricing"
+    ],
+    "limitations": []
+  }
+}
+```
+
 ## Conjoint/DCE Test Plan
 
 Use only when feature, bundle, warranty, subscription, or service tradeoffs matter enough to justify the complexity.

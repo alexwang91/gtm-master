@@ -23,7 +23,7 @@ as markdown plus JSON, but the fields below are canonical.
     "next_action": "",
     "required_refs": []
   },
-  "selected_run_mode": "quick | standard | deep",
+  "selected_run_mode": "quick | standard | real_product_pilot | deep",
   "skill_status": {},
   "approved_sections": [],
   "pending_review_items": [],

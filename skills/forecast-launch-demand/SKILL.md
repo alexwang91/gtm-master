@@ -143,6 +143,8 @@ segment_sales_split
 launch_sales_forecast
 lifecycle_phase_sales_curve
 marketing_investment_response_model
+budget_posture_model
+aarrr_orb_channel_architecture
 baseline_incremental_sales_bridge
 channel_split_forecast
 price_conversion_assumption_bridge
@@ -193,6 +195,12 @@ lifecycle_phase_sales_curve
 
 marketing_investment_response_model
   Trigger when marketing_investment_plan, marketing_budget_range, media_plan_or_reach_assumptions, creator spend, retail media, or promo spend is supplied.
+
+budget_posture_model
+  Trigger whenever S08 is visible. Use explicit gaps when budget, CAC, revenue target, or included-cost assumptions are missing.
+
+aarrr_orb_channel_architecture
+  Trigger whenever named channels or channel discovery outputs exist. Use it to connect local channel names to hardware funnel stages and owned/rented/borrowed roles.
 
 baseline_incremental_sales_bridge
   Trigger when marketing investment is supplied or when the user asks how MKT spend affects sales.

@@ -302,6 +302,7 @@ From S01:
 
 ```text
 coverage_summary
+source_accessibility_matrix
 source_quality_summary
 confidence_caps
 rag_index_manifest_ref

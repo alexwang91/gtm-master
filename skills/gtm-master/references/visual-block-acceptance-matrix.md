@@ -164,6 +164,7 @@ Channel Split Forecast -> matrix_heatmap
 Inventory Risk Map -> matrix_heatmap
 Sensitivity Driver Tornado -> ranked_bar
 Marketing Spend Sensitivity -> ranked_bar
+AARRR ORB Channel Architecture -> matrix_heatmap
 Forecast Decision Gate -> status_panel
 Validation Need Priority -> ranked_bar
 ```

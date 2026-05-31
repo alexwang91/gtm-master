@@ -37,7 +37,7 @@ Optional inputs can improve quality, but must not be required before the suite c
   "claim_constraints": "",
   "compliance_constraints": "",
   "report_audience": "founder | marketing | sales | investor | product | retailer",
-  "report_depth": "quick | standard | deep",
+  "report_depth": "quick | standard | real_product_pilot | deep",
   "html_style_preference": "executive | consulting | dashboard | investor_deck"
 }
 ```
@@ -49,7 +49,7 @@ For the full optional input list, including S04 private pricing constraints, S06
 Read only what the task needs.
 
 1. Always read `references/suite-manifest.yaml` and `references/codegraph.yaml` before planning a suite run or changing the architecture.
-2. Read `references/run-modes-and-context-budgets.md` before choosing quick, standard, or deep mode or allowing any context/search escalation.
+2. Read `references/run-modes-and-context-budgets.md` before choosing quick, standard, real_product_pilot, or deep mode or allowing any context/search escalation.
 3. Read `references/recoverable-state-machine.md` before starting, resuming, interrupting, reviewing, or finalizing a run.
 4. Read `references/methodology-crosswalk.yaml` before assigning AARRR, JTBD, Four Forces, VOC, Van Westendorp, MaxDiff, ICE, ORB, budget, growth S-curve, or copy-sweep methods to a sub-skill.
 5. Read `references/hardware-current-state-rubric.md` when scoring launch readiness or deciding which validation gap matters first.
@@ -58,15 +58,17 @@ Read only what the task needs.
 8. Read `references/intake-and-review-gates.md` before asking for optional private files or pausing for user review.
 9. Read `references/schemas.md` when creating project briefs, run state, runtime inputs, handoff packs, evidence records, or report sections.
 10. Read `references/post-skill-isolation-policy.md` before advancing from one sub-skill to another or changing handoff/runtime isolation rules.
-11. Read `references/method-cards.yaml` for the active sub-skill only. Do not load all method details by default.
-12. Read `references/methodology-kernel.md` when defining or auditing a sub-skill's scientific method.
-13. Read `references/mcp-routing-policy.md` before any web, MCP, crawling, browsing, or internal-data collection plan.
-14. Read `references/skill-evals-policy.md` before adding or changing a skill, eval, method card, or suite contract.
-15. Read `references/quality-gates.md` before advancing to another sub-skill or claiming a section is ready.
-16. Read `references/visual-block-acceptance-matrix.md` before auditing S01-S08/S13 `visual_blocks`, report-state compatibility, or S14 readiness.
-17. Read `references/report-data-contract.md` before writing or updating HTML report state.
-18. Read `references/html-dashboard-design.md` when composing or reviewing the final visual report.
-19. Read `references/marketing-skills-adaptation-map.md` when importing or adapting an external marketing skill pattern.
+11. Read `references/suite-output-tree.md` when explaining the whole framework, auditing what each module outputs, deciding dashboard visibility, or checking whether a field belongs in handoff, HTML, or hidden system state.
+12. Read `references/method-cards.yaml` for the active sub-skill only. Do not load all method details by default.
+13. Read `references/methodology-kernel.md` when defining or auditing a sub-skill's scientific method.
+14. Read `references/mcp-routing-policy.md` before any web, MCP, crawling, browsing, or internal-data collection plan.
+15. Read `references/tooling-and-connectors.md` before mapping evidence needs to `tools/REGISTRY.md`, MCP servers, CLI tools, browser automation, or manual upload paths for Codex or Claude Code.
+16. Read `references/skill-evals-policy.md` before adding or changing a skill, eval, method card, or suite contract.
+17. Read `references/quality-gates.md` before advancing to another sub-skill or claiming a section is ready.
+18. Read `references/visual-block-acceptance-matrix.md` before auditing S01-S08/S13 `visual_blocks`, report-state compatibility, or S14 readiness.
+19. Read `references/report-data-contract.md` before writing or updating HTML report state.
+20. Read `references/html-dashboard-design.md` when composing or reviewing the final visual report.
+21. Read `references/marketing-skills-adaptation-map.md` when importing or adapting an external marketing skill pattern.
 
 Use optional references conditionally; do not load future roadmap nodes or inactive sub-skill details by default.
 
@@ -75,9 +77,10 @@ Use optional references conditionally; do not load future roadmap nodes or inact
 - Route before work: identify the task type and active skill before generating analysis.
 - Criteria before content: define method, evidence needs, scoring rules, and output schema before writing conclusions.
 - Handoff before expansion: downstream sub-skills read compressed handoff packs by default, not upstream full artifacts.
-- Run mode before graph breadth: choose quick, standard, or deep before activating optional branches or wider evidence collection.
+- Run mode before graph breadth: choose quick, standard, real_product_pilot, or deep before activating optional branches or wider evidence collection.
 - Recoverable state before long work: persist run state, resume pointer, evidence ledgers, decisions, data gaps, and skill status after every meaningful boundary.
 - Methodology crosswalk before method use: every named method must map to a skill, hardware adaptation, output hook, and confidence limit.
+- Platform-neutral tool layer: skills request capability slots from `tools/REGISTRY.md`; Codex, Claude Code, MCP servers, CLI tools, browser automation, APIs, and manual upload are interchangeable implementations.
 - Post-skill isolation: after each sub-skill writes its handoff, HTML section, evidence updates, decisions, gaps, and isolation record, its working context is closed.
 - Evidence before claims: every material conclusion needs provenance, confidence, and evidence level.
 - Least invasive collection: prefer official APIs, approved internal data, search, and public extraction before browser automation or crawling.
@@ -120,9 +123,9 @@ For a normal GTM report run:
 3. Run Gate 0 from `intake-and-review-gates.md`: ask for optional high-value private files, but do not block if the user has none.
 4. Create or resume `GTM Run State` from `recoverable-state-machine.md`; record `phase`, `current_skill`, `resume_pointer`, `selected_run_mode`, and `idempotency_key`.
 5. Build a `Skill Execution Plan` from `codegraph.yaml`, `methodology-crosswalk.yaml`, and the selected run mode.
-6. If a current-state view is needed, score the 17-section hardware GTM readiness rubric and record explicit gaps.
+6. Score the 17-section hardware GTM readiness rubric as `hardware_current_state_scorecard` for real_product_pilot and whenever a current-state view is needed; record explicit gaps instead of inventing readiness.
 7. For the active sub-skill, create a `Skill Runtime Input` containing only the project brief, direct upstream handoff pack, active method card, allowed evidence refs, and out-of-scope list.
-8. If evidence collection is needed, create an MCP routing plan from `mcp-routing-policy.md` and run Gate 1 before searching or browsing when the plan includes broad web collection, scraping, browser automation, or sensitive sources.
+8. If evidence collection is needed, map the evidence need to a capability slot from `tools/REGISTRY.md`, then create an MCP/CLI/browser/manual-upload routing plan from `mcp-routing-policy.md` and `tooling-and-connectors.md`. Run Gate 1 before searching or browsing when the plan includes broad web collection, scraping, browser automation, or sensitive sources.
 9. Run the active sub-skill or prepare its handoff if the sub-skill is not implemented yet.
 10. Require the sub-skill output envelope:
 

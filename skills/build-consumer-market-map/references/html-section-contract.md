@@ -93,7 +93,7 @@ Default S01 main-body `visual_blocks`:
 required_visual_blocks:
   - title: Evidence Coverage Gate
     type: status_panel
-    data_source: coverage_summary + source_quality_summary + confidence_caps + local_source_map
+    data_source: coverage_summary + source_quality_summary + source_accessibility_matrix + confidence_caps + local_source_map
     core_question: Can downstream modules trust this local market map, and which named sources support it?
     display_requirement: Render source names, links, source roles, access status, evidence quality, and logos/favicons when available; do not reduce this to plain status labels.
 
@@ -105,8 +105,9 @@ required_visual_blocks:
 
   - title: Competitor And Substitute Threat Ranking
     type: ranked_bar
-    data_source: competitor_threat_scores + top_competitors_and_substitutes
+    data_source: competitor_threat_scores + top_competitors_and_substitutes + competitor_candidate_review_gate
     core_question: Who most shapes local comparison and switching risk?
+    display_requirement: Show the 5-10 candidate review state before any deep TOP1/previous-generation voice mining. Mark include, exclude, unsure, and evidence gap states.
 
   - title: Local Price Corridor Seed
     type: range_chart
@@ -133,7 +134,7 @@ required_visual_blocks:
 ```
 
 S01 should still include `tables` for local search phrases, consumer voice themes, NSS/NPS proxy composition, data gaps, and detailed candidate review lists. These are decision evidence, but they are often too heterogeneous for simple charts.
-S01 should include a visible local voice source map, TOP1 competitor and previous-generation voice scope, collection coverage report, and raw-storage/compression policy whenever consumer voice is missing, partial, or used downstream.
+S01 should include a visible local voice source map, source accessibility matrix, TOP1 competitor and previous-generation voice scope, competitor candidate review gate, collection coverage report, and raw-storage/compression policy whenever consumer voice is missing, partial, or used downstream.
 
 ## Thin Output Gate
 

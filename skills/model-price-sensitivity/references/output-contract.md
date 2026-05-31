@@ -70,6 +70,7 @@ If any minimum view is missing, add `missing_required_view` or `rendered_too_thi
   "conditional_sections": [
     "van_westendorp_test_design",
     "gabor_granger_test_design",
+    "maxdiff_feature_value_tradeoff_test_design",
     "conjoint_dce_test_plan",
     "channel_margin_guardrail",
     "retail_price_integrity_map",
@@ -146,6 +147,7 @@ If any minimum view is missing, add `missing_required_view` or `rendered_too_thi
     "conditional_outputs": {
       "van_westendorp_test_design": {},
       "gabor_granger_test_design": {},
+      "maxdiff_feature_value_tradeoff_test_design": {},
       "conjoint_dce_test_plan": {},
       "channel_margin_guardrail": {},
       "retail_price_integrity_map": [],
@@ -369,7 +371,7 @@ Use this schema when real local WTP, internal sales evidence, or research access
         "calibration_id": "",
         "weak_factor": "",
         "decision_unlocked": "price_posture | price_band | promo_need | channel_priority | forecast_input | finance_review | launch_go_no_go",
-        "recommended_method": "targeted_anchor_collection | van_westendorp | gabor_granger | conjoint_dce | landing_page_price_ab | retailer_pdp_or_offer_test | keyword_or_ad_smoke_test | internal_sales_analysis | channel_partner_interview",
+        "recommended_method": "targeted_anchor_collection | van_westendorp | gabor_granger | maxdiff | conjoint_dce | landing_page_price_ab | retailer_pdp_or_offer_test | keyword_or_ad_smoke_test | internal_sales_analysis | channel_partner_interview",
         "minimum_sample_or_data": "",
         "pass_rule": "",
         "fail_rule": "",
@@ -400,7 +402,7 @@ Use this schema when real local WTP, internal sales evidence, or research access
       "premium_tolerance_hypothesis": "",
       "price_objections": [],
       "value_proof_needed": [],
-      "recommended_test": "van_westendorp | gabor_granger | conjoint_dce | monadic_price | landing_page_price_test | no_test_needed | data_gap",
+      "recommended_test": "van_westendorp | gabor_granger | maxdiff | conjoint_dce | monadic_price | landing_page_price_test | no_test_needed | data_gap",
       "confidence": "high | medium | low",
       "evidence_refs": []
     }

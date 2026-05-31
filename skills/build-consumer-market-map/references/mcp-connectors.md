@@ -7,6 +7,12 @@ This file defines the MCP connector layer used by `build-consumer-market-map`.
 The main skill decides what evidence is needed.
 This file decides which MCP connector should be used, how it should be routed, and what compliance rules apply.
 
+This S01 connector view is platform-neutral and mirrors the root `tools/REGISTRY.md`.
+S01 should request a capability slot such as `primary_search`,
+`price_intelligence`, `site_specific_comment_collection`, or
+`private_file_upload`; Codex, Claude Code, MCP servers, CLI tools, browser
+automation, APIs, and manual upload are interchangeable runtime implementations.
+
 ---
 
 ## Design Principle
@@ -34,6 +40,10 @@ Assumption-based analysis with clear data gaps
 ```
 
 Do not use browser automation or large-scale crawling when a simple search or official API is enough.
+
+Before binding a job to a concrete connector, check `tools/REGISTRY.md` and the
+matching guide under `tools/integrations/`. Missing connectors should create a
+data gap or manual-upload fallback, not a hidden assumption.
 
 ---
 

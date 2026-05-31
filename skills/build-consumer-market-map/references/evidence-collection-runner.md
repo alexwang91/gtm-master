@@ -19,6 +19,7 @@ Use this after Evidence Research Design. The runner executes collection jobs and
   "collection_runner_output": {
     "collection_jobs": [],
     "evidence_records_created": [],
+    "source_accessibility_matrix": [],
     "site_specific_comment_profiles": [],
     "comment_collection_coverage_reports": [],
     "failed_sources": [],
@@ -65,6 +66,19 @@ standard:
     - internal_file_extraction
     - nss_nps_proxy_collection
 
+real_product_pilot:
+  default_jobs:
+    - all_standard_jobs
+    - source_accessibility_mapping
+    - competitor_candidate_review_gate
+  conditional_jobs:
+    - site_specific_comment_collection_for_reviewed_top1_competitor
+    - previous_generation_voice_collection_when_available
+    - internal_file_extraction
+  skip_by_default:
+    - broad_unreviewed_category_comment_collection
+    - broad_S13_external_lookup
+
 deep:
   default_jobs:
     - all_standard_jobs
@@ -85,7 +99,7 @@ deep:
   "job_id": "",
   "job_type": "",
   "evidence_need": "",
-  "depth_mode": "quick | standard | deep",
+  "depth_mode": "quick | standard | real_product_pilot | deep",
   "connector_slot": "",
   "queries_or_sources": [],
   "source_screening_criteria_ref": "",
@@ -117,6 +131,7 @@ Sources:
 Output:
 
 - `local_source_map`
+- `source_accessibility_matrix`
 - `source_quality_scores`
 - `failed_sources`
 
@@ -150,6 +165,7 @@ Sources:
 Output:
 
 - `local_voice_source_map`
+- `source_accessibility_matrix`
 - `site_specific_collection_candidates`
 - `source_quality_scores`
 - `failed_sources`
@@ -159,6 +175,33 @@ Minimum viable:
 - At least 3 candidate local voice sources in standard/deep mode, or an explicit `local_voice_source_gap`.
 - Each candidate should include source family, country relevance, category relevance, local voice source fit score, access status, and recommended use.
 - Do not declare consumer voice unavailable until this job has run or been explicitly skipped by depth mode or access limits.
+
+### source_accessibility_mapping
+
+Build this for every source likely to affect competitor choice, voice mining, price anchors, or channel priority.
+
+```json
+{
+  "source_accessibility_matrix": [
+    {
+      "source_name": "",
+      "source_url_or_path": "",
+      "source_type": "marketplace | retailer | price_comparison | forum | specialist_media | video | app_store | social | official_data | other",
+      "country_relevance": "high | medium | low",
+      "access_status": "accessible | partial | blocked | login_required | paywalled | policy_restricted | unknown",
+      "expected_record_depth": "none | low | medium | high",
+      "allowed_collection_level": "source_profile_only | snippets | voice_atoms | structured_records | manual_upload_only | unavailable",
+      "connector_slot": "",
+      "fallback_path": "",
+      "deep_collection_candidate": false,
+      "limitations": [],
+      "evidence_refs": []
+    }
+  ]
+}
+```
+
+Use this matrix before promising comprehensive local comment collection. If a source is blocked or policy-restricted, preserve it as an important data gap rather than trying to bypass access.
 
 ### trend_signal_collection
 

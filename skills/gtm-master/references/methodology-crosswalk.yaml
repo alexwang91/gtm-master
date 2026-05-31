@@ -55,6 +55,7 @@ frameworks:
       installed devices or ecosystem, and anxiety about price, fit, setup,
       warranty, privacy, or local support.
     output_contract_hooks:
+      - four_forces_switching_map
       - scenario_priority_scorecard
       - anti_jtbd_risk_list
       - objection_matrix
@@ -124,6 +125,7 @@ frameworks:
       retail partners, operator partners, expert reviewers, and communities.
     output_contract_hooks:
       - creator_source_channel_map
+      - aarrr_orb_channel_architecture
       - regional_channel_allocation
       - retailer_channel_validation_brief
 
@@ -150,6 +152,7 @@ frameworks:
       blended CAC, media spend, creator seeding, retail fees, channel margin,
       return allowance, and post-launch measurement gaps.
     output_contract_hooks:
+      - budget_posture_model
       - marketing_investment_response_model
       - media_reach_to_demand_bridge
       - gross_revenue_range_estimate

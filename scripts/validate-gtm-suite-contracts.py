@@ -12,6 +12,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS_DIR = ROOT / "skills"
 MASTER_REFS = SKILLS_DIR / "gtm-master" / "references"
+TOOLS_DIR = ROOT / "tools"
 RENDERER_SCRIPT = ROOT / "scripts" / "render-gtm-dashboard-from-report-state.py"
 GOLDEN_DASHBOARD = ROOT / "artifacts" / "dry-runs" / "generic-hardware-s00-s08-s13-s14-dashboard.html"
 
@@ -249,6 +250,25 @@ def check_architecture_expansion_contract(errors: list[str]) -> None:
             "ab-testing",
             "copy-editing",
         ],
+        "suite-output-tree.md": [
+            "GTM Master Suite Output Tree",
+            "Dashboard-Level Output Tree",
+            "S00 gtm-master Outputs",
+            "hardware_current_state_scorecard",
+            "source_accessibility_matrix",
+            "four_forces_switching_map",
+            "maxdiff_feature_value_tradeoff_test_design",
+            "budget_posture_model",
+            "aarrr_orb_channel_architecture",
+            "S13 plan-validation-experiments Outputs",
+            "S14 compose-html-gtm-dashboard Outputs",
+        ],
+        "run-modes-and-context-budgets.md": [
+            "real_product_pilot",
+            "competitor_review_gate",
+            "deep_voice_collection_scope",
+            "S13_visibility",
+        ],
     }
 
     for filename, tokens in required_reference_tokens.items():
@@ -317,10 +337,15 @@ def check_suite_manifest_expansion(errors: list[str]) -> None:
         "methodology_crosswalk_source": "references/methodology-crosswalk.yaml",
         "skill_evals_policy_source": "references/skill-evals-policy.md",
         "hardware_current_state_rubric_source": "references/hardware-current-state-rubric.md",
+        "suite_output_tree_source": "references/suite-output-tree.md",
     }
     for key, expected_value in required_runtime_sources.items():
         if runtime_model.get(key) != expected_value:
             add_error(errors, manifest_path, f"runtime_model.{key} must be {expected_value}")
+
+    available_depth_modes = runtime_model.get("available_depth_modes", [])
+    if isinstance(available_depth_modes, list) and "real_product_pilot" not in available_depth_modes:
+        add_error(errors, manifest_path, "available_depth_modes missing real_product_pilot")
 
     principles = manifest.get("global_principles", [])
     if not isinstance(principles, list):
@@ -335,6 +360,86 @@ def check_suite_manifest_expansion(errors: list[str]) -> None:
     ]:
         if principle not in principles:
             add_error(errors, manifest_path, f"global_principles missing {principle}")
+
+
+def check_cross_agent_tooling_contract(errors: list[str]) -> None:
+    registry_path = TOOLS_DIR / "REGISTRY.md"
+    required_registry_tokens = [
+        "GTM Master Tool Registry",
+        "platform_targets",
+        "codex",
+        "claude_code",
+        "capability_slots",
+        "primary_search",
+        "site_specific_comment_collection",
+        "private_file_upload",
+        "Connector implementations are optional",
+    ]
+    if not registry_path.exists():
+        add_error(errors, registry_path, "missing cross-agent tool registry")
+    else:
+        registry_text = read_text(registry_path)
+        for token in required_registry_tokens:
+            if token not in registry_text:
+                add_error(errors, registry_path, f"missing required tool registry token: {token}")
+
+    integration_requirements = {
+        "platform-setup.md": ["Codex", "Claude Code", "MCP", "CLI", "user-side setup"],
+        "search-and-serp.md": ["primary_search", "web_search", "serp_search"],
+        "web-extraction.md": ["primary_web_extractor", "web_scraping", "structured_extraction"],
+        "browser-automation.md": ["browser_automation", "JavaScript", "pagination"],
+        "review-comment-mining.md": ["marketplace_reviews", "video_comment_mining", "site_specific_comment_collection"],
+        "price-intelligence.md": ["price_intelligence", "local_price_corridor", "promo floor"],
+        "translation-local-language.md": ["translation_and_local_language_processing", "local-language queries"],
+        "private-file-upload.md": ["private_file_upload", "manual_upload", "private data"],
+    }
+    for filename, tokens in integration_requirements.items():
+        path = TOOLS_DIR / "integrations" / filename
+        if not path.exists():
+            add_error(errors, path, "missing tool integration guide")
+            continue
+        text = read_text(path)
+        for token in tokens:
+            if token not in text:
+                add_error(errors, path, f"missing required integration token: {token}")
+
+    tooling_ref = MASTER_REFS / "tooling-and-connectors.md"
+    if not tooling_ref.exists():
+        add_error(errors, tooling_ref, "missing master tooling reference")
+    else:
+        text = read_text(tooling_ref)
+        for token in ["tools/REGISTRY.md", "capability slot", "MCP", "CLI", "Codex", "Claude Code"]:
+            if token not in text:
+                add_error(errors, tooling_ref, f"missing required tooling reference token: {token}")
+
+    s00_skill = SKILLS_DIR / "gtm-master" / "SKILL.md"
+    if "references/tooling-and-connectors.md" not in read_text(s00_skill):
+        add_error(errors, s00_skill, "missing tooling-and-connectors load order reference")
+
+    s01_connectors = SKILLS_DIR / "build-consumer-market-map" / "references" / "mcp-connectors.md"
+    s01_text = read_text(s01_connectors)
+    for token in ["tools/REGISTRY.md", "capability slot", "platform-neutral"]:
+        if token not in s01_text:
+            add_error(errors, s01_connectors, f"missing cross-agent connector token: {token}")
+
+    manifest_path = MASTER_REFS / "suite-manifest.yaml"
+    manifest = load_yaml(manifest_path, errors)
+    if isinstance(manifest, dict):
+        runtime_model = manifest.get("runtime_model", {})
+        if not isinstance(runtime_model, dict):
+            add_error(errors, manifest_path, "runtime_model must be an object")
+        else:
+            required_sources = {
+                "tool_registry_source": "tools/REGISTRY.md",
+                "connector_policy_source": "references/tooling-and-connectors.md",
+            }
+            for key, expected_value in required_sources.items():
+                if runtime_model.get(key) != expected_value:
+                    add_error(errors, manifest_path, f"runtime_model.{key} must be {expected_value}")
+
+        principles = manifest.get("global_principles", [])
+        if isinstance(principles, list) and "platform_neutral_tool_layer" not in principles:
+            add_error(errors, manifest_path, "global_principles missing platform_neutral_tool_layer")
 
 
 def check_skill_evals_contract(codegraph: dict, errors: list[str]) -> None:
@@ -528,6 +633,7 @@ def main() -> int:
     codegraph, method_cards_doc = check_master_yaml(errors)
     check_architecture_expansion_contract(errors)
     check_suite_manifest_expansion(errors)
+    check_cross_agent_tooling_contract(errors)
     check_skill_evals_contract(codegraph, errors)
     check_method_cards_and_output_contracts(codegraph, method_cards_doc, errors)
     check_json_fences(errors)

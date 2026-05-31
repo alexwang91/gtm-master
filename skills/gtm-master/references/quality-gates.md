@@ -30,6 +30,8 @@ checks:
     pass_if: Missing, stale, or unavailable evidence is recorded.
   context_budget_controlled:
     pass_if: The selected quick/standard/deep mode is recorded; S13 uses handoff-only context by default; S14 has upstream full artifact budget 0 by default; any full artifact, local file, RAG retrieval, web, or MCP lookup has a recorded context escalation or targeted_lookup_log plus context_budget_report.
+  platform_neutral_tool_layer:
+    pass_if: Evidence collection requests a capability slot from tools/REGISTRY.md before naming a concrete MCP server, CLI, browser tool, API, or manual-upload path; missing connectors become data gaps or fallback instructions.
   recoverable_state_machine_ready:
     pass_if: The run has a persisted phase, current_skill, resume_pointer, selected_run_mode, skill_status, state_artifacts, and idempotency_key before any long evidence collection, review wait, or final render.
   methodology_crosswalk_declared:
@@ -156,7 +158,7 @@ Fail the gate if:
 
 Before S00 advances to the next skill, confirm:
 
-- selected run mode is `quick`, `standard`, or `deep`
+- selected run mode is `quick`, `standard`, `real_product_pilot`, or `deep`
 - the graph breadth matches `references/run-modes-and-context-budgets.md`
 - each skill handoff keeps roughly 20-40 canonical fields unless a context escalation explains why more is needed
 - main report sections stay within the selected visual-block budget or record `rendered_too_thin`, `missing_required_view`, or `context_budget_report`
@@ -170,6 +172,20 @@ Fail the gate when a skill exceeds budget without:
 - `targeted_lookup_log` when lookup occurred
 - `context_budget_report`
 - `post_skill_isolation_record`
+
+## Tooling And Connector Gate
+
+Before any web, MCP, CLI, browser, API, or private-upload collection, confirm:
+
+- the evidence need maps to a `tools/REGISTRY.md` capability slot
+- the selected concrete connector is available in the current runtime, or a fallback is declared
+- the operation is least-invasive for the research question
+- credentials, OAuth, API keys, and private files are outside skill files and public HTML
+- collection output will produce evidence records and a collection log
+
+Fail the gate when a skill hard-codes a provider without a slot, asks the user to
+understand MCP internals, or hides a missing connector instead of recording a
+data gap.
 
 ## Recoverable State Gate
 
@@ -202,6 +218,7 @@ The validator checks that every implemented graph node has `evals/evals.json`, t
 For S01, competitor outputs must include:
 
 - A candidate review list of 5-10 potential competitors/substitutes in standard/deep mode, unless the source coverage is too thin.
+- A `competitor_candidate_review_gate` before deep TOP1/previous-generation voice mining in real_product_pilot mode.
 - Competitor role labels such as direct, substitute, premium anchor, budget anchor, previous generation, or ecosystem anchor.
 - Competitor Threat Score formula or score breakdown.
 - At least two local evidence signals for each top competitor, or an explicit hypothesis label.
@@ -220,6 +237,7 @@ Fail or caveat the output when:
 - Creator visits, likes, sales, or conversion lift are presented as guaranteed.
 - Candidate creator recommendations are treated as final while `creator_candidate_review_gate` is pending.
 - Web collection violated or may violate source policy.
+- Source accessibility is missing for a local forum, retailer, marketplace, or video/comment source used as material evidence.
 - S13 used broad search, broad local/RAG ingestion, or full upstream artifacts without a targeted validation question and context budget report.
 
 ## HTML Gate

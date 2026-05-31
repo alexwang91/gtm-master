@@ -136,6 +136,7 @@ Conditional outputs, produced only when triggered:
 ```text
 van_westendorp_test_design
 gabor_granger_test_design
+maxdiff_feature_value_tradeoff_test_design
 conjoint_dce_test_plan
 channel_margin_guardrail
 retail_price_integrity_map
@@ -166,6 +167,9 @@ van_westendorp_test_design
 
 gabor_granger_test_design
   Trigger when a small set of specific candidate prices or MSRP options needs purchase-intent testing.
+
+maxdiff_feature_value_tradeoff_test_design
+  Trigger when many features, proofs, bundles, colors, services, or channel benefits compete for message and price-value priority.
 
 conjoint_dce_test_plan
   Trigger when feature/price/bundle tradeoffs are important and sample size or research budget allows.

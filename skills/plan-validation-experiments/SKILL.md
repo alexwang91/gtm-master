@@ -66,7 +66,7 @@ Optional user inputs:
   "landing_page_or_pdp_test_access": "",
   "retailer_or_creator_pilot_access": "",
   "private_data_policy": "exclude_raw | aggregate | approved",
-  "output_detail_level": "quick | standard | deep"
+  "output_detail_level": "quick | standard | real_product_pilot | deep"
 }
 ```
 

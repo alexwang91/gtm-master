@@ -48,6 +48,7 @@ High-value S01 fields:
   "value_proof_requirement_matrix": [],
   "segment_price_sensitivity_seeds": [],
   "coverage_summary": {},
+  "source_accessibility_matrix": [],
   "source_quality_summary": {},
   "confidence_caps": {},
   "rag_index_manifest_ref": "",
@@ -112,6 +113,7 @@ upstream_input_coverage_gate
 jtbd_scenario_pack
 scenario_priority_scorecard
 scenario_to_segment_matrix
+four_forces_switching_map
 product_job_fit_matrix
 proof_requirement_seed
 anti_jtbd_risk_list
@@ -180,7 +182,7 @@ Follow this sequence:
 5. Cluster candidates into demand scenarios by progress sought and trigger context
 6. Run scenario distinctness checks
 7. Map scenarios to segments, journey episodes, current alternatives, product capabilities, price signals, and channels
-8. Build core product-job fit, proof, anti-JTBD, local phrase, message seed, and price implication outputs
+8. Build Four Forces switching map, then core product-job fit, proof, anti-JTBD, local phrase, message seed, and price implication outputs
 8A. Build conditional consumer-electronics GTM modules only when their triggers are present
 9. Score scenario priority and evidence strength
 10. Build proof requirement seed
@@ -238,6 +240,7 @@ Always return the S02 output envelope from `references/output-contract.md`:
 - Do not invent needs unsupported by S01 evidence or explicitly marked user hypotheses.
 - Do not proceed silently when segment, price, proof, or channel signals are missing; record the missing group and confidence cap in `upstream_input_coverage_gate`.
 - Do not prioritize a scenario only because consumer pain is loud; weigh product fit, commercial materiality, reachability, proof readiness, and evidence quality.
+- Do not ignore Four Forces: a scenario with high push or pull can still fail if habit or anxiety is strong.
 - Do not use behavioral science levers as final creative or manipulation; use them as proof/friction-reduction hypotheses for downstream testing.
 - Do not ignore post-purchase experience for consumer electronics; setup, app pairing, support, returns, warranty, and advocacy can change the scenario priority.
 - Do not put audit modules into the default HTML section unless deep mode is requested or a confidence dispute needs explanation.

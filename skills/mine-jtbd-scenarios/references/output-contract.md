@@ -50,6 +50,7 @@ If any minimum view is missing, add `missing_required_view` or `rendered_too_thi
     "jtbd_scenario_pack",
     "scenario_priority_scorecard",
     "scenario_to_segment_matrix",
+    "four_forces_switching_map",
     "product_job_fit_matrix",
     "proof_requirement_seed",
     "anti_jtbd_risk_list",
@@ -109,6 +110,7 @@ upstream_input_coverage_gate
 jtbd_scenario_pack
 scenario_priority_scorecard
 scenario_to_segment_matrix
+four_forces_switching_map
 product_job_fit_matrix
 proof_requirement_seed
 anti_jtbd_risk_list
@@ -163,6 +165,7 @@ scenario_to_journey_matrix
     "upstream_input_coverage_gate": {},
     "jtbd_scenario_pack": [],
     "scenario_to_segment_matrix": [],
+    "four_forces_switching_map": [],
     "product_job_fit_matrix": [],
     "scenario_priority_scorecard": [],
     "proof_requirement_seed": [],
@@ -299,6 +302,33 @@ scenario_to_journey_matrix
 ```
 
 See `consumer-electronics-gtm-methods.md` for schema and rules.
+
+### Four Forces Switching Map
+
+```json
+{
+  "four_forces_switching_map": [
+    {
+      "scenario_id": "",
+      "push_score": 0,
+      "push_reason": "",
+      "pull_score": 0,
+      "pull_reason": "",
+      "habit_score": 0,
+      "habit_reason": "",
+      "anxiety_score": 0,
+      "anxiety_reason": "",
+      "net_switching_readiness": "high | medium | low | blocked",
+      "marketing_action_hook": "",
+      "pricing_or_proof_hook": "",
+      "evidence_refs": [],
+      "confidence": "high | medium | low | hypothesis_only"
+    }
+  ]
+}
+```
+
+Use Push, Pull, Habit, and Anxiety to explain switching dynamics. Do not treat a high pain signal as purchase readiness when habit or anxiety is also high.
 
 ### Product-Job Fit Matrix
 

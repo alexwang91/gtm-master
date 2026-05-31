@@ -78,7 +78,7 @@ deep
   Add iterative retrieval, broader local-language expansion, trend-source comparison, site-specific forum/comment enumeration for high-value sources where permitted, NSS/NPS proxy confidence, and richer evidence logs.
 ```
 
-Default to `standard` for a normal GTM suite run. Use `quick` when the user is exploring or time is limited. Use `deep` only when the user asks for a deeper report, the evidence is thin, or the decision is high stakes.
+Default to `standard` for a normal GTM suite run. Use `real_product_pilot` for the first controlled run on an existing product. Use `quick` when the user is exploring or time is limited. Use `deep` only when the user asks for a deeper report, the evidence is thin, or the decision is high stakes.
 
 ## Execution Workflow
 
@@ -89,11 +89,12 @@ Follow this sequence. Do not skip the original methodology steps; the added modu
 2. Build Local Market Localization Preflight
 3. Build Evidence Research Design and MCP routing plan
 4. Run Evidence Collection Runner through approved tools
-4A. Profile high-value local voice sources and enumerate comments when needed
+4A. Build Source Accessibility Matrix before promising deep local collection
+4B. Profile high-value local voice sources and enumerate comments when needed
 5. Build Coverage Map
 6. Score source quality
 7. Build competitor and substitute map
-8. Score competitor threat
+8. Produce competitor candidate review gate, then score competitor threat
 9. Process consumer voice into atoms, theme clusters, NSS/NPS proxy inputs, Bain driver inputs, and journey episodes
 10. Build local consumer opinion map
 11. Build Voice Atom Table
@@ -122,9 +123,11 @@ S01 owns:
 - Local Market Localization Preflight: local language, search engine, marketplace, retailer, price comparison, review, community, social, price display, tax/shipping, payment, returns, warranty, seasonality, and claim-context discovery
 - Evidence Research Design: research perspectives, evidence needs, query expansion, MCP routing, screening, extraction schemas, result fusion, and stop rules
 - Evidence Collection Runner: local source discovery, trend signals, competitors, prices, reviews, consumer discussion, market size, channels, and internal file extraction
+- Source accessibility matrix: access status, collection feasibility, expected record depth, fallback path, and connector slot for key local sources
 - Local voice source discovery and site-specific comment collection profiles for country-specific forums, specialist media comments, deal communities, video comments, marketplace reviews, app reviews, public social threads, and similar sources where permitted
 - Local evidence storage, source classification, and collection logs
 - Competitor and substitute mapping: candidate pool, role classification, substitute taxonomy, segment-level threats, and top competitor ranking
+- Competitor candidate review gate before deep voice mining, especially in real_product_pilot mode
 - Competitor and substitute map
 - Consumer voice processing: source-item normalization, voice atom extraction, deduplication, theme clustering, NSS/NPS proxy classification, Bain driver inputs, and journey episode inputs
 - Consumer opinion map and voice atoms
@@ -172,6 +175,7 @@ Always return the S01 output envelope from `references/output-contract.md`:
 - Keep private and public evidence separated in storage and retrieval.
 - Keep original local-language consumer wording where useful.
 - Do not claim a local forum, community, or comment source was collected completely unless a coverage report proves the bounded page/comment range.
+- Do not run deep local voice mining before source accessibility and competitor candidate review state are recorded.
 - Do not hand off raw comment dumps; hand off source profile refs, coverage refs, voice atom refs, and NSS/Bain input refs.
 - Do not present inferred NSS/NPS proxy as surveyed NSS/NPS.
 - Do not calculate NSS/NPS proxy from atom counts alone; classify deduped source items and report thresholds, source mix, and confidence.

@@ -37,6 +37,8 @@ S08 must produce a full artifact, compressed handoff pack, S14-ready HTML sectio
     "launch_sales_forecast",
     "lifecycle_phase_sales_curve",
     "marketing_investment_response_model",
+    "budget_posture_model",
+    "aarrr_orb_channel_architecture",
     "baseline_incremental_sales_bridge",
     "channel_split_forecast",
     "price_conversion_assumption_bridge",
@@ -94,6 +96,8 @@ S08 must produce a full artifact, compressed handoff pack, S14-ready HTML sectio
     "launch_sales_forecast": {},
     "lifecycle_phase_sales_curve": [],
     "marketing_investment_response_model": {},
+    "budget_posture_model": {},
+    "aarrr_orb_channel_architecture": [],
     "baseline_incremental_sales_bridge": [],
     "channel_split_forecast": [],
     "price_conversion_assumption_bridge": {},
@@ -213,6 +217,28 @@ S08 must produce a full artifact, compressed handoff pack, S14-ready HTML sectio
     "confidence": "high | medium | low | hypothesis_only",
     "caveats": []
   },
+  "budget_posture_model": {
+    "posture": "conservative | standard_growth | aggressive_launch | unknown",
+    "revenue_based_anchor": {},
+    "goal_based_budget_range": {},
+    "blended_cac_reality_check": {},
+    "included_costs": [],
+    "excluded_cost_gaps": [],
+    "recommended_budget_use": "",
+    "confidence": "high | medium | low | hypothesis_only"
+  },
+  "aarrr_orb_channel_architecture": [
+    {
+      "stage": "acquisition | retail_pdp_activation | purchase_conversion | post_purchase_activation | referral_review | revenue",
+      "orb_role": "owned | rented | borrowed",
+      "named_channel": "",
+      "channel_job": "",
+      "budget_role": "primary_spend | support_spend | proof_supply | no_paid_spend | unknown",
+      "measurement_signal": "",
+      "evidence_refs": [],
+      "confidence": "high | medium | low | hypothesis_only"
+    }
+  ],
   "baseline_incremental_sales_bridge": [
     {
       "phase_or_channel": "",

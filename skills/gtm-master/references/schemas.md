@@ -66,7 +66,7 @@ Use these schemas as contracts. Keep fields stable across sub-skills.
   "landing_page_or_pdp_test_access": "",
   "retailer_or_creator_pilot_access": "",
   "private_data_policy": "exclude_raw | aggregate | approved",
-  "output_detail_level": "quick | standard | deep",
+  "output_detail_level": "quick | standard | real_product_pilot | deep",
   "copy_assets_or_concepts": [],
   "historical_copy_landing_pages_kol_scripts_and_ads": "",
   "creator_budget_range": "",
@@ -103,7 +103,7 @@ Use these schemas as contracts. Keep fields stable across sub-skills.
   "claim_constraints": "",
   "compliance_constraints": "",
   "report_audience": "",
-  "report_depth": "quick | standard | deep",
+  "report_depth": "quick | standard | real_product_pilot | deep",
   "html_style_preference": "",
   "assumptions": [],
   "missing_optional_inputs": []
@@ -143,7 +143,7 @@ Use these schemas as contracts. Keep fields stable across sub-skills.
     "next_action": "",
     "required_refs": []
   },
-  "selected_run_mode": "quick | standard | deep",
+  "selected_run_mode": "quick | standard | real_product_pilot | deep",
   "skill_status": {},
   "approved_sections": [],
   "pending_review_items": [],

@@ -34,7 +34,7 @@ High-value inputs:
   "style_preferences": {},
   "output_language": "zh-CN",
   "report_audience": "executive | gtm_team | product_team | research_team | mixed",
-  "report_depth": "quick | standard | deep"
+  "report_depth": "quick | standard | real_product_pilot | deep"
 }
 ```
 

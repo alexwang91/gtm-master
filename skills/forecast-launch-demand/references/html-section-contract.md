@@ -77,7 +77,12 @@ required_visual_blocks:
 
   - name: Marketing Spend Sensitivity
     type: ranked_bar
-    data_source: marketing_spend_sensitivity_curve + marketing_investment_response_model
+    data_source: marketing_spend_sensitivity_curve + marketing_investment_response_model + budget_posture_model
+
+  - name: AARRR ORB Channel Architecture
+    type: matrix_heatmap
+    data_source: aarrr_orb_channel_architecture + channel_split_forecast + regional_channel_allocation
+    display_requirement: Show named local channels by hardware AARRR stage and Owned/Rented/Borrowed role. Make budget role and measurement signal explicit.
 
   - name: Forecast Decision Gate
     type: status_panel
@@ -89,6 +94,7 @@ required_visual_blocks:
 ```
 
 Use `tables` for assumption trees, source basis matrices, sell-in/sell-through splits, media bridges, creator bridges, DTC conversion bridges, previous-generation calibration, and private-data exclusion logs.
+Use `budget_posture_model` as a compact management view. It must show what costs are included and excluded rather than implying the budget is approved.
 
 ## Thin Output Rules
 
