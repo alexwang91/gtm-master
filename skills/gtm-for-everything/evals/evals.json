@@ -1,0 +1,29 @@
+{
+  "schema_version": "0.1.0",
+  "evals": [
+    {
+      "name": "architecture_contract",
+      "prompt": "Create an English GTM dashboard for a new B2B analytics product entering the UK market with limited evidence and a small launch budget.",
+      "must_include": [
+        "English-only dashboard text",
+        "executive answer",
+        "market truth",
+        "customer and JTBD",
+        "pricing and offer",
+        "channel motion",
+        "30/60/90 launch plan",
+        "stop-slop editorial gate",
+        "consulting-style visual structure",
+        "evidence gaps"
+      ],
+      "must_not_include": [
+        "Chinese dashboard labels",
+        "generic AI-style prose",
+        "decorative hero page",
+        "invented market size",
+        "unsupported competitor claims",
+        "final legal finance or executive approval"
+      ]
+    }
+  ]
+}

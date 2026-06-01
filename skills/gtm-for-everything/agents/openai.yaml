@@ -1,0 +1,4 @@
+interface:
+  display_name: "GTM for everything"
+  short_description: "Create English consulting-style GTM dashboards for any offer."
+  default_prompt: "Use gtm-for-everything to turn an offer, market, customer, and business model into an English consulting-style HTML GTM dashboard with direct recommendations, evidence labels, action owners, and a stop-slop editorial pass."
