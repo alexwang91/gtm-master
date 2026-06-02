@@ -152,7 +152,7 @@
 
     .meta-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 10px;
       margin-top: 22px;
     }
@@ -187,6 +187,14 @@
       margin-top: 5px;
       font-size: 18px;
       overflow-wrap: anywhere;
+    }
+
+    .meta small {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
     }
 
     .summary-grid {
@@ -628,7 +636,7 @@
           <div class="hero-top">
             <div>
               <p class="eyebrow" id="report-kicker">模板预览</p>
-              <h2 id="report-title">GTM 看板</h2>
+              <h2 id="report-title">GTM 报告</h2>
             </div>
             <span class="badge unknown" id="report-status">未知</span>
           </div>
@@ -639,8 +647,8 @@
           <section class="section" id="summary-panel">
             <div class="section-header">
               <div>
-                <h3>执行摘要</h3>
-                <div class="source">仅由上游模块结论生成</div>
+                <h3>判断理由</h3>
+                <div class="source">支撑GTM判断的核心事实</div>
               </div>
             </div>
             <div id="summary-content"></div>
@@ -649,8 +657,8 @@
           <section class="section" id="gap-panel">
             <div class="section-header">
               <div>
-                <h3>数据缺口</h3>
-                <div class="source">可见阻塞项与限制</div>
+                <h3>会改变结论的问题</h3>
+                <div class="source">只保留影响打法的关键不确定性</div>
               </div>
             </div>
             <div id="gap-content"></div>
@@ -683,7 +691,7 @@
       const previewData = {
         mode: "template_preview",
         project: {
-          title: "GTM 看板预览",
+          title: "GTM 报告预览",
           product: "示例硬件产品",
           country: "示例国家",
           priceRange: "未提供目标价格段",
@@ -704,12 +712,12 @@
             confidence: "medium",
             executive_takeaway: "The main S01 view must show what is locally knowable, who shapes the category, which language consumers use, and where the launch has evidence gaps.",
             narrative_blocks: [
-              "Use text only for synthesis. The proof should be visual: evidence coverage, competitor threat, segment priority, local search language, consumer voice, and channel/touchpoint fit."
+              "正文只做判断综合，证据应转成可视化：证据强度、竞品威胁、人群优先级、本地搜索语言、消费者声音和渠道触点适配。"
             ],
             metric_cards: [
-              { label: "Evidence coverage", value: "Medium", note: "Search, ecommerce, reviews, local community sources" },
-              { label: "Competitor set", value: "5-10", note: "User can confirm or deselect candidates" },
-              { label: "Primary decision", value: "Where to compete", note: "Segment, channel, and price anchors" }
+              { label: "证据强度", value: "中", note: "搜索、电商、评论、本地社区来源" },
+              { label: "竞品候选", value: "5-10", note: "用户可确认、排除或保留疑问" },
+              { label: "核心决策", value: "在哪里打", note: "人群、渠道与价格锚点" }
             ],
             callouts: [
               { title: "Display rule", body: "Raw comments, full candidate pools, query expansions, and collection logs belong in appendices unless they change a GTM decision.", tone: "warning" }
@@ -717,8 +725,8 @@
             visual_blocks: [
               {
                 type: "status_panel",
-                title: "Evidence coverage gate",
-                subtitle: "Shows confidence before recommendations",
+                title: "证据强度门禁",
+                subtitle: "在建议前先标记置信度",
                 items: [
                   { label: "Local ecommerce", value: "Required", note: "Price anchors, top listings, review volume" },
                   { label: "Local language search", value: "Required", note: "Google Trends or local query expansion when accessible" },
@@ -751,7 +759,7 @@
               {
                 headers: ["Required S01 view", "Best display", "Core question answered"],
                 rows: [
-                  ["Evidence coverage", "Coverage heatmap + source scorecards", "Can we trust this market map?"],
+                  ["证据强度", "来源评分卡", "这个市场判断能信到什么程度？"],
                   ["Competitor and substitute threat", "Threat 2x2 or ranked table", "Who shapes consumer comparison?"],
                   ["Price landscape seed", "Horizontal range chart", "Where does the target price sit against anchors?"],
                   ["Consumer voice", "Ranked theme table or driver chart", "What do people praise, complain about, and use as proof?"],
@@ -1480,7 +1488,7 @@
           renderVisualBlocks(section.visual_blocks || section.charts) +
           renderTables(section.tables) +
           (section.next_actions && section.next_actions.length ? '<div class="callout"><strong>下一步行动</strong>' + renderList(section.next_actions) + '</div>' : "") +
-          (section.data_gaps && section.data_gaps.length ? '<div class="callout warning"><strong>本节数据缺口</strong>' + renderList(section.data_gaps) + '</div>' : "") +
+          (section.data_gaps && section.data_gaps.length ? '<div class="callout warning"><strong>本节关键待确认</strong>' + renderList(section.data_gaps) + '</div>' : "") +
         '</section>';
       }
 
@@ -1568,32 +1576,35 @@
       function init() {
         const project = data.project || {};
         const sections = data.sections || [];
-        document.title = project.title || "GTM 看板";
-        document.getElementById("rail-title").textContent = project.product || project.title || "GTM 看板";
+        document.title = project.title || "GTM 报告";
+        document.getElementById("rail-title").textContent = project.product || project.title || "GTM 报告";
         document.getElementById("rail-subtitle").textContent = project.country || "静态报告";
         document.getElementById("report-kicker").textContent = data.mode === "template_preview" ? "模板预览" : "GTM 报告";
-        document.getElementById("report-title").textContent = project.title || "GTM 看板";
+        document.getElementById("report-title").textContent = project.title || "GTM 报告";
         document.getElementById("report-status").outerHTML = badge(project.status || "unknown");
-
-        const meta = [
-          { label: "产品", value: project.product || "未提供" },
-          { label: "国家/地区", value: project.country || "未提供" },
-          { label: "价格段", value: project.priceRange || "未提供" },
-          { label: "受众", value: project.audience || "混合" }
-        ];
-        document.getElementById("meta-grid").innerHTML = meta.map(function (item) {
-          return '<div class="meta"><span>' + escapeHtml(item.label) + '</span><strong>' + escapeHtml(item.value) + '</strong></div>';
-        }).join("");
 
         const takeaways = data.executiveTakeaways && data.executiveTakeaways.length
           ? data.executiveTakeaways
           : sections.map(function (s) { return s.executive_takeaway; }).filter(Boolean).slice(0, 5);
+        const judgment = data.gtmJudgment || data.gtm_judgment_cover || project.gtmJudgment || project.gtm_judgment_cover || {};
+        const fallbackRecommendation = takeaways[0] || "待形成完整GTM判断";
+        const judgmentCards = [
+          { label: "GTM判断", value: judgment.judgment_label || judgment.judgment || "待判断", note: judgment.core_recommendation || fallbackRecommendation },
+          { label: "首要打法", value: judgment.opening_move || "待确定", note: "价格、渠道、内容或offer的第一动作" },
+          { label: "先打人群", value: judgment.priority_segment || "待确定", note: "以需求强度、支付意愿和触达效率排序" },
+          { label: "Must-win渠道", value: judgment.must_win_channel || "待确定", note: "正式版应落到本地渠道名" },
+          { label: "价格/Offer", value: judgment.price_or_offer_stance || project.priceRange || "待确定", note: "说明如何守价、促销或用权益托住" },
+          { label: "会改变结论的问题", value: judgment.decision_changing_question || "待确认", note: "只保留会改变打法的关键不确定性" }
+        ];
+        document.getElementById("meta-grid").innerHTML = judgmentCards.map(function (item) {
+          return '<div class="meta"><span>' + escapeHtml(item.label) + '</span><strong>' + escapeHtml(item.value) + '</strong><small>' + escapeHtml(item.note || "") + '</small></div>';
+        }).join("");
         document.getElementById("summary-content").innerHTML = renderList(takeaways);
         document.getElementById("gap-content").innerHTML = renderList(data.dataGaps || []);
 
         const navItems = [
           { id: "executive_summary", title: "摘要", status: "core" },
-          { id: "gap-panel", title: "数据缺口", status: "core" }
+          { id: "gap-panel", title: "会改变结论的问题", status: "core" }
         ].concat(sections.map(function (s) {
           return { id: s.section_id || slug(s.section_title), title: s.section_title || s.section_id, status: s.confidence || "" };
         })).concat([{ id: "citations", title: "证据索引", status: "index" }]);
@@ -1607,7 +1618,7 @@
         const citations = data.citations || [];
         document.getElementById("citation-content").innerHTML = citations.length
           ? renderTables([{ headers: ["Ref", "标题", "来源"], rows: citations.map(function (c) { return [c.ref || "", c.title || "", c.source || c.url || ""]; }) }])
-          : '<p class="source">未提供证据索引。缺失的 citation metadata 应由 S14 质量门标记。</p>';
+          : '<p class="source">未提供证据索引。正式汇报前需要补齐来源名称、链接和采集时间。</p>';
 
         initCalculator();
       }

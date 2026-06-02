@@ -31,6 +31,7 @@ Minimum S03 visual coverage:
 message input coverage gate when confidence is capped
 segment-message fit
 feature-benefit-proof readiness
+selling point to segment/touchpoint/KOL route
 claim risk and proof gate
 objection severity ranking
 ```
@@ -54,6 +55,10 @@ If any minimum view is missing, add `missing_required_view` or `rendered_too_thi
     "claim_risk_and_proof_gate",
     "local_language_message_seed",
     "price_message_seed",
+    "selling_point_segment_touchpoint_kol_seed",
+    "hero_message_proof_asset_pack",
+    "sales_enablement_pack",
+    "retail_pdp_ready_pack",
     "message_market_fit_scorecard",
     "evidence_assumptions_and_data_gaps"
   ],
@@ -119,6 +124,10 @@ If any minimum view is missing, add `missing_required_view` or `rendered_too_thi
     "claim_risk_and_proof_gate": {},
     "local_language_message_seed": [],
     "price_message_seed": [],
+    "selling_point_segment_touchpoint_kol_seed": [],
+    "hero_message_proof_asset_pack": {},
+    "sales_enablement_pack": [],
+    "retail_pdp_ready_pack": {},
     "message_market_fit_scorecard": [],
     "message_investment_allocation_seed": [],
     "conditional_outputs": {
@@ -145,6 +154,7 @@ If any minimum view is missing, add `missing_required_view` or `rendered_too_thi
     "S05 should use segment_message_architecture, feature_benefit_proof_matrix, objection_matrix, and behavioral lever seeds when scoring creative assets.",
     "S06 should use creator_brief_message_seed, recommended MKT carrier archetypes, message investment allocation seeds, and proof requirements when creator or expert content matters.",
     "S07 should use landing_page_message_block_seed, price message seeds, objection matrix, proof requirements, and claim risk gates for funnel analysis.",
+    "S08 should use hero_message_proof_asset_pack, sales_enablement_pack, and retail_pdp_ready_pack to build launch calendar, channel war room, and readiness gaps.",
     "S13 should use price message seeds and message investment allocation seeds to design message, price narrative, and proof validation tests.",
     "S14 should render html_section_draft, confidence badges, claim/proof status, and data gaps."
   ],
@@ -210,6 +220,45 @@ This is an initial testing and attention split for message routes, not final med
 }
 ```
 
+### Direct Report Message Packs
+
+```json
+{
+  "hero_message_proof_asset_pack": {
+    "hero_claim": "",
+    "support_claims": [],
+    "local_language_terms_to_preserve": [],
+    "proof_assets_available": [],
+    "proof_assets_needed": [],
+    "where_to_use": ["PDP", "retail", "PR", "creator", "operator", "official_store"],
+    "confidence": "high | medium | low | hypothesis_only",
+    "evidence_refs": []
+  },
+  "sales_enablement_pack": [
+    {
+      "audience": "retailer_sales | operator_sales | ecommerce | support | pr | creator",
+      "talk_track": "",
+      "objection_card": "",
+      "competitor_battlecard_ref": "",
+      "demo_or_proof_needed": "",
+      "do_not_say": [],
+      "confidence": "high | medium | low | hypothesis_only",
+      "evidence_refs": []
+    }
+  ],
+  "retail_pdp_ready_pack": {
+    "local_title_or_search_terms": [],
+    "hero_proof_assets": [],
+    "comparison_table_needs": [],
+    "faq_needs": [],
+    "warranty_return_payment_messages": [],
+    "review_generation_plan": [],
+    "confidence": "high | medium | low | hypothesis_only",
+    "evidence_refs": []
+  }
+}
+```
+
 ### Feature Benefit Proof Matrix
 
 ```json
@@ -272,6 +321,42 @@ Price message seeds tell downstream modules what value narrative or offer framin
       "success_signal": "",
       "confidence": "high | medium | low",
       "evidence_refs": []
+    }
+  ]
+}
+```
+
+### Selling Point Segment Touchpoint KOL Seed
+
+This seed is the execution bridge from message architecture to local MKT, S06,
+S08, and S13. It should rank sell points and explain who they are for, where
+they should be carried, and what evidence or budget signal is needed. It is not
+final KOL approval.
+
+```json
+{
+  "selling_point_segment_touchpoint_kol_seed": [
+    {
+      "route_id": "",
+      "selling_point_rank": 0,
+      "feature_or_capability": "",
+      "benefit": "",
+      "target_segment_id": "",
+      "jtbd_scenario_refs": [],
+      "local_language_terms": [],
+      "primary_touchpoint_channels": [],
+      "recommended_mkt_carrier_archetype": "brand_official | retailer_sales | expert_reviewer | lifestyle_creator | category_kol | community_advocate | paid_social | pr | owned_dtc | retail_media | affiliate_or_deal | other",
+      "candidate_or_source_hint": "",
+      "why_this_carrier": "",
+      "rough_budget_signal": "none | low | medium | high | use_s06_or_s08_range",
+      "expected_signal": "reach | views | visits | clickouts | saves | comments | retailer_pdp_lift | search_lift | conversion_test | proof_asset_reuse | other",
+      "proof_dependency": [],
+      "risk_or_watchout": "",
+      "recommended_owner": "local_mkt | retail | sales | pr | creator_manager | ecommerce | product | research | other",
+      "downstream_skill_use": ["S06", "S08", "S13", "S14"],
+      "confidence": "high | medium | low | hypothesis_only",
+      "evidence_refs": [],
+      "data_gaps": []
     }
   ]
 }

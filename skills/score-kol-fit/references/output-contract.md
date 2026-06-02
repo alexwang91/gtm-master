@@ -34,6 +34,8 @@ S06 must produce a full artifact, compressed handoff pack, S14-ready HTML sectio
     "creator_trust_proof_fit_matrix",
     "platform_relevance_map",
     "creator_recommendation_rationale",
+    "local_creator_execution_table",
+    "content_seeding_wave_plan",
     "creator_budget_estimate",
     "creator_expected_outcome_estimate",
     "creator_budget_expectation_confidence",
@@ -100,6 +102,8 @@ S06 must produce a full artifact, compressed handoff pack, S14-ready HTML sectio
     "candidate_content_proof_fit": [],
     "platform_relevance_map": [],
     "creator_recommendation_rationale": [],
+    "local_creator_execution_table": [],
+    "content_seeding_wave_plan": [],
     "creator_budget_estimate": [],
     "creator_expected_outcome_estimate": [],
     "creator_budget_expectation_confidence": {},
@@ -140,6 +144,7 @@ S06 must produce a full artifact, compressed handoff pack, S14-ready HTML sectio
   "key_findings": [],
   "required_downstream_use": [
     "S08 should use creator_archetype_fit_scorecard, creator_budget_estimate, and creator_expected_outcome_estimate only as assumptions, not guaranteed demand.",
+    "S08 should use content_seeding_wave_plan and local_creator_execution_table to build the launch calendar, channel war room, and measurement assumptions.",
     "S13 should convert creator_test_backlog and data gaps into validation experiments.",
     "S14 should render html_section_draft, candidate review gate status, recommendation rationale, budget/outcome ranges, confidence badges, creator risks, and private-candidate exclusions."
   ],
@@ -159,6 +164,21 @@ S06 must produce a full artifact, compressed handoff pack, S14-ready HTML sectio
 
 ```json
 {
+  "content_seeding_wave_plan": [
+    {
+      "wave": "expert_review | comparison | lifestyle_creator | community_forum | retail_media | owner_review",
+      "purpose": "",
+      "recommended_candidates_or_archetypes": [],
+      "budget_range": {"min": 0, "max": 0, "currency": ""},
+      "expected_signal": "views | visits | likes | comments | saves | clickouts | search_lift | review_volume | retail_feedback | other",
+      "expected_signal_range": "",
+      "proof_needed": [],
+      "timing": "",
+      "owner_hint": "local_mkt | creator_manager | pr | ecommerce | retail_sales | mixed",
+      "confidence": "high | medium | low | hypothesis_only",
+      "evidence_refs": []
+    }
+  ],
   "local_creator_discovery_query_bank": [
     {
       "query_id": "",
@@ -297,6 +317,43 @@ S06 must produce a full artifact, compressed handoff pack, S14-ready HTML sectio
   ]
 }
 ```
+
+## Local Creator Execution Table Schema
+
+Use this table when candidate-level creator, KOL, reviewer, media, affiliate,
+or community options are shown in the dashboard. It is the local execution view,
+not contract approval.
+
+```json
+{
+  "local_creator_execution_table": [
+    {
+      "candidate_ref": "",
+      "display_name": "",
+      "candidate_type": "creator | reviewer | expert_media | forum_authority | affiliate_publisher | retailer_expert | community_admin | other",
+      "primary_platform_or_source": "",
+      "public_url_or_source_ref": "",
+      "recommended_role": "",
+      "target_segment_or_scenario": "",
+      "why_this_candidate_or_source": [],
+      "proof_task": "",
+      "budget_range_ref": "",
+      "expected_outcome_range_ref": "",
+      "budget_summary": "",
+      "expected_signal_summary": "",
+      "review_status": "approved_by_user | provisional_pending_user_review | request_more_evidence | excluded",
+      "main_risks": [],
+      "confidence": "high | medium | low | hypothesis_only",
+      "evidence_refs": [],
+      "data_gaps": []
+    }
+  ]
+}
+```
+
+If candidate names are not reliable yet, use archetype rows or source rows and
+set `review_status` to `provisional_pending_user_review` or
+`request_more_evidence`.
 
 ## Budget Estimate Schema
 

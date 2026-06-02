@@ -27,6 +27,7 @@ method_cards:
       - coverage_mapping
       - competitor_and_substitute_mapping
       - competitor_threat_scoring
+      - top1_competitor_proof_scoring
       - competitor_candidate_review_gate
       - consumer_voice_mining
       - voice_atom_extraction
@@ -36,6 +37,7 @@ method_cards:
       - nss_bain_comment_input_extraction
       - bain_driver_impact_scoring
       - journey_episode_mapping
+      - competitive_bain_voice_board_generation
       - tam_sam_som_assumption_tree
       - market_sizing_confidence_scoring
       - comparable_market_proxy_labeling
@@ -93,6 +95,7 @@ method_cards:
       - competitor_substitute_map
       - competitor_candidate_review_list
       - competitor_candidate_review_gate
+      - top1_competitor_proof_board
       - competitor_threat_scores
       - substitute_taxonomy
       - price_ladder_scan
@@ -133,6 +136,7 @@ method_cards:
       - user_provided_price_hypotheses
       - nss_nps_proxy_seed_panel
       - competitor_nss_nps_comparison_seed
+      - competitive_bain_voice_board
       - nps_driver_tornado_seed
       - journey_episode_nss_seed
       - earned_growth_proxy_seed
@@ -269,6 +273,7 @@ method_cards:
       - claim_risk_gate
       - local_language_message_seeding
       - price_message_seeding
+      - selling_point_segment_touchpoint_kol_route_mapping
       - behavioral_lever_message_seeding
       - retail_sales_talk_track_seeding
       - landing_page_message_block_seeding
@@ -299,6 +304,7 @@ method_cards:
       - claim_risk_and_proof_gate
       - local_language_message_seed
       - price_message_seed
+      - selling_point_segment_touchpoint_kol_seed
       - message_market_fit_scorecard
       - competitive_contrast_matrix
       - behavioral_lever_message_seed
@@ -317,6 +323,7 @@ method_cards:
         - claim_risk_and_proof_gate
         - local_language_message_seed
         - price_message_seed
+        - selling_point_segment_touchpoint_kol_seed
         - message_market_fit_scorecard
       conditional:
         - competitive_contrast_matrix
@@ -343,6 +350,7 @@ method_cards:
       - affordability_pressure_model
       - value_for_money_scoring
       - segment_wtp_hypothesis_modeling
+      - wtp_direct_conclusion_generation
       - price_value_proof_mapping
       - price_risk_guardrail_mapping
       - van_westendorp_test_design
@@ -377,13 +385,19 @@ method_cards:
       - final_channel_contract_terms
     output_contract:
       - price_input_coverage_gate
+      - opening_price_strategy
+      - launch_price_architecture
       - local_price_credibility_model
+      - rapid_price_prior
+      - wtp_direct_conclusion
       - segment_wtp_hypothesis
       - price_sensitivity_model
       - price_value_proof_matrix
       - price_risk_guardrail
       - wtp_test_plan
       - promo_subscription_guidance
+      - private_profit_revenue_optimizer_spec
+      - price_path_30_60_90
       - pricing_decision_gate
       - pricing_handoff_summary
       - van_westendorp_test_design
@@ -403,13 +417,19 @@ method_cards:
     output_tiers:
       core:
         - price_input_coverage_gate
+        - opening_price_strategy
+        - launch_price_architecture
         - local_price_credibility_model
+        - rapid_price_prior
+        - wtp_direct_conclusion
         - segment_wtp_hypothesis
         - price_sensitivity_model
         - price_value_proof_matrix
         - price_risk_guardrail
         - wtp_test_plan
         - promo_subscription_guidance
+        - private_profit_revenue_optimizer_spec
+        - price_path_30_60_90
         - pricing_decision_gate
         - pricing_handoff_summary
       conditional:
@@ -545,6 +565,7 @@ method_cards:
       - trust_proof_fit_mapping
       - platform_relevance_mapping
       - creator_recommendation_rationale_generation
+      - local_creator_execution_table_generation
       - creator_budget_range_estimation
       - expected_outcome_range_estimation
       - budget_expectation_confidence_scoring
@@ -586,6 +607,7 @@ method_cards:
       - candidate_content_proof_fit
       - platform_relevance_map
       - creator_recommendation_rationale
+      - local_creator_execution_table
       - creator_budget_estimate
       - creator_expected_outcome_estimate
       - creator_budget_expectation_confidence
@@ -619,6 +641,7 @@ method_cards:
         - creator_trust_proof_fit_matrix
         - platform_relevance_map
         - creator_recommendation_rationale
+        - local_creator_execution_table
         - creator_budget_estimate
         - creator_expected_outcome_estimate
         - creator_budget_expectation_confidence
@@ -802,6 +825,7 @@ method_cards:
       - conservative_base_upside_sales_scenario_modeling
       - segment_sales_split_modeling
       - channel_split_forecasting
+      - local_channel_action_priority_mapping
       - price_conversion_assumption_bridge
       - inventory_stockout_overstock_risk_mapping
       - sensitivity_driver_tornado
@@ -855,6 +879,7 @@ method_cards:
       - marketing_investment_response_model
       - budget_posture_model
       - aarrr_orb_channel_architecture
+      - local_channel_action_priority
       - baseline_incremental_sales_bridge
       - channel_split_forecast
       - price_conversion_assumption_bridge
@@ -888,6 +913,7 @@ method_cards:
         - marketing_investment_response_model
         - budget_posture_model
         - aarrr_orb_channel_architecture
+        - local_channel_action_priority
         - baseline_incremental_sales_bridge
         - channel_split_forecast
         - price_conversion_assumption_bridge

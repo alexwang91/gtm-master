@@ -33,6 +33,7 @@ opening price strategy
 launch price architecture
 local price credibility corridor
 rapid WTP prior when real WTP or sales evidence is missing
+WTP direct conclusion
 segment WTP and sensitivity
 price-value proof readiness
 price risk guardrails
@@ -55,6 +56,7 @@ If any minimum view is missing, add `missing_required_view` or `rendered_too_thi
     "launch_price_architecture",
     "local_price_credibility_model",
     "rapid_price_prior",
+    "wtp_direct_conclusion",
     "segment_wtp_hypothesis",
     "price_sensitivity_model",
     "price_value_proof_matrix",
@@ -134,6 +136,7 @@ If any minimum view is missing, add `missing_required_view` or `rendered_too_thi
     "launch_price_architecture": {},
     "local_price_credibility_model": {},
     "rapid_price_prior": {},
+    "wtp_direct_conclusion": {},
     "segment_wtp_hypothesis": [],
     "price_sensitivity_model": {},
     "price_value_proof_matrix": [],
@@ -383,6 +386,54 @@ Use this schema when real local WTP, internal sales evidence, or research access
       }
     ],
     "limits": [],
+    "evidence_refs": [],
+    "data_gaps": []
+  }
+}
+```
+
+### WTP Direct Conclusion
+
+This object translates price evidence into the plain GTM answer. It must be
+present whenever S04 emits a pricing section, even if the answer is
+`research_first` or `blocked`.
+
+```json
+{
+  "wtp_direct_conclusion": {
+    "conclusion": "defend_target_price | defend_with_proof_or_offer | lower_effective_price | research_first | blocked",
+    "plain_language_answer": "",
+    "target_price_or_band": "",
+    "target_price_defensibility": "strong | moderate | weak | unsupported | unknown",
+    "segments_that_can_accept": [
+      {
+        "segment_id": "",
+        "why_accepts": "",
+        "required_proof_or_offer": [],
+        "confidence": "high | medium | low | hypothesis_only"
+      }
+    ],
+    "segments_that_resist": [
+      {
+        "segment_id": "",
+        "why_resists": "",
+        "likely_behavior": "trade_down | trade_up | wait_for_promo | choose_previous_generation | choose_competitor | delay_purchase | unknown",
+        "mitigation": "",
+        "confidence": "high | medium | low | hypothesis_only"
+      }
+    ],
+    "minimum_proof_or_offer_required": [],
+    "recommended_opening_posture": "premium_anchor_promo | premium_proof_led | parity_value | penetration_attack | niche_high_price | test_before_scale | blocked",
+    "price_move_thresholds": [
+      {
+        "trigger": "",
+        "move": "hold | bundle | finance | trade_in | coupon | channel_subsidy | lower_effective_price | raise_anchor | stop_scale",
+        "watch_metric": "",
+        "owner_hint": "pricing | marketing | channel | finance | sales | product | research"
+      }
+    ],
+    "evidence_basis_summary": "",
+    "confidence": "high | medium | low | hypothesis_only",
     "evidence_refs": [],
     "data_gaps": []
   }

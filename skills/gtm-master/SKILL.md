@@ -68,7 +68,8 @@ Read only what the task needs.
 18. Read `references/visual-block-acceptance-matrix.md` before auditing S01-S08/S13 `visual_blocks`, report-state compatibility, or S14 readiness.
 19. Read `references/report-data-contract.md` before writing or updating HTML report state.
 20. Read `references/html-dashboard-design.md` when composing or reviewing the final visual report.
-21. Read `references/marketing-skills-adaptation-map.md` when importing or adapting an external marketing skill pattern.
+21. Read `references/hardware-launch-execution-playbook.md` when the user wants a direct HTML GTM report, launch action plan, channel/KOL/retail execution view, or first-sale war-room plan.
+22. Read `references/marketing-skills-adaptation-map.md` when importing or adapting an external marketing skill pattern.
 
 Use optional references conditionally; do not load future roadmap nodes or inactive sub-skill details by default.
 
@@ -83,6 +84,7 @@ Use optional references conditionally; do not load future roadmap nodes or inact
 - Platform-neutral tool layer: skills request capability slots from `tools/REGISTRY.md`; Codex, Claude Code, MCP servers, CLI tools, browser automation, APIs, and manual upload are interchangeable implementations.
 - Post-skill isolation: after each sub-skill writes its handoff, HTML section, evidence updates, decisions, gaps, and isolation record, its working context is closed.
 - Evidence before claims: every material conclusion needs provenance, confidence, and evidence level.
+- Direct report before system prose: the final HTML body should read as a GTM report that can be used in a meeting. Keep skill IDs, handoff mechanics, module coverage, isolation audit, and report-audience labels out of the main body unless the user explicitly asks for a method/audit appendix.
 - Least invasive collection: prefer official APIs, approved internal data, search, and public extraction before browser automation or crawling.
 - One active skill: execute or edit one sub-skill at a time unless S00 explicitly marks a branch as parallel safe.
 - Report state as you go: each sub-skill writes a full artifact, compressed handoff, and HTML section draft.

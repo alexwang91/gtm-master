@@ -12,7 +12,7 @@ RENDERER = ROOT / "scripts" / "render-gtm-dashboard-from-report-state.py"
 
 
 class ManagementSummaryRenderTest(unittest.TestCase):
-    def test_dashboard_renders_compact_management_summary(self) -> None:
+    def test_dashboard_renders_compact_gtm_summary(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output = Path(tmp) / "dashboard.html"
             result = subprocess.run(
@@ -27,7 +27,7 @@ class ManagementSummaryRenderTest(unittest.TestCase):
             html = output.read_text(encoding="utf-8")
 
         required_phrases = [
-            "管理层摘要",
+            "GTM判断",
             "期望周均销量",
             "MKT 投放建议",
             "渠道优先级",
@@ -37,11 +37,16 @@ class ManagementSummaryRenderTest(unittest.TestCase):
             "示例电器零售二号",
             "示例运营商三号",
             "渠道名与角色",
+            "会改变结论的问题",
+            "来源治理",
         ]
         for phrase in required_phrases:
             self.assertIn(phrase, html)
 
         self.assertNotIn("完整链路试跑", html)
+        self.assertNotIn("管理层摘要", html)
+        self.assertNotIn("方法论行动方向", html)
+        self.assertNotIn("已确认输入", html)
         self.assertNotIn("本地电商 > 零售 > 自营", html)
 
 

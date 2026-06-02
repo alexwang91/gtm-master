@@ -8,17 +8,24 @@
         "forecast assumption tree",
         "base upside downside scenarios",
         "lifecycle phase sales curve",
+        "local_channel_action_priority",
         "Goal-Based budget formula",
         "blended CAC gap",
         "growth S-curve layering",
         "sell-in sell-through separation",
-        "sensitivity driver tornado"
+        "sensitivity driver tornado",
+        "gtm_judgment_cover",
+        "gtm_command_center",
+        "channel_war_room",
+        "launch_calendar",
+        "measurement_war_room"
       ],
       "must_not_include": [
         "present heuristic forecast as measured sales",
         "convert reach directly into sales without bridge",
         "ignore inventory risk",
-        "approve final media budget"
+        "approve final media budget",
+        "use generic ecommerce retail DTC labels when named channels are available"
       ]
     }
   ]

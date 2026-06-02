@@ -40,11 +40,11 @@ input_gate
 normalize
   Convert section drafts into registry entries with stable IDs, titles, source skill, confidence, citations, and display blocks.
 
-render_input_boundary
-  Render a compact top-of-report input boundary strip before or inside the executive summary. It should show only the inputs that constrain interpretation: product/category, key selling points or specs, launch country, price band, run mode, channel/MKT/private-data availability, evidence coverage, and critical missing inputs. Keep it small enough that it does not compete with the management summary.
+render_gtm_judgment_cover
+  Render a business-first judgment cover before the executive summary. It should show the recommended GTM posture, first opening move, priority segment, must-win local channel, price/offer stance, top competitor threat, budget posture, and one decision-changing question. Do not use this space to prove input coverage, evidence collection, private-data handling, or workflow state.
 
 compose_summary
-  Build a management decision summary from upstream executive_takeaway, decision_updates, S08 forecast outputs, S04 pricing outputs, S01/S03 competitor and product-fit outputs, channel readiness signals, marketing assumptions, and highest-severity data gaps only.
+  Build a GTM executive summary from upstream executive_takeaway, decision_updates, S08 forecast outputs, S04 pricing outputs, S01/S03 competitor and product-fit outputs, channel readiness signals, marketing assumptions, and highest-severity critical confirmations only.
 
 render_navigation
   Generate sticky navigation from rendered section IDs. Include status badges for missing or low-confidence sections.
@@ -53,44 +53,47 @@ render_sections
   Render text, metric cards, visual blocks, tables, simple charts, callouts, next actions, citations, and data gaps.
 
 render_validation_roadmap
-  When `validation_roadmap` is present, render supplied S13 data only: validation input coverage, experiment priority, assumption risk versus test feasibility, timeline and decision unlocks, validation decision gate, and experiment portfolio by module. Render `targeted_lookup_log`, `context_budget_report`, `post_skill_isolation_record`, and `excluded_or_deferred_tests_log` as audit tables when present.
+  When `validation_roadmap` is present, render supplied validation data only: validation input coverage, experiment priority, assumption risk versus test feasibility, timeline and decision unlocks, validation decision gate, and experiment portfolio by business question. Render targeted lookup logs, context budget records, isolation records, and excluded test logs only in appendix/deep mode.
 
 render_private_tools
   Render local calculators only from approved specs, with blank inputs and no storage by default.
 
 render_appendices
-  Include citation index, data gaps, decision log, artifact index, and methodology notes only when triggered.
+  Include citation index, key confirmations, decision log, artifact index, source governance, and method notes only when triggered.
 
 quality_gate
-  Run coverage, privacy, citation, layout, accessibility, and offline checks.
+  Run coverage, privacy, citation, layout, accessibility, offline, and direct-report language checks.
 ```
 
 ## Executive Summary Rules
 
-## Input Boundary Rules
+## GTM Judgment Cover Rules
 
-The input boundary is a compact trust/context strip at the top of the report. It should answer:
+The judgment cover is the first screen of the report. It should answer:
 
 ```text
-What product, country, price band, and run mode is this report analyzing?
-Which product claims/specs were supplied by the user?
-Which commercial inputs were supplied or missing: MKT budget, channels, previous generation, benchmark competitors, brand positioning?
-Which evidence sources were actually collected: web, local ecommerce, local search terms, reviews, forums, video comments, private NSS/NPS?
-Which private inputs were intentionally excluded from the public HTML: COGS, margin, channel terms, internal sales, raw private materials?
-Which 3-5 missing inputs most limit the executive summary?
+Should the local team enter, defend, launch cautiously, validate first, or pause?
+Which product benefit should lead?
+Which segment should be prioritized first?
+Which named local channel or touchpoint should be the must-win route?
+How should price or offer be defended?
+Which competitor or internal ladder threat matters most?
+What is the recommended MKT budget posture?
+Which single uncertainty would change the recommendation?
 ```
 
 Display rules:
 
-- Place the input boundary at the very top, before the main management summary or as a slim strip inside the summary band.
-- Keep it visually compact: 4-6 small cards, chips, or a single dense table row.
-- Use status labels such as `已提供`, `未提供`, `系统推断`, `仅样例`, `私密未嵌入`, or `需要补充`.
-- Do not render the full product-spec list when it is long; show grouped chips and move detail to an appendix or expandable table.
-- Do not expose raw private values.
+- Place the judgment cover at the very top, before the executive summary.
+- Use 4-7 business cards: `GTM判断`, `首要打法`, `先打人群`, `Must-win渠道`, `价格/Offer`, `竞品威胁`, `会改变结论的问题`.
+- Avoid cards whose main purpose is to show `已确认输入`, `证据覆盖`, `私密数据边界`, or `来源记录`.
+- Product/country/price inputs may appear only as small context inside the title or note, not as lead cards.
+- Evidence coverage appears beside the relevant conclusion as a confidence/citation badge. It does not get its own top module.
+- Private-data handling appears only in pricing/private-calculator sections or source-governance appendix, unless missing private data blocks a conclusion.
 
 ## Executive Summary Rules
 
-The executive summary is a management decision surface, not a workflow recap. It should answer:
+The executive summary is a GTM decision surface, not a workflow recap. It should answer:
 
 ```text
 How much can this product sell per week?
@@ -98,7 +101,7 @@ Why, based on market space, brand strength, price competitiveness, and product c
 What simple marketing spend and budget posture is recommended?
 Which channels should be prioritized, and what is each channel capable of contributing?
 Which competitors matter most, where are they stronger/weaker, and how should the launch respond?
-What evidence gaps could materially change the answer?
+What questions could materially change the answer?
 ```
 
 Required views:
@@ -120,7 +123,7 @@ competitor_response_summary
   Summarize the top competitors/substitutes with advantage, weakness, decision threat, price pressure, proof gap, and recommended response. Use S01 local search term map, competitor candidate scoring, user calibration status, competitor threat, S03 objection/proof maps, and S04 price corridor.
 
 confidence_and_next_validation
-  Show the top 3 data gaps or S13 tests that could change the weekly sales, channel, budget, or competitor-response recommendation.
+  Show the top 3 key confirmations or validation tests that could change the weekly sales, channel, budget, or competitor-response recommendation.
 ```
 
 Use only these inputs:
@@ -132,7 +135,7 @@ S01 competitor, channel, product-fit, and local-market outputs
 S03 feature-benefit-proof and objection outputs
 S04 price corridor, WTP, and price-risk outputs
 S08 forecast, marketing response, channel readiness, and sensitivity outputs
-S13 validation roadmap and decision gates
+validation roadmap and decision gates
 pricing_decision_gate.status
 data_gap_log.high_severity_items
 confidence_badge_map
@@ -145,6 +148,7 @@ Do not:
 - Hide high-severity blockers.
 - Write final pricing, demand, compliance, or financial approval language.
 - Show skill-chain process notes in the main executive summary.
+- Show report audience labels, skill IDs, handoff mechanics, module coverage, or isolation audit in the main executive summary.
 - Present expected weekly sales as a precise number without range, confidence label, and evidence/source note.
 
 ## Component Types
@@ -162,7 +166,7 @@ charts
 visual_blocks
   Preferred structured visuals for S01-S08: status_panel, ranked_bar, matrix_heatmap, and range_chart. These must remain data-backed and labeled.
   If upstream sends a method-level alias, map it only when the data shape is compatible. Otherwise render a table and add `missing_visual_block`.
-  For S13 validation_roadmap, the main body should show Validation Input Coverage Gate, Experiment Priority Scorecard, Assumption Risk vs Test Feasibility, Timeline And Decision Unlock Map, Validation Decision Gate, and Experiment Portfolio By Module when provided.
+  For `validation_roadmap`, the main body should show validation input coverage, priority, assumption risk versus test feasibility, timeline and decision unlocks, validation decision gate, and experiment portfolio by business question when provided.
 
 callouts
   Use for blockers, key decisions, caveats, privacy notices, and next actions.
@@ -264,6 +268,7 @@ Acceptance rules:
 - single-file HTML
 - no external script, stylesheet, font, analytics, telemetry, fetch, or network dependency
 - Chinese dashboard structure and section labels by default
-- visible module coverage, data-gap audit, citation/index treatment, S13 validation roadmap, and post-skill isolation audit
+- visible GTM execution summary, key-confirmation panel, citation/index treatment, validation plan, and optional source-governance appendix
 - private pricing calculator has blank local-only inputs
 - S14 does not change upstream findings or create missing analysis
+- skill IDs, handoff mechanics, module coverage, and isolation audit stay out of the main report body unless the user requests a method/audit appendix

@@ -246,6 +246,105 @@ Segment Threat Score =
 + Switching Barrier * 0.10
 ```
 
+## TOP1 Competitor Proof Board
+
+The dashboard must be able to prove why one competitor is treated as TOP1. Use
+this board for the executive comparison surface. It is narrower than the full
+competitor map: it explains the highest local threat for GTM decisions.
+
+```text
+TOP1 Competitor Proof Score =
+  Price Pressure * 0.25
++ Feature Substitution * 0.20
++ Local Channel Overlap * 0.20
++ Voice / Review Evidence * 0.15
++ Ecosystem Or Lock-In Strength * 0.10
++ Decision Journey Interception * 0.10
+```
+
+Factor definitions:
+
+```text
+Price Pressure
+  How strongly the competitor compresses perceived value through lower street
+  price, promotion, installment, bundle, or previous-generation discount.
+
+Feature Substitution
+  How many lead jobs, benefits, and comparison criteria it can satisfy for the
+  same target segment.
+
+Local Channel Overlap
+  How often it appears in the same local retailers, marketplaces, operators,
+  price-comparison sites, review pages, or search journeys.
+
+Voice / Review Evidence
+  Depth, recency, and source quality of local consumer, forum, review, and
+  specialist-media discussion.
+
+Ecosystem Or Lock-In Strength
+  Phone/app/platform/service/warranty/community advantages that make switching
+  harder.
+
+Decision Journey Interception
+  Ability to appear at discovery, active evaluation, purchase, setup, or
+  post-purchase proof moments before the user's product can close the decision.
+```
+
+Required output:
+
+```json
+{
+  "top1_competitor_proof_board": {
+    "selected_top1_candidate_id": "",
+    "selected_top1_name": "",
+    "selection_status": "reviewed | auto_selected_with_caveats | hypothesis_only | blocked",
+    "score_formula": "price_pressure_25 + feature_substitution_20 + local_channel_overlap_20 + voice_review_evidence_15 + ecosystem_lockin_10 + decision_journey_interception_10",
+    "factor_scores": [
+      {
+        "factor": "price_pressure | feature_substitution | local_channel_overlap | voice_review_evidence | ecosystem_lockin | decision_journey_interception",
+        "score_0_100": 0,
+        "weight": 0,
+        "weighted_score": 0,
+        "evidence_level": "direct_evidence | cross_source_evidence | internal_evidence | model_inference | weak_hypothesis | needs_validation",
+        "evidence_refs": [],
+        "calculation_note": "",
+        "confidence": "high | medium | low | hypothesis_only"
+      }
+    ],
+    "total_score_0_100": 0,
+    "why_this_is_top1": "",
+    "why_not_other_candidates": [
+      {
+        "candidate_id": "",
+        "candidate_name": "",
+        "score_0_100": 0,
+        "reason_not_top1": "",
+        "segment_or_price_tier_exception": ""
+      }
+    ],
+    "previous_generation_or_internal_risk_split": "",
+    "segment_exceptions": [],
+    "local_team_implication": "",
+    "evidence_refs": [],
+    "data_gaps": [],
+    "confidence": "high | medium | low | hypothesis_only"
+  }
+}
+```
+
+Rules:
+
+- TOP1 is not always the cheapest product; it is the strongest local decision
+  threat after the weighted proof board.
+- Previous generation and internal price-ladder risks can outrank TOP1 for a
+  segment, but they should be labeled separately as `previous_generation`,
+  `internal_benchmark`, or `price_ladder_risk`.
+- If the user confirms a TOP1 candidate with weak local evidence, keep the
+  choice but set `selection_status` to `hypothesis_only` or
+  `auto_selected_with_caveats`.
+- Show 5-10 alternatives in the review list when mode and review gate allow it;
+  the board should explain why the selected TOP1 beats those alternatives.
+
 ## Evidence Requirement
 
 A top competitor must have at least two local evidence signals unless it is explicitly marked as a hypothesis.

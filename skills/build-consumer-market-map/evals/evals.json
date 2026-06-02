@@ -8,6 +8,8 @@
         "localized source discovery",
         "category selling point map",
         "competitor candidate review list",
+        "top1_competitor_proof_board",
+        "competitive_bain_voice_board",
         "VOC source weighting",
         "hardware current-state readiness inputs",
         "evidence snapshot refs",
@@ -17,7 +19,8 @@
         "claim precise TAM without assumption tree",
         "present NPS proxy as surveyed NPS",
         "omit local language search terms",
-        "select final competitors without review gate"
+        "select final competitors without review gate",
+        "claim TOP1 competitor without weighted local proof"
       ]
     }
   ]

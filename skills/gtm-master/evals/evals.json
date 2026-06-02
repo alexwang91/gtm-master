@@ -10,13 +10,24 @@
         "build Project Brief",
         "use methodology-crosswalk.yaml",
         "handoff-only runtime",
-        "post_skill_isolation_record"
+        "post_skill_isolation_record",
+        "hardware-launch-execution-playbook.md",
+        "direct report language gate",
+        "gtm_judgment_cover",
+        "gtm_command_center",
+        "channel_war_room",
+        "launch_calendar"
       ],
       "must_not_include": [
         "require optional private files before starting",
         "open all upstream full artifacts by default",
         "show S14 as a visible business module",
-        "skip evals or quality gates"
+        "skip evals or quality gates",
+        "write the final HTML like a workflow log",
+        "show report audience labels in the main report",
+        "lead the report with input coverage or private-data boundary proof",
+        "use contrastive wording such as 而不是 or 不是...而是 in dashboard-facing conclusions",
+        "make absolute recommendations without evidence scope or validation caveats"
       ]
     }
   ]

@@ -1,4 +1,4 @@
-# S01-S04 Display Contract
+﻿# S01-S04 Display Contract
 
 Use this when rendering the first complete GTM dashboard from S01-S04. This file decides what must appear in the main report, what appears only when triggered, what belongs in appendices, and which display format best fits each output.
 
@@ -125,8 +125,8 @@ S01 answers: What is the local market reality, who matters, where demand lives, 
 1. Market confidence and evidence coverage with visible source identities
 2. Product capability to local selling-point fit across enough adjacent/similar category drivers
 3. Local language and search trigger map
-4. Competitor/substitute threat and price landscape
-5. Consumer voice themes and NSS/NPS proxy seed, large enough to guide marketing under fixed product constraints
+4. Competitor/substitute threat, TOP1 proof board, and price landscape
+5. Consumer voice themes, competitive Bain/NPS proxy board, and NSS/NPS proxy seed, large enough to guide marketing under fixed product constraints
 6. TOP1 competitor and previous-generation voice deep dive with visible collection coverage, Bain/NSS/NPS seeds, and hardware journey scoring
 7. Segment priority and segment evidence strength as an initial ranking, not a final segmentation decision
 8. Channel/touchpoint and retailer/marketplace candidates
@@ -161,7 +161,7 @@ S01 answers: What is the local market reality, who matters, where demand lives, 
     "primary_visual": "competitor_threat_2x2_or_ranked_table",
     "fallback_visual": "comparison_table",
     "core_point": "Who are the real local competitors and substitutes, and why do they threaten the launch?",
-    "show_fields": ["top_competitors_and_substitutes", "competitor_candidate_scoring", "competitor_threat_scores", "substitute_taxonomy", "competitor_candidate_review_list", "competitor_discovery_query_trace", "user_calibration_status"],
+    "show_fields": ["top_competitors_and_substitutes", "competitor_candidate_scoring", "top1_competitor_proof_board", "competitor_threat_scores", "substitute_taxonomy", "competitor_candidate_review_list", "competitor_discovery_query_trace", "user_calibration_status"],
     "do_not_show_by_default": ["full_candidate_pool_if_not_selected"]
   },
   {
@@ -179,7 +179,7 @@ S01 answers: What is the local market reality, who matters, where demand lives, 
     "primary_visual": "voice_theme_panel_plus_selling_point_marketing_watchout_matrix",
     "fallback_visual": "theme_cluster_cards",
     "core_point": "Given that the product is fixed, what should marketing emphasize, prove, avoid, or localize based on local consumer praise, complaints, and buying proof?",
-    "show_fields": ["local_voice_source_map", "voice_storage_compression_policy", "top1_previous_generation_voice_scope", "voice_collection_coverage_report", "bain_nss_journey_seed_panel", "consumer_voice_processing_summary", "voice_theme_clusters", "pain_theme_clusters", "purchase_triggers", "objections", "nss_nps_proxy_source_mix", "nps_driver_tornado_seed", "bain_driver_inputs", "journey_episode_inputs", "selling_point_voice_alignment", "marketing_watchouts_for_fixed_product", "proof_required_before_claim"],
+    "show_fields": ["local_voice_source_map", "voice_storage_compression_policy", "top1_previous_generation_voice_scope", "voice_collection_coverage_report", "bain_nss_journey_seed_panel", "competitive_bain_voice_board", "consumer_voice_processing_summary", "voice_theme_clusters", "pain_theme_clusters", "purchase_triggers", "objections", "nss_nps_proxy_source_mix", "nps_driver_tornado_seed", "bain_driver_inputs", "journey_episode_inputs", "selling_point_voice_alignment", "marketing_watchouts_for_fixed_product", "proof_required_before_claim"],
     "do_not_show_by_default": ["voice_atom_table_full", "full_comment_dump"]
   },
   {
@@ -224,6 +224,9 @@ category_selling_points_and_local_language
 local_search_and_competitor_discovery
   Show the bridge from local search terms to sources/channels to candidate competitors to user calibration. Search trends are only directional language signals; competitor candidates should remain preliminary until the user confirms include/exclude/add decisions. Render dense search/competitor tables as full-width blocks when they have more than six columns.
 
+top1_competitor_proof_board
+  The report must explain why the selected competitor is TOP1 using the weighted proof formula from S01: price pressure, feature substitution, local channel overlap, voice/review evidence, ecosystem lock-in, and decision-journey interception. Show the selected competitor, 5-10 alternative candidates when available, the factor scores, and exceptions where previous generation or internal price-ladder risk is more important for a segment.
+
 local_voice_sources
   Show named local consumer-voice sources before showing themes: source name, URL when available, source type, access status, collection role, evidence quality, raw artifact ref, and downstream use. Raw comments stay in local artifacts; the dashboard shows source coverage, short permitted excerpts, compressed clusters, sample counts, and data gaps.
 
@@ -232,6 +235,9 @@ top1_previous_generation_voice_deep_dive
 
 consumer_voice_bain_hardware_journey
   Keep Bain/NSS/NPS method consistent: source-item-level promoter/passive/detractor classification, deduped voice atoms, Driver Impact Score, and journey episode inputs. Adapt journey labels to hardware decisions such as purchase, delivery, unboxing, setup/pairing, first use, first 7 days, app experience, support/return, and repurchase/referral. Show pain, praise, purchase triggers, objections, and marketing implications together.
+
+competitive_bain_voice_board
+  Render a lane-based comparison for our product, TOP1 competitor, and previous generation or internal benchmark when available. If our product has no pre-launch voice, show the proof agenda and expected objections instead of inferred sentiment. Label the board `NPS Proxy / Bain VOC` unless surveyed NPS/NSS exists.
 
 price_landscape_seed
   Make the price view easy to read: show a horizontal ladder with low/mid/target/premium zones, target price overlay, top competitor anchors, jump-down options, jump-up options, and a short interpretation. Use a table below only for details.
@@ -392,8 +398,9 @@ S03 answers: What should the product say to each segment, what proof is required
 5. Objection handling matrix
 6. Claim risk and proof gate as a local PR guide
 7. Local language message seeds
-8. Price message seeds for S04/S05/S07/S13 execution
-9. Message test backlog when confidence is weak
+8. Selling-point ranking with target segment, touchpoint channel, creator/media carrier, and budget signal
+9. Price message seeds for S04/S05/S07/S13 execution
+10. Message test backlog when confidence is weak
 ```
 
 ### S03 Recommended Main Views
@@ -435,6 +442,15 @@ S03 answers: What should the product say to each segment, what proof is required
     "core_point": "Which features can credibly support which benefits, and where is proof missing?",
     "show_fields": ["feature_benefit_proof_matrix", "proof_status", "proof_asset_refs", "claim_risk", "proof_gap", "recommended_proof_asset", "s13_validation_task"],
     "do_not_show_by_default": ["unsupported claim variants"]
+  },
+  {
+    "module": "selling_point_segment_touchpoint_kol_seed",
+    "display_tier": "executive_layer",
+    "primary_visual": "ranked_route_table_or_swimlane",
+    "fallback_visual": "ranked_table",
+    "core_point": "Which selling points should lead, which segment they serve, which touchpoints carry them, and which KOL/media archetype or candidate source should prove them?",
+    "show_fields": ["selling_point_rank", "feature_or_capability", "benefit", "target_segment", "jtbd_scenario", "local_language_terms", "touchpoint_channels", "recommended_mkt_carrier_archetype", "candidate_or_source_hint", "budget_signal", "expected_signal", "proof_dependency", "confidence"],
+    "do_not_show_by_default": ["final_kol_contracting", "unverified_creator_rates", "final_media_plan"]
   },
   {
     "module": "objection_and_do_not_claim",
@@ -487,6 +503,9 @@ segment_message_architecture
 feature_benefit_proof_matrix
   Avoid making every proof view another heatmap. Use a Proof Stack or Claim Readiness Ladder when possible: feature -> benefit -> proof asset -> readiness -> claim boundary -> validation task. This gives stronger viewpoint than a generic matrix and makes missing proof feel actionable.
 
+selling_point_segment_touchpoint_kol_seed
+  This is the bridge the local MKT team can execute. Each row should connect a product selling point to a priority segment/JTBD, local phrase, touchpoint channel, recommended carrier archetype, provisional candidate/source hint, rough budget signal, and expected validation signal. Candidate names are allowed only as provisional evidence-backed hints until S06 or user review approves them.
+
 claim_risk_and_proof_gate
   Keep this as local PR guidance. It should say which claims are safe, which need cautious wording, which require proof/review, and which should be avoided in PR, retail scripts, creator briefs, landing pages, and paid ads.
 
@@ -516,14 +535,15 @@ S04 answers: What price should the product open with, whether it should use high
 3. Launch price architecture: public anchor, transaction range, promo floor, channel floor, revenue-max, profit-max
 4. Local price credibility and target price context
 5. Rapid WTP prior with factor weights when real WTP or sales evidence is unavailable
-6. Segment WTP hypotheses and price sensitivity
-7. Price-value proof matrix
-8. Price risk guardrails
-9. WTP/pricing test plan
-10. Promo/subscription/channel guidance
-11. Private profit/revenue optimizer and pricing calculator when specified
-12. 30/60/90 price path
-13. Handoff summary to S07/S08/S13
+6. WTP direct conclusion: whether the target price can be defended, for whom, and with which proof or offer
+7. Segment WTP hypotheses and price sensitivity
+8. Price-value proof matrix
+9. Price risk guardrails
+10. WTP/pricing test plan
+11. Promo/subscription/channel guidance
+12. Private profit/revenue optimizer and pricing calculator when specified
+13. 30/60/90 price path
+14. Handoff summary to S07/S08/S13
 ```
 
 ### S04 Recommended Main Views
@@ -574,6 +594,15 @@ S04 answers: What price should the product open with, whether it should use high
     "core_point": "When there is no real WTP study, what quantified prior can we defend, and which weak factors must S13 calibrate?",
     "show_fields": ["rapid_price_prior", "rapid_wtp_prior_score", "wtp_prior_range", "factor_scores", "evidence_grade", "confidence_cap", "calibration_plan"],
     "do_not_show_by_default": ["synthetic_persona_votes", "fake_precision_wtp"]
+  },
+  {
+    "module": "wtp_direct_conclusion",
+    "display_tier": "executive_layer",
+    "primary_visual": "verdict_card_plus_segment_table",
+    "fallback_visual": "callout_plus_ranked_table",
+    "core_point": "What is the direct WTP answer: defend the price, defend with proof/offer, reduce effective price, research first, or block the decision?",
+    "show_fields": ["wtp_direct_conclusion", "plain_language_answer", "target_price_defensibility", "segments_that_can_accept", "segments_that_resist", "minimum_proof_or_offer_required", "recommended_opening_posture", "price_move_thresholds", "confidence"],
+    "do_not_show_by_default": ["synthetic_persona_votes", "raw_private_values", "fake_precision_wtp"]
   },
   {
     "module": "segment_wtp_and_sensitivity",
@@ -650,6 +679,16 @@ S04 answers: What price should the product open with, whether it should use high
 ]
 ```
 
+### S04 Display Notes
+
+```text
+wtp_direct_conclusion
+  This is the first thing a commercial reader needs from pricing. It must state whether the target price is defendable, defendable only with proof or offer design, too high for the lead segment, or blocked by evidence gaps. It should name the accepting and resisting segments, the minimum proof/offer required, and the next validation signal. Do not let a detailed WTP model appear without this direct conclusion.
+
+segment_wtp_and_sensitivity
+  Segment WTP rows should explain why a segment tolerates or resists the price: income and affordability context, competitor anchors, previous-generation anchor, product-job urgency, proof readiness, channel norms, and offer availability. Keep public proxy estimates separate from measured WTP.
+```
+
 ### S04 Appendix By Default
 
 ```text
@@ -688,16 +727,16 @@ Before S14 marks an S01-S04 dashboard as complete, verify:
 
 ```text
 S01
-  Evidence coverage, competitor landscape, consumer voice, segment priority, channel map, and price corridor are visible.
+  Evidence coverage, TOP1 proof board, competitor landscape, competitive Bain/NPS proxy board, consumer voice, segment priority, channel map, and price corridor are visible.
 
 S02
   Top scenarios, priority/evidence scores, product-job fit, proof needs, anti-JTBD risks, and local trigger phrases are visible.
 
 S03
-  Segment message architecture, proof matrix, objection matrix, claim risk/proof gate, and local/price message seeds are visible.
+  Segment message architecture, proof matrix, selling-point/segment/touchpoint/KOL seed, objection matrix, claim risk/proof gate, and local/price message seeds are visible.
 
 S04
-  Pricing decision gate, opening price strategy, launch price architecture, price credibility, rapid WTP prior when needed, segment WTP/sensitivity, proof matrix, risk guardrails, test plan, private optimizer/calculator policy, and 30/60/90 price path are visible.
+  Pricing decision gate, opening price strategy, launch price architecture, price credibility, rapid WTP prior when needed, WTP direct conclusion, segment WTP/sensitivity, proof matrix, risk guardrails, test plan, private optimizer/calculator policy, and 30/60/90 price path are visible.
 
 All sections
   Each core conclusion has confidence, evidence refs or citation caveat, data gaps, and downstream implication.

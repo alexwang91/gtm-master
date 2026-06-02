@@ -146,7 +146,7 @@ Use `s01-s04-display-contract.md` to determine which subviews inside `market_con
 
 ```text
 core section missing
-  Show in data gap panel and module coverage. Do not render a fake section.
+  Show in the key-confirmation panel or source-governance appendix. Do not render a fake section or main-body module-coverage table.
 
 core subview missing
   Mark `missing_required_view` in the section data gaps and request upstream enrichment. Do not replace it with generic text or decorative cards.
@@ -160,11 +160,11 @@ future section missing
 
 ## S13 Validation Roadmap Conditional Requirements
 
-S13 is a hidden system capability in the current dashboard. S14 must not render
+The validation roadmap is a hidden planning capability in the current dashboard. S14 must not render
 `validation_roadmap` as a visible main-body section unless the user explicitly
 asks for the validation body, a full gap review, or a future expanded suite
 view. When that condition is met, render the section in Simplified Chinese by
-default and preserve the S13 source refs. The required views are:
+default and preserve source refs. The required views are:
 
 ```text
 Validation Input Coverage Gate -> status_panel

@@ -7,9 +7,15 @@ description: Use when rendering GTM suite report_state, html_section_drafts, evi
 
 ## Role
 
-Use this skill as S14 in the GTM intelligence report suite. It composes upstream section drafts into a polished static HTML dashboard with navigation, executive summary, confidence badges, citations, data gaps, and local-only private calculators.
+Use this skill as S14 in the GTM intelligence report suite. It composes upstream section drafts into a polished static HTML GTM report with navigation, executive summary, confidence badges, citations, key confirmations, and local-only private calculators.
 
 S14 is a render skill, not an analysis skill. It must not invent findings, change upstream conclusions, hide low-confidence outputs, or fill missing modules with fabricated content.
+
+Default Chinese artifact title should be `[Product] [Country/Region] GTM 报告`.
+Do not add `管理层看板` to the title unless the user explicitly requests that
+audience label. The executive summary may still serve leadership, but the report
+artifact should remain usable by local GTM, channel, sales, product, and research
+teams.
 
 ## Required Inputs
 
@@ -38,6 +44,10 @@ High-value inputs:
 }
 ```
 
+`report_audience` is routing metadata. Do not show it as `受众`, `面向对象`, or
+`适用对象` in the main HTML. If context is needed, show `阶段`, `报告用途`, or
+`关键决策` instead.
+
 ## Load Order
 
 Read only what the current task needs:
@@ -56,13 +66,13 @@ Read only what the current task needs:
 
 ```text
 quick
-  Render S01-S08 or available core sections only. Include executive summary, confidence badges, citations, data gaps, and private pricing calculator if supplied.
+  Render S01-S08 or available core sections only. Include executive summary, confidence badges, citations, key confirmations, and private pricing calculator if supplied.
 
 standard
-  Render all available section drafts in the canonical registry order. Include data gaps, decision log summary, citation index, and quality report.
+  Render all available section drafts in the canonical registry order. Include key confirmations, decision log summary, citation index, and quality report.
 
 deep
-  Add appendices for audit refs, artifact index, methodology notes, evidence ledger, validation roadmap, and module coverage.
+  Add appendices for audit refs, artifact index, methodology notes, evidence ledger, validation roadmap, and source-governance records.
 ```
 
 Default to `standard`.
@@ -73,12 +83,13 @@ Core outputs, always produced:
 
 ```text
 render_input_gate
+gtm_judgment_cover
 section_registry_instance
 executive_summary_panel
 dashboard_navigation
 confidence_badge_map
 citation_index
-data_gap_panel
+decision_changing_questions_panel
 full_html_dashboard
 render_quality_report
 ```
@@ -127,7 +138,7 @@ Follow this sequence:
 3. Build executive summary only from upstream executive takeaways and decision updates
 4. Build confidence badge map from section confidence fields and confidence caps
 5. Build citation index from evidence refs; do not invent citation URLs or titles
-6. Build data gap panel from upstream data_gap_log and section-level data gaps
+6. Build decision-changing questions panel from upstream data_gap_log and section-level data gaps
 7. Render sections in canonical order, skipping absent sections with visible coverage notes when important
 8. Render private calculator components only from local-only specs with blank inputs
 9. Render appendices only when triggered
@@ -165,7 +176,7 @@ S14 owns:
 - Section ordering and navigation
 - Visual hierarchy, badges, tables, simple charts, and callouts
 - Citation and evidence index rendering
-- Data gap and decision log rendering
+- Key confirmation and decision log rendering
 - Private local calculator rendering with blank local-only inputs
 - HTML quality gates
 

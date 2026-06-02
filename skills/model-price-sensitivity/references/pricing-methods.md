@@ -109,6 +109,24 @@ WTP hypotheses should identify:
 - Objections that must be resolved
 - Recommended test method
 
+## WTP Direct Conclusion Rule
+
+After building local price credibility, rapid WTP prior, and segment WTP
+hypotheses, S04 must produce `wtp_direct_conclusion`. The conclusion should be
+commercially readable in one pass:
+
+```text
+Can we defend the target price?
+For which segments?
+Which segments will resist and how will they behave?
+What proof, bundle, financing, trade-in, or promo mechanism is required?
+What metric or validation test would change the decision?
+```
+
+If direct WTP research is missing, use the rapid prior and segment evidence to
+make a confidence-capped recommendation. Do not output a precise WTP range when
+only public proxies exist, and do not use AI personas as WTP evidence.
+
 ## Price-Value Proof Matrix
 
 ```json

@@ -30,7 +30,7 @@ report_depth
 report_audience
 ```
 
-Use for title, scope, module coverage, executive summary shell, decision notes, and render depth.
+Use for title, scope, execution-summary shell, decision notes, render depth, and appendix-only source governance. Do not display `report_audience` or module coverage in the main report body.
 
 Missing behavior:
 

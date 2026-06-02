@@ -6,6 +6,7 @@
       "prompt": "Convert prioritized JTBD scenarios into segment messaging for a fixed hardware product with proof gaps.",
       "must_include": [
         "feature-benefit-proof matrix",
+        "selling_point_segment_touchpoint_kol_seed",
         "objection matrix",
         "claim risk and proof gate",
         "local language message seed",
@@ -16,7 +17,8 @@
         "hide proof gaps",
         "rewrite product features as if they can change",
         "approve risky claims",
-        "produce final paid ads"
+        "produce final paid ads",
+        "finalize KOL choices without S06 or user review"
       ]
     }
   ]

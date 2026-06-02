@@ -31,6 +31,8 @@ Minimum S01 visual coverage:
 evidence coverage gate
 product capability to local selling-point fit
 competitor/substitute threat
+TOP1 competitor proof board
+competitive Bain/NPS proxy voice board
 local price corridor seed
 segment priority and evidence strength
 segment channel/touchpoint fit
@@ -60,6 +62,7 @@ If any minimum view is missing, add `missing_required_view` or `rendered_too_thi
     "source_quality_scores",
     "competitor_and_substitute_map",
     "competitor_candidate_review_gate",
+    "top1_competitor_proof_board",
     "competitor_threat_scores",
     "consumer_voice_processing_summary",
     "consumer_opinion_map",
@@ -91,6 +94,7 @@ If any minimum view is missing, add `missing_required_view` or `rendered_too_thi
     "promotion_subscription_sensitivity_seed",
     "price_anchor_and_sensitivity_seed_panel",
     "competitor_nss_nps_comparison_seed",
+    "competitive_bain_voice_board",
     "nps_driver_tornado_seed",
     "journey_episode_nss_seed",
     "earned_growth_proxy_seed",
@@ -141,6 +145,7 @@ If any minimum view is missing, add `missing_required_view` or `rendered_too_thi
     "top_competitors_and_substitutes": [],
     "competitor_candidate_review_list": [],
     "competitor_candidate_review_gate": {},
+    "top1_competitor_proof_board": {},
     "competitor_threat_scores": [],
     "substitute_taxonomy": [],
     "price_ladder_scan": [],
@@ -185,6 +190,7 @@ If any minimum view is missing, add `missing_required_view` or `rendered_too_thi
     "price_complaints": [],
     "nss_nps_proxy_seed_panel": {},
     "competitor_nss_nps_comparison_seed": [],
+    "competitive_bain_voice_board": [],
     "nps_driver_tornado_seed": [],
     "journey_episode_nss_seed": [],
     "earned_growth_proxy_seed": {},
@@ -198,6 +204,7 @@ If any minimum view is missing, add `missing_required_view` or `rendered_too_thi
   "required_downstream_use": [
     "S02 should use voice_atom_refs, source accessibility, comment coverage refs, pain_theme_clusters, purchase_triggers, objections, and segment_seed_pack.",
     "S02 should preserve hardware experience diagnosis and next-generation recommendation seeds when turning consumer evidence into JTBD scenarios.",
+    "S03 should use top1_competitor_proof_board and competitive_bain_voice_board to build competitive contrast, proof requirements, and local message risk.",
     "S04 should use local_price_corridor, price_anchor_panel, competitor price gap table, value proof requirements, promotion/subscription sensitivity seed, competitor threat scores, price complaints, and segment price sensitivity seeds.",
     "S03 should use next-generation marketing and sales seeds only after S02 has connected them to JTBD scenarios and proof needs.",
     "S08 should use tam_sam_som_seed, segment priority ranking, channel touchpoints, channel fit scores, and conversion assumptions.",

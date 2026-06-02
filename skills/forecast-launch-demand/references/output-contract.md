@@ -39,6 +39,13 @@ S08 must produce a full artifact, compressed handoff pack, S14-ready HTML sectio
     "marketing_investment_response_model",
     "budget_posture_model",
     "aarrr_orb_channel_architecture",
+    "local_channel_action_priority",
+    "gtm_judgment_cover",
+    "gtm_command_center",
+    "channel_war_room",
+    "launch_calendar",
+    "measurement_war_room",
+    "competitive_response_playbook",
     "baseline_incremental_sales_bridge",
     "channel_split_forecast",
     "price_conversion_assumption_bridge",
@@ -98,6 +105,13 @@ S08 must produce a full artifact, compressed handoff pack, S14-ready HTML sectio
     "marketing_investment_response_model": {},
     "budget_posture_model": {},
     "aarrr_orb_channel_architecture": [],
+    "local_channel_action_priority": [],
+    "gtm_judgment_cover": {},
+    "gtm_command_center": {},
+    "channel_war_room": [],
+    "launch_calendar": [],
+    "measurement_war_room": [],
+    "competitive_response_playbook": [],
     "baseline_incremental_sales_bridge": [],
     "channel_split_forecast": [],
     "price_conversion_assumption_bridge": {},
@@ -133,7 +147,7 @@ S08 must produce a full artifact, compressed handoff pack, S14-ready HTML sectio
   "required_downstream_use": [
     "S09 should use sales and channel scenarios as exposure context, not as guaranteed user volume.",
     "S13 should convert sensitivity drivers, confidence caps, and validation_need_map into prioritized validation experiments.",
-    "S14 should render scenario ranges, confidence caveats, inventory risk, and data gaps without hiding assumptions."
+    "S14 should render scenario ranges, command center, channel war room, launch calendar, measurement war room, confidence caveats, inventory risk, and data gaps without hiding assumptions."
   ],
   "do_not_reopen": [
     "Do not treat TAM/SAM/SOM seeds as forecasted launch units.",
@@ -194,6 +208,100 @@ S08 must produce a full artifact, compressed handoff pack, S14-ready HTML sectio
       "risk_notes": [],
       "confidence": "high | medium | low | hypothesis_only",
       "evidence_refs": []
+    }
+  ],
+  "local_channel_action_priority": [
+    {
+      "channel_name": "",
+      "channel_type": "brand_dtc | retailer_ecommerce | offline_retail | marketplace | operator | distributor | retail_media | affiliate | creator | other",
+      "priority_rank": 0,
+      "role_in_gtm": "awareness | proof | comparison | conversion | installment_or_bundle | retail_availability | aftersales_trust | measurement | other",
+      "why_priority": "",
+      "capability_score_0_100": 0,
+      "segment_fit": [],
+      "budget_percent_seed": 0,
+      "budget_amount_seed": {"min": 0, "max": 0, "currency": ""},
+      "expected_signal": "reach | visits | clickouts | orders | sell_through | search_lift | review_volume | conversion_rate | channel_feedback | other",
+      "expected_signal_range": "",
+      "required_asset_or_proof": [],
+      "owner_hint": "local_mkt | ecommerce | retail_sales | operator_sales | pr | creator_manager | finance | product | research",
+      "validation_or_tracking_method": "",
+      "confidence": "high | medium | low | hypothesis_only",
+      "evidence_refs": [],
+      "data_gaps": []
+    }
+  ],
+  "gtm_command_center": {
+    "objective": "",
+    "target_segment": "",
+    "hero_claim": "",
+    "price_or_offer_position": "",
+    "top_competitor_threat": "",
+    "expected_weekly_sales_range": {"min": 0, "max": 0, "unit": ""},
+    "mkt_budget_posture": "",
+    "must_win_channel": "",
+    "main_risk": "",
+    "confidence": "high | medium | low | hypothesis_only",
+    "evidence_refs": []
+  },
+  "gtm_judgment_cover": {
+    "judgment": "enter | defend | cautious_launch | validate_first | pause | unknown",
+    "judgment_label": "",
+    "core_recommendation": "",
+    "opening_move": "",
+    "priority_segment": "",
+    "must_win_channel": "",
+    "price_or_offer_stance": "",
+    "top_competitor_threat": "",
+    "budget_posture": "",
+    "decision_changing_question": "",
+    "confidence": "high | medium | low | hypothesis_only",
+    "evidence_refs": []
+  },
+  "channel_war_room": [
+    {
+      "channel_name": "",
+      "channel_role": "awareness | proof | comparison | conversion | installment | availability | service_trust | measurement",
+      "priority_rank": 0,
+      "launch_readiness": "ready | partial | blocked | unknown",
+      "budget_percent_seed": 0,
+      "required_asset_or_proof": [],
+      "first_week_kpi": "",
+      "owner_hint": "local_mkt | ecommerce | retail_sales | operator_sales | pr | creator_manager | finance | product | research",
+      "confidence": "high | medium | low | hypothesis_only",
+      "evidence_refs": []
+    }
+  ],
+  "launch_calendar": [
+    {
+      "window": "T-30 | T-14 | T-7 | T0 | T+7 | T+30",
+      "workstream": "PR | KOL | retail | ecommerce | DTC | operator | service | supply | measurement",
+      "action": "",
+      "owner_hint": "",
+      "required_asset": "",
+      "kpi_or_exit_signal": "",
+      "risk_if_missing": "",
+      "confidence": "high | medium | low | hypothesis_only"
+    }
+  ],
+  "measurement_war_room": [
+    {
+      "metric": "",
+      "cadence": "daily | twice_weekly | weekly",
+      "owner_hint": "",
+      "why_it_matters": "",
+      "decision_trigger": "",
+      "data_source": ""
+    }
+  ],
+  "competitive_response_playbook": [
+    {
+      "competitor_move": "price_drop | bundle | review_push | retailer_promo | claim_attack | stock_advantage | ecosystem_push",
+      "early_signal": "",
+      "recommended_response": "",
+      "budget_or_margin_impact": "",
+      "approval_needed": "",
+      "confidence": "high | medium | low | hypothesis_only"
     }
   ],
   "lifecycle_phase_sales_curve": [

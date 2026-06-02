@@ -17,6 +17,8 @@ workflow.
 | ads | Platform selection, retargeting, creative testing hierarchy, CPA/ROAS review | Use as MKT investment and channel testing logic, not as guaranteed sales forecast. |
 | analytics | Tracking plan, event naming, validation checklist | Convert to launch measurement readiness, retailer/DTC split, UTM, and sell-in/sell-through tracking. |
 | sales-enablement | Objection docs, one-pagers, ROI/value props | Convert to retail guide, operator pitch, KAM one-pager, and channel objection handling. |
+| consumer-decision-journey | Consideration, evaluation, purchase, post-purchase experience, loyalty loop | Use as the journey backbone for local search terms, competitor interception, proof assets, retail/PDP moments, setup/use experience, and earned review/referral signals. |
+| retail-market-measurement | Price, availability, retail presence, shopper touchpoints, and market signal triangulation | Use to distinguish local market facts from model inference: named retailers, price-comparison sites, official channels, marketplaces, reviews, forums, video comments, and user-supplied sell-through data. |
 
 ## Things Not Directly Reused
 

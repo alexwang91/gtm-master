@@ -30,7 +30,7 @@ GTM Master Run
 |   +-- Report State
 |-- S01 build-consumer-market-map [visible]
 |   |-- Local market and evidence base
-|   |-- Local source, access, competitor, price, voice, segment, channel, TAM/SAM/SOM seeds
+|   |-- Local source, access, TOP1 proof, price, voice, segment, channel, TAM/SAM/SOM seeds
 |   +-- Handoff to S02, S04, S08, S14
 |-- S02 mine-jtbd-scenarios [visible]
 |   |-- JTBD scenarios and Four Forces switching dynamics
@@ -38,18 +38,18 @@ GTM Master Run
 |   +-- Handoff to S03, S04, S13, S14
 |-- S03 match-messages-to-segments [visible]
 |   |-- Message architecture
-|   |-- Feature-benefit-proof, objections, claim risk, local-language seeds
+|   |-- Feature-benefit-proof, objections, claim risk, local-language, touchpoint, KOL/media seeds
 |   +-- Handoff to S04, S05, S06, S07, S14
 |-- S04 model-price-sensitivity [visible]
 |   |-- Opening price strategy and price credibility
-|   |-- WTP hypothesis, rapid price prior, tests, private calculator spec
+|   |-- WTP direct conclusion, rapid price prior, tests, private calculator spec
 |   +-- Handoff to S07, S08, S13, S14
 |-- Optional prelaunch branches
 |   |-- S05 score-creative-assets [conditional]
 |   |-- S06 score-kol-fit [conditional]
 |   +-- S07 predict-dtc-conversion [conditional]
 |-- S08 forecast-launch-demand [visible]
-|   |-- Launch unit forecast, channel split, MKT response, budget posture, inventory risk
+|   |-- Launch unit forecast, named channel priority, MKT response, budget posture, inventory risk
 |   +-- Handoff to S09, S13, S14
 |-- Conditional product-risk branches
 |   |-- S09 predict-activation-risk [conditional]
@@ -69,13 +69,21 @@ GTM Master Run
 
 ```text
 Final HTML Dashboard
-|-- Compact input and readiness strip
-|-- Management executive summary
+|-- GTM judgment cover
+|   |-- Enter / defend / cautious launch / validate-first / pause judgment
+|   |-- Core recommendation
+|   |-- Opening move
+|   |-- Priority segment
+|   |-- Must-win named channel
+|   |-- Price or offer stance
+|   |-- TOP1 competitor or internal ladder threat
+|   +-- Decision-changing question
+|-- GTM decision summary
 |   |-- Expected weekly sales range
 |   |-- MKT spend posture and budget caveats
 |   |-- Named channel priority and channel capability
 |   |-- Core competitor strengths, weaknesses, and response
-|   +-- Top validation or data-gap action
+|   +-- Top validation action
 |-- Market and localization section from S01
 |-- JTBD / scenario / consumer voice section from S02
 |-- Message architecture section from S03
@@ -83,7 +91,8 @@ Final HTML Dashboard
 |-- Optional copy / creator / conversion sections from S05-S07
 |-- Launch forecast section from S08
 |-- Conditional risk or post-launch sections from S09-S12
-|-- Data gaps, citations, evidence index, and isolation audit
+|-- Questions that would change the conclusion, citations, and evidence index
+|-- Source governance appendix only when requested or needed
 +-- Local-only private calculator components when supplied
 ```
 
@@ -122,6 +131,7 @@ Role: visible. S01 builds the target-country market fact layer.
 - `competitor_substitute_map`: direct competitors, substitutes, premium anchors, budget anchors, previous generation, and ecosystem anchors.
 - `competitor_candidate_review_list`: 5-10 candidate competitors/substitutes for user include/exclude/unsure review.
 - `competitor_candidate_review_gate`: user or system review status before deep voice mining, with include/exclude/unsure decisions and unresolved gaps.
+- `top1_competitor_proof_board`: weighted proof board explaining why the selected TOP1 competitor outranks alternatives, with previous-generation/internal risk split.
 - `competitor_threat_scores`: scored competitor threat with overlap, price, channel, review, brand, feature, and switching-barrier factors.
 - `substitute_taxonomy`: non-direct alternatives, workarounds, refurbished/used products, delayed purchase, and non-consumption choices.
 - `price_ladder_scan`: local price tiers and jump-band risks across budget, mainstream, premium, flagship, used, and substitute options.
@@ -162,6 +172,7 @@ Role: visible. S01 builds the target-country market fact layer.
 - `user_provided_price_hypotheses`: user price assumptions preserved with evidence status.
 - `nss_nps_proxy_seed_panel`: surveyed/proxy status, source mix, confidence, and directional promoter/detractor view.
 - `competitor_nss_nps_comparison_seed`: competitor comparison using surveyed or proxy voice evidence.
+- `competitive_bain_voice_board`: lane-based NPS Proxy / Bain VOC comparison for our product, TOP1 competitor, and previous generation or internal benchmark.
 - `nps_driver_tornado_seed`: ranked drivers that may move recommendation or detractor drag.
 - `journey_episode_nss_seed`: NSS/NPS-like signals by hardware journey episode.
 - `earned_growth_proxy_seed`: directional organic, referral, repeat, community, and detractor-drag readiness.
@@ -212,6 +223,10 @@ Role: visible. S03 creates the message architecture, not final advertising copy.
 - `claim_risk_and_proof_gate`: available, partial, missing, or risky claims and required review.
 - `local_language_message_seed`: local wording seeds and phrases to preserve.
 - `price_message_seed`: price/value framing seeds for S04.
+- `selling_point_segment_touchpoint_kol_seed`: ranked selling-point routes connecting feature, benefit, segment/JTBD, local phrase, touchpoint channel, MKT carrier, budget signal, and expected validation signal.
+- `hero_message_proof_asset_pack`: direct report-ready hero claim, support claims, proof assets, proof gaps, and local language terms that should appear in PDP, retail, PR, and KOL briefs.
+- `sales_enablement_pack`: retailer/operator/ecommerce/support talk tracks, objection cards, demo needs, competitor battlecard refs, and claims to avoid.
+- `retail_pdp_ready_pack`: title/search terms, hero proof, comparison table needs, FAQ, warranty/return/payment messages, and review-generation plan.
 - `message_market_fit_scorecard`: scored message fit by segment, proof, objection, channel, and risk.
 - `competitive_contrast_matrix`: factual competitor contrast and response direction.
 - `behavioral_lever_message_seed`: message applications of behavioral levers from S02.
@@ -231,6 +246,7 @@ Role: visible. S04 creates pricing hypotheses, tests, and local/private calculat
 - `launch_price_architecture`: public anchor, transaction range, offer mechanism, promo floor, channel floor, and calculation mode.
 - `local_price_credibility_model`: target price credibility versus local anchors, proof, trust, affordability, and channel norms.
 - `rapid_price_prior`: quantitative WTP prior when direct research is unavailable.
+- `wtp_direct_conclusion`: plain GTM answer on whether the target price can be defended, for whom, with what proof/offer, and what validation signal changes the decision.
 - `segment_wtp_hypothesis`: acceptable range, premium tolerance, proof need, objection, and test method by segment.
 - `price_sensitivity_model`: directional sensitivity factors and confidence caps.
 - `price_value_proof_matrix`: which value arguments and proof are required for each price position.
@@ -296,6 +312,8 @@ Role: conditional. Run when creator/KOL/expert/reviewer decisions matter.
 - `candidate_content_proof_fit`: candidate ability to communicate required proof.
 - `platform_relevance_map`: local platform relevance and format fit.
 - `creator_recommendation_rationale`: detailed reasons, counter-reasons, risks, and confidence.
+- `local_creator_execution_table`: local candidate or archetype action rows with rationale, budget range, expected signal, timing, owner, disclosure risk, and evidence basis.
+- `content_seeding_wave_plan`: expert-review, comparison, lifestyle creator, community/forum, retail-media, and owner-review waves tied to proof needs and first-sale timing.
 - `creator_budget_estimate`: conservative/base/upside marketing budget ranges.
 - `creator_expected_outcome_estimate`: expected visits, interactions, engagement quality, traffic, or tracked intent ranges.
 - `creator_budget_expectation_confidence`: confidence and basis for budget/outcome estimates.
@@ -375,6 +393,13 @@ Role: visible. S08 forecasts launch unit sales and decision ranges.
 - `marketing_investment_response_model`: MKT spend response, adstock/saturation, and spend-to-sales bridge.
 - `budget_posture_model`: conservative, standard, or aggressive launch budget posture with revenue-based, goal-based, and blended CAC checks.
 - `aarrr_orb_channel_architecture`: hardware AARRR stage map joined to Owned/Rented/Borrowed channel roles and named local channel responsibilities.
+- `local_channel_action_priority`: named local channel priority with role, capability score, budget seed, expected signal, required proof asset, owner, and tracking method.
+- `gtm_judgment_cover`: first-screen commercial judgment with launch posture, core recommendation, opening move, priority segment, must-win channel, price/offer stance, competitor threat, budget posture, and decision-changing question.
+- `gtm_command_center`: compact launch decision board with objective, hero claim, expected weekly sales, MKT posture, must-win channel, top competitor threat, and main risk.
+- `channel_war_room`: named channel action table with readiness, owner, budget seed, first-week KPI, and required proof/asset.
+- `launch_calendar`: T-30/T-14/T-7/T0/T+7/T+30 launch workstream plan for PR, KOL, retail, ecommerce, DTC, operator, service, supply, and measurement.
+- `measurement_war_room`: daily or weekly KPI plan covering traffic, conversion, price integrity, stock, review volume, sentiment, competitor moves, and channel feedback.
+- `competitive_response_playbook`: pre-agreed responses to competitor price drops, bundles, review pushes, retailer promos, claim attacks, stock advantage, or ecosystem pushes.
 - `baseline_incremental_sales_bridge`: baseline versus incremental sales separation.
 - `channel_split_forecast`: unit split by named channels when supported.
 - `price_conversion_assumption_bridge`: how S04 price assumptions affect acceptance and conversion without double counting.

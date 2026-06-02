@@ -103,6 +103,35 @@ other local channels
 
 Only include channels that exist in the launch plan or local evidence.
 
+## Local Channel Action Priority
+
+When local channel evidence or user channel hypotheses exist, S08 must turn the
+forecast channel view into named execution priorities. Do not stop at generic
+labels such as `local ecommerce > retail > DTC` when local channel names are
+available.
+
+For each named channel, output:
+
+```text
+channel name
+channel type
+priority rank
+role in GTM
+why priority
+segment fit
+budget percent or amount seed when marketing budget exists
+expected signal range
+required asset or proof
+owner
+tracking or validation method
+confidence and data gaps
+```
+
+Use S01 retailer/marketplace candidates, S03 message carrier seeds, S04 price
+guardrails, S06 creator estimates when available, and the user-provided channel
+plan. Treat budget and outcome ranges as planning assumptions, not approved
+spend or guaranteed sales.
+
 ## Price And Conversion Bridge
 
 Do not double count price risk. Use S04 to adjust price acceptance and S07 to adjust action-rate readiness:

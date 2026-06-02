@@ -2,13 +2,37 @@
 
 The final report should feel like a decision dashboard, not a generated essay.
 
+The final report should also read like a direct GTM report, not an internal
+workflow artifact. Main sections should use business words: execution summary,
+channel priority, price conclusion, competitor response, content/KOL plan,
+retail readiness, launch calendar, measurement war room, and key confirmations.
+Do not show skill IDs, handoff mechanics, module coverage, isolation audit,
+report audience labels, or method names as the visible point of a section.
+
 ## Layout
 
-- Start with a compact input-boundary strip, then a management executive summary band containing expected weekly sales range, sales-driver decomposition, simple MKT budget posture, channel priority and channel capability, competitor advantage/weakness and response, evidence confidence, and top next validation action.
+- Start with a GTM judgment cover, not an input-boundary strip. The first screen must answer whether the product should enter, defend, pause, or validate first; which opening move is recommended; which segment and channel should be prioritized; what budget posture is implied; which competitor threat matters most; and what single uncertainty could change the answer.
+- Show assumptions only when they affect the judgment. Inputs, evidence coverage, and private-data boundaries are routing/governance material by default; move them to appendix or show them inline only when they materially cap confidence, change price/channel advice, or block an action.
+- After the judgment cover, show a GTM decision summary band containing expected weekly sales range, sales-driver decomposition, simple MKT budget posture, channel priority and channel capability, competitor advantage/weakness and response, confidence cap, and top next validation action.
+- Add a compact GTM command center when S08 supplies it: objective, hero claim, expected weekly sales range, MKT budget posture, must-win channel, top competitor threat, and top risk.
+- Add launch execution views when supplied: channel war room, content seeding wave plan, retail/PDP readiness, launch calendar, service trust loop, measurement war room, and competitive response playbook.
 - Use clear report sections with dense but readable cards, tables, and charts.
 - Keep data gaps visible in context, not only at the end.
 - Separate measured evidence, modeled estimates, and assumptions with badges.
 - Use a final appendix for evidence ledger, assumptions, methods, and source limitations.
+
+## Report Naming
+
+Default Chinese report title:
+
+```text
+[Product] [Country/Region] GTM 报告
+```
+
+Do not use `管理层看板` in the default title unless the user explicitly asks for
+that audience label. The top band can still serve executives, but the artifact
+name should stay neutral and reusable for local GTM, channel, sales, and product
+teams.
 
 ## Visual Components
 
@@ -59,19 +83,43 @@ Badges must appear near the claim they qualify.
 
 - Lead each section with the decision implication.
 - Follow with evidence, not general explanation.
+- Then state the local action, owner hint, timing/cadence, KPI or decision trigger, and confidence.
 - Keep section summaries concise enough for executive scanning.
 - Preserve local consumer language where it matters for messaging or JTBD.
 - Do not hide uncertainty to make the report look cleaner.
+- Do not use labels such as `方法论行动方向`, `受众`, `面向对象`, `模块覆盖`, or `隔离审计` in the main report body.
+
+## Direct Report Section Order
+
+Use this order for a full meeting-ready report when the data exists:
+
+```text
+GTM 判断封面
+GTM 执行摘要
+GTM 作战总览
+市场与本地化判断
+竞品证明与消费者声音
+卖点、人群、触媒与KOL路线
+价格结论与促销护栏
+渠道优先级与首销战情室
+内容种草、零售/PDP与服务信任准备
+上市需求预测与投入产出假设
+会改变结论的关键问题
+引用与证据索引
+来源治理附录, only when requested
+```
 
 ## Executive Summary Content
 
-Before the executive summary, show a compact input-boundary strip. It should be small and practical, not a full product spec section:
+Before the executive summary, show a judgment cover. It should be short and business-first:
 
-- Product/category, target country, price band, and run mode.
-- Supplied product claims/spec groups.
-- Commercial inputs provided or missing: MKT budget, channel plan, previous generation, benchmark competitors, brand positioning.
-- Evidence coverage: local ecommerce, local search terms, reviews/forums/video comments, private NSS/NPS, and web status.
-- Private-data boundary: COGS, margin, channel terms, internal sales, and raw private materials are blank/excluded unless explicitly approved.
+- GTM judgment: enter, defend, cautious launch, validate first, or pause.
+- Core recommendation: one sentence on who to target, which benefit to lead with, which channel to prioritize, how to defend price, and what to avoid.
+- Opening move: price/offer/channel/content action for the first launch window.
+- Must-win route: named local channel or touchpoint, not a generic category.
+- Main competitor threat: TOP1 competitor or internal ladder risk and the response.
+- Budget posture: minimum/base/stretch or user-supplied budget interpretation.
+- Decision-changing question: the one uncertainty that would change the recommendation.
 
 The top summary should not describe the skill chain. It should synthesize the report into business decisions:
 
@@ -80,7 +128,7 @@ The top summary should not describe the skill chain. It should synthesize the re
 - MKT spend posture: minimum test, base launch, and stretch/upside budget when supported by inputs.
 - Channel priority: rank channels by reach, conversion readiness, commercial access, proof fit, margin/price constraints, and validation need.
 - Competitor response: show top competitor/substitute strengths, weaknesses, price pressure, proof gaps, and response strategy.
-- Evidence risks: show the top gaps or S13 validation tests that could change the recommendation.
+- Evidence risks: show only the top questions that could change the recommendation.
 
 If market size, brand strength, conversion, or channel readiness is not supported by evidence, keep the summary but mark the affected driver as hypothesis or data gap.
 

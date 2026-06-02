@@ -6,6 +6,7 @@
       "prompt": "Model local price sensitivity when public competitor prices exist but private COGS and margin terms are missing.",
       "must_include": [
         "local price corridor",
+        "wtp_direct_conclusion",
         "segment WTP hypothesis",
         "Van Westendorp test design",
         "MaxDiff feature value tradeoff design",
@@ -17,7 +18,8 @@
         "invent COGS",
         "claim final approved MSRP",
         "expose private pricing inputs in public HTML",
-        "treat survey intent as sell-through"
+        "treat survey intent as sell-through",
+        "hide the direct price recommendation behind model tables"
       ]
     }
   ]

@@ -11,13 +11,26 @@
         "citation index",
         "post-skill isolation audit",
         "Seven Sweeps copy quality audit",
-        "S14 hidden composer rule"
+        "GTM 报告 default title",
+        "S14 hidden composer rule",
+        "direct report language gate",
+        "GTM judgment cover",
+        "GTM判断",
+        "本地行动建议",
+        "会改变结论的问题"
       ],
       "must_not_include": [
         "show S14 as a visible business module",
         "invent missing analysis",
         "load remote scripts",
-        "hide low confidence or data gaps"
+        "hide low confidence or data gaps",
+        "use 管理层看板 as the default title",
+        "show 面向对象 or 受众 as a main report label",
+        "show 方法论行动方向 in the main report",
+        "show handoff or module coverage in the main report",
+        "use confirmed inputs, evidence coverage, or private-data boundary as first-screen cards",
+        "use contrastive wording such as 而不是 or 不是...而是 in the visible report",
+        "make absolute recommendations without evidence scope or validation caveats"
       ]
     }
   ]

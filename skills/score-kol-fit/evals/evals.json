@@ -9,6 +9,8 @@
         "local creator discovery query bank",
         "candidate review gate",
         "recommendation rationale",
+        "local_creator_execution_table",
+        "content_seeding_wave_plan",
         "budget estimate range",
         "expected outcome estimate range",
         "brand safety risk review",
@@ -18,7 +20,8 @@
         "approve final creator contracts",
         "guarantee likes views or sales",
         "omit sponsorship disclosure risk",
-        "rank candidates without evidence coverage"
+        "rank candidates without evidence coverage",
+        "show candidate-level budgets without review status"
       ]
     }
   ]

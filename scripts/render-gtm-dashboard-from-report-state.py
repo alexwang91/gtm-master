@@ -28,7 +28,7 @@ SECTION_TITLES = {
     "subscription_churn": "订阅、留存与流失",
     "review_quality_feedback": "评论、售后与质量反馈闭环",
     "validation_roadmap": "验证路线图与实验优先级",
-    "data_gap_panel": "数据缺口与置信度面板",
+    "data_gap_panel": "关键待确认与置信度面板",
     "citation_index": "引用与证据索引",
 }
 
@@ -49,20 +49,20 @@ STATUS_LABELS = {
 }
 
 TAKEAWAY_ZH = {
-    "market_context": "S01 能承接市场证据层；本 dry-run 只验证本地搜索词、渠道图、竞品种子、人群假设和证据缺口能否被压缩传递给最终看板。",
-    "jtbd_scenarios": "S02 把 S01 的市场、人群、竞品和消费者声音种子转成优先级场景、任务、证明需求和不购买风险。",
-    "message_architecture": "S03 把产品能力映射到人群任务、异议、证明需求和本地化信息路线；除非触发 S05，否则不生成最终广告文案。",
-    "pricing": "S04 先判断开盘打法、上市价格架构、利润/收入边界和 30/60/90 价格路径；收入最大点和利润最大点只通过本地私密优化器或用户批准的派生摘要展示。",
-    "copy_assets": "S05 只处理可编辑文字资产；没有文案输入时先给出资料清单、评分口径和测试队列。",
-    "creator_kol": "S06 先解释创作者类型、选择理由、预算占比和预期结果范围；真实候选需要本地平台证据和品牌安全复核。",
-    "dtc_conversion": "S07 在上线前可用竞品页面、上一代页面和上游信息路线生成页面要求、摩擦风险和实验优先级。",
-    "launch_forecast": "S08 将预测定位为情景规划，避免把单点销量数字当作结论；它显式连接生命周期、MKT 投入、渠道准备度、转化假设和验证缺口。",
-    "activation_return_risk": "S09 把设置、兼容、预期落差、退货和售后摩擦转成上市前可预防动作。",
-    "insight_guardrails": "S10 只在健康、AI 洞察、安全、隐私或敏感主张触发时运行，用来划定可说、需证明和需避开的边界。",
-    "subscription_churn": "S11 只在订阅、服务计划、耗材或留存循环触发时运行，用来判断价值驱动、留存风险和定价联动。",
-    "review_quality_feedback": "S12 把评论、客服、退货、RMA 和净推荐相关数据分流为产品质量问题、营销误解、渠道摩擦和下一代销售建议。",
-    "validation_roadmap": "S13 把主张、价格、需求、渠道和证据缺口转成分阶段验证计划，用来判断哪些事项应先测试再投入。",
-    "data_gap_panel": "最终看板必须把未解决的数据缺口作为正文展示，避免把关键不确定性藏在附录里。",
+    "market_context": "市场与本地化判断应说明本地搜索词、渠道图、竞品种子、人群假设和证据限制如何影响上市打法。",
+    "jtbd_scenarios": "消费者场景应把市场、人群、竞品和声音证据转成优先级任务、证明需求和不购买风险。",
+    "message_architecture": "信息架构应把产品能力映射到人群任务、异议、证明需求和本地化信息路线；未提供可编辑文案时不生成最终广告文案。",
+    "pricing": "价格判断应先说明开盘打法、上市价格架构、利润/收入边界和 30/60/90 价格路径；私密利润判断只通过本地工具展示。",
+    "copy_assets": "文案资产部分只处理可编辑文字资产；没有文案输入时先给出资料清单、评分口径和测试队列。",
+    "creator_kol": "KOL 与创作者部分应解释类型、选择理由、预算占比和预期结果范围；真实候选需要本地平台证据和品牌安全复核。",
+    "dtc_conversion": "DTC/PDP 部分在上线前可用竞品页面、上一代页面和信息路线生成页面要求、摩擦风险和实验优先级。",
+    "launch_forecast": "需求预测应定位为情景规划，避免把单点销量数字当作结论；它需要连接生命周期、MKT 投入、渠道准备度、转化假设和验证缺口。",
+    "activation_return_risk": "激活与退货部分应把设置、兼容、预期落差、退货和售后摩擦转成上市前可预防动作。",
+    "insight_guardrails": "敏感主张护栏用于划定可说、需证明和需避开的边界。",
+    "subscription_churn": "订阅与留存部分用于判断价值驱动、留存风险和定价联动。",
+    "review_quality_feedback": "评论、客服、退货、RMA 和净推荐相关数据应分流为产品质量问题、营销误解、渠道摩擦和下一代销售建议。",
+    "validation_roadmap": "验证计划应把主张、价格、需求、渠道和证据限制转成分阶段测试，用来判断哪些事项应先测试再投入。",
+    "data_gap_panel": "报告必须把未解决的关键待确认项作为正文展示，避免把关键不确定性藏在附录里。",
     "citation_index": "引用索引用来区分 dry-run 样例引用和真实证据，避免把 synthetic 内容误当成市场研究结论。",
 }
 
@@ -76,31 +76,31 @@ FEATURE_ZH = {
 }
 
 SOURCE_LABELS = {
-    "S01.build-consumer-market-map": "S01 市场与本地化证据",
-    "S02.mine-jtbd-scenarios": "S02 JTBD 场景挖掘",
-    "S03.match-messages-to-segments": "S03 信息架构匹配",
-    "S04.model-price-sensitivity": "S04 开盘定价与利润边界",
-    "S05.generate-copy-assets": "S05 文案资产生成",
-    "S05.score-creative-assets": "S05 文案资产评分",
-    "S06.rank-creators-kol": "S06 KOL 与创作者排序",
-    "S06.score-kol-fit": "S06 KOL 与创作者策略",
-    "S07.audit-dtc-conversion": "S07 DTC 转化审计",
-    "S07.predict-dtc-conversion": "S07 DTC 转化规划",
-    "S08.forecast-launch-demand": "S08 上市需求预测",
-    "S09.predict-activation-risk": "S09 激活与退货风险",
-    "S10.generate-health-insights": "S10 主张与洞察护栏",
-    "S11.predict-subscription-and-churn": "S11 订阅与流失模型",
-    "S12.mine-review-quality-feedback": "S12 评论与质量反馈",
-    "S13.plan-validation-experiments": "S13 验证实验规划",
-    "S14.compose-html-gtm-dashboard": "S14 HTML 看板合成",
+    "S01.build-consumer-market-map": "市场与本地化证据",
+    "S02.mine-jtbd-scenarios": "JTBD 场景挖掘",
+    "S03.match-messages-to-segments": "信息架构匹配",
+    "S04.model-price-sensitivity": "开盘定价与利润边界",
+    "S05.generate-copy-assets": "文案资产生成",
+    "S05.score-creative-assets": "文案资产评分",
+    "S06.rank-creators-kol": "KOL 与创作者排序",
+    "S06.score-kol-fit": "KOL 与创作者策略",
+    "S07.audit-dtc-conversion": "DTC 转化审计",
+    "S07.predict-dtc-conversion": "DTC 转化规划",
+    "S08.forecast-launch-demand": "上市需求预测",
+    "S09.predict-activation-risk": "激活与退货风险",
+    "S10.generate-health-insights": "主张与洞察护栏",
+    "S11.predict-subscription-and-churn": "订阅与流失模型",
+    "S12.mine-review-quality-feedback": "评论与质量反馈",
+    "S13.plan-validation-experiments": "验证实验规划",
+    "S14.compose-html-gtm-dashboard": "HTML 报告合成",
     "report_audit": "报告审计",
 }
 
 DISPLAY_ZH = {
-    "GTM Master 试跑看板": "GTM Master 试跑看板",
-    "dryrun-generic-hardware-s00-s08-s13-s14": "通用硬件试跑：S00-S09 当前看板",
-    "dry-run fixture": "dry-run 样例",
-    "S00 -> S14 Golden Dry-run": "S00 到最终看板链路试跑",
+    "GTM Master 试跑看板": "GTM Master GTM 报告",
+    "dryrun-generic-hardware-s00-s08-s13-s14": "通用硬件报告样例",
+    "dry-run fixture": "报告样例",
+    "S00 -> S14 Golden Dry-run": "GTM 报告链路样例",
     "Generic Hardware Fixture": "通用硬件样例",
     "Example target country": "示例目标国家",
     "Example local currency price band": "示例本地价格段",
@@ -116,10 +116,10 @@ DISPLAY_ZH = {
     "Local Tool": "本地工具",
     "Context Safety": "上下文安全",
     "Audit": "审计",
-    "handoff only": "仅 handoff",
-    "module": "模块",
+    "handoff only": "来源摘要",
+    "module": "业务板块",
     "status": "状态",
-    "source_skill": "来源技能",
+    "source_skill": "来源板块",
     "source": "来源",
     "type": "类型",
     "used_by": "使用位置",
@@ -143,8 +143,8 @@ DISPLAY_ZH = {
     "used": "已用",
     "limit": "上限",
     "test": "测试",
-    "skill_id": "技能 ID",
-    "handoff": "handoff",
+    "skill_id": "来源 ID",
+    "handoff": "来源摘要",
     "html_section": "HTML 区块",
     "quality_gate": "质量门禁",
     "reopen_conditions": "可重开条件",
@@ -245,8 +245,8 @@ DISPLAY_ZH = {
     "assumption_risk_vs_test_feasibility": "假设风险与测试可行性",
     "timeline_and_decision_unlock_map": "时间线与决策解锁图",
     "validation_decision_gate": "验证决策门禁",
-    "experiment_portfolio_by_module": "按模块聚合的实验组合",
-    "data_gap_log": "数据缺口日志",
+    "experiment_portfolio_by_module": "按业务问题聚合的实验组合",
+    "data_gap_log": "关键待确认日志",
     "citation_index": "引用索引",
     "market_context": "市场与本地化",
     "jtbd_scenarios": "JTBD 场景",
@@ -254,7 +254,7 @@ DISPLAY_ZH = {
     "pricing": "定价",
     "launch_forecast": "上市预测",
     "validation_roadmap": "验证路线图",
-    "data_gap_panel": "数据缺口面板",
+    "data_gap_panel": "关键待确认面板",
     "citation_index": "引用索引",
     "copy_assets": "文案资产",
     "creator_kol": "KOL 与创作者",
@@ -266,19 +266,19 @@ DISPLAY_ZH = {
 }
 
 PHRASE_ZH = {
-    "Dry-run has no live web collection.": "本 dry-run 未执行联网采集。",
-    "Fixture scores are only contract placeholders.": "样例分数只用于验证契约，不代表真实市场判断。",
+    "Dry-run has no live web collection.": "本样例未执行联网采集。",
+    "Fixture scores are only contract placeholders.": "样例分数只用于验证报告结构，不代表真实市场判断。",
     "Real run must identify local ecommerce leaders first, then score competitors by visibility, price overlap, review volume, feature overlap, and decision substitution.": "真实运行时应先识别本地主要电商，再按可见度、价格重叠、评论量、功能重叠和决策替代性给竞品评分。",
-    "Weak but commercially important segments stay as hypotheses with data gaps.": "弱证据但商业上重要的人群会保留为假设，并标记数据缺口。",
+    "Weak but commercially important segments stay as hypotheses with data gaps.": "弱证据但商业上重要的人群会保留为假设，并标记关键待确认。",
     "Real run should keep original voice atoms in local artifacts and pass only compressed clusters downstream.": "真实运行时应把原始消费者声音保存在本地 artifact，下游只接收压缩后的主题簇。",
     "Score combines job frequency, dissatisfaction, willingness to switch, product fit, proof readiness, and channel reach.": "评分综合任务频率、不满程度、切换意愿、产品适配、证明成熟度和渠道触达。",
-    "Proof gaps are passed to S03 and S13.": "证明缺口会传递给 S03 和后续验证计划。",
+    "Proof gaps are passed to S03 and S13.": "证明缺口会进入信息架构和后续验证计划。",
     "Anti-JTBD informs message proof, pricing risk, activation risk, and validation experiments.": "Anti-JTBD 会影响信息证明、定价风险、激活风险和验证实验。",
-    "Dry-run routes are placeholders.": "dry-run 中的信息路线只是占位样例。",
+    "Dry-run routes are placeholders.": "样例中的信息路线只是占位。",
     "Proof requirements become S13 validation tasks.": "证明要求会转成后续验证任务。",
     "Objections should not be hidden; they become proof and test requirements.": "异议不应被隐藏，而应转成证明和测试要求。",
     "If regulated-adjacent claims appear, future S10 should be triggered.": "如果出现监管相邻主张，未来应触发主张护栏模块。",
-    "Indexed dry-run values only; real run must use local currency and competitor anchors.": "这里只是 dry-run 指数值；真实运行必须使用本地货币和竞品价格锚点。",
+    "Indexed dry-run values only; real run must use local currency and competitor anchors.": "这里只是样例指数值；真实报告必须使用本地货币和竞品价格锚点。",
     "WTP is a hypothesis until tested with survey, landing page, retail test, or channel signal.": "WTP 在通过问卷、落地页、零售测试或渠道信号验证前都只是消费者支付意愿假设。",
     "Jump-tier risk is kept even when primary target price band is clear.": "即使目标价格段清晰，也要保留消费者跳档决策风险。",
     "COGS means cost of goods sold; it should not be required for public research stages.": "COGS 指商品销售成本；公开研究阶段不应强制要求上传。",
@@ -287,12 +287,12 @@ PHRASE_ZH = {
     "The model should expose assumptions instead of pretending precision.": "模型应暴露假设，避免伪装成精确预测。",
     "Carrier channel stays a hypothesis until commercial access is confirmed.": "运营商或捆绑渠道在商业准入确认前只保留为假设。",
     "These risks feed S13 validation priority.": "这些风险会进入后续验证优先级排序。",
-    "No targeted lookup was executed in this dry-run.": "本 dry-run 未执行目标化查询。",
+    "No targeted lookup was executed in this dry-run.": "本样例未执行目标化查询。",
     "Priority combines decision impact, uncertainty, cost, speed, and downstream unlock value.": "优先级综合决策影响、不确定性、成本、速度和下游解锁价值。",
-    "High-risk assumptions without feasible tests become executive decision caveats.": "高风险但难测试的假设会成为管理层决策 caveat。",
+    "High-risk assumptions without feasible tests become executive decision caveats.": "高风险但难测试的假设会成为汇报中的决策限制。",
     "Timing is illustrative and should be resized by launch urgency.": "时间安排仅为示意，应按上市紧迫度调整。",
     "S13 should make blockers explicit instead of burying uncertainty.": "后续验证计划应明确展示阻塞项，避免掩盖不确定性。",
-    "This lets the dashboard show which previous module creates the largest validation debt.": "这样看板可以显示哪个上游模块产生了最大的验证负债。",
+    "This lets the dashboard show which previous module creates the largest validation debt.": "这样报告可以显示哪个业务板块产生了最大的验证负债。",
     "Severity uses decision impact and downstream dependency.": "严重度按决策影响和下游依赖判断。",
     "Real report must replace fixture refs with source URLs, access dates, and evidence quality labels.": "真实报告必须用来源 URL、访问日期和证据质量标签替换样例引用。",
 }
@@ -523,21 +523,21 @@ EXTRA_ZH = {
     "pricing and WTP validation": "定价与支付意愿验证",
     "channel readiness and conversion assumptions": "渠道准备度与转化假设",
     "Real local ecommerce, retailer, forum, video, and search-term discovery was not run.": "未运行真实本地电商、零售商、论坛、视频和搜索词发现。",
-    "Run S01 with live web MCP search under the target country and category.": "在目标国家和品类下，用联网 MCP 搜索运行 S01。",
+    "Run S01 with live web MCP search under the target country and category.": "在目标国家和品类下，用联网搜索补齐本地市场证据。",
     "No real consumer voice atoms, local language phrases, NSS/NPS, reviews, or forum comments are present.": "当前没有真实消费者声音原子、本地语言表达、NSS/NPS、评论或论坛留言。",
     "Collect public reviews, local forum posts, video comments, and optional private NSS/NPS material.": "采集公开评论、本地论坛帖子、视频评论，并可选加入私密 NSS/NPS 材料。",
     "No real price anchors, COGS, gross margin, channel policy, WTP evidence, or channel terms are embedded.": "当前未嵌入真实价格锚点、销售成本、毛利、渠道政策、支付意愿证据或渠道条款。",
     "Use public competitor price evidence plus optional local-only private calculator inputs.": "使用公开竞品价格证据，并可选使用仅本地计算的私密输入。",
     "No market size seed, budget-by-channel, conversion benchmark, channel commitment, or previous-generation sales curve is available.": "当前缺少市场规模种子、按渠道拆分预算、转化基准、渠道承诺或上一代销量曲线。",
     "Ask user for forecast horizon, marketing spend, channel plan, and optional previous-generation data.": "向用户索取预测周期、营销投入、渠道计划，以及可选的上一代产品数据。",
-    "Validation roadmap is generated from dry-run assumptions, not executed tests.": "验证路线图来自 dry-run 假设，尚未接入已执行测试结果。",
+    "Validation roadmap is generated from dry-run assumptions, not executed tests.": "验证路线图来自样例假设，尚未接入已执行测试结果。",
     "go_no_go_confidence": "是否推进的置信度",
     "Run targeted validation tests and update S13 with actual results.": "运行目标化验证测试，并用真实结果更新后续验证计划。",
     "fixture citations": "样例引用",
     "live citations": "真实引用",
     "source confidence": "来源置信度",
-    "handoff": "handoff",
-    "isolated_with_gaps": "已隔离，仍有缺口",
+    "handoff": "来源摘要",
+    "isolated_with_gaps": "已记录，仍有缺口",
     "pass_with_caveats": "通过，有注意事项",
     "suite routing failure; missing required module trigger decision": "套件路由失败；缺少必需模块触发决策",
     "competitor source challenge; missing local channel source; market map contradiction": "竞品来源质疑；缺少本地渠道来源；市场地图出现矛盾",
@@ -556,19 +556,21 @@ EXTRA_ZH = {
 
 
 TERM_REPLACEMENTS = (
-    ("post-skill isolation", "技能后隔离"),
-    ("Post-skill", "技能后"),
-    ("post-skill", "技能后"),
+    ("管理层摘要", "GTM判断"),
+    ("给管理层的摘要", "GTM判断"),
+    ("post-skill isolation", "来源治理"),
+    ("Post-skill", "来源治理"),
+    ("post-skill", "来源治理"),
     ("section drafts", "区块草稿"),
     ("section draft", "区块草稿"),
     ("section", "区块"),
-    ("handoff refs", "交接引用"),
-    ("handoff", "交接包"),
-    ("data gap", "数据缺口"),
+    ("handoff refs", "来源摘要引用"),
+    ("handoff", "来源摘要"),
+    ("data gap", "关键待确认"),
     ("citations", "引用"),
     ("citation", "引用"),
-    ("dry-run", "试跑"),
-    ("Dry-run", "试跑"),
+    ("dry-run", "样例"),
+    ("Dry-run", "样例"),
     ("full artifact", "完整产物"),
     ("fixture", "样例"),
     ("artifact", "产物"),
@@ -588,13 +590,19 @@ TERM_REPLACEMENTS = (
 )
 
 
+def soften_report_tone(text: str) -> str:
+    text = re.sub(r"不是([^。；\n]{1,60}?)[，,、\s]*而是", r"不宜理解为\1；重点在于", text)
+    text = text.replace("而不是", "，避免仅停留在")
+    return text
+
+
 def normalize_terms(value: Any) -> str:
     text = str(value)
     if "://" in text:
         return text
     for source, target in TERM_REPLACEMENTS:
         text = text.replace(source, target)
-    return text
+    return soften_report_tone(text)
 
 
 def display_value(value: Any) -> Any:
@@ -921,19 +929,19 @@ def render_module_coverage(report_state: dict[str, Any], section_by_id: dict[str
         if sid in SYSTEM_SECTION_IDS:
             continue
         section = section_by_id.get(sid, {})
-        rows.append({"模块": sid, "状态": "已进入正文", "说明": desc(section)})
+        rows.append({"板块": sid, "状态": "已进入正文", "说明": desc(section)})
     for sid in qg.get("skipped_sections", []):
         section = section_by_id.get(sid, {})
-        rows.append({"模块": sid, "状态": "可选跳过", "说明": display_value(section.get("executive_takeaway", ""))})
+        rows.append({"板块": sid, "状态": "可选跳过", "说明": display_value(section.get("executive_takeaway", ""))})
     for sid in qg.get("future_sections_omitted", []):
         section = section_by_id.get(sid, {})
-        rows.append({"模块": sid, "状态": "未来省略", "说明": display_value(section.get("executive_takeaway", ""))})
+        rows.append({"板块": sid, "状态": "未来省略", "说明": display_value(section.get("executive_takeaway", ""))})
     return (
         '<section class="report-section" id="module_coverage">'
-        '<div class="section-title-row"><div><p class="eyebrow">S00/当前看板</p><h2>模块覆盖与跳过说明</h2></div>'
+        '<div class="section-title-row"><div><p class="eyebrow">附录</p><h2>交付范围说明</h2></div>'
         f'{render_badge(qg.get("status"))}</div>'
-        "<p>本试跑只渲染已运行模块；可选模块和未来模块不会被伪装成完整分析。</p>"
-        + render_table("模块覆盖表", rows, ["模块", "状态", "说明"])
+        "<p>报告只展示已具备结构化输入的业务板块；可选或未触发内容不会被伪装成完整分析。</p>"
+        + render_table("交付范围表", rows, ["板块", "状态", "说明"])
         + "</section>"
     )
 
@@ -942,9 +950,9 @@ def render_data_gap_summary(report_state: dict[str, Any]) -> str:
     gaps = report_state.get("data_gap_log", [])
     return (
         '<section class="report-section" id="data_gap_audit">'
-        '<div class="section-title-row"><div><p class="eyebrow">审计</p><h2>全局数据缺口审计</h2></div>'
+        '<div class="section-title-row"><div><p class="eyebrow">决策风险</p><h2>会改变结论的问题</h2></div>'
         f'{render_badge("pass_with_caveats")}</div>'
-        + render_table("数据缺口日志", gaps, ["gap_id", "source_skill", "gap", "severity", "recommended_resolution"])
+        + render_table("结论敏感问题", gaps, ["gap_id", "source_skill", "gap", "severity", "recommended_resolution"])
         + "</section>"
     )
 
@@ -956,7 +964,7 @@ def render_isolation_audit(report_state: dict[str, Any]) -> str:
             {
                 "skill_id": record.get("skill_id"),
                 "status": record.get("status"),
-                "handoff": record.get("compressed_handoff_ref"),
+                "source_summary": record.get("compressed_handoff_ref"),
                 "html_section": record.get("html_section_ref"),
                 "quality_gate": record.get("quality_gate_status"),
                 "reopen_conditions": "; ".join(record.get("reopen_conditions") or []),
@@ -964,10 +972,10 @@ def render_isolation_audit(report_state: dict[str, Any]) -> str:
         )
     return (
         '<section class="report-section" id="isolation_audit">'
-        '<div class="section-title-row"><div><p class="eyebrow">上下文安全</p><h2>技能后隔离审计</h2></div>'
-        f'{render_badge("handoff_only")}</div>'
-        "<p>最终看板合成器只消费区块草稿、交接引用与报告状态；默认不打开上游完整产物。</p>"
-        + render_table("隔离记录", records, ["skill_id", "status", "handoff", "html_section", "quality_gate", "reopen_conditions"])
+        '<div class="section-title-row"><div><p class="eyebrow">来源治理</p><h2>来源与生成审计</h2></div>'
+        f'{render_badge("source_governance")}</div>'
+        "<p>报告合成只使用业务区块草稿、来源摘要与报告状态；默认不打开上游完整产物。</p>"
+        + render_table("来源记录", records, ["skill_id", "status", "source_summary", "html_section", "quality_gate", "reopen_conditions"])
         + "</section>"
     )
 
@@ -1004,7 +1012,7 @@ def render_private_profit_optimizer() -> str:
         <div><p class="eyebrow">本地工具</p><h2>私密利润与收入优化器</h2></div>
         <span class="badge contract_ready">仅本地</span>
       </div>
-      <p>这个工具用于离网测试“开盘价、促销价、收入最大点、利润最大点”。输入保留在当前浏览器页面，不写回 JSON，也不进入后续 handoff。</p>
+      <p>这个工具用于离网测试“开盘价、促销价、收入最大点、利润最大点”。输入保留在当前浏览器页面，不写回 JSON，也不进入报告状态。</p>
       <div class="calculator">
         <label>候选最低价<input id="opt-min" type="number" min="0" step="0.01" placeholder="300"></label>
         <label>候选最高价<input id="opt-max" type="number" min="0" step="0.01" placeholder="400"></label>
@@ -1033,14 +1041,17 @@ def render_private_profit_optimizer() -> str:
 
 def render_management_summary(report_state: dict[str, Any], brief: dict[str, Any], qg: dict[str, Any]) -> str:
     summary = report_state.get("management_summary") or {}
-    headline = summary.get("headline") or f"{display_value(brief.get('product_name_or_codename') or '产品')} GTM 管理层摘要"
-    confidence_note = summary.get("confidence_note") or "当前摘要来自已运行模块的压缩交接包；正式报告会用真实证据刷新。"
+    judgment = report_state.get("gtm_judgment_cover") or summary.get("gtm_judgment_cover") or {}
+    headline = summary.get("headline") or f"{display_value(brief.get('product_name_or_codename') or '产品')} GTM 判断"
+    confidence_note = summary.get("confidence_note") or judgment.get("core_recommendation") or "先形成价格证明、渠道资源和内容种草的可执行打法，再用最小验证降低首销风险。"
     channels = [item for item in summary.get("local_channel_priority") or [] if isinstance(item, dict)]
-    kpis = summary.get("kpis") or [
-        {"label": "国家/地区", "value": brief.get("launch_country_or_region"), "note": "用户输入"},
-        {"label": "价格段", "value": brief.get("target_price_range"), "note": "用户输入"},
-        {"label": "可视块", "value": qg.get("visual_block_count", 0), "note": "已渲染模块"},
-        {"label": "隔离记录", "value": qg.get("isolation_record_count", 0), "note": "上下文安全"},
+    kpis = summary.get("judgment_cards") or summary.get("kpis") or [
+        {"label": "GTM判断", "value": judgment.get("judgment_label") or judgment.get("judgment") or "待判断", "note": judgment.get("core_recommendation") or "判断进入、守价、谨慎上市或先验证。"},
+        {"label": "首要打法", "value": judgment.get("opening_move") or "待确定", "note": "价格、渠道、内容或offer的第一动作。"},
+        {"label": "先打人群", "value": judgment.get("priority_segment") or "待确定", "note": "以需求强度、支付意愿和触达效率排序。"},
+        {"label": "Must-win渠道", "value": judgment.get("must_win_channel") or "待确定", "note": "正式版应落到本地渠道名。"},
+        {"label": "价格/Offer", "value": judgment.get("price_or_offer_stance") or "待确定", "note": "说明如何守价、促销或用权益托住。"},
+        {"label": "会改变结论的问题", "value": judgment.get("decision_changing_question") or "待确认", "note": "只保留会改变打法的关键不确定性。"},
     ]
     if channels:
         channel_value = " > ".join(str(item.get("channel_name") or "") for item in channels[:3] if item.get("channel_name"))
@@ -1048,7 +1059,7 @@ def render_management_summary(report_state: dict[str, Any], brief: dict[str, Any
             {
                 **item,
                 "value": channel_value or item.get("value"),
-                "note": "由 S01 本地渠道发现与优先级列表生成",
+                "note": "由本地渠道证据与优先级列表生成",
             }
             if isinstance(item, dict) and item.get("label") == "渠道优先级"
             else item
@@ -1089,23 +1100,19 @@ def render_management_summary(report_state: dict[str, Any], brief: dict[str, Any
             f'<div class="exec-channel-list">{channel_items}</div>'
             "</div>"
         )
-    context_items = [
-        f"国家/地区：{display_value(brief.get('launch_country_or_region'))}",
-        f"价格段：{display_value(brief.get('target_price_range'))}",
-        f"可视块：{qg.get('visual_block_count', 0)}",
-    ]
+    context_items = summary.get("commercial_context_chips") or []
     context_html = "".join(f"<span>{d(item)}</span>" for item in context_items)
     return (
         '<section class="hero exec-hero" id="executive_summary">'
         '<div class="section-title-row exec-title-row">'
-        f'<div><p class="eyebrow">管理层摘要</p><h2>{d(headline)}</h2></div>'
+        f'<div><p class="eyebrow">GTM判断</p><h2>{d(headline)}</h2></div>'
         f'{render_badge(summary.get("status") or "pass_with_caveats")}'
         "</div>"
         f'<p class="takeaway">{d(confidence_note)}</p>'
-        f'<div class="exec-context">{context_html}</div>'
-        f'<div class="exec-kpis">{kpi_html}</div>'
-        f"{channel_html}"
-        f'<div class="exec-blocks">{blocks_html}</div>'
+        + (f'<div class="exec-context">{context_html}</div>' if context_html else "")
+        + f'<div class="exec-kpis">{kpi_html}</div>'
+        + f"{channel_html}"
+        + f'<div class="exec-blocks">{blocks_html}</div>'
         "</section>"
     )
 
@@ -1121,11 +1128,11 @@ def build_html(report_state: dict[str, Any]) -> str:
     isolation_count = qg.get("isolation_record_count", 0)
 
     nav_items = [
-        ("executive_summary", "管理层摘要"),
-        ("module_coverage", "模块覆盖"),
+        ("executive_summary", "GTM判断"),
+        ("module_coverage", "交付范围"),
         *[(section.get("section_id"), SECTION_TITLES.get(section.get("section_id"), section.get("section_title"))) for section in rendered_sections],
-        ("data_gap_audit", "数据缺口"),
-        ("isolation_audit", "隔离审计"),
+        ("data_gap_audit", "会改变结论的问题"),
+        ("isolation_audit", "来源治理"),
         ("private_pricing_calculator", "定价计算器"),
         ("private_profit_revenue_optimizer", "利润/收入优化器"),
     ]
@@ -1137,7 +1144,7 @@ def build_html(report_state: dict[str, Any]) -> str:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GTM 中文看板试跑</title>
+  <title>GTM 报告</title>
   <style>
     :root {{
       --paper: #f6f7f9;
@@ -1178,7 +1185,7 @@ def build_html(report_state: dict[str, Any]) -> str:
     .hero-grid {{ display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; align-items: start; margin-top: 16px; }}
     .exec-context {{ display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; color: var(--muted); font-size: 12px; font-weight: 700; }}
     .exec-context span {{ padding: 2px 8px; border: 1px solid var(--line); border-radius: 999px; background: #f8fafc; }}
-    .exec-kpis {{ display: grid; grid-template-columns: repeat(5, minmax(130px, 1fr)); gap: 8px; margin-top: 12px; }}
+    .exec-kpis {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 8px; margin-top: 12px; }}
     .exec-metric {{ min-height: 72px; padding: 11px; }}
     .exec-metric small {{ display: block; margin-top: 3px; color: var(--muted); font-size: 12px; line-height: 1.35; }}
     .exec-blocks {{ display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }}
@@ -1261,9 +1268,9 @@ def build_html(report_state: dict[str, Any]) -> str:
   <div class="layout">
     <aside class="rail">
       <div class="brand">
-        <h1>GTM Master 试跑看板</h1>
+        <h1>GTM Master GTM 报告</h1>
         <p>{d(report_state.get("report_id"))}</p>
-        <small>离线 HTML / 试跑样例</small>
+        <small>离线 HTML / 报告样例</small>
       </div>
       <nav class="nav">{nav_html}</nav>
     </aside>
@@ -1271,8 +1278,9 @@ def build_html(report_state: dict[str, Any]) -> str:
       <div class="container">
         {render_management_summary(report_state, brief, qg)}
 
-        <section class="report-section" id="product_brief">
-          <div class="section-title-row"><div><p class="eyebrow">输入</p><h2>产品输入摘要</h2></div>{render_badge(brief.get("report_depth"))}</div>
+        <section class="report-section" id="judgment_assumptions">
+          <div class="section-title-row"><div><p class="eyebrow">判断前提</p><h2>影响打法的产品与商业前提</h2></div>{render_badge(brief.get("report_depth"))}</div>
+          <p class="takeaway">这里只保留会影响卖点、人群、价格、渠道或验证动作的前提；完整输入清单放入来源治理附录。</p>
           {render_list(feature_items)}
         </section>
 

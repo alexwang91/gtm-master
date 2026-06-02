@@ -209,3 +209,60 @@ frameworks:
       - message_market_fit_scorecard
       - copy_quality_scorecard
       - render_quality_report
+
+  consumer_decision_journey:
+    source_pattern: consulting/consumer-decision-journey
+    primary_skills: [S01, S02, S03, S08, S14]
+    hardware_adaptation: >
+      Adapt initial consideration, active evaluation, purchase, post-purchase
+      experience, and loyalty loop into hardware journey episodes: discovery,
+      comparison, retail/PDP evaluation, purchase, delivery, unboxing, setup,
+      first use, app experience, support, and referral/review. Use the journey
+      to connect local language, proof needs, channel touchpoints, and GTM
+      actions instead of treating awareness, conversion, and advocacy as
+      disconnected tables.
+    output_contract_hooks:
+      - journey_episode_inputs
+      - bain_nss_journey_seed_panel
+      - segment_channel_touchpoint_map
+      - selling_point_segment_touchpoint_kol_seed
+      - aarrr_orb_channel_architecture
+
+  retail_market_measurement:
+    source_pattern: retail-measurement/shopper-journey-and-market-tracking
+    primary_skills: [S01, S04, S08, S14]
+    hardware_adaptation: >
+      Triangulate market truth from local price, availability, retailer and
+      marketplace presence, search visibility, review volume, specialist media,
+      forum voice, price-comparison sites, and user-supplied sales or channel
+      evidence. Treat these as directional market signals unless sell-through or
+      panel data is supplied. Use the result to explain competitor proof,
+      price corridors, channel priority, and confidence limits.
+    output_contract_hooks:
+      - source_accessibility_matrix
+      - top1_competitor_proof_board
+      - local_price_corridor
+      - local_channel_action_priority
+      - evidence_coverage_board
+
+  consumer_hardware_launch_execution:
+    source_pattern: public-consumer-electronics-launch-operations
+    primary_skills: [S03, S04, S06, S07, S08, S12, S14]
+    hardware_adaptation: >
+      Convert analysis into a local launch execution system: ecosystem narrative,
+      SKU/offer ladder, named-channel buying path, expert/KOL and community
+      proof waves, retail/PDP readiness, first-sale calendar, service trust
+      loop, measurement war room, and competitor response playbook. Use it to
+      decide who does what next, not to add generic best-practice prose.
+    output_contract_hooks:
+      - gtm_judgment_cover
+      - gtm_command_center
+      - sku_offer_ladder
+      - launch_calendar
+      - channel_war_room
+      - content_seeding_wave_plan
+      - retail_pdp_ready_pack
+      - sales_enablement_pack
+      - service_trust_loop
+      - measurement_war_room
+      - competitive_response_playbook

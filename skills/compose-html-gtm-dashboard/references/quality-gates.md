@@ -16,6 +16,7 @@ Run these before claiming a dashboard is complete.
     "data_gap_visibility",
     "confidence_badge_visibility",
     "dashboard_language_gate",
+    "direct_report_language_gate",
     "privacy_and_private_calculator",
     "post_skill_isolation_record",
     "offline_static_policy",
@@ -48,7 +49,7 @@ citation_integrity
   Evidence refs are rendered as provided. Missing citation details are flagged, not invented.
 
 data_gap_visibility
-  Blocking and high-severity data gaps are visible near the executive summary and in the data-gap panel.
+  Blocking and high-severity key confirmations are visible near the executive summary and in the key-confirmation panel.
 
 confidence_badge_visibility
   Each major section shows confidence or status.
@@ -56,19 +57,24 @@ confidence_badge_visibility
 dashboard_language_gate
   The current suite version renders dashboard-facing text in Simplified Chinese by default. Stable IDs, source refs, URLs, known GTM acronyms, product or brand names, and original local-language evidence snippets may remain non-Chinese. English placeholder prose, method names, skipped-section reasons, table values, and data-gap explanations must be translated or glossed before final output.
 
+direct_report_language_gate
+  The main HTML body reads as a meeting-ready GTM report. It must not show skill IDs, handoff mechanics, module coverage, post-skill isolation, context-budget notes, report audience labels, or labels such as `方法论行动方向`. Use business labels such as `执行摘要`, `本地行动建议`, `关键待确认`, `渠道战情室`, `上市日历`, and `证据索引`.
+  The visible report tone must be suitable for upward reporting: humble, cautious, evidence-scoped, and non-absolute. Do not use contrastive frames such as `而不是...` or `不是...而是...`; rewrite them into neutral judgment, priority, validation condition, or calibration-signal wording.
+  The first screen must be a GTM judgment cover. It should not use its primary cards for confirmed inputs, evidence coverage, private-data boundaries, source records, or workflow status. Product/country/price can appear in title/subtitle or appendix, not as the lead story.
+
 privacy_and_private_calculator
   Private fields are blank by default; raw private values are not embedded.
 
 post_skill_isolation_record
   The final render records whether it used only section drafts/report state or reopened upstream artifacts through a context escalation.
-  If S13 provides `post_skill_isolation_record`, `context_budget_report`, `targeted_lookup_log`, or `excluded_or_deferred_tests_log`, S14 renders them as audit tables or appendix tables.
+  If validation outputs provide isolation records, context budget reports, targeted lookup logs, or excluded test logs, S14 renders them only as appendix/deep-mode source-governance tables.
 
 offline_static_policy
   No external scripts, fonts, analytics, telemetry, fetch, beacon, or external dependency.
 
 renderer_fixture
   `python scripts\render-gtm-dashboard-from-report-state.py` can generate `artifacts/dry-runs/generic-hardware-s00-s08-s13-s14-dashboard.html` from the golden dry-run report state.
-  The output includes the S13 validation roadmap, module coverage, data-gap audit, citation index, post-skill isolation audit, local-only private pricing calculator, and passes the dashboard language gate.
+  The output includes the GTM execution summary, validation plan, key-confirmation panel, citation index, optional source-governance appendix, local-only private pricing calculator, and passes the dashboard and direct-report language gates.
 
 layout_responsiveness
   Desktop and mobile layouts remain readable; tables scroll instead of overflowing the page.
@@ -87,6 +93,7 @@ accessibility_basics
     "privacy_findings": [],
     "citation_findings": [],
     "layout_findings": [],
+    "presentation_language_findings": [],
     "remaining_risks": []
   }
 }

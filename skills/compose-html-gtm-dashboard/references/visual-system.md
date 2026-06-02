@@ -6,13 +6,13 @@ Use this to render a work-focused GTM dashboard, not a landing page.
 
 ```text
 tone
-  Executive, evidence-backed, dense but readable, built for scanning and decision review.
+  Professional GTM report, evidence-backed, dense but readable, built for scanning, decision review, and local team execution.
 
 layout
   Sticky left navigation on desktop, top navigation on mobile, full-width report sections, cards only for repeated items or tools.
 
 palette
-  Neutral background with restrained accent colors for status: green, amber, red, blue, slate.
+  Neutral background with restrained trust-oriented accents for status: green, amber, red, blue, slate. Avoid one-note novelty palettes in formal report mode.
 
 typography
   System fonts. No remote fonts. No viewport-scaled font sizes.
@@ -40,10 +40,10 @@ status_badge
   high, medium, low, hypothesis_only, blocked, unknown.
 
 section_header
-  Title, source skill, confidence, section status.
+  Business title, confidence, section status, and action implication. Do not show source skill in the main section header unless the user requested an audit appendix.
 
 callout
-  Use for blockers, caveats, privacy, and next actions.
+  Use for blockers, caveats, privacy, key confirmations, and next actions.
 
 table
   Compact rows, visible headers, horizontal scroll on mobile.
@@ -66,6 +66,13 @@ range_chart
 private_calculator
   Framed tool component with local-only privacy notice.
 ```
+
+## Presentation Readiness
+
+- Each main section should expose one clear viewpoint before supporting details.
+- Prefer varied visuals by decision type: status panel for readiness, ranked bar for priorities, range chart for price or forecast uncertainty, matrix only for true two-axis fit.
+- Do not fill the report with repeated heatmaps when a direct table, timeline, or action list is easier to read.
+- Replace internal labels with business labels: `GTM判断`, `执行摘要`, `本地行动建议`, `会改变结论的问题`, `渠道战情室`, `上市日历`, `内容种草计划`, and `证据索引`.
 
 ## Responsive Rules
 

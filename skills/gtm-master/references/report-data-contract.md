@@ -13,6 +13,7 @@ Report state is also the isolation boundary. After each sub-skill finishes, S14 
   "generated_at": "",
   "report_audience": "",
   "style": "executive | consulting | dashboard | investor_deck",
+  "gtm_judgment_cover": {},
   "sections": [],
   "global_kpis": [],
   "charts": [],
@@ -24,6 +25,39 @@ Report state is also the isolation boundary. After each sub-skill finishes, S14 
   "quality_gate_summary": {}
 }
 ```
+
+When the report is intended for direct presentation, `project_brief` may include
+`report_stage`, `launch_stage`, or `report_purpose`, but the main HTML should
+not display `report_audience` or workflow labels. Keep those fields as routing
+metadata.
+
+## GTM Judgment Cover
+
+This is the first screen of a meeting-ready report. It is a commercial
+judgment, not an input or evidence-coverage proof.
+
+```json
+{
+  "gtm_judgment_cover": {
+    "judgment": "enter | defend | cautious_launch | validate_first | pause | unknown",
+    "judgment_label": "",
+    "core_recommendation": "",
+    "opening_move": "",
+    "priority_segment": "",
+    "must_win_channel": "",
+    "price_or_offer_stance": "",
+    "top_competitor_threat": "",
+    "budget_posture": "",
+    "decision_changing_question": "",
+    "confidence": "high | medium | low | hypothesis_only",
+    "evidence_refs": []
+  }
+}
+```
+
+Do not use this cover for `已确认输入`, `证据覆盖`, `私密数据边界`, or workflow
+status. Those belong in source governance, pricing/private-calculator sections,
+or inline confidence notes only when they materially change the recommendation.
 
 ## Section Object
 
@@ -40,6 +74,16 @@ Report state is also the isolation boundary. After each sub-skill finishes, S14 
   "tables": [],
   "charts": [],
   "callouts": [],
+  "local_team_action": {
+    "action_title": "",
+    "action_summary": "",
+    "owner_hint": "local_mkt | sales | channel | ecommerce | pr | creator_manager | pricing | finance | product | research | mixed | unknown",
+    "time_horizon": "now | day_0_30 | day_31_60 | day_61_90 | later | unknown",
+    "budget_or_effort_note": "",
+    "success_signal": "",
+    "evidence_refs": [],
+    "confidence": "high | medium | low | hypothesis_only"
+  },
   "confidence_badges": [],
   "citations": [],
   "data_gaps": [],
@@ -79,9 +123,10 @@ Current runnable suite sections are produced by implemented S00-S08 plus S13 and
 
 ```yaml
 implemented_first_report_sections:
+  - gtm_judgment_cover
   - executive_summary
+  - gtm_command_center
   - product_capability_summary
-  - data_sources_and_collection_log
   - local_competitor_and_substitute_map
   - consumer_opinion_map
   - tam_sam_som_summary
@@ -94,7 +139,18 @@ implemented_first_report_sections:
   - creator_kol_fit
   - dtc_conversion_prediction
   - launch_sales_forecast
+  - channel_war_room
+  - launch_calendar
+  - content_seeding_wave_plan
+  - retail_pdp_ready_pack
+  - service_trust_loop
+  - measurement_war_room
+  - competitive_response_playbook
   - validation_experiment_roadmap
+
+appendix_or_governance_sections:
+  - data_sources_and_collection_log
+  - source_governance
   - evidence_assumptions_and_data_gaps
 
 future_conditional_sections:
@@ -141,3 +197,7 @@ future_conditional_sections:
 - Use charts only when the underlying data is structured enough.
 - Show "needs validation" as a first-class report state, not a failure.
 - Include a final evidence and data-gap appendix.
+- Use direct report wording in main sections: `执行摘要`, `关键待确认`, and
+  `本地行动建议`. Do not render skill IDs, handoff mechanics, module coverage,
+  isolation audit, or report-audience labels in the main body unless the user
+  explicitly requests an audit appendix.

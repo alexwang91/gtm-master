@@ -199,6 +199,77 @@ Required outputs:
 }
 ```
 
+## Competitive Bain / NPS Proxy Board
+
+When TOP1 competitor, previous-generation, or internal benchmark voice is in
+scope, S01 must prepare a comparison board for S14. This board is allowed to be
+directional, but it must not call itself surveyed NPS unless the user supplied
+surveyed 0-10 NPS/NSS data.
+
+Comparison lanes:
+
+```text
+our_product
+  Use direct current-product voice only if available. If pre-launch voice is
+  absent, show proof agenda and expected objections instead of fake sentiment.
+
+top1_competitor
+  Use the confirmed TOP1 competitor source scope and coverage report.
+
+previous_generation_or_internal_benchmark
+  Use previous-generation public voice, internal NSS/NPS, or benchmark feedback
+  when available. If unavailable, keep as data gap.
+```
+
+Required output:
+
+```json
+{
+  "competitive_bain_voice_board": [
+    {
+      "lane_id": "",
+      "product_or_object_name": "",
+      "object_role": "our_product | top1_competitor | previous_generation | internal_benchmark",
+      "nss_nps_status": "surveyed | proxy_calculated | directional_only | not_calculated",
+      "source_item_count_after_dedupe": 0,
+      "source_mix": [],
+      "promoter_like_share": "",
+      "passive_like_share": "",
+      "detractor_like_share": "",
+      "proxy_score_if_allowed": "",
+      "top_praise_drivers": [],
+      "top_pain_drivers": [],
+      "purchase_triggers": [],
+      "journey_scores": [
+        {
+          "journey_episode": "purchase | delivery | unboxing | setup_pairing | first_use | first_7_days | app_experience | customer_service | return_warranty | repurchase_referral",
+          "score_0_100": 0,
+          "direction": "advantage | neutral | risk | unknown",
+          "driver_notes": [],
+          "evidence_refs": []
+        }
+      ],
+      "direct_comparison_to_our_product": "",
+      "marketing_or_sales_implication": "",
+      "proof_or_offer_action": "",
+      "confidence": "high | medium | low | hypothesis_only",
+      "data_gaps": []
+    }
+  ]
+}
+```
+
+Board rules:
+
+- Public comments create `NPS Proxy / Bain VOC`, not true NPS.
+- If current-product public voice is unavailable before launch, compare TOP1
+  and previous-generation voice against the user's fixed product claims,
+  proof assets, and expected objections.
+- Each lane must show source count, source mix, collection coverage, and
+  confidence cap.
+- The board must produce at least one local marketing, sales, product-proof, or
+  channel implication per high-impact driver.
+
 Hardware journey adaptation should preserve the Bain/NSS/NPS logic while making the journey concrete for physical products:
 
 ```text

@@ -74,7 +74,9 @@ Fail compatibility if an upstream section emits any non-canonical `visual_blocks
 ```text
 Evidence Coverage Gate -> status_panel
 Product Capability To Local Selling-Point Fit -> matrix_heatmap
+TOP1 Competitor Proof Board -> ranked_bar
 Competitor And Substitute Threat Ranking -> ranked_bar
+Competitive Bain NPS Proxy Voice Board -> matrix_heatmap
 Local Price Corridor Seed -> range_chart
 Segment Priority And Evidence Strength -> ranked_bar
 Segment Channel Touchpoint Fit -> matrix_heatmap
@@ -97,6 +99,7 @@ Anti-JTBD And Non-Consumption Risk Ranking -> ranked_bar
 Message Input Coverage Gate -> status_panel
 Segment Message Fit -> matrix_heatmap
 Feature Benefit Proof Readiness -> matrix_heatmap
+Selling Point Segment Touchpoint KOL Seed -> matrix_heatmap
 Claim Risk And Proof Gate -> status_panel
 Objection Severity Ranking -> ranked_bar
 Price Message Readiness -> status_panel
@@ -106,6 +109,7 @@ Price Message Readiness -> status_panel
 
 ```text
 Pricing Decision Gate -> status_panel
+WTP Direct Conclusion -> status_panel
 Local Price Credibility Corridor -> range_chart
 Segment WTP And Sensitivity -> matrix_heatmap
 Price Value Proof Readiness -> matrix_heatmap
@@ -133,6 +137,8 @@ Creator Archetype Fit -> ranked_bar
 Trust Proof Fit Matrix -> matrix_heatmap
 Platform Relevance Map -> matrix_heatmap
 Creator Budget And Expected Outcome Range -> range_chart
+Local Creator Execution Table -> ranked_bar
+Content Seeding Wave Plan -> ranked_bar
 Candidate Review Gate -> status_panel
 Candidate Fit Ranking -> ranked_bar
 Creator Risk Gate -> status_panel
@@ -161,6 +167,12 @@ Lifecycle Phase Sales Curve -> range_chart
 Baseline vs Marketing Incremental Sales -> range_chart
 Segment Sales Split -> ranked_bar
 Channel Split Forecast -> matrix_heatmap
+Local Channel Action Priority -> ranked_bar
+GTM Command Center -> status_panel
+Channel War Room -> status_panel
+Launch Calendar -> matrix_heatmap
+Measurement War Room -> status_panel
+Competitive Response Playbook -> ranked_bar
 Inventory Risk Map -> matrix_heatmap
 Sensitivity Driver Tornado -> ranked_bar
 Marketing Spend Sensitivity -> ranked_bar

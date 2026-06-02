@@ -26,6 +26,8 @@ checks:
     pass_if: S01-S08/S13 html_section_draft.visual_blocks use only canonical S14 types from visual-block-acceptance-matrix.md, or missing/unsupported views are recorded as data gaps.
   dashboard_language_gate:
     pass_if: Dashboard-facing titles, labels, takeaways, table values, skipped-section notes, data-gap explanations, and audit text are Simplified Chinese by default; only stable IDs, source refs, URLs, common GTM acronyms, product or brand names, and original evidence phrases may remain non-Chinese.
+  upward_report_tone_gate:
+    pass_if: Dashboard-facing conclusions and recommendations use humble, cautious, evidence-scoped wording suitable for upward reporting; avoid absolute claims and contrastive frames such as `而不是...` or `不是...而是...`.
   data_gaps_recorded:
     pass_if: Missing, stale, or unavailable evidence is recorded.
   context_budget_controlled:
@@ -118,7 +120,7 @@ For S14 dashboard rendering smoke tests, run:
 python scripts\render-gtm-dashboard-from-report-state.py
 ```
 
-The generated HTML must remain single-file, offline-first, Chinese by default, pass the dashboard language gate, and show module coverage, S13 validation roadmap, data gaps, citation index, post-skill isolation audit, and the local-only private pricing calculator.
+The generated HTML must remain single-file, offline-first, Chinese by default, pass the dashboard language gate, and show the GTM execution summary, key confirmations, validation plan, citation index, optional source-governance appendix, and the local-only private pricing calculator. Skill IDs, module coverage, handoff mechanics, and isolation audit must stay out of the main report body unless the user requests an audit appendix.
 
 ## Handoff Gate
 
@@ -219,10 +221,65 @@ For S01, competitor outputs must include:
 
 - A candidate review list of 5-10 potential competitors/substitutes in standard/deep mode, unless the source coverage is too thin.
 - A `competitor_candidate_review_gate` before deep TOP1/previous-generation voice mining in real_product_pilot mode.
+- A `top1_competitor_proof_board` with price pressure, feature substitution, local channel overlap, voice/review evidence, ecosystem lock-in, and decision-journey interception factors.
 - Competitor role labels such as direct, substitute, premium anchor, budget anchor, previous generation, or ecosystem anchor.
 - Competitor Threat Score formula or score breakdown.
 - At least two local evidence signals for each top competitor, or an explicit hypothesis label.
 - User include/exclude/unsure notes when Gate 2 review is used.
+
+## GTM Decision Surface Gate
+
+Fail or caveat the section when a business-facing output lacks the direct action
+field expected from its method:
+
+- S01 must include TOP1 proof and, when voice evidence exists, a bounded
+  `competitive_bain_voice_board` that compares our product, TOP1 competitor,
+  and previous generation or internal benchmark.
+- S03 must include `selling_point_segment_touchpoint_kol_seed` when product
+  selling points, segments, and touchpoints exist.
+- S04 must include `wtp_direct_conclusion` even when the conclusion is
+  `research_first` or `blocked`.
+- S06 candidate-level outputs must include rationale, budget range, expected
+  outcome range, review status, and risk; otherwise show archetype/source rows.
+- S08 must include `local_channel_action_priority` when named channels or a
+  marketing budget exist.
+- S08 should include `gtm_judgment_cover`, `gtm_command_center`, `channel_war_room`,
+  `launch_calendar`, and `measurement_war_room` when the user wants a
+  meeting-ready GTM report or launch execution plan.
+- S03/S06 should include message/proof, content seeding, and KOL execution
+  actions when the report discusses selling points, local touchpoints, or MKT
+  budget.
+- S14 must render `local_team_action` when supplied and must not create it from
+  missing upstream analysis.
+
+## Direct Report Language Gate
+
+Fail or caveat final HTML when the main body contains workflow or agent-facing
+terms that weaken presentation readiness:
+
+```text
+S00-S14, skill, sub-skill, handoff, report_state, module coverage,
+post-skill, context budget, isolation audit, 模块覆盖, 隔离审计,
+技能后隔离审计, 当前看板, 质量门, 面向对象, 适用对象, 受众,
+方法论行动方向
+```
+
+Allowed exceptions:
+
+- citation IDs, source IDs, and evidence refs
+- method/audit appendix explicitly requested by the user
+- code, schema, or skill documentation outside the final HTML artifact
+
+Each main section should have a business conclusion, evidence basis, local
+action, owner or team hint, timing/cadence, KPI or decision trigger, confidence,
+and key confirmation when the upstream data supports it.
+
+The first screen must be a GTM judgment cover. Fail or caveat the render when
+the first-screen cards primarily show `已确认输入`, `证据覆盖`, `私密数据边界`,
+`来源记录`, product/country/price standalone input cards, or workflow status
+instead of GTM judgment, opening move, priority segment, must-win channel,
+price/offer stance, competitor threat, budget posture, and the decision-changing
+question.
 
 ## Evidence Gate
 

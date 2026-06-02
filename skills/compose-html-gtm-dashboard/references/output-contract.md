@@ -1,6 +1,6 @@
 # S14 Output Contract
 
-S14 must produce one final static HTML dashboard, supporting asset refs, citation and confidence maps, and a render quality report.
+S14 must produce one final static HTML GTM report, supporting asset refs, citation and confidence maps, and a render quality report.
 
 ## Output Envelope
 
@@ -12,6 +12,7 @@ S14 must produce one final static HTML dashboard, supporting asset refs, citatio
   "static_assets": [],
   "citation_index": [],
   "confidence_badge_map": {},
+  "gtm_judgment_cover": {},
   "render_quality_report": {},
   "data_gaps": [],
   "decision_updates": [],
@@ -26,7 +27,7 @@ S14 must produce one final static HTML dashboard, supporting asset refs, citatio
 {
   "full_html_dashboard": {
     "artifact_id": "A14.gtm-dashboard-html",
-    "title": "GTM Dashboard: [Product] in [Country]",
+    "title": "[Product] [Country] GTM 报告",
     "language": "zh-CN",
     "format": "single_file_static_html",
     "html_path": "",
@@ -56,6 +57,31 @@ S14 must produce one final static HTML dashboard, supporting asset refs, citatio
   }
 }
 ```
+
+## GTM Judgment Cover
+
+```json
+{
+  "gtm_judgment_cover": {
+    "judgment": "enter | defend | cautious_launch | validate_first | pause | unknown",
+    "judgment_label": "",
+    "core_recommendation": "",
+    "opening_move": "",
+    "priority_segment": "",
+    "must_win_channel": "",
+    "price_or_offer_stance": "",
+    "top_competitor_threat": "",
+    "budget_posture": "",
+    "decision_changing_question": "",
+    "confidence": "high | medium | low | hypothesis_only",
+    "evidence_refs": []
+  }
+}
+```
+
+The cover must be built from upstream decisions and takeaways. It must not be a
+checklist of product/country/price inputs, evidence coverage, private-data
+handling, or workflow state.
 
 ## Section Registry Instance
 
@@ -94,10 +120,22 @@ S14 must produce one final static HTML dashboard, supporting asset refs, citatio
     "privacy_findings": [],
     "citation_findings": [],
     "layout_findings": [],
+    "local_action_findings": [],
+    "presentation_language_findings": [],
     "remaining_risks": []
   }
 }
 ```
+
+Render quality must check that supplied `local_team_action` objects are visible
+near the relevant section claim. S14 may not invent a local action when upstream
+analysis did not supply one; it should record `missing_local_team_action` as a
+render caveat instead.
+
+Render quality must also check direct report wording. The main report should not
+show workflow terms such as skill IDs, handoff, module coverage, isolation audit,
+report audience labels, or `方法论行动方向`. Use `执行摘要`, `关键待确认`, and
+`本地行动建议` in visible labels.
 
 ## Static Asset Manifest
 
