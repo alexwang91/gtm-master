@@ -1,0 +1,11 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">GTM Master logo</title>
+  <desc id="desc">A compact blue and green mark for the GTM Master skill suite.</desc>
+  <rect width="160" height="160" rx="36" fill="#142033"/>
+  <path d="M39 44C39 37.3726 44.3726 32 51 32H109C115.627 32 121 37.3726 121 44V116C121 122.627 115.627 128 109 128H51C44.3726 128 39 122.627 39 116V44Z" fill="#F8FAFC"/>
+  <path d="M55 58H105" stroke="#2457D6" stroke-width="8" stroke-linecap="round"/>
+  <path d="M55 80H91" stroke="#157F5B" stroke-width="8" stroke-linecap="round"/>
+  <path d="M55 102H76" stroke="#B25B00" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="110" cy="108" r="18" fill="#2457D6"/>
+  <path d="M102 108L108 114L119 101" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
