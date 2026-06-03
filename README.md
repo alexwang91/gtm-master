@@ -5,7 +5,7 @@
 <h1 align="center">GTM Master</h1>
 
 <p align="center">
-  输入产品特性、上市国家、价格段和报告语言，生成面向汇报使用的 B2C 硬件 GTM HTML 报告。
+  Enter product features, launch countries, price segments, and report language to generate a B2C hardware GTM HTML report for presentation purposes.
 </p>
 
 <p align="center">
