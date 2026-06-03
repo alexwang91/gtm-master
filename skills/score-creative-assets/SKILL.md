@@ -251,4 +251,4 @@ Always return the S05 output envelope from `references/output-contract.md`:
 - Every score must trace to text observations, upstream message/proof fields, performance data, or declared hypothesis.
 - If copy contains an unsupported claim, cap its recommendation status even when the wording is persuasive.
 - Preserve private copy as restricted evidence unless the user approves public inclusion.
-- Default dashboard-facing outputs to Simplified Chinese unless the user requests another report language.
+- Render dashboard-facing outputs in the user-supplied report_language; ask during intake if it is missing.

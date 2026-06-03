@@ -36,6 +36,8 @@
     "target_price_range": "Example local currency price band",
     "report_depth": "standard",
     "output_language": "zh-CN",
+    "report_language": "zh-CN",
+    "report_language_source": "fixture_user_supplied",
     "web_policy": "no_live_web_for_dry_run",
     "private_inputs_policy": {
       "cogs_margin_channel_terms": "not_embedded",
