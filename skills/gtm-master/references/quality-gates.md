@@ -9,7 +9,7 @@ checks:
   one_active_skill:
     pass_if: Only one active sub-skill is being executed or edited.
   required_inputs_present:
-    pass_if: Project brief has product specs, country/region, and target price range.
+    pass_if: Project brief has product specs, country/region, target price range, and user-supplied report_language.
   method_declared:
     pass_if: The active method card and analysis procedure are named.
   schema_declared:
@@ -25,9 +25,9 @@ checks:
   visual_block_compatibility:
     pass_if: S01-S08/S13 html_section_draft.visual_blocks use only canonical S14 types from visual-block-acceptance-matrix.md, or missing/unsupported views are recorded as data gaps.
   dashboard_language_gate:
-    pass_if: Dashboard-facing titles, labels, takeaways, table values, skipped-section notes, data-gap explanations, and audit text are Simplified Chinese by default; only stable IDs, source refs, URLs, common GTM acronyms, product or brand names, and original evidence phrases may remain non-Chinese.
+    pass_if: Dashboard-facing titles, labels, takeaways, table values, skipped-section notes, data-gap explanations, and audit text use the user-supplied report_language. Stable IDs, source refs, URLs, common GTM acronyms, product or brand names, and original evidence phrases may remain in their source language when useful.
   upward_report_tone_gate:
-    pass_if: Dashboard-facing conclusions and recommendations use humble, cautious, evidence-scoped wording suitable for upward reporting; avoid absolute claims and contrastive frames such as `而不是...` or `不是...而是...`.
+    pass_if: Dashboard-facing conclusions and recommendations use humble, cautious, evidence-scoped wording suitable for upward reporting. In Chinese, avoid absolute claims and contrastive frames such as `而不是...` or `不是...而是...`. In English and other non-Chinese outputs, apply Stop Slop-style direct wording: cut filler, remove formulaic contrast frames, prefer active voice, vary rhythm, avoid em-dash reveal structures, and replace vague jargon with specific terms.
   data_gaps_recorded:
     pass_if: Missing, stale, or unavailable evidence is recorded.
   context_budget_controlled:
@@ -70,6 +70,7 @@ Use this fixture to sanity-check S00/S01 behavior after architecture changes.
   "product_features_and_specs": "Generic 2C hardware product with three concrete feature bullets, one measurable specification, and one setup or usage constraint.",
   "launch_country_or_region": "Example target country",
   "target_price_range": "Example local currency price band",
+  "report_language": "en-US",
   "report_depth": "quick"
 }
 ```
@@ -110,7 +111,7 @@ The validator must pass before claiming the suite contract is stable. It checks:
 - `post_skill_isolation_record` coverage
 - S14 section registry mapping to `html_*` inputs
 - S14 dry-run dashboard renderer contract
-- S14 Chinese dashboard language gate
+- S14 report-language gate
 - JSON fenced-block parsing
 - forbidden example residue
 
@@ -120,7 +121,7 @@ For S14 dashboard rendering smoke tests, run:
 python scripts\render-gtm-dashboard-from-report-state.py
 ```
 
-The generated HTML must remain single-file, offline-first, Chinese by default, pass the dashboard language gate, and show the GTM execution summary, key confirmations, validation plan, citation index, optional source-governance appendix, and the local-only private pricing calculator. Skill IDs, module coverage, handoff mechanics, and isolation audit must stay out of the main report body unless the user requests an audit appendix.
+The generated HTML must remain single-file, offline-first, use the user-supplied report_language, pass the dashboard language gate, and show the GTM execution summary, key confirmations, validation plan, citation index, optional source-governance appendix, and the local-only private pricing calculator. Skill IDs, module coverage, handoff mechanics, and isolation audit must stay out of the main report body unless the user requests an audit appendix.
 
 ## Handoff Gate
 

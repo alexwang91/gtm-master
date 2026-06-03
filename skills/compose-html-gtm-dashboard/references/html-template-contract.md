@@ -46,11 +46,11 @@ window.GTM_REPORT_DATA = {
 
 If no data is supplied, the template renders preview data marked as `template_preview`.
 
-Default output language is Simplified Chinese (`zh-CN`). The template shell uses Chinese UI labels by default; upstream section drafts should provide dashboard-facing prose in Chinese unless the user requests another language. Preserve original consumer/search language as evidence fields, with Chinese gloss or translation where useful.
+Output language is the user-supplied `report_language`. The template shell must not silently fall back to Chinese, English, or the market local language. Upstream section drafts should provide dashboard-facing prose in `report_language`. Preserve original consumer/search language as evidence fields, with a report-language gloss or translation where useful.
 
 ## Language Contract
 
-The current GTM Master version is Chinese-first. S14 must render the final dashboard in Simplified Chinese unless the user explicitly requests another report language.
+The current GTM Master version requires `report_language` at intake. S14 must render the final dashboard in that language.
 
 Dashboard-facing text includes:
 

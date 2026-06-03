@@ -10,7 +10,7 @@ The S06 section should answer:
 Which creator/expert roles fit the GTM problem, why they fit, how much marketing budget may be needed, what visits/interactions may be expected, which candidates are usable or risky, and what creator tests should run next?
 ```
 
-Dashboard-facing text should be Simplified Chinese unless the user requests another language.
+Dashboard-facing text must use the user-supplied report_language.
 
 ## Required Section Shape
 

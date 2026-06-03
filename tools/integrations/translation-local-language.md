@@ -23,6 +23,6 @@ outputs:
 ## Rules
 
 - Keep original language for search phrases, consumer quotes, objections, and category names.
-- Pair original phrases with Chinese report explanations when rendered.
+- Pair original phrases with explanations in the user-supplied report_language when rendered.
 - Mark uncertain translations, slang, sarcasm, or ambiguous product terms.
 - Do not let translation smooth away dissenting viewpoints.

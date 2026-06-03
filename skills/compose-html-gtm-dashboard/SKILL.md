@@ -11,7 +11,7 @@ Use this skill as S14 in the GTM intelligence report suite. It composes upstream
 
 S14 is a render skill, not an analysis skill. It must not invent findings, change upstream conclusions, hide low-confidence outputs, or fill missing modules with fabricated content.
 
-Default Chinese artifact title should be `[Product] [Country/Region] GTM 报告`.
+Artifact title should use the user-supplied `report_language`; Chinese reports may use `[Product] [Country/Region] GTM 报告`, and English reports may use `[Product] [Country/Region] GTM Report`.
 Do not add `管理层看板` to the title unless the user explicitly requests that
 audience label. The executive summary may still serve leadership, but the report
 artifact should remain usable by local GTM, channel, sales, product, and research
@@ -38,7 +38,7 @@ High-value inputs:
   "citation_index": [],
   "private_pricing_calculator_spec": {},
   "style_preferences": {},
-  "output_language": "zh-CN",
+  "output_language": "copy of user-supplied report_language",
   "report_audience": "executive | gtm_team | product_team | research_team | mixed",
   "report_depth": "quick | standard | real_product_pilot | deep"
 }
@@ -166,7 +166,7 @@ Default output:
 artifacts/dry-runs/generic-hardware-s00-s08-s13-s14-dashboard.html
 ```
 
-The generated dashboard must remain single-file, offline-first, Simplified Chinese by default, and must render from report state plus section drafts rather than reopening upstream full artifacts.
+The generated dashboard must remain single-file, offline-first, use the user-supplied report_language, and must render from report state plus section drafts rather than reopening upstream full artifacts.
 
 ## Scope Boundary
 
@@ -210,8 +210,8 @@ Always return the S14 output envelope from `references/output-contract.md`:
 ## Quality Rules
 
 - Do not invent missing findings, metrics, citations, charts, section content, or confidence levels.
-- Default dashboard language is Simplified Chinese (`zh-CN`) unless the user requests another language. Keep original local-language evidence snippets with Chinese explanation or gloss.
-- Current suite version is Chinese-first. All dashboard-facing titles, labels, takeaways, table headers, notes, skipped-section reasons, data-gap descriptions, and audit explanations must render in Simplified Chinese. Allowed non-Chinese visible tokens are stable IDs, source refs, URLs, acronyms such as GTM/JTBD/HTML/NSS/NPS/WTP/COGS/MKT/DTC/KOL, and original consumer/search phrases when paired with Chinese explanation.
+- Default dashboard language is the user-supplied `report_language`; ask for it if absent. Keep original local-language evidence snippets with a report-language explanation or gloss.
+- Current suite version is report-language-required. All dashboard-facing titles, labels, takeaways, table headers, notes, skipped-section reasons, data-gap descriptions, and audit explanations must render in `report_language`. Allowed out-of-language visible tokens are stable IDs, source refs, URLs, acronyms such as GTM/JTBD/HTML/NSS/NPS/WTP/COGS/MKT/DTC/KOL, product or brand names, and original consumer/search phrases when paired with a report-language explanation.
 - Show data gaps and low-confidence sections clearly.
 - Keep private COGS, margin, channel terms, internal sales, and raw uploaded private data out of public sections unless explicitly approved.
 - Render private calculators with blank fields and local browser calculations only.

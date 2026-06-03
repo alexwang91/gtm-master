@@ -10,9 +10,10 @@ Minimum required input:
 product features and specs
 launch country or region
 target price range
+report language
 ```
 
-After receiving the minimum input, ask once for optional private files. Do not block the workflow if the user has none.
+After receiving product, country/region, and price inputs, confirm `report_language` if it is missing. Do not default to Chinese, English, or the market local language without user confirmation. After the required language is supplied, ask once for optional private files. Do not block the workflow if the user has none.
 
 Recommended wording:
 
@@ -58,6 +59,7 @@ Before broad web collection, MCP calls, crawling, or browser automation, show a 
 ```json
 {
   "target_country_or_region": "",
+  "report_language": "",
   "local_languages": [],
   "evidence_needs": [],
   "likely_connector_slots": [],

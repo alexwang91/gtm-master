@@ -23,7 +23,7 @@ report audience labels, or method names as the visible point of a section.
 
 ## Report Naming
 
-Default Chinese report title:
+Default report title uses the user-supplied report language. Chinese title example:
 
 ```text
 [Product] [Country/Region] GTM 报告
