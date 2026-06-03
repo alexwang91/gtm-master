@@ -5,7 +5,7 @@
 <h1 align="center">GTM Master</h1>
 
 <p align="center">
-  输入产品特性、上市国家和价格段，生成面向汇报使用的 B2C 硬件 GTM 中文 HTML 报告。
+  输入产品特性、上市国家、价格段和报告语言，生成面向汇报使用的 B2C 硬件 GTM HTML 报告。
 </p>
 
 <p align="center">
@@ -13,7 +13,7 @@
     <img alt="GitHub stars" src="https://img.shields.io/github/stars/alexwang91/gtm-master?style=social" />
   </a>
   <img alt="Status" src="https://img.shields.io/badge/status-private%20pilot-6B7280" />
-  <img alt="Report language" src="https://img.shields.io/badge/report-zh--CN-2457D6" />
+  <img alt="Report language" src="https://img.shields.io/badge/report-user--selected-2457D6" />
   <img alt="Output" src="https://img.shields.io/badge/output-offline%20HTML-157F5B" />
   <img alt="Skill suite" src="https://img.shields.io/badge/skills-15%20modules-B25B00" />
   <img alt="Agents" src="https://img.shields.io/badge/agents-Codex%20%7C%20Claude%20Code-111827" />
@@ -21,7 +21,7 @@
 
 GTM Master is a multi-skill GTM intelligence suite for consumer hardware launches. It helps an AI coding agent turn a small launch brief into a structured, evidence-backed GTM report with local market research, competitor logic, consumer voice, pricing judgment, launch forecast, KOL/content direction, validation gaps, citations, and a polished offline HTML dashboard.
 
-The current suite is Chinese-report-first. English support can be added later as a separate report language layer.
+The current suite is report-language-required. The agent must ask for `report_language` during intake and must not silently default English, Chinese, or any other language. Chinese, English, and other-language reports use the same GTM contracts; only dashboard-facing wording changes.
 
 ## What It Does
 
@@ -31,7 +31,8 @@ Minimum input:
 {
   "product_features_and_specs": "",
   "launch_country_or_region": "",
-  "target_price_range": ""
+  "target_price_range": "",
+  "report_language": ""
 }
 ```
 
@@ -45,7 +46,7 @@ High-value optional inputs:
 
 Main output:
 
-- a meeting-ready Chinese HTML GTM report
+- a meeting-ready HTML GTM report in the user-selected report language
 - named-channel priority and launch action plan
 - TOP1 competitor proof and internal price-ladder risk
 - segment, JTBD, message, proof, price, channel, KOL, and forecast views
@@ -113,7 +114,7 @@ The suite maps imported marketing methods into hardware launch decisions:
 - ORB for owned, rented, and borrowed channel planning
 - 17-item hardware current-state scoring for launch readiness
 - budget formulas, CAC-style planning, and growth S-curves for S08 forecast and validation
-- copy sweeps for direct Chinese report quality
+- copy sweeps for direct, language-appropriate report quality
 
 ## Report Principles
 
@@ -139,7 +140,7 @@ The final HTML body should read like a formal GTM report:
 预算：50,000 美元
 
 如遇到关键不确定项，先标为 data gap，不要编造结论。
-最终输出中文 HTML 报告。
+最终输出客户指定报告语言的 HTML 报告。
 ```
 
 ## Installation
@@ -216,7 +217,7 @@ Star history charts usually render once the repository is public and visible to 
 
 ## Current Status
 
-This repository is in private pilot. The core architecture, method contracts, recoverable state machine, report-state contract, quality gates, and Chinese HTML report composer are active. Real-product pilots should be treated as evidence-gathering and report-quality tests until private company data, live local evidence, and channel feedback are supplied.
+This repository is in private pilot. The core architecture, method contracts, recoverable state machine, report-state contract, quality gates, and multi-language HTML report composer contracts are active. Real-product pilots should be treated as evidence-gathering and report-quality tests until private company data, live local evidence, and channel feedback are supplied.
 
 ## License
 

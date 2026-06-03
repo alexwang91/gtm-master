@@ -288,4 +288,4 @@ Always return the S13 output envelope from `references/output-contract.md`:
 - Do not call retailer sell-in proof of consumer sell-through.
 - Do not run price tests without channel conflict, tax/shipping, warranty, and margin caveats.
 - Mark private raw inputs as excluded, aggregated, or approved before public HTML use.
-- Default dashboard-facing outputs to Simplified Chinese unless the user requests another report language.
+- Render dashboard-facing outputs in the user-supplied report_language; ask during intake if it is missing.

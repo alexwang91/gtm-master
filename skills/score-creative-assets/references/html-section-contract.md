@@ -10,7 +10,7 @@ The S05 section should answer:
 Which copy assets are usable, which need revision, which are risky, and what should be tested next?
 ```
 
-Dashboard-facing text should be Simplified Chinese unless the user requests another language.
+Dashboard-facing text must use the user-supplied report_language.
 
 ## Required Section Shape
 

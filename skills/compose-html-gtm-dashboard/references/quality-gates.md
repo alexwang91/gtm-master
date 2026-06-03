@@ -55,7 +55,7 @@ confidence_badge_visibility
   Each major section shows confidence or status.
 
 dashboard_language_gate
-  The current suite version renders dashboard-facing text in Simplified Chinese by default. Stable IDs, source refs, URLs, known GTM acronyms, product or brand names, and original local-language evidence snippets may remain non-Chinese. English placeholder prose, method names, skipped-section reasons, table values, and data-gap explanations must be translated or glossed before final output.
+  The current suite version renders dashboard-facing text in the user-supplied `report_language`. Stable IDs, source refs, URLs, known GTM acronyms, product or brand names, and original local-language evidence snippets may remain in their source language. Placeholder prose, method names, skipped-section reasons, table values, and data-gap explanations must be translated or glossed into `report_language` before final output.
 
 direct_report_language_gate
   The main HTML body reads as a meeting-ready GTM report. It must not show skill IDs, handoff mechanics, module coverage, post-skill isolation, context-budget notes, report audience labels, or labels such as `方法论行动方向`. Use business labels such as `执行摘要`, `本地行动建议`, `关键待确认`, `渠道战情室`, `上市日历`, and `证据索引`.

@@ -219,7 +219,7 @@ Use appendices
 
 For `validation_roadmap`, S14 must:
 
-- render dashboard-facing text in Simplified Chinese unless the user requested another language
+- render dashboard-facing text in the user-supplied report_language
 - preserve S13 experiment names, scores, pass/fail rules, decision gates, confidence labels, and citations
 - render `targeted_lookup_log`, `context_budget_report`, `post_skill_isolation_record`, and `excluded_or_deferred_tests_log` as audit tables when present
 - mark missing S13 required views as `missing_required_view`
@@ -267,7 +267,7 @@ Acceptance rules:
 
 - single-file HTML
 - no external script, stylesheet, font, analytics, telemetry, fetch, or network dependency
-- Chinese dashboard structure and section labels by default
+- report-language-specific dashboard structure and section labels by default
 - visible GTM execution summary, key-confirmation panel, citation/index treatment, validation plan, and optional source-governance appendix
 - private pricing calculator has blank local-only inputs
 - S14 does not change upstream findings or create missing analysis

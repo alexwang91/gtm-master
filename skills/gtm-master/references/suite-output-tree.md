@@ -4,7 +4,7 @@ This file is the top-level output map for the GTM Master skill suite. Use it
 when reviewing the whole architecture, explaining the dashboard structure, or
 checking what each sub-skill must produce.
 
-The suite is Chinese-dashboard-first by default. Field names stay stable in
+The suite is report-language-required. Field names stay stable in
 English so Codex, Claude Code, MCP tools, CLI tools, and HTML rendering can share
 the same contracts.
 
@@ -101,7 +101,7 @@ Final HTML Dashboard
 Role: hidden orchestration. S00 does not create market conclusions. It creates
 the run contract and controls graph, context, state, and quality gates.
 
-- `project_brief`: normalized product, country/region, price range, optional private inputs, claim constraints, report language, and audience.
+- `project_brief`: normalized product, country/region, price range, optional private inputs, claim constraints, user-supplied report language, and audience.
 - `skill_execution_plan`: selected run mode, active graph, optional branches, method crosswalk, tool slots, and execution order.
 - `recoverable_run_state`: phase, current skill, resume pointer, skill status, artifacts, idempotency key, and interrupted/resumed status.
 - `hardware_current_state_scorecard`: 17-section launch readiness score with gaps, blockers, and top validation priority.
@@ -180,7 +180,7 @@ Role: visible. S01 builds the target-country market fact layer.
 - `hardware_experience_diagnosis_seed`: product/app/service/price/channel/root-cause diagnosis from voice evidence.
 - `next_generation_marketing_sales_seed`: next-generation product, marketing, and sales recommendations seeded from voice drivers.
 - `earned_growth_seed_notes`: caveats and limits on earned-growth attribution.
-- `html_market_section`: S14-ready Chinese section draft with visual blocks, citations, confidence, and gaps.
+- `html_market_section`: S14-ready section draft in report_language with visual blocks, citations, confidence, and gaps.
 
 ## S02 mine-jtbd-scenarios Outputs
 
@@ -210,7 +210,7 @@ Role: visible. S02 converts S01 evidence into demand scenarios.
 - `scenario_message_seed`: message angle seeds for S03, not final copy.
 - `scenario_price_implication_seed`: price sensitivity, premium justification, promo, or competitor-anchor implications for S04.
 - `validation_question_seed`: weak but important scenario assumptions for S13.
-- `html_jtbd_section`: S14-ready Chinese section draft.
+- `html_jtbd_section`: S14-ready section draft in report_language.
 
 ## S03 match-messages-to-segments Outputs
 
@@ -235,7 +235,7 @@ Role: visible. S03 creates the message architecture, not final advertising copy.
 - `creator_brief_message_seed`: creator/KOL/expert briefing seeds for S06.
 - `compliance_review_queue`: claims or wording requiring legal, regulatory, privacy, safety, or brand review.
 - `message_test_backlog`: message assumptions and variants to validate.
-- `html_message_section`: S14-ready Chinese section draft.
+- `html_message_section`: S14-ready section draft in report_language.
 
 ## S04 model-price-sensitivity Outputs
 
@@ -270,7 +270,7 @@ Role: visible. S04 creates pricing hypotheses, tests, and local/private calculat
 - `private_pricing_calculator_spec`: blank local HTML calculator spec for sensitive COGS/margin/channel inputs.
 - `pricing_test_execution_kit`: survey/ad/landing/retail test kit and CSV/result schema.
 - `pricing_test_result_interpretation`: interpretation of uploaded real test results.
-- `html_pricing_section`: S14-ready Chinese section draft.
+- `html_pricing_section`: S14-ready section draft in report_language.
 
 ## S05 score-creative-assets Outputs
 
@@ -296,7 +296,7 @@ Role: conditional. Run only when editable text, concepts, or copy testing is rel
 - `package_text_claim_audit`: packaging or visible text claim audit.
 - `copy_performance_result_interpretation`: interpretation of provided copy performance data.
 - `compliance_review_queue`: copy claims needing review.
-- `html_creative_section`: S14-ready Chinese section draft when triggered.
+- `html_creative_section`: S14-ready section draft in report_language when triggered.
 
 ## S06 score-kol-fit Outputs
 
@@ -339,7 +339,7 @@ Role: conditional. Run when creator/KOL/expert/reviewer decisions matter.
 - `retail_expert_or_media_fit`: retailer expert, media, or specialist reviewer fit.
 - `creator_performance_result_interpretation`: interpretation of provided creator results.
 - `compliance_review_queue`: creator claim/disclosure review items.
-- `html_creator_section`: S14-ready Chinese section draft when triggered.
+- `html_creator_section`: S14-ready section draft in report_language when triggered.
 
 ## S07 predict-dtc-conversion Outputs
 
@@ -377,7 +377,7 @@ Role: conditional. Run when DTC, PDP, marketplace clickout, preorder, waitlist, 
 - `dtc_conversion_model`: directional conversion model for S08.
 - `funnel_friction_map`: visual/structured map of conversion friction.
 - `page_experiment_plan`: experiments for S13.
-- `html_conversion_section`: S14-ready Chinese section draft when triggered.
+- `html_conversion_section`: S14-ready section draft in report_language when triggered.
 
 ## S08 forecast-launch-demand Outputs
 
@@ -420,7 +420,7 @@ Role: visible. S08 forecasts launch unit sales and decision ranges.
 - `gross_revenue_range_estimate`: revenue range only when price, currency, and display permission are explicit.
 - `regional_channel_allocation`: region/channel allocation assumptions.
 - `forecast_review_gate`: review status for private assumptions, inventory, budget, or channel decisions.
-- `html_forecast_section`: S14-ready Chinese section draft.
+- `html_forecast_section`: S14-ready section draft in report_language.
 
 ## S09 predict-activation-risk Outputs
 

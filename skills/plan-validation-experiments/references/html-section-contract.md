@@ -10,7 +10,7 @@ The S13 section should answer:
 Which assumptions are most dangerous, which experiments should run first, what data/sample is needed, what pass/fail rule decides the next move, and which GTM decisions can proceed now versus after validation?
 ```
 
-Dashboard-facing text should be Simplified Chinese unless the user requests another language.
+Dashboard-facing text must use the user-supplied report_language.
 
 ## Required Section Shape
 

@@ -16,6 +16,8 @@
     "target_price_range": "Example local currency price band",
     "report_depth": "standard",
     "output_language": "zh-CN",
+    "report_language": "zh-CN",
+    "report_language_source": "fixture_user_supplied",
     "assumptions": [
       "This is not a market analysis result.",
       "All evidence refs are fixture refs.",

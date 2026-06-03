@@ -27,8 +27,8 @@ S14 must produce one final static HTML GTM report, supporting asset refs, citati
 {
   "full_html_dashboard": {
     "artifact_id": "A14.gtm-dashboard-html",
-    "title": "[Product] [Country] GTM 报告",
-    "language": "zh-CN",
+    "title": "localized report title in report_language",
+    "language": "copy of user-supplied report_language",
     "format": "single_file_static_html",
     "html_path": "",
     "template_ref": "assets/dashboard-shell.html",
@@ -134,8 +134,8 @@ render caveat instead.
 
 Render quality must also check direct report wording. The main report should not
 show workflow terms such as skill IDs, handoff, module coverage, isolation audit,
-report audience labels, or `方法论行动方向`. Use `执行摘要`, `关键待确认`, and
-`本地行动建议` in visible labels.
+report audience labels, or `方法论行动方向`. Use localized equivalents of `Executive Summary`, `Key Confirmations`, and
+`Local Action Recommendations` in visible labels.
 
 ## Static Asset Manifest
 

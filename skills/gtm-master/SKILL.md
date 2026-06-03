@@ -15,7 +15,8 @@ The user-facing promise is minimal input:
 {
   "product_features_and_specs": "",
   "launch_country_or_region": "",
-  "target_price_range": ""
+  "target_price_range": "",
+  "report_language": ""
 }
 ```
 
@@ -33,7 +34,8 @@ Optional inputs can improve quality, but must not be required before the suite c
   "historical_copy_landing_pages_kol_scripts_and_ads": "",
   "copy_assets_or_concepts": [],
   "fixed_visual_or_layout_constraints": "",
-  "target_language": "zh-CN by default unless the user requests another report language",
+  "target_language": "local evidence/search language; separate from report_language",
+  "output_language": "copy from report_language after intake",
   "claim_constraints": "",
   "compliance_constraints": "",
   "report_audience": "founder | marketing | sales | investor | product | retailer",
@@ -43,6 +45,19 @@ Optional inputs can improve quality, but must not be required before the suite c
 ```
 
 For the full optional input list, including S04 private pricing constraints, S06 creator/KOL inputs, S07 conversion materials, S08 forecast/lifecycle/MKT inputs, and S13 validation budget/timeline/testing access inputs, read `references/suite-manifest.yaml` and `references/schemas.md`. Keep this overview compact so S00 remains a router, not a duplicate schema.
+
+
+## Report Language Policy
+
+`report_language` is a required intake field. Do not infer Chinese from the user's chat language, the repository defaults, or earlier dry-run fixtures. If `report_language` is missing, ask for it before starting S01 broad research or S14 composition. Use a BCP-47 tag when possible, such as `zh-CN`, `en-US`, `de-DE`, `fr-FR`, or `ja-JP`, plus a plain-language label when useful.
+
+Keep these language fields separate:
+
+- `report_language`: the language for dashboard-facing titles, labels, takeaways, table headers, data-gap explanations, and recommendations.
+- `target_language`: local market/search/consumer evidence language; it may differ from the report language.
+- `output_language`: normalized copy of `report_language` passed to sub-skills and S14.
+
+For English and other non-Chinese reports, apply the Stop Slop writing habits from hardikpandya/stop-slop: state the point directly, remove filler and throat-clearing, avoid formulaic contrast frames, prefer active voice with a named actor, vary sentence rhythm, avoid em-dash reveal structures, and replace vague business jargon with specific language. Keep this as a style filter, not a license to remove evidence caveats.
 
 ## Load Order
 
@@ -68,8 +83,9 @@ Read only what the task needs.
 18. Read `references/visual-block-acceptance-matrix.md` before auditing S01-S08/S13 `visual_blocks`, report-state compatibility, or S14 readiness.
 19. Read `references/report-data-contract.md` before writing or updating HTML report state.
 20. Read `references/html-dashboard-design.md` when composing or reviewing the final visual report.
-21. Read `references/hardware-launch-execution-playbook.md` when the user wants a direct HTML GTM report, launch action plan, channel/KOL/retail execution view, or first-sale war-room plan.
-22. Read `references/marketing-skills-adaptation-map.md` when importing or adapting an external marketing skill pattern.
+21. Read `references/report-language-and-style.md` before normalizing intake language, writing non-Chinese report prose, or auditing S14 presentation language.
+22. Read `references/hardware-launch-execution-playbook.md` when the user wants a direct HTML GTM report, launch action plan, channel/KOL/retail execution view, or first-sale war-room plan.
+23. Read `references/marketing-skills-adaptation-map.md` when importing or adapting an external marketing skill pattern.
 
 Use optional references conditionally; do not load future roadmap nodes or inactive sub-skill details by default.
 
@@ -90,7 +106,7 @@ Use optional references conditionally; do not load future roadmap nodes or inact
 - Report state as you go: each sub-skill writes a full artifact, compressed handoff, and HTML section draft.
 - Verification before done: run the relevant quality gate before declaring a section, handoff, or suite step ready.
 - Evals before architecture stable: every implemented skill keeps `evals/evals.json` with pressure scenarios for scope, method, evidence, and forbidden outputs.
-- Chinese dashboard by default: write final dashboard-facing summaries, labels, callouts, and recommendations in Simplified Chinese unless the user explicitly requests another output language. Preserve original local-language evidence with translation/gloss when useful.
+- Report language required: write final dashboard-facing summaries, labels, callouts, and recommendations in the user-supplied `report_language`. Preserve original local-language evidence with a report-language translation or gloss when useful.
 
 ## Task Router
 

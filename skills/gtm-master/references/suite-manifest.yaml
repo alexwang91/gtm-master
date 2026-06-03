@@ -1,5 +1,5 @@
 suite_name: gtm-intelligence-report-suite
-suite_version: 0.1.0
+suite_version: 0.2.0
 master_skill: S00.gtm-master
 purpose: >
   Turn minimal product launch inputs into an evidence-backed multi-skill GTM
@@ -9,6 +9,7 @@ required_user_inputs:
   - product_features_and_specs
   - launch_country_or_region
   - target_price_range
+  - report_language
 
 optional_user_inputs:
   - product_name_or_codename
@@ -136,7 +137,7 @@ runtime_model:
   implementation_roadmap_source: references/suite-implementation-roadmap.md
   report_state_source: report_data_contract
   visual_block_acceptance_source: references/visual-block-acceptance-matrix.md
-  default_output_language: zh-CN
+  default_output_language: user_supplied_report_language
   default_report_depth: standard
   available_depth_modes:
     - quick
