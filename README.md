@@ -221,4 +221,4 @@ This repository is in private pilot. The core architecture, method contracts, re
 
 ## License
 
-License is not declared yet. Add a `LICENSE` file before public release.
+This project is licensed under the MIT License. See [`LICENSE`](LICENSE) for details.
