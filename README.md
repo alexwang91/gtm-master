@@ -130,17 +130,15 @@ The final HTML body should read like a formal GTM report:
 ## Example Prompt
 
 ```text
-使用 gtm-master，帮我为这个产品生成 standard GTM 报告：
+Please use gtm-master to generate a standard GTM report for the following product:
 
-产品：Huawei WATCH FIT 5 Pro
-上市国家：匈牙利
-价格：99,990 Ft
-核心卖点：轻薄设计、睡眠健康、多日续航、运动健康
-渠道假设：Huawei official、Alza、MediaMarkt、Euronics、Yettel
-预算：50,000 美元
-
-如遇到关键不确定项，先标为 data gap，不要编造结论。
-最终输出客户指定报告语言的 HTML 报告。
+Product: WHOOP
+Launch Market: Hungary
+Price: WHOOP membership model; official EU pricing to be validated. 
+Reference price: WHOOP One at USD 199/year for EU markets, based on WHOOP official membership pricing. 
+Local Hungary price in HUF, available membership tiers, taxes, shipping fees, and channel-specific pricing should be marked as data gaps if not confirmed.
+Core Selling Points: Lightweight / screen-free design, sleep and recovery insights, multi-day battery life, and sports & health performance tracking
+Budget: USD 50,000
 ```
 
 ## Installation
