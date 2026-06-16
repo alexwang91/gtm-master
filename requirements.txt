@@ -1,0 +1,3 @@
+# GTM Master suite tooling dependencies.
+# Used by scripts/validate-gtm-suite-contracts.py and the dashboard renderer/tests.
+PyYAML>=6.0

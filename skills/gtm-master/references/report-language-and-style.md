@@ -2,49 +2,51 @@
 
 Use this policy whenever S00 normalizes intake, a sub-skill writes an HTML section draft, or S14 composes the final report.
 
-## Required Intake Field
+## Report Output Language
 
-`report_language` is required. Do not infer it from the user's chat language, target country, local evidence language, browser locale, or old dry-run fixtures.
+The final HTML report is written in Simplified Chinese (`zh-CN`). The current
+renderer (`scripts/render-gtm-dashboard-from-report-state.py`) emits
+`<html lang="zh-CN">` and ships Chinese label dictionaries only; there is no
+other report-output language today.
 
-Accepted values:
+- `report_language`: defaults to `zh-CN`. Keep the field in the project brief so
+  downstream contracts stay stable, but do not ask the user to choose a report
+  language and do not promise English, German, Japanese, or any other output
+  language until the renderer ships those dictionaries and a matching golden
+  fixture.
+- Do not infer a non-Chinese report language from the user's chat language, the
+  target country, or the local evidence language.
 
-- BCP-47 tags: `zh-CN`, `en-US`, `en-GB`, `de-DE`, `fr-FR`, `ja-JP`, etc.
-- Clear language names when a tag is not available: `English`, `German`, `Japanese`, `Spanish (Mexico)`.
-
-If `report_language` is missing, ask one short question before broad research or final composition:
-
-```text
-Which report language should I use for the final GTM report? Examples: zh-CN, en-US, de-DE, ja-JP.
-```
+If a future contributor adds another output language, they must also add the
+label dictionaries, a golden dashboard fixture, and a language gate for that
+language (see `scripts/validate-gtm-suite-contracts.py`).
 
 ## Field Separation
 
-- `report_language`: language for visible report prose, labels, notes, charts, tables, and recommendations.
-- `output_language`: normalized copy of `report_language` used by renderers and sub-skills.
-- `target_language`: local market, search, source, or consumer language for evidence gathering. It may differ from `report_language`.
+Local evidence language is independent of the Chinese report output:
+
+- `report_language`: language of the final dashboard prose, labels, and charts. Fixed to `zh-CN`.
+- `target_language`: local market, search, source, or consumer language for evidence gathering. It usually differs from `report_language` (e.g., Hungarian evidence rendered into a Chinese report).
 - `source_language`: original language of an evidence record.
 
-## Non-Chinese Report Style
-
-For English and other non-Chinese reports, adapt the Stop Slop principles from hardikpandya/stop-slop as a prose quality gate:
-
-- State the business point directly; remove throat-clearing openers.
-- Use active voice and name the actor where the evidence allows it.
-- Replace vague business jargon with concrete terms tied to channel, segment, price, proof, or timing.
-- Avoid formulaic contrast frames such as `not X, but Y`, dramatic fragments, rhetorical setup questions, and em-dash reveal structures.
-- Vary sentence length. Avoid three consecutive sentences with the same rhythm.
-- Keep evidence caveats. Do not remove confidence labels, data gaps, or validation conditions to make prose sound smoother.
+Collect evidence in `target_language`, then present it in the Chinese report with
+a short translation or gloss whenever the original phrasing affects a decision.
 
 ## Chinese Report Style
 
-For `zh-CN`, keep the existing upward-reporting tone: concise, evidence-scoped, cautious, and easy to scan. Avoid `而不是...` and `不是...而是...` contrast frames in visible dashboard text.
+The report is for a country sales manager reading upward-reporting Chinese. Keep
+the tone concise, evidence-scoped, cautious, and easy to scan:
+
+- State the business point first; remove throat-clearing openers.
+- Use concrete terms tied to channel, segment, price, proof, or timing.
+- Avoid `而不是...` and `不是...而是...` contrast frames in visible dashboard text.
+- Vary sentence length; do not stack three same-rhythm sentences.
+- Keep evidence caveats. Do not drop confidence labels, data gaps, or validation conditions to make prose smoother.
 
 ## Language Gate
 
 Before a section is ready, check:
 
-1. User supplied `report_language` is present in the project brief.
-2. Dashboard-facing text uses `report_language`.
-3. Source quotes, product names, URLs, stable IDs, and standard acronyms may remain in source language.
-4. Every source-language phrase has a short gloss or explanation in `report_language` when it affects a decision.
-5. Non-Chinese prose passes the Stop Slop style filter without weakening evidence caveats.
+1. Dashboard-facing text is Simplified Chinese.
+2. Source quotes, product names, URLs, stable IDs, and standard acronyms may remain in source language.
+3. Every source-language phrase that affects a decision has a short Chinese gloss or explanation.

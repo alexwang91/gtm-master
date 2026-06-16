@@ -67,6 +67,7 @@ S08 must produce a full artifact, compressed handoff pack, S14-ready HTML sectio
     "supply_constraint_scenario",
     "preorder_waitlist_projection",
     "gross_revenue_range_estimate",
+    "accessory_attach_revenue_bridge",
     "regional_channel_allocation",
     "forecast_review_gate"
   ],
@@ -131,6 +132,7 @@ S08 must produce a full artifact, compressed handoff pack, S14-ready HTML sectio
       "supply_constraint_scenario": [],
       "preorder_waitlist_projection": {},
       "gross_revenue_range_estimate": [],
+      "accessory_attach_revenue_bridge": [],
       "regional_channel_allocation": [],
       "forecast_review_gate": {}
     },
@@ -207,6 +209,20 @@ S08 must produce a full artifact, compressed handoff pack, S14-ready HTML sectio
       "basis": "",
       "risk_notes": [],
       "confidence": "high | medium | low | hypothesis_only",
+      "evidence_refs": []
+    }
+  ],
+  "accessory_attach_revenue_bridge": [
+    {
+      "accessory_or_bundle": "",
+      "device_unit_range": {"min": 0, "max": 0},
+      "attach_rate_range": {"min": 0, "max": 0},
+      "accessory_unit_range": {"min": 0, "max": 0},
+      "accessory_unit_price_or_margin_basis": "",
+      "attach_revenue_range": {"min": 0, "max": 0, "currency": ""},
+      "basis": "S04_attach_seed | user_assumption | previous_generation | AI_heuristic | missing",
+      "confidence": "high | medium | low | hypothesis_only",
+      "caps_and_confounders": [],
       "evidence_refs": []
     }
   ],

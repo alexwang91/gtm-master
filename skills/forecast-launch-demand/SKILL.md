@@ -95,6 +95,9 @@ Optional user inputs:
   "previous_generation_sales_price_channel_performance": "",
   "seasonality_or_retail_calendar_notes": "",
   "target_revenue_or_unit_goal": "",
+  "accessory_or_bundle_catalog": [],
+  "accessory_attach_rate_assumption": "",
+  "accessory_unit_price_or_margin_basis": "",
   "forecast_output_granularity": "total | segment | channel | segment_x_channel",
   "private_forecast_inputs_public_html_policy": "exclude_raw | aggregate | approved"
 }
@@ -169,6 +172,7 @@ previous_generation_calibration
 supply_constraint_scenario
 preorder_waitlist_projection
 gross_revenue_range_estimate
+accessory_attach_revenue_bridge
 regional_channel_allocation
 forecast_review_gate
 ```
@@ -225,6 +229,9 @@ supply_constraint_scenario
 
 gross_revenue_range_estimate
   Trigger only when unit range, price/currency, channel price policy, and public/private display permission are explicit.
+
+accessory_attach_revenue_bridge
+  Trigger when an accessory/bundle catalog, attach-rate assumption, or accessory price/margin basis is supplied, or when the country sales manager's number depends on accessory attach. Model attach as separate accessory units = device units x attach-rate, with its own range and confidence cap.
 ```
 
 ## Execution Workflow
@@ -242,7 +249,7 @@ gross_revenue_range_estimate
 10. Bridge price and conversion assumptions without double-counting S04 price risk or S07 CVR ranges.
 11. Model inventory risk as stockout/overstock exposure by scenario and channel; do not imply a supply decision without user-supplied inventory constraints.
 12. Build sensitivity driver tornado to show which assumptions move the forecast most.
-13. Add retail sell-in/sell-through, creator traffic, DTC conversion, previous-generation, media reach, lifecycle phase, marketing response, seasonality, or supply modules only when triggered.
+13. Add retail sell-in/sell-through, channel-mix split (DTC, marketplace, offline retail, operator, distributor), accessory attach, creator traffic, DTC conversion, previous-generation, media reach, lifecycle phase, marketing response, seasonality, or supply modules only when triggered.
 14. Produce forecast decision gate: usable_for_direction, usable_for_budget, usable_for_inventory, or not_ready.
 15. Produce compressed handoff pack for S09/S13/S14.
 16. Produce HTML forecast section draft with S14-ready visual blocks.
@@ -255,8 +262,9 @@ S08 owns:
 - Launch unit sales scenario ranges
 - Product lifecycle phase sales curve
 - Marketing investment response and incremental sales assumptions
-- Segment and channel split assumptions
+- Segment and channel split assumptions, including offline retail, marketplace, operator/carrier, and distributor channels alongside DTC
 - Sell-in vs sell-through distinction
+- Accessory/bundle attach-rate and attach revenue as a separate line from device units
 - Inventory stockout/overstock risk ranges
 - Sensitivity analysis and confidence caps
 - Forecast validation needs for S13
@@ -300,4 +308,5 @@ Always return the S08 output envelope from `references/output-contract.md`:
 - Separate measured internal data, public benchmark proxy, upstream model output, user hypothesis, and AI heuristic judgment.
 - Do not multiply unrelated scores into a fake precise number. Use formulas as scaffolds and show confidence caps.
 - Do not show revenue unless price/currency and display permission are explicit; never show profit or margin.
-- Default dashboard-facing outputs to Simplified Chinese unless the user requests another report language.
+- Model accessory/bundle attach as a separate unit and revenue line; do not fold attach revenue into device units or imply attach lift without an explicit attach-rate assumption and confidence cap.
+- Write dashboard-facing outputs in Simplified Chinese (`report_language` = `zh-CN`).

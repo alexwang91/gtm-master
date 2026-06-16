@@ -62,9 +62,9 @@ class FullGapCompletionRenderTest(unittest.TestCase):
             "激活、退货与上手风险",
             "激活与退货触发检查",
             "上手旅程风险图",
-            "数据缺口与置信度面板",
+            "关键待确认与置信度面板",
             "引用与证据索引",
-            "可视块：49",
+            "交付范围说明",
         ]
         for phrase in required_phrases:
             self.assertIn(phrase, visible_text)

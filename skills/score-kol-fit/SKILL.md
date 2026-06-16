@@ -284,4 +284,4 @@ Always return the S06 output envelope from `references/output-contract.md`:
 - If a candidate review gate is pending, mark candidate scores, budget ranges, and expected outcomes as provisional.
 - Excluded candidates must not enter approved scoring, budget, or expected-outcome recommendations unless the user later reverses the decision.
 - Do not expose private creator lists, rates, contacts, or campaign performance in public HTML unless approved.
-- Default dashboard-facing outputs to Simplified Chinese unless the user requests another report language.
+- Write dashboard-facing outputs in Simplified Chinese (`report_language` = `zh-CN`).
