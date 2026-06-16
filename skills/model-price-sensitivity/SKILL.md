@@ -61,6 +61,8 @@ Optional private inputs:
   "previous_generation_sales_price_channel_performance": "",
   "inventory_or_forecast_constraints": "",
   "subscription_or_recurring_revenue_model": "",
+  "accessory_or_bundle_catalog": [],
+  "accessory_attach_rate_or_price_assumption": "",
   "finance_installment_constraints": "",
   "strategic_price_objective": "profit | revenue | share | positioning | channel_entry | inventory_velocity | unknown",
   "base_demand_units": "",
@@ -140,6 +142,7 @@ maxdiff_feature_value_tradeoff_test_design
 conjoint_dce_test_plan
 channel_margin_guardrail
 retail_price_integrity_map
+accessory_bundle_attach_pricing
 subscription_pricing_hypothesis
 promo_test_plan
 elasticity_assumption_seed
@@ -179,6 +182,9 @@ channel_margin_guardrail
 
 retail_price_integrity_map
   Trigger when multiple retailers/marketplaces, promo conflicts, cross-border pricing, or channel conflict matters.
+
+accessory_bundle_attach_pricing
+  Trigger when an accessory/bundle catalog, attach-rate assumption, or accessory price/margin basis exists, or when bundle pricing affects device conversion or blended ASP. Output accessory ASP bands, bundle uplift vs standalone, attach-rate hypotheses with confidence caps, and the attach-rate seed for S08. Do not present attach revenue as device demand.
 
 subscription_pricing_hypothesis
   Trigger when subscription, app service, consumables, warranty extension, financing, or recurring cost exists.
@@ -224,7 +230,7 @@ Follow this sequence:
 12. Build WTP test plan and triggered pricing research designs
 13. Build pricing test execution kit when the user wants to run tests
 14. If test results are provided, run result ingestion, data quality gate, interpretation, and decision update
-15. Build promo/subscription guidance and triggered retail/channel modules
+15. Build promo/subscription guidance and triggered retail/channel and accessory/bundle attach modules
 16. Build pricing decision gate: decision status, blockers, candidate options, and downstream readiness
 17. Build pricing handoff summary for S07/S08/S14
 18. Produce compressed handoff pack
@@ -241,6 +247,7 @@ S04 owns:
 - Price sensitivity model
 - Price-value proof requirements
 - Promo, subscription, bundle, financing, and risk-reversal guidance
+- Accessory/bundle attach pricing, accessory ASP bands, and attach-rate hypotheses (attach-rate seed handed to S08)
 - Pricing research and test plans
 - Pricing test result interpretation and decision updates when real results are provided
 - Pricing decision gate status and candidate pricing options for review, testing, forecast, or blocking

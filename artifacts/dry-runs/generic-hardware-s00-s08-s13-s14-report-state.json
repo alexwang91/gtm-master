@@ -2310,6 +2310,33 @@
           "confidence": "hypothesis_only"
         },
         {
+          "visual_block_id": "s08-accessory-attach",
+          "type": "ranked_bar",
+          "title": "配件附加率假设（占设备销量）",
+          "data_source": "accessory_attach_revenue_bridge",
+          "items": [
+            {
+              "label": "保护套与表带",
+              "score": 35
+            },
+            {
+              "label": "充电与线缆配件",
+              "score": 22
+            },
+            {
+              "label": "延保与服务包",
+              "score": 14
+            }
+          ],
+          "scale_min": 0,
+          "scale_max": 100,
+          "note": "附加率为假设值，需用上一代销售或试点数据校准；配件收入单独计列，不计入设备销量。",
+          "evidence_refs": [
+            "dryrun://evidence/S08-accessory"
+          ],
+          "confidence": "hypothesis_only"
+        },
+        {
           "visual_block_id": "s08-forecast-risk",
           "type": "ranked_bar",
           "title": "预测敏感性与下修风险",
@@ -3478,7 +3505,7 @@
       "html_section_ref": "dryrun://section/S08-launch-forecast",
       "handoff_ref": "dryrun://handoff/S08-launch-forecast",
       "status": "rendered_with_gaps",
-      "visual_block_count": 5
+      "visual_block_count": 6
     },
     {
       "section_id": "activation_return_risk",
@@ -4278,7 +4305,7 @@
     ],
     "skipped_sections": [],
     "future_sections_omitted": [],
-    "visual_block_count": 49,
+    "visual_block_count": 50,
     "isolation_record_count": 10,
     "validation_warnings": [
       "所有证据均为合成试跑样例数据。",

@@ -265,4 +265,4 @@ Always return the S07 output envelope from `references/output-contract.md`:
 - Every CVR range must include basis, scenario, confidence, and confounders.
 - Omit CVR ranges or mark `missing_cvr_basis` when no measured, benchmark, historical, or explicit heuristic basis exists.
 - Do not estimate sales or revenue without S08 demand model and explicit price/channel assumptions.
-- Default dashboard-facing outputs to Simplified Chinese unless the user requests another report language.
+- Write dashboard-facing outputs in Simplified Chinese (`report_language` = `zh-CN`).

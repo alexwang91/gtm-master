@@ -9,16 +9,24 @@ description: Orchestrate a multi-skill GTM intelligence report suite for 2C hard
 
 Use this skill as S00, the operating system for the GTM intelligence report suite. It does not replace downstream GTM sub-skills; it routes work, controls context, manages evidence, enforces handoff contracts, and maintains the final HTML report state.
 
+This suite serves one reader: the country sales manager who owns the launch
+number for a single market. Frame every output around that reader's decisions —
+channel mix, sell-in/sell-through, opening price, demand range, marketing/KOL
+spend, accessory attach, and what to escalate upward.
+
 The user-facing promise is minimal input:
 
 ```json
 {
   "product_features_and_specs": "",
   "launch_country_or_region": "",
-  "target_price_range": "",
-  "report_language": ""
+  "target_price_range": ""
 }
 ```
+
+The report is written in Simplified Chinese (`report_language` defaults to
+`zh-CN`); do not ask the user to pick a report language. See
+`references/report-language-and-style.md`.
 
 Optional inputs can improve quality, but must not be required before the suite can start:
 
@@ -38,7 +46,7 @@ Optional inputs can improve quality, but must not be required before the suite c
   "output_language": "copy from report_language after intake",
   "claim_constraints": "",
   "compliance_constraints": "",
-  "report_audience": "founder | marketing | sales | investor | product | retailer",
+  "report_audience": "country_sales_manager (fixed; the suite targets this single reader)",
   "report_depth": "quick | standard | real_product_pilot | deep",
   "html_style_preference": "executive | consulting | dashboard | investor_deck"
 }
@@ -49,15 +57,15 @@ For the full optional input list, including S04 private pricing constraints, S06
 
 ## Report Language Policy
 
-`report_language` is a required intake field. Do not infer Chinese from the user's chat language, the repository defaults, or earlier dry-run fixtures. If `report_language` is missing, ask for it before starting S01 broad research or S14 composition. Use a BCP-47 tag when possible, such as `zh-CN`, `en-US`, `de-DE`, `fr-FR`, or `ja-JP`, plus a plain-language label when useful.
+The final report is written in Simplified Chinese. `report_language` defaults to `zh-CN`; do not ask the user to choose a report language, and do not promise other output languages until the renderer ships those dictionaries, a golden fixture, and a language gate. The current renderer emits `<html lang="zh-CN">` and Chinese labels only.
 
 Keep these language fields separate:
 
-- `report_language`: the language for dashboard-facing titles, labels, takeaways, table headers, data-gap explanations, and recommendations.
-- `target_language`: local market/search/consumer evidence language; it may differ from the report language.
-- `output_language`: normalized copy of `report_language` passed to sub-skills and S14.
+- `report_language`: dashboard-facing language. Fixed to `zh-CN`.
+- `target_language`: local market/search/consumer evidence language; it usually differs from the report language (e.g., Hungarian evidence rendered into a Chinese report).
+- `output_language`: normalized copy of `report_language` (`zh-CN`) passed to sub-skills and S14.
 
-For English and other non-Chinese reports, apply the Stop Slop writing habits from hardikpandya/stop-slop: state the point directly, remove filler and throat-clearing, avoid formulaic contrast frames, prefer active voice with a named actor, vary sentence rhythm, avoid em-dash reveal structures, and replace vague business jargon with specific language. Keep this as a style filter, not a license to remove evidence caveats.
+Collect evidence in `target_language`, then present it in Chinese with a short translation or gloss when the original phrasing affects a decision. For full style rules read `references/report-language-and-style.md`.
 
 ## Load Order
 
@@ -106,7 +114,7 @@ Use optional references conditionally; do not load future roadmap nodes or inact
 - Report state as you go: each sub-skill writes a full artifact, compressed handoff, and HTML section draft.
 - Verification before done: run the relevant quality gate before declaring a section, handoff, or suite step ready.
 - Evals before architecture stable: every implemented skill keeps `evals/evals.json` with pressure scenarios for scope, method, evidence, and forbidden outputs.
-- Report language required: write final dashboard-facing summaries, labels, callouts, and recommendations in the user-supplied `report_language`. Preserve original local-language evidence with a report-language translation or gloss when useful.
+- Chinese report output: write final dashboard-facing summaries, labels, callouts, and recommendations in Simplified Chinese (`report_language` = `zh-CN`). Preserve original local-language evidence with a Chinese translation or gloss when useful.
 
 ## Task Router
 

@@ -511,12 +511,12 @@ def check_dashboard_renderer_contract(errors: list[str]) -> None:
 
     html_text = read_text(GOLDEN_DASHBOARD)
     required_html_tokens = [
-        "GTM Master 试跑看板",
+        "GTM Master GTM 报告",
         "激活、退货与上手风险",
-        "模块覆盖与跳过说明",
+        "交付范围说明",
         "数据缺口",
         "引用与证据索引",
-        "技能后隔离审计",
+        "来源与生成审计",
         "私密定价计算器",
     ]
     for token in required_html_tokens:

@@ -76,6 +76,7 @@ If any minimum view is missing, add `missing_required_view` or `rendered_too_thi
     "conjoint_dce_test_plan",
     "channel_margin_guardrail",
     "retail_price_integrity_map",
+    "accessory_bundle_attach_pricing",
     "subscription_pricing_hypothesis",
     "promo_test_plan",
     "elasticity_assumption_seed",
@@ -154,6 +155,7 @@ If any minimum view is missing, add `missing_required_view` or `rendered_too_thi
       "conjoint_dce_test_plan": {},
       "channel_margin_guardrail": {},
       "retail_price_integrity_map": [],
+      "accessory_bundle_attach_pricing": [],
       "subscription_pricing_hypothesis": {},
       "promo_test_plan": {},
       "elasticity_assumption_seed": {},
@@ -496,6 +498,31 @@ present whenever S04 emits a pricing section, even if the answer is
       "owner_hint": "pricing | finance | channel | marketing | sales | product | support | unknown",
       "evidence_refs": [],
       "confidence": "high | medium | low"
+    }
+  ]
+}
+```
+
+### Accessory Bundle Attach Pricing
+
+Use when an accessory/bundle catalog, attach-rate assumption, or accessory
+price/margin basis exists. Hand the attach-rate seed to S08; do not present
+attach revenue as device demand.
+
+```json
+{
+  "accessory_bundle_attach_pricing": [
+    {
+      "accessory_or_bundle": "",
+      "accessory_asp_band": "",
+      "bundle_uplift_vs_standalone": "",
+      "attach_rate_hypothesis": {"low": "", "base": "", "high": ""},
+      "attach_margin_basis": "public_proxy | private_local_calculator | user_assumption | missing",
+      "device_conversion_effect": "",
+      "attach_rate_seed_for_s08": "",
+      "confidence": "high | medium | low | hypothesis_only",
+      "evidence_refs": [],
+      "data_gaps": []
     }
   ]
 }

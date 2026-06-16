@@ -46,6 +46,7 @@ STATUS_LABELS = {
     "available_fixture": "样例可用",
     "missing_real_evidence": "缺真实证据",
     "forbidden": "禁止",
+    "source_governance": "来源治理",
 }
 
 TAKEAWAY_ZH = {
@@ -145,6 +146,7 @@ DISPLAY_ZH = {
     "test": "测试",
     "skill_id": "来源 ID",
     "handoff": "来源摘要",
+    "source_summary": "来源摘要",
     "html_section": "HTML 区块",
     "quality_gate": "质量门禁",
     "reopen_conditions": "可重开条件",
@@ -239,6 +241,7 @@ DISPLAY_ZH = {
     "launch_scenario_forecast": "上市情景预测",
     "marketing_response_model": "营销响应模型",
     "channel_contribution_hypothesis": "渠道贡献假设",
+    "accessory_attach_revenue_bridge": "配件附加收入桥接",
     "forecast_sensitivity_risk": "预测敏感性风险",
     "validation_input_coverage_gate": "验证输入覆盖门禁",
     "experiment_priority_scorecard": "实验优先级评分卡",

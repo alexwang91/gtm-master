@@ -360,6 +360,7 @@ method_cards:
       - promo_subscription_guidance
       - channel_margin_guardrail_mapping
       - retail_price_integrity_mapping
+      - accessory_bundle_attach_pricing
       - elasticity_interpretation
       - private_local_pricing_calculator_design
       - pricing_test_execution_kit_design
@@ -406,6 +407,7 @@ method_cards:
       - conjoint_dce_test_plan
       - channel_margin_guardrail
       - retail_price_integrity_map
+      - accessory_bundle_attach_pricing
       - subscription_pricing_hypothesis
       - promo_test_plan
       - elasticity_assumption_seed
@@ -831,6 +833,7 @@ method_cards:
       - sensitivity_driver_tornado
       - confidence_cap_application
       - sell_in_sell_through_separation
+      - accessory_attach_revenue_bridge_modeling
       - media_reach_to_demand_bridge
       - marketing_spend_sensitivity_curve
       - creator_traffic_demand_bridge
@@ -897,6 +900,7 @@ method_cards:
       - previous_generation_calibration
       - supply_constraint_scenario
       - preorder_waitlist_projection
+      - accessory_attach_revenue_bridge
       - gross_revenue_range_estimate
       - regional_channel_allocation
       - forecast_review_gate

@@ -5,7 +5,7 @@
 <h1 align="center">GTM Master</h1>
 
 <p align="center">
-  Enter product features, launch countries, price segments, and report language to generate a B2C hardware GTM HTML report for presentation purposes.
+  Enter product features, launch country, and price range to generate a Simplified-Chinese B2C hardware GTM HTML report for the country sales manager.
 </p>
 
 <p align="center">
@@ -13,7 +13,7 @@
     <img alt="GitHub stars" src="https://img.shields.io/github/stars/alexwang91/gtm-master?style=social" />
   </a>
   <img alt="Status" src="https://img.shields.io/badge/status-private%20pilot-6B7280" />
-  <img alt="Report language" src="https://img.shields.io/badge/report-user--selected-2457D6" />
+  <img alt="Report language" src="https://img.shields.io/badge/report-Simplified%20Chinese-2457D6" />
   <img alt="Output" src="https://img.shields.io/badge/output-offline%20HTML-157F5B" />
   <img alt="Skill suite" src="https://img.shields.io/badge/skills-15%20modules-B25B00" />
   <img alt="Agents" src="https://img.shields.io/badge/agents-Codex%20%7C%20Claude%20Code-111827" />
@@ -21,7 +21,9 @@
 
 GTM Master is a multi-skill GTM intelligence suite for consumer hardware launches. It helps an AI coding agent turn a small launch brief into a structured, evidence-backed GTM report with local market research, competitor logic, consumer voice, pricing judgment, launch forecast, KOL/content direction, validation gaps, citations, and a polished offline HTML dashboard.
 
-The current suite is report-language-required. The agent must ask for `report_language` during intake and must not silently default English, Chinese, or any other language. Chinese, English, and other-language reports use the same GTM contracts; only dashboard-facing wording changes.
+The suite has one reader: the country sales manager who owns the launch number for a single market. Every view is framed around that reader's decisions — channel mix, sell-in/sell-through, opening price, demand range, marketing/KOL spend, accessory attach, and what to escalate upward.
+
+The report is written in Simplified Chinese. `report_language` defaults to `zh-CN` and the agent does not ask the user to choose a language. Local market, search, and consumer evidence is gathered in the target country's language (`target_language`) and then rendered into the Chinese report with translations or glosses. The current renderer emits `<html lang="zh-CN">` and ships Chinese labels only; other output languages are not supported today.
 
 ## What It Does
 
@@ -31,10 +33,11 @@ Minimum input:
 {
   "product_features_and_specs": "",
   "launch_country_or_region": "",
-  "target_price_range": "",
-  "report_language": ""
+  "target_price_range": ""
 }
 ```
+
+The report is generated in Simplified Chinese; report language is not an input.
 
 High-value optional inputs:
 
@@ -46,7 +49,7 @@ High-value optional inputs:
 
 Main output:
 
-- a meeting-ready HTML GTM report in the user-selected report language
+- a meeting-ready Simplified-Chinese HTML GTM report for the country sales manager
 - named-channel priority and launch action plan
 - TOP1 competitor proof and internal price-ladder risk
 - segment, JTBD, message, proof, price, channel, KOL, and forecast views
@@ -170,8 +173,22 @@ If your agent reads `.claude/skills`, copy or symlink the same folders there.
 ```powershell
 git clone https://github.com/alexwang91/gtm-master.git
 cd "gtm-master"
+pip install -r requirements.txt
+
+# 1. Suite contracts (skills, YAML, section registry, golden dashboard tokens)
 python scripts\validate-gtm-suite-contracts.py
+
+# 2. Dashboard render tests
+python -m unittest discover -s scripts -p "test_render_*.py"
+
+# 3. Regenerate the golden dashboard after any renderer change, then commit it
+python scripts\render-gtm-dashboard-from-report-state.py
 ```
+
+The renderer, the golden dashboard, the contract validator, and the render
+tests must stay in sync. If you change `render-gtm-dashboard-from-report-state.py`
+(titles, labels, section names), regenerate the golden dashboard and run both
+checks above. CI (`.github/workflows/ci.yml`) enforces this and fails on drift.
 
 ## Repository Structure
 
