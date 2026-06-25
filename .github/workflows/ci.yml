@@ -24,8 +24,8 @@ jobs:
       - name: Validate suite contracts
         run: python scripts/validate-gtm-suite-contracts.py
 
-      - name: Run dashboard render tests
-        run: python -m unittest discover -s scripts -p "test_render_*.py" -v
+      - name: Run full Python test suite
+        run: python -m unittest discover -s scripts -p "test*.py" -v
 
       - name: Check golden dashboard is regenerated (no drift)
         run: |
