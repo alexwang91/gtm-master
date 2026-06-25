@@ -4,7 +4,7 @@
 
 | Milestone | Status | Branch | PR | Verification |
 |---|---|---|---|---|
-| M1 | REVIEW_READY | `m1-followup` | Pending | Requires passing GitHub Actions. |
+| M1 | DONE | `m1-followup` | #6 | GitHub Actions run 28197965692 passed suite validation, full Python discovery, and dashboard drift guard. |
 
 ## Notes
 
@@ -12,7 +12,4 @@
 - CI runs the suite validator.
 - CI checks dashboard drift.
 - S14 stays hidden.
-
-## Next Selection Rule
-
-After M1 passes CI and merges, add the next queued milestone.
+- M1 is complete. Add the next queued milestone in a separate branch and PR.
